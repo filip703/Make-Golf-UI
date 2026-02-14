@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, ExternalLink } from 'lucide-react';
@@ -41,17 +42,17 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="z-50 relative group block">
+        <Link to="/" className="z-50 relative group block shrink-0">
           <Logo color={shouldUseColorTheme ? "color" : "white"} />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-12">
+        {/* Desktop Menu - Spacing adjusted for more links */}
+        <div className="hidden lg:flex items-center space-x-8 xl:space-x-12">
           {NAV_LINKS.map((link) => (
             <Link 
               key={link.path} 
               to={link.path}
-              className={`text-xs font-mono uppercase tracking-widest transition-all hover:-translate-y-0.5 ${
+              className={`text-xs font-mono uppercase tracking-widest transition-all hover:-translate-y-0.5 whitespace-nowrap ${
                 location.pathname === link.path 
                   ? 'text-brand-mink font-bold' 
                   : (shouldUseColorTheme ? 'text-brand-black hover:text-brand-mink' : 'text-brand-polar/80 hover:text-white')
@@ -62,7 +63,7 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6 shrink-0">
            {/* Direct Login Link */}
            <a 
             href={DASHBOARD_URL}
@@ -84,7 +85,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Toggle */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden z-50 relative transition-colors ${
+          className={`lg:hidden z-50 relative transition-colors ${
             shouldUseColorTheme && !isOpen ? 'text-brand-black' : 'text-brand-polar'
           }`}
         >
@@ -99,14 +100,14 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "tween", duration: 0.4, ease: "circOut" }}
-              className="fixed inset-0 bg-brand-black flex flex-col justify-center px-8 z-40 md:hidden"
+              className="fixed inset-0 bg-brand-black flex flex-col justify-center px-8 z-40 lg:hidden"
             >
-              <div className="flex flex-col space-y-8">
+              <div className="flex flex-col space-y-6">
                 {NAV_LINKS.map((link) => (
                   <Link 
                     key={link.path} 
                     to={link.path}
-                    className="text-4xl font-display font-bold text-brand-polar hover:text-brand-mink transition-colors flex items-center justify-between group"
+                    className="text-3xl md:text-4xl font-display font-bold text-brand-polar hover:text-brand-mink transition-colors flex items-center justify-between group"
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-mink" />
