@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database, Layers, Zap, Cpu, Code } from 'lucide-react';
+import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database, Layers, Zap, Cpu, Code, Play } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -54,6 +54,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
+            {/* TODO: Replace with local video from public/videos/hero-loop.mp4 */}
             <video 
               autoPlay 
               loop 
@@ -145,7 +146,64 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- NEW: DNA / BIOMECHANICS HUD SECTION --- */}
+      {/* --- NEW: VISUAL EVIDENCE (VIDEO SHOWCASE) --- */}
+      <section className="bg-[#030303] border-b border-white/5">
+         <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Video 1: Manufacturing Process */}
+            <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden border-r border-white/5">
+                {/* TODO: Replace source with public/videos/manufacturing.mp4 */}
+                <video 
+                   autoPlay muted loop playsInline
+                   className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                >
+                   <source src="https://videos.pexels.com/video-files/3840445/3840445-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                <div className="absolute bottom-10 left-10 z-10">
+                   <div className="inline-flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
+                      <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">Live Feed</span>
+                   </div>
+                   <h3 className="text-3xl font-display text-white mb-2">The Reactor</h3>
+                   <p className="text-brand-polar/50 text-sm font-mono max-w-sm">48-hour continuous laser sintering. Growing your geometry atom by atom.</p>
+                </div>
+                {/* Play Button Overlay */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="w-16 h-16 rounded-full border border-white/20 bg-black/40 backdrop-blur flex items-center justify-center">
+                        <Play className="w-6 h-6 text-white fill-white" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Video 2: The Swing/Result */}
+            <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden">
+                {/* TODO: Replace source with public/videos/swing.mp4 */}
+                <video 
+                   autoPlay muted loop playsInline
+                   className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                >
+                   <source src="https://videos.pexels.com/video-files/6077718/6077718-uhd_3840_2160_24fps.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                <div className="absolute bottom-10 left-10 z-10">
+                   <div className="inline-flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      <span className="text-[10px] font-mono text-emerald-500 uppercase tracking-widest">Performance Validation</span>
+                   </div>
+                   <h3 className="text-3xl font-display text-white mb-2">Impact Physics</h3>
+                   <p className="text-brand-polar/50 text-sm font-mono max-w-sm">Optimized acoustics and dispersion control through generative lattice structures.</p>
+                </div>
+                {/* Play Button Overlay */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="w-16 h-16 rounded-full border border-white/20 bg-black/40 backdrop-blur flex items-center justify-center">
+                        <Play className="w-6 h-6 text-white fill-white" />
+                    </div>
+                </div>
+            </div>
+         </div>
+      </section>
+
+      {/* --- DNA / BIOMECHANICS HUD SECTION --- */}
       <section className="py-32 bg-[#050505] relative overflow-hidden border-b border-white/5">
          
          {/* Tech Background Elements */}
