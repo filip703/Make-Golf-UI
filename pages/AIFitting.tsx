@@ -18,7 +18,9 @@ import {
   Globe,
   ShieldCheck,
   Server,
-  MonitorCheck
+  MonitorCheck,
+  RefreshCw,
+  Sliders
 } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
@@ -72,30 +74,46 @@ const AIFitting: React.FC = () => {
                     <FadeIn>
                         <h2 className="text-4xl font-display text-white mb-8 uppercase tracking-tight">The Digital Workflow</h2>
                         <div className="space-y-12">
+                            {/* Step 1 */}
                             <div className="flex gap-6 group">
                                 <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">01</div>
                                 <div>
-                                    <h4 className="text-xl font-display text-white mb-2">Telemetry Capture</h4>
+                                    <h4 className="text-xl font-display text-white mb-2">Ingestion & Confidence Scoring</h4>
                                     <p className="text-brand-polar/50 text-sm leading-relaxed">
-                                        You don't need to visit our studio. Record your swing data (Trackman, GCQuad, or any major system) and upload your session CSV directly to our secure servers.
+                                        We analyze your session data and assign a <strong>Data Quality Score (0-100)</strong>. If the score is low, the Agent requests specific gap-filling shots. You control the fidelity—more data equals higher precision.
                                     </p>
                                 </div>
                             </div>
+
+                            {/* Step 2 */}
                             <div className="flex gap-6 group">
                                 <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">02</div>
                                 <div>
-                                    <h4 className="text-xl font-display text-white mb-2">Algorithmic Synthesis</h4>
+                                    <h4 className="text-xl font-display text-white mb-2">Generative Modeling</h4>
                                     <p className="text-brand-polar/50 text-sm leading-relaxed">
-                                        The engine processes over 40 variables. It maps your "Impact DNA" and generates a parametric head design that corrects your specific directional bias and ball speed efficiency.
+                                        The engine creates your unique head geometry and prescribes the optimal shaft and grip matrix. We can map a single iron or your entire bag based on your biometric DNA.
                                     </p>
                                 </div>
                             </div>
+
+                            {/* Step 3 */}
                             <div className="flex gap-6 group">
                                 <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">03</div>
                                 <div>
-                                    <h4 className="text-xl font-display text-white mb-2">DMLS Printing</h4>
+                                    <h4 className="text-xl font-display text-white mb-2">Visual Configuration</h4>
                                     <p className="text-brand-polar/50 text-sm leading-relaxed">
-                                        Once confirmed, your unique geometry is sent to our EOS M290 printers. We grow your clubs from 17-4PH steel powder in 30-micron layers.
+                                        Your physics-optimized model is pushed to the <strong>3D Configurator</strong>. Tweak the aesthetics, add engravings, and finalize the look. It is your signature on our science.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Step 4 */}
+                            <div className="flex gap-6 group">
+                                <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">04</div>
+                                <div>
+                                    <h4 className="text-xl font-display text-white mb-2">Production & Feedback Loop</h4>
+                                    <p className="text-brand-polar/50 text-sm leading-relaxed">
+                                        The CAD file streams to print. In weeks, you hold the metal. As you play, new data feeds back into the Agent, constantly improving your profile for future generations.
                                     </p>
                                 </div>
                             </div>
@@ -118,11 +136,11 @@ const AIFitting: React.FC = () => {
                                 <div className="flex justify-between items-start border-b border-brand-mink/30 pb-4">
                                     <div>
                                         <span className="text-brand-mink block mb-1">DATA_STREAM_INBOUND</span>
-                                        <span className="text-white">SOURCE: TM4_PRO_SESSION</span>
+                                        <span className="text-white">SOURCE: TM4_SESSION_01</span>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-brand-polar/40 block mb-1">STATUS</span>
-                                        <span className="text-green-500">PARSING...</span>
+                                        <span className="text-brand-polar/40 block mb-1">DATA QUALITY</span>
+                                        <span className="text-green-500 font-bold">94/100 (EXCELLENT)</span>
                                     </div>
                                 </div>
                                 
@@ -130,24 +148,31 @@ const AIFitting: React.FC = () => {
                                     <div className="w-48 h-48 border border-white/5 rounded-full flex items-center justify-center relative">
                                         <div className="absolute inset-0 border-t border-brand-mink rounded-full animate-spin-slow"></div>
                                         <div className="text-center">
-                                            <div className="text-white text-xs mb-1">ANALYZING</div>
-                                            <div className="text-brand-mink font-bold">DISPERSION</div>
+                                            <div className="text-white text-xs mb-1">GENERATING</div>
+                                            <div className="text-brand-mink font-bold">SHAFT MATRIX</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-md p-4 border border-white/10 space-y-1">
-                                    <div className="flex justify-between text-brand-polar/40">
-                                        <span>DYNAMIC_LOFT_CORR</span>
-                                        <span className="text-brand-mink">+1.2&deg;</span>
+                                <div className="bg-white/5 backdrop-blur-md p-4 border border-white/10 space-y-2">
+                                    <div className="flex justify-between items-center text-brand-polar/40">
+                                        <span>HEAD_GEOMETRY</span>
+                                        <span className="text-brand-mink flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> LOCKED</span>
                                     </div>
-                                    <div className="flex justify-between text-brand-polar/40">
-                                        <span>LATERAL_CG_SHIFT</span>
-                                        <span className="text-brand-mink">-2.4mm</span>
+                                    <div className="flex justify-between items-center text-brand-polar/40">
+                                        <span>SHAFT_REC</span>
+                                        <span className="text-white">KBS TGI 95</span>
                                     </div>
-                                    <div className="flex justify-between text-brand-polar/40">
-                                        <span>BOUNCE_GEOMETRY</span>
-                                        <span className="text-white">OPTIMIZED</span>
+                                    <div className="flex justify-between items-center text-brand-polar/40">
+                                        <span>GRIP_REC</span>
+                                        <span className="text-white">MCC PLUS4 MID</span>
+                                    </div>
+                                    
+                                    <div className="pt-2 mt-2 border-t border-white/10">
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-white">SEND TO CONFIGURATOR</span>
+                                            <ArrowRight className="w-3 h-3 text-brand-mink animate-pulse" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
