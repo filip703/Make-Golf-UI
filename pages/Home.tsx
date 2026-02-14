@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown } from 'lucide-react';
+import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -187,6 +187,77 @@ const Home: React.FC = () => {
                      </div>
                   </div>
                </FadeIn>
+            </div>
+         </div>
+      </section>
+
+      {/* CONFIGURATOR USP SECTION - NEW */}
+      <section className="py-32 bg-[#080808] border-b border-white/5 relative overflow-hidden">
+         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+         
+         <div className="container mx-auto px-6 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+               
+               <div className="w-full lg:w-1/2 order-2 lg:order-1">
+                  <FadeIn direction="right">
+                      {/* Abstract UI representation of the configurator */}
+                      <div className="relative aspect-[4/3] bg-[#000] border border-white/10 rounded-lg overflow-hidden shadow-2xl group">
+                          <img 
+                            src="https://images.unsplash.com/photo-1611095790444-1dfa35e37b52?q=80&w=2071&auto=format&fit=crop" 
+                            alt="CAD Wireframe" 
+                            className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale contrast-125 transition-transform duration-1000 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                          
+                          {/* Floaters */}
+                          <div className="absolute top-6 right-6 flex flex-col gap-2">
+                              <div className="bg-black/80 backdrop-blur border border-white/10 p-3 rounded w-32">
+                                  <div className="text-[9px] text-brand-polar/50 font-mono mb-1">LOFT ANGLE</div>
+                                  <div className="h-1 bg-white/10 rounded overflow-hidden">
+                                      <div className="h-full w-[70%] bg-brand-mink"></div>
+                                  </div>
+                              </div>
+                              <div className="bg-black/80 backdrop-blur border border-white/10 p-3 rounded w-32">
+                                  <div className="text-[9px] text-brand-polar/50 font-mono mb-1">BLADE LENGTH</div>
+                                  <div className="h-1 bg-white/10 rounded overflow-hidden">
+                                      <div className="h-full w-[45%] bg-brand-mink"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div className="absolute bottom-6 left-6">
+                              <div className="flex items-center gap-2 text-brand-mink font-mono text-xs animate-pulse">
+                                  <div className="w-2 h-2 bg-brand-mink rounded-full"></div>
+                                  LIVE PREVIEW
+                              </div>
+                          </div>
+                      </div>
+                  </FadeIn>
+               </div>
+
+               <div className="w-full lg:w-1/2 order-1 lg:order-2">
+                  <FadeIn>
+                     <div className="flex items-center gap-3 mb-6">
+                        <Sliders className="text-brand-mink w-6 h-6" />
+                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">The Maker Engine</span>
+                     </div>
+                     <h2 className="text-5xl md:text-7xl font-display font-medium text-white mb-8">
+                        Total Control.<br/>
+                        <span className="text-brand-polar/20">Zero Compromise.</span>
+                     </h2>
+                     <p className="text-xl text-brand-polar/60 font-light leading-relaxed mb-10">
+                        Most brands let you choose a shaft and a grip. We let you engineer the head. 
+                        Adjust offset, top-line thickness, bounce, and center-of-gravity in real-time. 
+                        This is parametric design, accessible in your browser.
+                     </p>
+                     <Link to="/configurator">
+                        <Button variant="primary" size="lg" className="shadow-[0_0_30px_rgba(255,34,76,0.2)]">
+                           Open Configurator
+                        </Button>
+                     </Link>
+                  </FadeIn>
+               </div>
+
             </div>
          </div>
       </section>

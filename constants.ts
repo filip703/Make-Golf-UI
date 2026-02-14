@@ -67,21 +67,21 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Mårten Eker',
     role: 'CEO, R&D // HCP: +3.2',
     bio: 'Consultant/Architect and entrepreneur. Worked with design, 3D, data, BIM and projects within retail since 2008. Retired Scandinavian golf tour pro. MSc Royal School of Technology.',
-    image: '/marten.png',
+    image: '/images/team/marten.png',
     email: 'marten@make.golf'
   },
   {
     name: 'Filip Hector',
     role: 'GTM & Ops // HCP: 6.2',
     bio: 'CEO at Nonius Nordics. Experience within business scale-up and leveraging the latest technology. Passionate golfer.',
-    image: '/filip.png',
+    image: '/images/team/filip.png',
     email: 'filip@make.golf'
   },
   {
     name: 'Erik Paulsson',
     role: 'Investor, GTM // HCP: 12',
     bio: 'Exit with Bruce (Sold for 80M SEK). Enterprise Account Executive at Braze. Experience from start-ups, and SaaS GTM. Ambitious amateur golfer.',
-    image: '/erik.png',
+    image: '/images/team/erik.png',
     email: 'erik@make.golf'
   }
 ];
