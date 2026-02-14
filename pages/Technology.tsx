@@ -10,7 +10,7 @@ const Technology: React.FC = () => {
         <FadeIn>
           <div className="max-w-4xl">
              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1.5 h-1.5 bg-brand-mink rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                 <div className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">Our Technology Stack</div>
              </div>
              <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-10 leading-[0.95]">
@@ -29,7 +29,7 @@ const Technology: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
              <FadeIn direction="right">
-                <div className="relative aspect-video bg-[#111] overflow-hidden rounded-sm border border-white/10 group">
+                <div className="relative aspect-video bg-[#111] overflow-hidden rounded-sm border border-white/10 group shadow-[0_0_30px_rgba(0,0,0,0.5)]">
                     <video 
                       autoPlay 
                       loop 
@@ -40,9 +40,12 @@ const Technology: React.FC = () => {
                     >
                        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 bg-grid opacity-20"></div>
+                    <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+                    {/* Scanline */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-mink/5 to-transparent h-[10%] w-full animate-scan pointer-events-none"></div>
+                    
                     {/* UI Overlay */}
-                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur px-3 py-1 border border-brand-mink/30 rounded text-[10px] font-mono text-brand-mink">
+                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur px-3 py-1 border border-brand-mink/30 rounded text-[10px] font-mono text-brand-mink">
                       INPUT: TRACKMAN_4
                     </div>
                 </div>
@@ -82,7 +85,7 @@ const Technology: React.FC = () => {
              </FadeIn>
 
              <FadeIn direction="left" className="order-1 lg:order-2">
-                <div className="relative aspect-square bg-[#111] overflow-hidden rounded-sm border border-white/10 group">
+                <div className="relative aspect-square bg-[#111] overflow-hidden rounded-sm border border-white/10 group shadow-[0_0_30px_rgba(255,34,76,0.1)]">
                     <video 
                       autoPlay 
                       loop 
@@ -123,6 +126,7 @@ const Technology: React.FC = () => {
                        <source src="https://videos.pexels.com/video-files/4722956/4722956-uhd_3840_2160_25fps.mp4" type="video/mp4" />
                     </video>
                     <div className="absolute inset-0 bg-brand-mink/5 mix-blend-color-dodge"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
                 </div>
              </FadeIn>
              

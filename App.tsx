@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -8,6 +9,8 @@ import AIFitting from './pages/AIFitting';
 import Configurator from './pages/Configurator';
 import Fitters from './pages/Fitters';
 import Technology from './pages/Technology';
+import About from './pages/About';
+import Journal from './pages/Journal';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +34,8 @@ const App: React.FC = () => {
             <Route path="/configurator" element={<Configurator />} />
             <Route path="/fitters" element={<Fitters />} />
             <Route path="/technology" element={<Technology />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/journal" element={<Journal />} />
           </Routes>
         </main>
         <Footer />

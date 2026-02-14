@@ -1,18 +1,36 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Activity, Cpu, Layers, ChevronDown } from 'lucide-react';
+import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CLUB_CATEGORIES } from '../constants';
+
+const HERO_STATEMENTS = [
+  "Precision is Personal.",
+  "Your DNA. Your Club.",
+  "Metal Grown, Not Forged.",
+  "The End of Mass Production."
+];
 
 const Home: React.FC = () => {
+  const [statementIndex, setStatementIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStatementIndex((prev) => (prev + 1) % HERO_STATEMENTS.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section - The "Apple x Tesla" Aesthetic */}
+      {/* Hero Section - Rotating Statements */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
         
-        {/* Background: Raw Material (Steel Powder) Visualization */}
+        {/* Background */}
         <div className="absolute inset-0 z-0">
             <video 
               autoPlay 
@@ -20,65 +38,57 @@ const Home: React.FC = () => {
               muted 
               playsInline 
               poster="https://images.unsplash.com/photo-1635002962487-2c1d43195204?q=80&w=2938&auto=format&fit=crop"
-              className="w-full h-full object-cover opacity-60 scale-105"
+              className="w-full h-full object-cover opacity-50 scale-105 grayscale contrast-125"
             >
-              {/* Abstract black liquid metal / powder flow */}
               <source src="https://videos.pexels.com/video-files/3045653/3045653-uhd_3840_2160_25fps.mp4" type="video/mp4" />
             </video>
-            
-            {/* Cinematic Grading Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/30 via-transparent to-brand-black"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_120%)]"></div>
-            
-            {/* The "Laser Sintering" Scan Effect */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none">
-               <div className="h-px w-full bg-brand-mink/50 shadow-[0_0_20px_#FF224C] absolute top-1/2 -translate-y-1/2 animate-scan"></div>
-            </div>
-        </div>
-
-        {/* Technical HUD Elements (Tesla Style) */}
-        <div className="absolute top-24 left-6 md:left-12 hidden md:block opacity-40 mix-blend-screen pointer-events-none">
-           <div className="flex flex-col gap-1 font-mono text-[9px] text-brand-polar tracking-widest uppercase">
-              <span className="block border-l-2 border-brand-mink pl-2">System: Active</span>
-              <span className="pl-2.5">Env: 17-4PH Powder</span>
-              <span className="pl-2.5">Layer: 30μm</span>
-           </div>
+            <div className="absolute inset-0 bg-brand-black/50"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_100%)]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             
             <FadeIn direction="up">
-              <div className="inline-flex items-center gap-4 border border-white/5 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full mb-12 shadow-2xl">
+              <div className="inline-flex items-center gap-4 border border-white/5 bg-black/40 backdrop-blur-md px-6 py-2 rounded-full mb-12 shadow-2xl ring-1 ring-white/10">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mink opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-mink"></span>
                 </span>
                 <span className="text-brand-polar font-mono text-[10px] uppercase tracking-[0.3em]">
-                  The Future of Ball Striking
+                  Generative Golf Architecture
                 </span>
               </div>
               
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-medium text-white tracking-tighter mb-8 leading-[0.85] drop-shadow-2xl">
-                Precision is<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">Personal.</span>
-              </h1>
+              <div className="h-[200px] md:h-[300px] flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.h1 
+                    key={statementIndex}
+                    initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                    transition={{ duration: 0.8 }}
+                    className="text-5xl md:text-8xl lg:text-9xl font-display font-medium text-white tracking-tighter leading-[0.85]"
+                  >
+                    {HERO_STATEMENTS[statementIndex]}
+                  </motion.h1>
+                </AnimatePresence>
+              </div>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2}>
-              <p className="text-lg md:text-2xl text-brand-polar/60 font-sans font-light leading-relaxed max-w-2xl mx-auto mb-14">
-                We engineer clubs that exist for only one swing. <span className="text-brand-polar">Yours.</span><br/>
-                <span className="text-sm font-mono opacity-50 mt-2 block">Powered by Generative AI & Additive Manufacturing.</span>
+              <p className="text-lg md:text-2xl text-brand-polar/60 font-sans font-light leading-relaxed max-w-2xl mx-auto mb-14 mt-8">
+                We engineer equipment based on your unique biomechanical data.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
-                <Link to="/configurator">
-                  <Button size="lg" variant="primary" className="min-w-[240px] shadow-[0_0_60px_-15px_rgba(255,34,76,0.5)] border border-white/10 text-white hover:scale-105 transition-transform duration-300">
-                    Design Your Iron
+                <Link to="/ai-fitting">
+                  <Button size="lg" variant="primary" className="min-w-[240px] shadow-[0_0_60px_-15px_rgba(255,34,76,0.5)]">
+                    Create Your DNA Profile
                   </Button>
                 </Link>
-                <Link to="/technology" className="group flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-brand-polar/60 hover:text-white transition-all px-6 py-4 border border-transparent hover:border-white/10 rounded">
-                  <span>View The Technology</span>
+                <Link to="/clubs" className="group flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-brand-polar/60 hover:text-white transition-all px-6 py-4 border border-transparent hover:border-white/10 rounded">
+                  <span>View The Collection</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform text-brand-mink" />
                 </Link>
               </div>
@@ -86,206 +96,127 @@ const Home: React.FC = () => {
           </div>
         </div>
         
-        {/* Scroll Indicator */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-polar/30"
         >
-          <span className="text-[9px] font-mono uppercase tracking-widest">Scroll</span>
+          <span className="text-[9px] font-mono uppercase tracking-widest">Explore</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </motion.div>
       </section>
 
-      {/* Philosophy / Intro - Elegant Typography */}
-      <section className="py-32 bg-brand-black relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-12">
-            <div className="lg:col-span-4">
-               <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-4 block">The Philosophy</span>
-               <h2 className="text-4xl font-display text-white leading-tight">
-                 Mass production assumes everyone plays the same. <br/>
-                 <span className="text-brand-polar/30">We know they don't.</span>
-               </h2>
+      {/* MAKE DNA SECTION */}
+      <section className="py-32 bg-[#050505] relative overflow-hidden border-b border-white/5">
+         {/* Background Particles/DNA */}
+         <div className="absolute inset-0 z-0">
+             <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="w-full h-full object-cover opacity-20 mix-blend-screen"
+             >
+               <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+             </video>
+             <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+         </div>
+
+         <div className="container mx-auto px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+               <FadeIn>
+                  <div className="flex items-center gap-3 mb-6">
+                     <Fingerprint className="text-brand-mink w-6 h-6" />
+                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Biomechanical Identity</span>
+                  </div>
+                  <h2 className="text-5xl md:text-7xl font-display font-medium text-white mb-8">
+                     Your Swing.<br/>
+                     <span className="text-brand-polar/20">Decoded.</span>
+                  </h2>
+                  <p className="text-xl text-brand-polar/60 font-light leading-relaxed mb-10">
+                     We don't believe in "Stiff" or "Regular". We believe in data.
+                     By extracting your swing DNA—closure rates, attack angles, and dynamic lie—we generate a unique digital fingerprint. 
+                     This fingerprint becomes the seed for your equipment's geometry.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-6 mb-10">
+                     <div className="bg-white/5 p-6 border-l-2 border-brand-mink">
+                        <Activity className="w-5 h-5 text-brand-polar mb-4" />
+                        <div className="text-2xl text-white font-display mb-1">10k+</div>
+                        <div className="text-[10px] font-mono uppercase text-brand-polar/40">Data Points Analyzed</div>
+                     </div>
+                     <div className="bg-white/5 p-6 border-l-2 border-brand-mink">
+                        <Dna className="w-5 h-5 text-brand-polar mb-4" />
+                        <div className="text-2xl text-white font-display mb-1">100%</div>
+                        <div className="text-[10px] font-mono uppercase text-brand-polar/40">Unique Geometry</div>
+                     </div>
+                  </div>
+
+                  <Link to="/ai-fitting">
+                    <Button variant="outline" className="text-white border-white/20 hover:bg-brand-mink hover:border-brand-mink">
+                       Start DNA Extraction
+                    </Button>
+                  </Link>
+               </FadeIn>
+               
+               <FadeIn direction="left">
+                  <div className="relative aspect-square bg-black border border-white/10 rounded-sm overflow-hidden shadow-2xl">
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover opacity-40 mix-blend-luminosity"></div>
+                     <div className="absolute inset-0 bg-gradient-to-t from-brand-mink/20 to-transparent"></div>
+                     <div className="absolute center inset-0 flex items-center justify-center">
+                        <div className="w-[80%] h-[1px] bg-brand-mink/50 relative animate-pulse">
+                           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full flex justify-between">
+                              {[...Array(5)].map((_, i) => (
+                                 <div key={i} className="w-1 h-3 bg-brand-mink"></div>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
+                     <div className="absolute bottom-8 left-8">
+                        <div className="font-mono text-xs text-brand-mink mb-2">SCANNING...</div>
+                        <div className="text-4xl font-display text-white">Subject: 001</div>
+                     </div>
+                  </div>
+               </FadeIn>
             </div>
-            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-               <div className="space-y-4 group">
-                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-brand-mink/50 transition-colors">
-                    <Activity className="text-brand-mink w-5 h-5 opacity-80" />
-                 </div>
-                 <h3 className="font-display text-xl text-white">Biomechanical AI</h3>
-                 <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
-                   Input your launch monitor data. Our algorithm designs a club head to optimize your specific strike patterns and closure rate.
-                 </p>
-               </div>
-               <div className="space-y-4 group">
-                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-brand-mink/50 transition-colors">
-                    <Cpu className="text-brand-mink w-5 h-5 opacity-80" />
-                 </div>
-                 <h3 className="font-display text-xl text-white">Generative Geometry</h3>
-                 <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
-                   We use topology optimization to place mass exactly where you need it, creating shapes impossible to cast or forge.
-                 </p>
-               </div>
-               <div className="space-y-4 group">
-                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-brand-mink/50 transition-colors">
-                    <Layers className="text-brand-mink w-5 h-5 opacity-80" />
-                 </div>
-                 <h3 className="font-display text-xl text-white">3D Printed Steel</h3>
-                 <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
-                   Printed in 17-4PH Stainless Steel. 30-micron layers. The feel of soft carbon steel with the precision of aerospace engineering.
-                 </p>
-               </div>
-            </div>
-          </div>
-        </div>
+         </div>
       </section>
 
-      {/* The Product - Dark, Moody, Technical */}
-      <section className="py-24 bg-[#111] overflow-hidden">
+      {/* The Collection (Updated Categories) */}
+      <section className="py-32 bg-[#111] overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="mb-16 flex items-end justify-between">
+          <div className="mb-20 flex items-end justify-between border-b border-white/5 pb-8">
             <h2 className="text-5xl md:text-7xl font-display font-medium text-white tracking-tight">
               The<br/>Collection
             </h2>
             <Link to="/clubs">
-              <Button variant="outline" size="sm">View All Models</Button>
+              <Button variant="outline" size="sm">View All Categories</Button>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {/* Product 1 */}
-            <div className="group relative bg-[#151515] aspect-[4/5] overflow-hidden cursor-pointer hover:bg-[#1a1a1a] transition-colors">
-               <div className="absolute top-6 left-6 z-20">
-                 <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">01 // Blade</span>
-               </div>
-               <img 
-                 src="https://images.unsplash.com/photo-1610427847926-22467d5e4620?q=80&w=1974&auto=format&fit=crop" 
-                 alt="Blade Iron"
-                 className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-               <div className="absolute bottom-8 left-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                 <h3 className="text-2xl font-display text-white mb-1">MG-1 Blade</h3>
-                 <p className="text-brand-polar/50 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                   Tour profile. Max feedback.
-                 </p>
-               </div>
-            </div>
-
-            {/* Product 2 */}
-            <div className="group relative bg-[#151515] aspect-[4/5] overflow-hidden cursor-pointer hover:bg-[#1a1a1a] transition-colors">
-               <div className="absolute top-6 left-6 z-20">
-                 <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">02 // Cavity</span>
-               </div>
-               <img 
-                 src="https://images.unsplash.com/photo-1596727284451-b0db0a10c73e?q=80&w=1974&auto=format&fit=crop" 
-                 alt="Cavity Iron"
-                 className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-               <div className="absolute bottom-8 left-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                 <h3 className="text-2xl font-display text-white mb-1">MG-1 Cavity</h3>
-                 <p className="text-brand-polar/50 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                   Forgiveness meets precision.
-                 </p>
-               </div>
-            </div>
-
-            {/* Product 3 */}
-            <div className="group relative bg-[#151515] aspect-[4/5] overflow-hidden cursor-pointer hover:bg-[#1a1a1a] transition-colors">
-               <div className="absolute top-6 left-6 z-20">
-                 <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">03 // Hollow</span>
-               </div>
-               <img 
-                 src="https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop" 
-                 alt="Hollow Body"
-                 className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-               <div className="absolute bottom-8 left-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                 <h3 className="text-2xl font-display text-white mb-1">MG-X Hollow</h3>
-                 <p className="text-brand-polar/50 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                   Distance. Soft acoustics.
-                 </p>
-               </div>
-            </div>
+            {CLUB_CATEGORIES.map((cat, index) => (
+               <Link to="/clubs" key={cat.id} className="group relative bg-[#151515] aspect-[4/5] overflow-hidden cursor-pointer hover:bg-[#1a1a1a] transition-colors">
+                  <div className="absolute top-6 left-6 z-20">
+                    <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">0{index + 1} // {cat.name}</span>
+                  </div>
+                  <img 
+                    src={cat.image} 
+                    alt={cat.name}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-8 left-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-3xl font-display text-white mb-2">{cat.name}</h3>
+                    <p className="text-brand-polar/50 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 max-w-[200px]">
+                      {cat.desc}
+                    </p>
+                  </div>
+               </Link>
+            ))}
           </div>
         </div>
-      </section>
-
-      {/* Dual Pathways - Less Aggressive, More Visually Distinct */}
-      <section className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
-        
-        {/* For Players */}
-        <div className="relative group overflow-hidden border-r border-white/5 bg-brand-black">
-           {/* Background Video for Golfers */}
-           <div className="absolute inset-0 z-0">
-             <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                poster="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
-                className="w-full h-full object-cover opacity-40 grayscale group-hover:opacity-60 transition-opacity duration-700"
-              >
-                <source src="https://videos.pexels.com/video-files/5438870/5438870-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-              </video>
-           </div>
-           
-           <div className="absolute inset-0 bg-brand-black/40 z-10"></div>
-           
-           <div className="relative z-20 flex flex-col justify-end h-full p-12 md:p-24">
-             <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-brand-mink"></span> For Golfers
-             </span>
-             <h2 className="text-4xl md:text-5xl font-display text-white mb-6">Build Your Legacy.</h2>
-             <p className="text-brand-polar/60 font-sans font-light mb-10 max-w-sm leading-relaxed">
-               Experience the confidence of equipment engineered specifically for your biomechanics.
-             </p>
-             <div>
-               <Link to="/configurator">
-                 <Button variant="outline" className="border-white/20 text-white hover:bg-white hover:text-brand-black">Start Your Build</Button>
-               </Link>
-             </div>
-           </div>
-        </div>
-
-        {/* For Fitters */}
-        <div className="relative group overflow-hidden bg-brand-black">
-           {/* Background Video for Fitters */}
-           <div className="absolute inset-0 z-0">
-             <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                poster="https://images.unsplash.com/photo-1588681664899-f142de274a2f?q=80&w=1974&auto=format&fit=crop"
-                className="w-full h-full object-cover opacity-30 grayscale group-hover:opacity-50 transition-opacity duration-700"
-              >
-                <source src="https://videos.pexels.com/video-files/852292/852292-hd_1920_1080_30fps.mp4" type="video/mp4" />
-              </video>
-           </div>
-           
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-brand-black/80 to-transparent z-10"></div>
-           
-           <div className="relative z-20 flex flex-col justify-end h-full p-12 md:p-24">
-             <span className="text-brand-polar/40 font-mono text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-brand-polar/40"></span> For Professionals
-             </span>
-             <h2 className="text-4xl md:text-5xl font-display text-white mb-6">The Future of Fitting.</h2>
-             <p className="text-brand-polar/60 font-sans font-light mb-10 max-w-sm leading-relaxed">
-               Zero inventory. High margins. Transform your studio into a next-generation manufacturing hub.
-             </p>
-             <div>
-               <Link to="/fitters">
-                 <Button variant="primary" className="shadow-none">Partner Access</Button>
-               </Link>
-             </div>
-           </div>
-        </div>
-
       </section>
 
     </div>

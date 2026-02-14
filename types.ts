@@ -1,3 +1,4 @@
+
 export interface NavLink {
   label: string;
   path: string;
@@ -12,6 +13,22 @@ export interface Feature {
 export interface Stat {
   label: string;
   value: string;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  image: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
 }
 
 export enum ConfigStep {
