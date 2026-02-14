@@ -1,17 +1,40 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database } from 'lucide-react';
+import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database, Layers, Zap, Cpu, Code } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CLUB_CATEGORIES } from '../constants';
 
-const HERO_STATEMENTS = [
-  "Precision is Personal.",
-  "Your DNA. Your Club.",
-  "Metal Grown, Not Forged.",
-  "The End of Mass Production."
+const HERO_CONTENT = [
+  {
+    headline: "Precision is Personal.",
+    subheadline: "We engineer equipment based on your unique biomechanical data.",
+    cta: "Create Your DNA Profile"
+  },
+  {
+    headline: "Your DNA. Your Club.",
+    subheadline: "Generative design that adapts to your swing, not the other way around.",
+    cta: "Analyze Your Swing"
+  },
+  {
+    headline: "Metal Grown, Not Forged.",
+    subheadline: "Advanced additive manufacturing unlocks performance impossible with casting.",
+    cta: "Explore Technology"
+  },
+  {
+    headline: "The End of Mass Production.",
+    subheadline: "No inventory. No compromise. Just the perfect club for you.",
+    cta: "Start The Engine"
+  }
+];
+
+const DATA_STREAM = [
+  { label: "ATTACK ANGLE", value: "-3.2°", color: "text-brand-mink" },
+  { label: "CLUB PATH", value: "+4.1°", color: "text-emerald-400" },
+  { label: "FACE TO PATH", value: "-0.8°", color: "text-blue-400" },
+  { label: "CLOSURE RATE", value: "1400 d/s", color: "text-yellow-400" },
 ];
 
 const Home: React.FC = () => {
@@ -19,18 +42,17 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStatementIndex((prev) => (prev + 1) % HERO_STATEMENTS.length);
-    }, 4000);
+      setStatementIndex((prev) => (prev + 1) % HERO_CONTENT.length);
+    }, 5000); 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section - Rotating Statements */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
-        
-        {/* Background */}
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
             <video 
               autoPlay 
@@ -42,16 +64,11 @@ const Home: React.FC = () => {
             >
               <source src="https://videos.pexels.com/video-files/5438870/5438870-uhd_3840_2160_25fps.mp4" type="video/mp4" />
             </video>
-            
-            {/* Overlays for depth and tech feel */}
             <div className="absolute inset-0 bg-brand-black/60"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_120%)]"></div>
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
             
-            {/* Scanline Effect */}
-            <div className="absolute inset-0 pointer-events-none opacity-30">
-               <div className="h-px w-full bg-brand-mink/50 shadow-[0_0_20px_#FF224C] absolute top-0 animate-scan"></div>
-            </div>
+            {/* Animated Grid Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">
@@ -68,7 +85,7 @@ const Home: React.FC = () => {
                 </span>
               </div>
               
-              <div className="h-[200px] md:h-[300px] flex items-center justify-center overflow-hidden">
+              <div className="h-[180px] md:h-[280px] flex items-center justify-center overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.h1 
                     key={statementIndex}
@@ -76,23 +93,36 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                     transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-8xl lg:text-9xl font-display font-medium text-white tracking-tighter leading-[0.85]"
+                    className="text-5xl md:text-8xl lg:text-9xl font-display font-medium text-white tracking-tighter leading-[0.85] px-4"
                   >
-                    {HERO_STATEMENTS[statementIndex]}
+                    {HERO_CONTENT[statementIndex].headline}
                   </motion.h1>
                 </AnimatePresence>
               </div>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2}>
-              <p className="text-lg md:text-2xl text-brand-polar/60 font-sans font-light leading-relaxed max-w-2xl mx-auto mb-14 mt-8">
-                We engineer equipment based on your unique biomechanical data.
-              </p>
+              <div className="h-28 md:h-24 relative flex items-center justify-center mb-10 mt-2 w-full max-w-2xl mx-auto">
+                  <AnimatePresence mode="wait">
+                    <motion.p 
+                        key={statementIndex}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-lg md:text-2xl text-brand-polar/60 font-sans font-light leading-relaxed absolute w-full px-4"
+                    >
+                        {HERO_CONTENT[statementIndex].subheadline}
+                    </motion.p>
+                  </AnimatePresence>
+              </div>
               
               <div className="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
                 <Link to="/ai-fitting">
-                  <Button size="lg" variant="primary" className="min-w-[240px] shadow-[0_0_60px_-15px_rgba(255,34,76,0.5)]">
-                    Create Your DNA Profile
+                  <Button size="lg" variant="primary" className="min-w-[280px] shadow-[0_0_60px_-15px_rgba(255,34,76,0.5)]">
+                     <span className="block min-w-[200px] text-center">
+                       {HERO_CONTENT[statementIndex].cta}
+                     </span>
                   </Button>
                 </Link>
                 <Link to="/clubs" className="group flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-brand-polar/60 hover:text-white transition-all px-6 py-4 border border-transparent hover:border-white/10 rounded">
@@ -115,103 +145,168 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* MAKE DNA SECTION */}
+      {/* --- NEW: DNA / BIOMECHANICS HUD SECTION --- */}
       <section className="py-32 bg-[#050505] relative overflow-hidden border-b border-white/5">
-         {/* Background Particles/DNA */}
-         <div className="absolute inset-0 z-0">
-             <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="w-full h-full object-cover opacity-20 mix-blend-screen"
-             >
-               <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-             </video>
-             <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+         
+         {/* Tech Background Elements */}
+         <div className="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
+             <Dna className="w-96 h-96 text-brand-polar" />
          </div>
 
          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-               <FadeIn>
-                  <div className="flex items-center gap-3 mb-6">
-                     <div className="bg-brand-mink/10 p-2 rounded-full border border-brand-mink/30">
-                        <Fingerprint className="text-brand-mink w-5 h-5" />
-                     </div>
-                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Biomechanical Identity</span>
-                  </div>
-                  <h2 className="text-5xl md:text-7xl font-display font-medium text-white mb-8">
-                     Your Swing.<br/>
-                     <span className="text-brand-polar/20">Decoded.</span>
-                  </h2>
-                  <p className="text-xl text-brand-polar/60 font-light leading-relaxed mb-10">
-                     We ingest 10,000+ data points from your swing—club path, face angle, closure rate—to generate a singular biomechanical signature. This isn't just fitting. This is architectural translation.
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-6 mb-10">
-                     <div className="bg-[#0f0f0f] p-6 border-l-2 border-brand-mink relative group overflow-hidden">
-                        <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <Database className="w-4 h-4 text-brand-mink" />
-                        </div>
-                        <div className="text-3xl text-white font-display mb-1">10k+</div>
-                        <div className="text-[10px] font-mono uppercase text-brand-polar/40">Data Points Analyzed</div>
-                     </div>
-                     <div className="bg-[#0f0f0f] p-6 border-l-2 border-brand-mink relative group overflow-hidden">
-                        <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <Dna className="w-4 h-4 text-brand-mink" />
-                        </div>
-                        <div className="text-3xl text-white font-display mb-1">100%</div>
-                        <div className="text-[10px] font-mono uppercase text-brand-polar/40">Unique Geometry</div>
-                     </div>
-                  </div>
-
-                  <Link to="/ai-fitting">
-                    <Button variant="outline" className="text-white border-white/20 hover:bg-brand-mink hover:border-brand-mink group">
-                       <Scan className="w-4 h-4 mr-2 group-hover:animate-pulse" /> Start DNA Extraction
-                    </Button>
-                  </Link>
-               </FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                
-               <FadeIn direction="left">
-                  <div className="relative aspect-square bg-black border border-white/10 rounded-sm overflow-hidden shadow-2xl group">
-                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover opacity-40 mix-blend-luminosity"></div>
-                     <div className="absolute inset-0 bg-gradient-to-t from-brand-mink/20 to-transparent"></div>
-                     
-                     {/* Scanning Line Animation */}
-                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-mink/10 to-transparent h-[20%] w-full animate-scan pointer-events-none z-10"></div>
-                     
-                     <div className="absolute center inset-0 flex items-center justify-center z-20">
-                        {/* Target Reticle */}
-                        <div className="relative w-[60%] h-[60%] border border-white/10">
-                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-mink"></div>
-                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-mink"></div>
-                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-mink"></div>
-                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-mink"></div>
-                            
-                            {/* Central Scan Line */}
-                            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-brand-mink/50 shadow-[0_0_10px_#FF224C]"></div>
-                            
-                            <div className="absolute top-[45%] left-1/2 -translate-x-1/2 bg-black/80 px-2 py-1 text-[9px] font-mono text-brand-mink border border-brand-mink/30 rounded-sm">
-                                ACQUIRING TARGET
-                            </div>
-                        </div>
-                     </div>
+               {/* Text Content */}
+               <div className="lg:col-span-5">
+                  <FadeIn>
+                      <div className="flex items-center gap-3 mb-6">
+                         <div className="bg-brand-mink/10 p-2 rounded-full border border-brand-mink/30 animate-pulse-slow">
+                            <Activity className="text-brand-mink w-5 h-5" />
+                         </div>
+                         <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">The Algorithm of You</span>
+                      </div>
+                      
+                      <h2 className="text-5xl md:text-7xl font-display font-medium text-white mb-8 leading-tight">
+                         Your Swing.<br/>
+                         <span className="text-brand-polar/20">Digitized.</span>
+                      </h2>
+                      
+                      <p className="text-xl text-brand-polar/60 font-light leading-relaxed mb-8">
+                         We don't guess. We measure. By ingesting raw launch monitor data, we build a <strong>Digital Twin</strong> of your impact conditions.
+                      </p>
 
-                     <div className="absolute bottom-8 left-8 z-30">
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
-                            <div className="font-mono text-xs text-brand-mink">SCANNING...</div>
-                        </div>
-                        <div className="text-4xl font-display text-white">Subject: 001</div>
-                        <div className="text-xs font-mono text-brand-polar/40 mt-1">LAT: 59.3293° N // LNG: 18.0686° E</div>
-                     </div>
-                  </div>
-               </FadeIn>
+                      <div className="space-y-6 mb-10 border-l border-white/10 pl-6">
+                          <div className="flex flex-col gap-1">
+                              <h4 className="text-white font-display text-lg">Swing Sequencing</h4>
+                              <p className="text-sm text-brand-polar/50 font-mono">Mapping the kinetic chain from ground to grip.</p>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                              <h4 className="text-white font-display text-lg">Impact Geometry</h4>
+                              <p className="text-sm text-brand-polar/50 font-mono">Optimizing CG location for your specific strike pattern.</p>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                              <h4 className="text-white font-display text-lg">Shaft Deflection</h4>
+                              <p className="text-sm text-brand-polar/50 font-mono">Timing the kick-point to your tempo.</p>
+                          </div>
+                      </div>
+
+                      <Link to="/ai-fitting">
+                        <Button variant="outline" className="text-white border-white/20 hover:bg-brand-mink hover:border-brand-mink group w-full md:w-auto">
+                           <Scan className="w-4 h-4 mr-2" /> 
+                           START BIOMETRIC ANALYSIS
+                        </Button>
+                      </Link>
+                  </FadeIn>
+               </div>
+
+               {/* VISUAL HUD INTERFACE */}
+               <div className="lg:col-span-7 relative">
+                   <FadeIn direction="left" delay={0.2}>
+                       <div className="relative aspect-[4/3] bg-black border border-white/10 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] group">
+                           
+                           {/* Background Video/Image simulating 3D analysis */}
+                           <div className="absolute inset-0 z-0">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1599586120429-4828d5dabb04?q=80&w=2000&auto=format&fit=crop"
+                                    className="w-full h-full object-cover opacity-30 grayscale mix-blend-screen"
+                                    alt="Analysis Background"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+                           </div>
+
+                           {/* HUD Overlay Elements */}
+                           <div className="absolute inset-0 z-10 p-8 flex flex-col justify-between">
+                                {/* HUD Header */}
+                                <div className="flex justify-between items-start border-b border-white/10 pb-4">
+                                    <div>
+                                        <div className="text-[10px] font-mono text-brand-mink uppercase tracking-widest mb-1">SUBJECT ID</div>
+                                        <div className="text-2xl font-display text-white">MK-0094X</div>
+                                    </div>
+                                    <div className="text-right">
+                                        <div className="flex items-center justify-end gap-2 mb-1">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                            <div className="text-[10px] font-mono text-green-500 uppercase tracking-widest">LIVE FEED</div>
+                                        </div>
+                                        <div className="text-xs font-mono text-brand-polar/40">120FPS // 4K</div>
+                                    </div>
+                                </div>
+
+                                {/* Central Focus / Reticle */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/10 rounded-full flex items-center justify-center">
+                                    <div className="w-48 h-48 border border-dashed border-white/20 rounded-full animate-spin-slow"></div>
+                                    <div className="absolute w-full h-px bg-brand-mink/20"></div>
+                                    <div className="absolute h-full w-px bg-brand-mink/20"></div>
+                                </div>
+
+                                {/* Dynamic Data Stream */}
+                                <div className="space-y-4 max-w-[200px] self-end bg-black/50 backdrop-blur p-4 border border-white/10 rounded-sm">
+                                    <div className="text-[9px] font-mono text-brand-polar/40 uppercase mb-2 border-b border-white/10 pb-1">Telemetry</div>
+                                    {DATA_STREAM.map((item, idx) => (
+                                        <div key={idx} className="flex justify-between items-center">
+                                            <span className="text-[10px] font-mono text-brand-polar/70">{item.label}</span>
+                                            <span className={`text-xs font-mono font-bold ${item.color}`}>{item.value}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                           </div>
+
+                           {/* Scanning Bar */}
+                           <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-brand-mink/10 to-transparent h-[15%] w-full animate-scan z-20"></div>
+                           
+                       </div>
+                   </FadeIn>
+               </div>
+
             </div>
          </div>
       </section>
 
-      {/* CONFIGURATOR USP SECTION - NEW */}
+      {/* --- PROCESS BREAKDOWN SECTION --- */}
+      <section className="py-24 bg-[#0a0a0a] border-b border-white/5">
+          <div className="container mx-auto px-6">
+              <div className="text-center mb-16">
+                  <h3 className="text-brand-polar/40 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">From Code to Chromium</h3>
+                  <h2 className="text-3xl md:text-5xl font-display text-white">The Manufacturing Core</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {/* Step 1 */}
+                  <FadeIn delay={0} className="bg-[#111] p-8 border border-white/5 group hover:border-brand-mink/50 transition-colors duration-500">
+                      <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-mink group-hover:text-white transition-colors">
+                          <Code className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-xl font-display text-white mb-3">1. Capture</h4>
+                      <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
+                          Input data from Trackman or GCQuad creates a biomechanical boundary box for your swing.
+                      </p>
+                  </FadeIn>
+
+                  {/* Step 2 */}
+                  <FadeIn delay={0.2} className="bg-[#111] p-8 border border-white/5 group hover:border-brand-mink/50 transition-colors duration-500">
+                      <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-mink group-hover:text-white transition-colors">
+                          <Cpu className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-xl font-display text-white mb-3">2. Generate</h4>
+                      <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
+                          Our AI generates 1,000+ variations of head geometry, selecting the one that minimizes dispersion.
+                      </p>
+                  </FadeIn>
+
+                  {/* Step 3 */}
+                  <FadeIn delay={0.4} className="bg-[#111] p-8 border border-white/5 group hover:border-brand-mink/50 transition-colors duration-500">
+                      <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-mink group-hover:text-white transition-colors">
+                          <Zap className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-xl font-display text-white mb-3">3. Sinter</h4>
+                      <p className="text-brand-polar/50 text-sm font-mono leading-relaxed">
+                          Lasers fuse 17-4PH stainless steel powder layer-by-layer (30 microns) into a solid structure.
+                      </p>
+                  </FadeIn>
+              </div>
+          </div>
+      </section>
+
+      {/* CONFIGURATOR USP SECTION */}
       <section className="py-32 bg-[#080808] border-b border-white/5 relative overflow-hidden">
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]"></div>
          
@@ -220,36 +315,34 @@ const Home: React.FC = () => {
                
                <div className="w-full lg:w-1/2 order-2 lg:order-1">
                   <FadeIn direction="right">
-                      {/* Abstract UI representation of the configurator */}
+                      {/* Blueprint Style Visual */}
                       <div className="relative aspect-[4/3] bg-[#000] border border-white/10 rounded-lg overflow-hidden shadow-2xl group">
+                          {/* Image */}
                           <img 
                             src="https://images.unsplash.com/photo-1611095790444-1dfa35e37b52?q=80&w=2071&auto=format&fit=crop" 
                             alt="CAD Wireframe" 
                             className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale contrast-125 transition-transform duration-1000 group-hover:scale-105"
                           />
+                          
+                          {/* Overlay Gradient */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                           
-                          {/* Floaters */}
-                          <div className="absolute top-6 right-6 flex flex-col gap-2">
-                              <div className="bg-black/80 backdrop-blur border border-white/10 p-3 rounded w-32">
-                                  <div className="text-[9px] text-brand-polar/50 font-mono mb-1">LOFT ANGLE</div>
-                                  <div className="h-1 bg-white/10 rounded overflow-hidden">
-                                      <div className="h-full w-[70%] bg-brand-mink"></div>
-                                  </div>
-                              </div>
-                              <div className="bg-black/80 backdrop-blur border border-white/10 p-3 rounded w-32">
-                                  <div className="text-[9px] text-brand-polar/50 font-mono mb-1">BLADE LENGTH</div>
-                                  <div className="h-1 bg-white/10 rounded overflow-hidden">
-                                      <div className="h-full w-[45%] bg-brand-mink"></div>
-                                  </div>
-                              </div>
+                          {/* Floating Dimensions (Blueprints) */}
+                          <div className="absolute top-[20%] left-[20%]">
+                              <div className="w-px h-20 bg-brand-mink/50 absolute -left-4"></div>
+                              <div className="text-[9px] font-mono text-brand-mink -rotate-90 absolute -left-8 top-8">OFFSET</div>
                           </div>
                           
                           <div className="absolute bottom-6 left-6">
                               <div className="flex items-center gap-2 text-brand-mink font-mono text-xs animate-pulse">
                                   <div className="w-2 h-2 bg-brand-mink rounded-full"></div>
-                                  LIVE PREVIEW
+                                  CONFIGURATOR V1.0 PREVIEW
                               </div>
+                          </div>
+
+                          <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+                              <div className="text-[9px] font-mono text-brand-polar/40">MODE: EDIT</div>
+                              <div className="text-[9px] font-mono text-brand-polar/40">GRID: ON</div>
                           </div>
                       </div>
                   </FadeIn>
@@ -300,12 +393,26 @@ const Home: React.FC = () => {
                   <div className="absolute top-6 left-6 z-20">
                     <span className="text-[10px] font-mono text-brand-mink uppercase tracking-widest">0{index + 1} // {cat.name}</span>
                   </div>
+                  
+                  {/* Product Image */}
                   <img 
                     src={cat.image} 
                     alt={cat.name}
                     className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
                   />
+                  
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                  
+                  {/* Tech Specs Overlay on Hover */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="bg-black/80 backdrop-blur border border-white/10 p-4 text-center transform scale-95 group-hover:scale-100 transition-transform duration-300">
+                          <div className="text-[9px] font-mono text-brand-polar/50 uppercase mb-1">MATERIAL</div>
+                          <div className="text-white font-display font-bold mb-3">17-4PH SS</div>
+                          <div className="text-[9px] font-mono text-brand-polar/50 uppercase mb-1">PROCESS</div>
+                          <div className="text-white font-display font-bold">DMLS PRINT</div>
+                      </div>
+                  </div>
+
                   <div className="absolute bottom-8 left-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 className="text-3xl font-display text-white mb-2">{cat.name}</h3>
                     <p className="text-brand-polar/50 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 max-w-[200px]">

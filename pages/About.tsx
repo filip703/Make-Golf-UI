@@ -21,7 +21,7 @@ const About: React.FC = () => {
         </FadeIn>
       </section>
 
-      {/* Founder Story - Updated Image Styling */}
+      {/* Founder Story */}
       <section className="py-32 bg-[#080808] overflow-hidden">
          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
