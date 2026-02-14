@@ -6,7 +6,7 @@ import { ArrowUpRight, Radio } from 'lucide-react';
 
 const Journal: React.FC = () => {
   return (
-    <div className="min-h-screen bg-brand-black text-brand-polar pt-20">
+    <div className="min-h-screen bg-brand-black text-brand-polar pt-20 selection:bg-brand-mink selection:text-white">
       
       <section className="py-24 container mx-auto px-6 border-b border-white/5 relative overflow-hidden">
          <div className="absolute right-0 top-0 p-12 opacity-5 pointer-events-none">
@@ -15,7 +15,7 @@ const Journal: React.FC = () => {
          
          <FadeIn>
             <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
                 <span className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">R&D Updates</span>
             </div>
             <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9]">
@@ -34,20 +34,31 @@ const Journal: React.FC = () => {
                <FadeIn key={post.id}>
                   <div className="group cursor-pointer">
                      <div className="aspect-[16/10] bg-[#111] border border-white/5 overflow-hidden mb-6 relative">
+                        {/* Post Image with refined hover effects */}
                         <img 
                            src={post.image} 
                            alt={post.title} 
-                           className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                           className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110"
                         />
-                        <div className="absolute top-4 right-4 bg-black/80 backdrop-blur px-3 py-1 text-[10px] font-mono uppercase text-brand-polar">
+                        
+                        {/* Animated Category Badge */}
+                        <div className="absolute top-4 right-4 bg-black/80 backdrop-blur px-3 py-1 text-[10px] font-mono uppercase text-brand-polar border border-white/10 group-hover:border-brand-mink/50 group-hover:text-brand-mink group-hover:bg-black transition-all duration-500 z-10">
                            {post.category}
                         </div>
+
+                        {/* Subtle Gradient Overlay on Hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                      </div>
+
                      <div className="flex items-center justify-between mb-3">
                         <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">{post.date}</span>
                         <ArrowUpRight className="text-brand-polar/20 w-4 h-4 group-hover:text-brand-mink group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                      </div>
-                     <h2 className="text-2xl font-display text-white mb-3 group-hover:underline decoration-brand-mink/50 underline-offset-4 decoration-1">{post.title}</h2>
+                     
+                     <h2 className="text-2xl font-display text-white mb-3 group-hover:text-brand-mink transition-colors duration-300 decoration-brand-mink/50 underline-offset-4 decoration-1">
+                        {post.title}
+                     </h2>
+                     
                      <p className="text-brand-polar/50 text-sm font-sans font-light leading-relaxed">
                         {post.excerpt}
                      </p>

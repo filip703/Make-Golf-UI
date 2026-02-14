@@ -1,6 +1,25 @@
 
 import React from 'react';
-import { Activity, Target, Scale, Database, Lock, ArrowRight, CheckCircle2, XCircle, Cpu, Network, BarChart3 } from 'lucide-react';
+import { 
+  Activity, 
+  Target, 
+  Scale, 
+  Database, 
+  Lock, 
+  ArrowRight, 
+  CheckCircle2, 
+  XCircle, 
+  Cpu, 
+  Network, 
+  BarChart3, 
+  Scan, 
+  Layers, 
+  Zap,
+  Globe,
+  ShieldCheck,
+  Server,
+  MonitorCheck
+} from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 
@@ -10,7 +29,7 @@ const AIFitting: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black pt-20 text-brand-polar selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section */}
+      {/* Hero Section - The Engine Interface */}
       <section className="relative py-24 border-b border-white/5 overflow-hidden">
          {/* Background Tech Elements */}
          <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
@@ -21,193 +40,303 @@ const AIFitting: React.FC = () => {
               <FadeIn>
                 <div className="inline-flex items-center gap-3 mb-6 border border-brand-mink/30 bg-brand-mink/5 px-4 py-1 rounded-full">
                   <Cpu className="w-3 h-3 text-brand-mink" />
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">The Fitting Engine</span>
+                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Biometric Processing Engine v2.4</span>
                 </div>
-                <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9]">
-                  We don't guess.<br/>
-                  <span className="text-brand-polar/40">We calculate.</span>
+                <h1 className="text-6xl md:text-9xl font-display font-medium text-white mb-8 leading-[0.85] tracking-tighter">
+                  Individual<br/>
+                  <span className="text-brand-polar/20">Geometry.</span>
                 </h1>
                 <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl leading-relaxed mb-10">
-                  Make Golf builds irons, wedges, and putters using 3D printing and parametric design. 
-                  This means every club is built specifically for you—not adjusted from a standard model.
+                  We don't sell stock clubs. We manufacture answers. By ingesting your raw swing telemetry, our engine generates a clubhead architecture impossible to achieve through traditional casting.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href={SIGNUP_URL}>
-                    <Button variant="primary" size="lg">APPLY FOR ENGINE ACCESS</Button>
+                    <Button variant="primary" size="lg" className="shadow-[0_0_40px_rgba(255,34,76,0.4)] px-12">
+                        APPLY FOR BETA ACCESS
+                    </Button>
                   </a>
                   <Button variant="outline" size="lg" className="border-white/10 text-brand-polar/50 cursor-not-allowed">
-                    <Lock className="w-3 h-3 mr-2" /> Public Beta Closed
+                    <Globe className="w-3 h-3 mr-2" /> Global Remote Fitting
                   </Button>
                 </div>
               </FadeIn>
          </div>
       </section>
 
-      {/* DATA REQUIREMENTS SECTION */}
+      {/* THE WORKFLOW: DATA-FIRST APPROACH */}
       <section className="py-24 bg-[#080808] border-b border-white/5">
         <div className="container mx-auto px-6">
-            <FadeIn>
-                <div className="mb-16 max-w-3xl">
-                    <h2 className="text-3xl font-display text-white mb-6">Input Telemetry</h2>
-                    <p className="text-brand-polar/60 text-lg font-light">
-                        To generate your geometry, the engine requires two specific data streams. We analyze the "Why", not just the "What".
-                    </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <FadeIn>
+                        <h2 className="text-4xl font-display text-white mb-8 uppercase tracking-tight">The Digital Workflow</h2>
+                        <div className="space-y-12">
+                            <div className="flex gap-6 group">
+                                <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">01</div>
+                                <div>
+                                    <h4 className="text-xl font-display text-white mb-2">Telemetry Capture</h4>
+                                    <p className="text-brand-polar/50 text-sm leading-relaxed">
+                                        You don't need to visit our studio. Record your swing data (Trackman, GCQuad, or any major system) and upload your session CSV directly to our secure servers.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex gap-6 group">
+                                <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">02</div>
+                                <div>
+                                    <h4 className="text-xl font-display text-white mb-2">Algorithmic Synthesis</h4>
+                                    <p className="text-brand-polar/50 text-sm leading-relaxed">
+                                        The engine processes over 40 variables. It maps your "Impact DNA" and generates a parametric head design that corrects your specific directional bias and ball speed efficiency.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex gap-6 group">
+                                <div className="shrink-0 w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center font-mono text-brand-mink group-hover:border-brand-mink transition-colors">03</div>
+                                <div>
+                                    <h4 className="text-xl font-display text-white mb-2">DMLS Printing</h4>
+                                    <p className="text-brand-polar/50 text-sm leading-relaxed">
+                                        Once confirmed, your unique geometry is sent to our EOS M290 printers. We grow your clubs from 17-4PH steel powder in 30-micron layers.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Stream 1 */}
-                    <div className="bg-[#111] p-8 border border-white/5 rounded-sm hover:border-brand-mink/30 transition-colors">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="bg-brand-mink/10 p-3 rounded-full">
-                                <Database className="w-6 h-6 text-brand-mink" />
-                            </div>
-                            <h3 className="text-xl font-display text-white">1. Launch Monitor Data</h3>
-                        </div>
-                        <p className="text-sm font-mono text-brand-polar/40 mb-4 uppercase tracking-wider">Metric: Impact Behavior</p>
-                        <ul className="space-y-2 mb-6 font-mono text-xs text-brand-polar/60">
-                            <li>Ball Speed // Launch Angle // Spin Rate</li>
-                            <li>Side Deviation // Impact Position</li>
-                        </ul>
-                        <div className="p-4 bg-black/50 border-l-2 border-brand-mink text-sm text-brand-polar/70 italic">
-                            "If you miss 8m right with a 7-iron, we determine if it's Face Angle (+2°), Path (4° out-to-in), Lie Angle (3° flat), or Impact Position (5mm toe)."
-                        </div>
-                    </div>
+                <div className="relative">
+                    <FadeIn direction="left">
+                        <div className="aspect-[4/5] bg-brand-black border border-white/10 rounded-lg overflow-hidden relative group">
+                            {/* Snapshot of process */}
+                            <img 
+                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                                className="w-full h-full object-cover opacity-20 grayscale group-hover:scale-105 transition-transform duration-1000"
+                                alt="Algorithm Analysis Snapshot"
+                            />
+                            
+                            {/* Tech HUD Overlay */}
+                            <div className="absolute inset-0 p-8 flex flex-col justify-between font-mono text-[10px] tracking-wider">
+                                <div className="flex justify-between items-start border-b border-brand-mink/30 pb-4">
+                                    <div>
+                                        <span className="text-brand-mink block mb-1">DATA_STREAM_INBOUND</span>
+                                        <span className="text-white">SOURCE: TM4_PRO_SESSION</span>
+                                    </div>
+                                    <div className="text-right">
+                                        <span className="text-brand-polar/40 block mb-1">STATUS</span>
+                                        <span className="text-green-500">PARSING...</span>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex-1 flex items-center justify-center">
+                                    <div className="w-48 h-48 border border-white/5 rounded-full flex items-center justify-center relative">
+                                        <div className="absolute inset-0 border-t border-brand-mink rounded-full animate-spin-slow"></div>
+                                        <div className="text-center">
+                                            <div className="text-white text-xs mb-1">ANALYZING</div>
+                                            <div className="text-brand-mink font-bold">DISPERSION</div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    {/* Stream 2 */}
-                    <div className="bg-[#111] p-8 border border-white/5 rounded-sm hover:border-brand-mink/30 transition-colors">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="bg-white/5 p-3 rounded-full">
-                                <Scale className="w-6 h-6 text-white" />
+                                <div className="bg-white/5 backdrop-blur-md p-4 border border-white/10 space-y-1">
+                                    <div className="flex justify-between text-brand-polar/40">
+                                        <span>DYNAMIC_LOFT_CORR</span>
+                                        <span className="text-brand-mink">+1.2&deg;</span>
+                                    </div>
+                                    <div className="flex justify-between text-brand-polar/40">
+                                        <span>LATERAL_CG_SHIFT</span>
+                                        <span className="text-brand-mink">-2.4mm</span>
+                                    </div>
+                                    <div className="flex justify-between text-brand-polar/40">
+                                        <span>BOUNCE_GEOMETRY</span>
+                                        <span className="text-white">OPTIMIZED</span>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-display text-white">2. Current Specifications</h3>
                         </div>
-                        <p className="text-sm font-mono text-brand-polar/40 mb-4 uppercase tracking-wider">Metric: Baseline Setup</p>
-                        <ul className="space-y-2 mb-6 font-mono text-xs text-brand-polar/60">
-                            <li>Lie Angle // Loft // Length</li>
-                            <li>Shaft Model // Swing Weight</li>
-                        </ul>
-                        <div className="p-4 bg-black/50 border-l-2 border-white/30 text-sm text-brand-polar/70 italic">
-                            "If your dispersion is tight with a specific shaft, we quantify exactly why that setup works for your delivery."
+                    </FadeIn>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* HARDWARE SUPPORT: ALL SYSTEMS INTEGRATED */}
+      <section className="py-24 bg-brand-black border-b border-white/5">
+        <div className="container mx-auto px-6 text-center">
+            <FadeIn>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                    <MonitorCheck className="w-5 h-5 text-brand-mink" />
+                    <span className="text-brand-mink font-mono text-xs uppercase tracking-[0.3em]">Full System Compatibility</span>
+                </div>
+                <h2 className="text-4xl font-display text-white mb-8">We speak every launch monitor.</h2>
+                <p className="text-brand-polar/50 max-w-xl mx-auto mb-16 font-light">
+                    Our platform is hardware-agnostic. Whether you fit at a high-end facility or record data at your local range, our engine ingests the raw metrics for accurate generation.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-px bg-white/5 border border-white/5">
+                    {[
+                        'TRACKMAN 4', 'GCQUAD', 'GC3', 'FLIGHTSCOPE', 'FULL SWING', 'SKYTRAK+'
+                    ].map((sys) => (
+                        <div key={sys} className="bg-brand-black p-8 flex flex-col items-center justify-center group hover:bg-white/5 transition-colors cursor-default">
+                            <span className="text-xs font-mono font-bold text-brand-polar/30 group-hover:text-white transition-colors tracking-widest">{sys}</span>
                         </div>
+                    ))}
+                </div>
+                <div className="mt-12">
+                    <div className="inline-flex items-center gap-2 text-xs font-mono text-brand-polar/40 uppercase">
+                        <ShieldCheck className="w-4 h-4 text-green-500" />
+                        Data encryption via AWS PrivateLink
                     </div>
                 </div>
             </FadeIn>
         </div>
       </section>
 
-      {/* THE LOGIC CORE */}
-      <section className="py-24 bg-brand-black relative overflow-hidden">
-         {/* Connecting Lines BG */}
-         <div className="absolute inset-0 opacity-10 pointer-events-none">
-             <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-mink to-transparent"></div>
-         </div>
-
-         <div className="container mx-auto px-6 relative z-10">
-            <div className="text-center mb-20">
-                <span className="text-brand-mink font-mono text-xs uppercase tracking-[0.3em] block mb-4">Algorithmic Processing</span>
-                <h2 className="text-4xl md:text-6xl font-display text-white">The Triple-Core System</h2>
+      {/* THE THREE ENGINE MODULES - REFINED */}
+      <section className="py-24 bg-[#0a0a0a]">
+         <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-20">
+                <div className="max-w-xl">
+                    <h2 className="text-4xl font-display text-white mb-4">The Synthesis Engine</h2>
+                    <p className="text-brand-polar/50 font-light">Three layers of algorithmic design that turn raw numbers into high-performance metal.</p>
+                </div>
+                <div className="hidden md:block">
+                    <Server className="w-16 h-16 text-brand-mink opacity-20" />
+                </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                {/* Logic 1 */}
+                {/* Module 1 */}
                 <FadeIn delay={0}>
-                    <div className="bg-[#0e0e0e] border border-white/10 p-8 h-full group hover:bg-[#151515] transition-colors">
-                        <div className="font-mono text-xs text-brand-mink mb-4">module_01</div>
+                    <div className="bg-[#111] border border-white/5 p-8 h-full relative group hover:border-brand-mink/40 transition-all">
+                        <div className="flex items-center justify-between mb-8">
+                            <BarChart3 className="w-8 h-8 text-brand-mink" />
+                            <span className="font-mono text-[10px] text-brand-polar/30">MODULE // 01</span>
+                        </div>
                         <h3 className="text-2xl font-display text-white mb-4">DeviationMapper™</h3>
                         <p className="text-brand-polar/60 text-sm leading-relaxed font-sans font-light">
-                            Identifies deviations from theoretical efficiency. We flag anomalies like high smash factor combined with low ball speed (indicating weak dynamic loft) or consistent directional bias independent of face angle.
+                            Analyzes the delta between current performance and physics-based limits. We identify why a high smash factor doesn't translate to ball speed—often revealing flaws in loft and lie delivery that traditional fitters miss.
                         </p>
                     </div>
                 </FadeIn>
 
-                {/* Logic 2 */}
+                {/* Module 2 */}
                 <FadeIn delay={0.2}>
-                    <div className="bg-[#0e0e0e] border border-white/10 p-8 h-full group hover:bg-[#151515] transition-colors">
-                        <div className="font-mono text-xs text-brand-mink mb-4">module_02</div>
+                    <div className="bg-[#111] border border-white/5 p-8 h-full relative group hover:border-brand-mink/40 transition-all">
+                        <div className="flex items-center justify-between mb-8">
+                            <Scale className="w-8 h-8 text-white" />
+                            <span className="font-mono text-[10px] text-brand-polar/30">MODULE // 02</span>
+                        </div>
                         <h3 className="text-2xl font-display text-white mb-4">CompensationMapper™</h3>
                         <p className="text-brand-polar/60 text-sm leading-relaxed font-sans font-light">
-                            Calculates the exact geometric compensation needed. If you have a consistent 4° out-to-in path, we don't force a swing change. We compute the precise offset, sole camber, and lie angle to neutralize the delivery.
+                            Instead of trying to fix your swing path, we fix the physics. This module calculates the exact offset, bounce, and sole radius required to compensate for your natural attack angle and path.
                         </p>
                     </div>
                 </FadeIn>
 
-                {/* Logic 3 */}
+                {/* Module 3 */}
                 <FadeIn delay={0.4}>
-                    <div className="bg-[#0e0e0e] border border-white/10 p-8 h-full group hover:bg-[#151515] transition-colors">
-                        <div className="font-mono text-xs text-brand-mink mb-4">module_03</div>
+                    <div className="bg-[#111] border border-white/5 p-8 h-full relative group hover:border-brand-mink/40 transition-all">
+                        <div className="flex items-center justify-between mb-8">
+                            <Target className="w-8 h-8 text-white" />
+                            <span className="font-mono text-[10px] text-brand-polar/30">MODULE // 03</span>
+                        </div>
                         <h3 className="text-2xl font-display text-white mb-4">CoGTargetCalculator™</h3>
                         <p className="text-brand-polar/60 text-sm leading-relaxed font-sans font-light">
-                            Optimizes mass placement based on your impact heatmap. If you strike 5mm towards the toe, we shift the internal lattice density 5mm toe-ward, ensuring maximum energy transfer on your specific "miss".
+                            Maps your impact pattern. By using additive manufacturing, we can place a high-density lattice exactly where you strike the ball most often, ensuring the "center" of the club is your center.
                         </p>
                     </div>
                 </FadeIn>
-
             </div>
          </div>
       </section>
 
-      {/* THE COMPARISON MATRIX */}
-      <section className="py-24 bg-[#0a0a0a] border-t border-white/5">
+      {/* DEEP DIVE: THE COMPARISON MATRIX */}
+      <section className="py-24 bg-brand-black border-t border-white/5">
         <div className="container mx-auto px-6">
             <FadeIn>
-                <div className="flex flex-col md:flex-row items-center justify-between mb-16">
-                     <h2 className="text-3xl font-display text-white">The Precision Gap</h2>
-                     <p className="text-brand-polar/50 font-mono text-xs uppercase tracking-widest mt-4 md:mt-0">
-                        Tolerance Comparison
-                     </p>
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-display text-white mb-4">The Accuracy Revolution</h2>
+                    <p className="text-brand-polar/50 font-mono text-xs uppercase tracking-[0.2em]">Make Golf vs. Traditional Methods</p>
                 </div>
 
-                <div className="overflow-hidden border border-white/10 rounded-lg">
-                    <div className="grid grid-cols-3 bg-[#111] border-b border-white/10 p-4 font-mono text-xs uppercase tracking-widest text-brand-polar/50">
-                        <div className="col-span-1">Metric</div>
-                        <div className="col-span-1 text-center">Traditional Fitting</div>
-                        <div className="col-span-1 text-right text-brand-mink">Make Golf Engine</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 overflow-hidden">
+                    {/* Column 1: Traditional */}
+                    <div className="p-12 bg-brand-black opacity-40 group hover:opacity-60 transition-opacity">
+                        <div className="flex items-center justify-between mb-12">
+                            <h3 className="text-xl font-display text-white">Traditional Fitting</h3>
+                            <XCircle className="w-6 h-6 text-red-900" />
+                        </div>
+                        <ul className="space-y-8 font-mono text-xs">
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-polar/30 uppercase tracking-widest">Lie & Loft Precision</span>
+                                <span className="text-white">± 1.0&deg; (Static Bending)</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-polar/30 uppercase tracking-widest">CoG Adjustment</span>
+                                <span className="text-white">Zero (Head mass is fixed)</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-polar/30 uppercase tracking-widest">Personalization</span>
+                                <span className="text-white">Adjusted standard models</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-polar/30 uppercase tracking-widest">Data Depth</span>
+                                <span className="text-white">Visual flight + "Feel"</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    {/* Row 1 */}
-                    <div className="grid grid-cols-3 p-6 border-b border-white/5 hover:bg-white/5 transition-colors items-center">
-                        <div className="font-display text-white">Lie Angle Accuracy</div>
-                        <div className="text-center text-brand-polar/40 font-mono text-sm">± 1.0° (2° steps)</div>
-                        <div className="text-right text-white font-mono font-bold text-sm">± 0.1° (Continuous)</div>
+                    {/* Column 2: MAKE GOLF */}
+                    <div className="p-12 bg-[#0c0c0c] relative group overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-brand-mink"></div>
+                        <div className="flex items-center justify-between mb-12">
+                            <h3 className="text-xl font-display text-white">The Make Golf Engine</h3>
+                            <CheckCircle2 className="w-6 h-6 text-brand-mink" />
+                        </div>
+                        <ul className="space-y-8 font-mono text-xs">
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-mink/50 uppercase tracking-widest">Lie & Loft Precision</span>
+                                <span className="text-white font-bold">± 0.1&deg; (Grown Geometry)</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-mink/50 uppercase tracking-widest">CoG Adjustment</span>
+                                <span className="text-white font-bold">± 0.3mm (Custom Lattice)</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-mink/50 uppercase tracking-widest">Personalization</span>
+                                <span className="text-white font-bold">100% Bespoke Architecture</span>
+                            </li>
+                            <li className="flex flex-col gap-2">
+                                <span className="text-brand-mink/50 uppercase tracking-widest">Data Depth</span>
+                                <span className="text-white font-bold">40+ Telemetry Data Points</span>
+                            </li>
+                        </ul>
                     </div>
-
-                    {/* Row 2 */}
-                    <div className="grid grid-cols-3 p-6 border-b border-white/5 hover:bg-white/5 transition-colors items-center">
-                        <div className="font-display text-white">Loft Accuracy</div>
-                        <div className="text-center text-brand-polar/40 font-mono text-sm">± 1.0°</div>
-                        <div className="text-right text-white font-mono font-bold text-sm">± 0.1°</div>
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="grid grid-cols-3 p-6 border-b border-white/5 hover:bg-white/5 transition-colors items-center">
-                        <div className="font-display text-white">Center of Gravity</div>
-                        <div className="text-center text-brand-polar/40 font-mono text-sm">Fixed (Static)</div>
-                        <div className="text-right text-white font-mono font-bold text-sm">± 0.3mm (Variable)</div>
-                    </div>
-
-                    {/* Row 4 */}
-                    <div className="grid grid-cols-3 p-6 hover:bg-white/5 transition-colors items-center">
-                        <div className="font-display text-white">Length Tolerance</div>
-                        <div className="text-center text-brand-polar/40 font-mono text-sm">± 0.50"</div>
-                        <div className="text-right text-white font-mono font-bold text-sm">± 0.25"</div>
-                    </div>
-                </div>
-
-                <div className="mt-16 text-center">
-                    <p className="text-brand-polar/60 text-lg mb-8 max-w-2xl mx-auto font-light">
-                        Standard fitting asks "How does it feel?". We calculate exactly what is required. 
-                        Join the future of parametric golf equipment.
-                    </p>
-                    <a href={SIGNUP_URL}>
-                        <Button variant="primary" size="lg" className="shadow-[0_0_30px_rgba(255,34,76,0.3)]">
-                            APPLY FOR ACCESS
-                        </Button>
-                    </a>
                 </div>
             </FadeIn>
         </div>
+      </section>
+
+      {/* FINAL CTA: THE CALL TO ACTION */}
+      <section className="py-32 bg-[#050505] text-center">
+          <div className="container mx-auto px-6">
+              <FadeIn>
+                  <div className="max-w-3xl mx-auto">
+                      <Zap className="w-12 h-12 text-brand-mink mx-auto mb-10" />
+                      <h2 className="text-4xl md:text-6xl font-display text-white mb-8">Secure your spot in the queue.</h2>
+                      <p className="text-brand-polar/40 text-lg mb-12 font-light">
+                          Due to the extreme complexity of 3D-printed manufacturing, we only accept a limited number of sessions per month. Start with your data today.
+                      </p>
+                      <a href={SIGNUP_URL}>
+                        <Button variant="primary" size="lg" className="shadow-[0_0_50px_rgba(255,34,76,0.5)] px-16">
+                            APPLY FOR BETA ACCESS
+                        </Button>
+                      </a>
+                      <div className="mt-12 text-[10px] font-mono text-brand-polar/20 uppercase tracking-[0.4em]">
+                          No Physical Meeting Required // Worldwide Shipping
+                      </div>
+                  </div>
+              </FadeIn>
+          </div>
       </section>
 
     </div>
