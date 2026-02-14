@@ -54,7 +54,6 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-            {/* TODO: Replace with local video from public/videos/hero-loop.mp4 */}
             <video 
               autoPlay 
               loop 
@@ -63,7 +62,7 @@ const Home: React.FC = () => {
               poster="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
               className="w-full h-full object-cover opacity-40 scale-105 grayscale contrast-125"
             >
-              <source src="https://videos.pexels.com/video-files/5438870/5438870-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+              <source src="/videos/hero-loop.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-brand-black/60"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_120%)]"></div>
@@ -146,17 +145,16 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- NEW: VISUAL EVIDENCE (VIDEO SHOWCASE) --- */}
+      {/* --- VISUAL EVIDENCE (VIDEO SHOWCASE) --- */}
       <section className="bg-[#030303] border-b border-white/5">
          <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Video 1: Manufacturing Process */}
             <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden border-r border-white/5">
-                {/* TODO: Replace source with public/videos/manufacturing.mp4 */}
                 <video 
                    autoPlay muted loop playsInline
                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
                 >
-                   <source src="https://videos.pexels.com/video-files/3840445/3840445-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                   <source src="/videos/manufacturing.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div className="absolute bottom-10 left-10 z-10">
@@ -177,12 +175,11 @@ const Home: React.FC = () => {
 
             {/* Video 2: The Swing/Result */}
             <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden">
-                {/* TODO: Replace source with public/videos/swing.mp4 */}
                 <video 
                    autoPlay muted loop playsInline
                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
                 >
-                   <source src="https://videos.pexels.com/video-files/6077718/6077718-uhd_3840_2160_24fps.mp4" type="video/mp4" />
+                   <source src="/videos/swing-analysis.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div className="absolute bottom-10 left-10 z-10">

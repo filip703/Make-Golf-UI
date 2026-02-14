@@ -2,26 +2,38 @@
 import React from 'react';
 
 interface LogoProps {
-  color?: "white" | "color"; 
-  variant?: "full" | "symbol"; // Added variant prop for future use
+  color?: "white" | "color" | "black"; 
+  variant?: "full" | "symbol"; 
   className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({ color = "color", variant = "full", className = "" }) => {
-  // Official Make Golf Brand Asset (Current CDN)
-  const CDN_LOGO_URL = "https://cdn.prod.website-files.com/683dc60f79209a98db49aa51/685dcd16cb6d7e2568b6d6aa_MG_Polar-Mink.png";
+  // Local Asset Paths (Assumed based on provided images and instructions)
+  const LOGO_FULL_WHITE = "/images/logos/wordmark-white.png";
+  const LOGO_FULL_BLACK = "/images/logos/wordmark-black.png";
+  const LOGO_SYMBOL_RED = "/images/logos/symbol-red.png";
+  const LOGO_SYMBOL_WHITE = "/images/logos/symbol-white.png";
 
-  // TODO: Once you upload files to public/images/logos/, uncomment and adjust these paths:
-  // const LOCAL_FULL_WHITE = "/images/logos/logo-full-white.png";
-  // const LOCAL_SYMBOL_MINK = "/images/logos/symbol-mink.png";
-  
-  // Logic to switch logos (Prepared for future)
-  // const src = variant === 'symbol' ? LOCAL_SYMBOL_MINK : (color === 'white' ? LOCAL_FULL_WHITE : CDN_LOGO_URL);
+  // Determine source based on props
+  let src = LOGO_FULL_WHITE; // Fallback default
+
+  if (variant === 'symbol') {
+    // Use the Icon (M)
+    src = color === 'white' ? LOGO_SYMBOL_WHITE : LOGO_SYMBOL_RED;
+  } else {
+    // Use the Wordmark (MAKE)
+    if (color === 'white') {
+      src = LOGO_FULL_WHITE;
+    } else {
+      // 'color' or 'black' -> Use dark logo for light backgrounds
+      src = LOGO_FULL_BLACK;
+    }
+  }
 
   return (
     <div className={`relative flex items-center ${className}`}>
       <img 
-        src={CDN_LOGO_URL} 
+        src={src} 
         alt="MAKE GOLF" 
         className={`h-6 md:h-8 w-auto object-contain transition-all duration-300 ${variant === 'symbol' ? 'max-w-[40px]' : 'max-w-[180px]'}`}
       />
