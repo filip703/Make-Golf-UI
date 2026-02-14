@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders } from 'lucide-react';
+import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -135,7 +135,9 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                <FadeIn>
                   <div className="flex items-center gap-3 mb-6">
-                     <Fingerprint className="text-brand-mink w-6 h-6" />
+                     <div className="bg-brand-mink/10 p-2 rounded-full border border-brand-mink/30">
+                        <Fingerprint className="text-brand-mink w-5 h-5" />
+                     </div>
                      <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Biomechanical Identity</span>
                   </div>
                   <h2 className="text-5xl md:text-7xl font-display font-medium text-white mb-8">
@@ -143,47 +145,65 @@ const Home: React.FC = () => {
                      <span className="text-brand-polar/20">Decoded.</span>
                   </h2>
                   <p className="text-xl text-brand-polar/60 font-light leading-relaxed mb-10">
-                     We don't believe in "Stiff" or "Regular". We believe in data.
-                     By extracting your swing DNA—closure rates, attack angles, and dynamic lie—we generate a unique digital fingerprint. 
-                     This fingerprint becomes the seed for your equipment's geometry.
+                     We ingest 10,000+ data points from your swing—club path, face angle, closure rate—to generate a singular biomechanical signature. This isn't just fitting. This is architectural translation.
                   </p>
                   
                   <div className="grid grid-cols-2 gap-6 mb-10">
-                     <div className="bg-white/5 p-6 border-l-2 border-brand-mink">
-                        <Activity className="w-5 h-5 text-brand-polar mb-4" />
-                        <div className="text-2xl text-white font-display mb-1">10k+</div>
+                     <div className="bg-[#0f0f0f] p-6 border-l-2 border-brand-mink relative group overflow-hidden">
+                        <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <Database className="w-4 h-4 text-brand-mink" />
+                        </div>
+                        <div className="text-3xl text-white font-display mb-1">10k+</div>
                         <div className="text-[10px] font-mono uppercase text-brand-polar/40">Data Points Analyzed</div>
                      </div>
-                     <div className="bg-white/5 p-6 border-l-2 border-brand-mink">
-                        <Dna className="w-5 h-5 text-brand-polar mb-4" />
-                        <div className="text-2xl text-white font-display mb-1">100%</div>
+                     <div className="bg-[#0f0f0f] p-6 border-l-2 border-brand-mink relative group overflow-hidden">
+                        <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <Dna className="w-4 h-4 text-brand-mink" />
+                        </div>
+                        <div className="text-3xl text-white font-display mb-1">100%</div>
                         <div className="text-[10px] font-mono uppercase text-brand-polar/40">Unique Geometry</div>
                      </div>
                   </div>
 
                   <Link to="/ai-fitting">
-                    <Button variant="outline" className="text-white border-white/20 hover:bg-brand-mink hover:border-brand-mink">
-                       Start DNA Extraction
+                    <Button variant="outline" className="text-white border-white/20 hover:bg-brand-mink hover:border-brand-mink group">
+                       <Scan className="w-4 h-4 mr-2 group-hover:animate-pulse" /> Start DNA Extraction
                     </Button>
                   </Link>
                </FadeIn>
                
                <FadeIn direction="left">
-                  <div className="relative aspect-square bg-black border border-white/10 rounded-sm overflow-hidden shadow-2xl">
+                  <div className="relative aspect-square bg-black border border-white/10 rounded-sm overflow-hidden shadow-2xl group">
                      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover opacity-40 mix-blend-luminosity"></div>
                      <div className="absolute inset-0 bg-gradient-to-t from-brand-mink/20 to-transparent"></div>
-                     <div className="absolute center inset-0 flex items-center justify-center">
-                        <div className="w-[80%] h-[1px] bg-brand-mink/50 relative animate-pulse">
-                           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full flex justify-between">
-                              {[...Array(5)].map((_, i) => (
-                                 <div key={i} className="w-1 h-3 bg-brand-mink"></div>
-                              ))}
-                           </div>
+                     
+                     {/* Scanning Line Animation */}
+                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-mink/10 to-transparent h-[20%] w-full animate-scan pointer-events-none z-10"></div>
+                     
+                     <div className="absolute center inset-0 flex items-center justify-center z-20">
+                        {/* Target Reticle */}
+                        <div className="relative w-[60%] h-[60%] border border-white/10">
+                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-mink"></div>
+                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-mink"></div>
+                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-mink"></div>
+                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-mink"></div>
+                            
+                            {/* Central Scan Line */}
+                            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-brand-mink/50 shadow-[0_0_10px_#FF224C]"></div>
+                            
+                            <div className="absolute top-[45%] left-1/2 -translate-x-1/2 bg-black/80 px-2 py-1 text-[9px] font-mono text-brand-mink border border-brand-mink/30 rounded-sm">
+                                ACQUIRING TARGET
+                            </div>
                         </div>
                      </div>
-                     <div className="absolute bottom-8 left-8">
-                        <div className="font-mono text-xs text-brand-mink mb-2">SCANNING...</div>
+
+                     <div className="absolute bottom-8 left-8 z-30">
+                        <div className="flex items-center gap-2 mb-2">
+                            <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
+                            <div className="font-mono text-xs text-brand-mink">SCANNING...</div>
+                        </div>
                         <div className="text-4xl font-display text-white">Subject: 001</div>
+                        <div className="text-xs font-mono text-brand-polar/40 mt-1">LAT: 59.3293° N // LNG: 18.0686° E</div>
                      </div>
                   </div>
                </FadeIn>
