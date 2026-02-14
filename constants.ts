@@ -4,7 +4,7 @@ import { NavLink, Article, TeamMember } from './types';
 export const NAV_LINKS: NavLink[] = [
   { label: 'Clubs', path: '/clubs' },
   { label: 'Technology', path: '/technology' },
-  { label: 'AI Fitting', path: '/ai-fitting' },
+  { label: 'The Engine', path: '/ai-fitting' },
   { label: 'Partners', path: '/fitters' },
   { label: 'Journal', path: '/journal' },
   { label: 'About', path: '/about' },

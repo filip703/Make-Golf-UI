@@ -9,15 +9,24 @@ const About: React.FC = () => {
     <div className="min-h-screen bg-brand-black text-brand-polar pt-20">
       
       {/* Header */}
-      <section className="py-24 container mx-auto px-6 border-b border-white/5">
+      <section className="py-24 container mx-auto px-6 border-b border-white/5 relative overflow-hidden">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        
         <FadeIn>
-           <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8">
-             About<br/>
-             <span className="text-brand-mink">Make Golf.</span>
-           </h1>
-           <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl leading-relaxed">
-             We are a team of engineers, players, and designers based in Stockholm, Sweden. We are done with the status quo.
-           </p>
+           <div className="relative z-10">
+               <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-px bg-brand-mink"></div>
+                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Our Story</span>
+               </div>
+               <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9]">
+                 The End of<br/>
+                 <span className="text-brand-polar/20">Compromise.</span>
+               </h1>
+               <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl leading-relaxed border-l-2 border-brand-mink/20 pl-6">
+                 We are a team of engineers, players, and designers based in Stockholm, Sweden. We are done with the status quo of mass production.
+               </p>
+           </div>
         </FadeIn>
       </section>
 
@@ -73,7 +82,7 @@ const About: React.FC = () => {
       {/* The Team */}
       <section className="py-24 container mx-auto px-6">
          <FadeIn>
-            <h2 className="text-4xl font-display text-white mb-16 text-center">The Team</h2>
+            <h2 className="text-4xl font-display text-white mb-16 text-center">The Engineers</h2>
          </FadeIn>
          
          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

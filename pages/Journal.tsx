@@ -2,19 +2,28 @@
 import React from 'react';
 import FadeIn from '../components/FadeIn';
 import { JOURNAL_POSTS } from '../constants';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Radio } from 'lucide-react';
 
 const Journal: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar pt-20">
       
-      <section className="py-24 container mx-auto px-6 border-b border-white/5">
+      <section className="py-24 container mx-auto px-6 border-b border-white/5 relative overflow-hidden">
+         <div className="absolute right-0 top-0 p-12 opacity-5 pointer-events-none">
+             <Radio className="w-64 h-64 text-brand-polar" />
+         </div>
+         
          <FadeIn>
-            <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8">
-               Journal.
+            <div className="flex items-center gap-3 mb-6">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">R&D Updates</span>
+            </div>
+            <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9]">
+               Transmission<br/>
+               <span className="text-brand-mink">Log.</span>
             </h1>
-            <p className="text-brand-polar/60 font-mono uppercase tracking-widest text-sm">
-               Updates from the lab.
+            <p className="text-brand-polar/60 font-mono uppercase tracking-widest text-sm max-w-xl leading-relaxed">
+               Notes from the manufacturing floor. Deep dives into metallurgy, physics, and the death of casting.
             </p>
          </FadeIn>
       </section>
