@@ -33,7 +33,7 @@ const About: React.FC = () => {
                    {/* Image Container */}
                    <div className="aspect-[3/4] relative overflow-hidden rounded-sm border border-white/5 bg-gradient-to-b from-white/5 to-black">
                       <img 
-                        src="/images/team/marten.png" 
+                        src="/images/team/marten-founder.png" 
                         alt="Mårten Eker"
                         className="w-full h-full object-cover object-top grayscale contrast-125 brightness-110 group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                       />
