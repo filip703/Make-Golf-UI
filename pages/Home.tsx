@@ -37,13 +37,21 @@ const Home: React.FC = () => {
               loop 
               muted 
               playsInline 
-              poster="https://images.unsplash.com/photo-1635002962487-2c1d43195204?q=80&w=2938&auto=format&fit=crop"
-              className="w-full h-full object-cover opacity-50 scale-105 grayscale contrast-125"
+              poster="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
+              className="w-full h-full object-cover opacity-40 scale-105 grayscale contrast-125"
             >
-              <source src="https://videos.pexels.com/video-files/3045653/3045653-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+              <source src="https://videos.pexels.com/video-files/5438870/5438870-uhd_3840_2160_25fps.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-brand-black/50"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_100%)]"></div>
+            
+            {/* Overlays for depth and tech feel */}
+            <div className="absolute inset-0 bg-brand-black/60"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_120%)]"></div>
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+            
+            {/* Scanline Effect */}
+            <div className="absolute inset-0 pointer-events-none opacity-30">
+               <div className="h-px w-full bg-brand-mink/50 shadow-[0_0_20px_#FF224C] absolute top-0 animate-scan"></div>
+            </div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">

@@ -64,21 +64,24 @@ export const JOURNAL_POSTS: Article[] = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Mårten',
-    role: 'Founder & Vision',
-    bio: 'Former tour professional turned engineer. Obsessed with the intersection of biomechanics and metallurgy.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop' // Placeholder
+    name: 'Mårten Eker',
+    role: 'CEO, R&D // HCP: +3.2',
+    bio: 'Consultant/Architect and entrepreneur. Worked with design, 3D, data, BIM and projects within retail since 2008. Retired Scandinavian golf tour pro. MSc Royal School of Technology.',
+    image: '/marten.png',
+    email: 'marten@make.golf'
   },
   {
-    name: 'Filip',
-    role: 'Co-Founder & Product',
-    bio: 'The architect behind the parametric engine. Turning swing data into physical reality.',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop' // Placeholder
+    name: 'Filip Hector',
+    role: 'GTM & Ops // HCP: 6.2',
+    bio: 'CEO at Nonius Nordics. Experience within business scale-up and leveraging the latest technology. Passionate golfer.',
+    image: '/filip.png',
+    email: 'filip@make.golf'
   },
   {
-    name: 'Partner 3',
-    role: 'Co-Founder & Operations',
-    bio: 'Scaling the impossible. Managing the global network of EOS print farms.',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop' // Placeholder
+    name: 'Erik Paulsson',
+    role: 'Investor, GTM // HCP: 12',
+    bio: 'Exit with Bruce (Sold for 80M SEK). Enterprise Account Executive at Braze. Experience from start-ups, and SaaS GTM. Ambitious amateur golfer.',
+    image: '/erik.png',
+    email: 'erik@make.golf'
   }
 ];

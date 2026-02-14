@@ -29,6 +29,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   image: string;
+  email: string;
 }
 
 export enum ConfigStep {
