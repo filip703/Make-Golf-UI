@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
+          <div id="sign-up">
             <h4 className="text-brand-polar font-display font-bold mb-6 uppercase tracking-wider">No Excuses</h4>
             <div className="flex flex-col space-y-4">
               <input 

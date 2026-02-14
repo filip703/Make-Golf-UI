@@ -11,6 +11,7 @@ import Fitters from './pages/Fitters';
 import Technology from './pages/Technology';
 import About from './pages/About';
 import Journal from './pages/Journal';
+import BetaPopup from './components/BetaPopup';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,7 +25,8 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white">
+      <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white relative">
+        <BetaPopup />
         <Navbar />
         <main>
           <Routes>
