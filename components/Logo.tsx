@@ -2,31 +2,45 @@
 import React from 'react';
 
 interface LogoProps {
-  color?: "white" | "color" | "black"; 
+  color?: "white" | "black" | "red" | "color"; 
   variant?: "full" | "symbol"; 
   className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ color = "color", variant = "full", className = "" }) => {
-  // Local Asset Paths (Assumed based on provided images and instructions)
-  const LOGO_FULL_WHITE = "/images/logos/wordmark-white.png";
-  const LOGO_FULL_BLACK = "/images/logos/wordmark-black.png";
-  const LOGO_SYMBOL_RED = "/images/logos/symbol-red.png";
-  const LOGO_SYMBOL_WHITE = "/images/logos/symbol-white.png";
+const Logo: React.FC<LogoProps> = ({ color = "white", variant = "full", className = "" }) => {
+  // EXAKTA SÖKVÄGAR FÖR DINA BILDER
+  // Se till att du sparar dina filer exakt så här i public/images/logos/
+  const ASSETS = {
+    full: {
+      white: "/images/logos/wordmark-white.png", // För mörk bakgrund
+      black: "/images/logos/wordmark-black.png", // För ljus bakgrund
+      red:   "/images/logos/wordmark-white.png", // Fallback till vit om röd saknas, annars wordmark-red.png
+    },
+    symbol: {
+      white: "/images/logos/symbol-white.png", // Vit ikon
+      black: "/images/logos/symbol-black.png", // Svart ikon (om den finns, annars vit)
+      red:   "/images/logos/symbol-red.png",   // Röd ikon med bakgrund (Favicon-stilen)
+    }
+  };
 
-  // Determine source based on props
-  let src = LOGO_FULL_WHITE; // Fallback default
+  let src = ASSETS.full.white; 
+
+  const normalizedColor = color === 'color' ? 'black' : color;
 
   if (variant === 'symbol') {
-    // Use the Icon (M)
-    src = color === 'white' ? LOGO_SYMBOL_WHITE : LOGO_SYMBOL_RED;
+    switch (normalizedColor) {
+      case 'red':   src = ASSETS.symbol.red; break;
+      case 'black': src = ASSETS.symbol.black; break;
+      case 'white': 
+      default:      src = ASSETS.symbol.white; break;
+    }
   } else {
-    // Use the Wordmark (MAKE)
-    if (color === 'white') {
-      src = LOGO_FULL_WHITE;
-    } else {
-      // 'color' or 'black' -> Use dark logo for light backgrounds
-      src = LOGO_FULL_BLACK;
+    // Full Wordmark logic
+    switch (normalizedColor) {
+      case 'black': src = ASSETS.full.black; break;
+      case 'red':   src = ASSETS.full.red; break;
+      case 'white': 
+      default:      src = ASSETS.full.white; break;
     }
   }
 
@@ -35,8 +49,15 @@ const Logo: React.FC<LogoProps> = ({ color = "color", variant = "full", classNam
       <img 
         src={src} 
         alt="MAKE GOLF" 
-        className={`h-6 md:h-8 w-auto object-contain transition-all duration-300 ${variant === 'symbol' ? 'max-w-[40px]' : 'max-w-[180px]'}`}
+        className={`h-auto object-contain transition-all duration-300 ${variant === 'symbol' ? 'max-h-10' : 'max-h-7 md:max-h-8'}`}
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+          e.currentTarget.parentElement?.classList.add('fallback-text');
+        }}
       />
+      <span className="hidden fallback-text:block text-xs font-bold font-mono text-red-500 uppercase tracking-widest">
+        MAKE GOLF
+      </span>
     </div>
   );
 };

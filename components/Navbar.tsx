@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Pages that always use a light header/theme
+  // Pages that always use a light header/theme (white background pages)
   const isAlwaysLightHeader = ['/clubs', '/fitters'].includes(location.pathname);
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Determine if we should use the dark/colored theme for the navbar content
   const shouldUseColorTheme = scrolled || isAlwaysLightHeader;
 
   // External Dashboard URL
@@ -36,13 +37,14 @@ const Navbar: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-brand-black/80 backdrop-blur-xl border-b border-white/5 py-4 shadow-lg' 
+          ? 'bg-brand-polar/95 backdrop-blur-xl border-b border-brand-black/5 py-4 shadow-sm' 
           : 'bg-transparent border-transparent py-8'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="z-50 relative group block shrink-0">
-          <Logo color={shouldUseColorTheme ? "color" : "white"} />
+          {/* Use Black logo when scrolled (light bg), White logo when transparent (dark bg) */}
+          <Logo color={shouldUseColorTheme ? "black" : "white"} />
         </Link>
 
         {/* Desktop Menu */}
@@ -54,7 +56,7 @@ const Navbar: React.FC = () => {
               className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 whitespace-nowrap ${
                 location.pathname === link.path 
                   ? 'text-brand-mink font-bold' 
-                  : (shouldUseColorTheme ? 'text-white hover:text-brand-mink' : 'text-brand-polar/80 hover:text-white')
+                  : (shouldUseColorTheme ? 'text-brand-black hover:text-brand-mink' : 'text-brand-polar/80 hover:text-white')
               }`}
             >
               {link.label}
@@ -69,7 +71,7 @@ const Navbar: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`text-[10px] font-mono transition-colors uppercase tracking-wider flex items-center gap-2 ${
-              shouldUseColorTheme ? 'text-white/60 hover:text-white' : 'text-brand-polar/60 hover:text-brand-polar'
+              shouldUseColorTheme ? 'text-brand-black/60 hover:text-brand-black' : 'text-brand-polar/60 hover:text-brand-polar'
             }`}
            >
             Partner Login <ExternalLink className="w-3 h-3" />
@@ -85,7 +87,7 @@ const Navbar: React.FC = () => {
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className={`lg:hidden z-50 relative transition-colors ${
-            isOpen ? 'text-brand-polar' : (shouldUseColorTheme ? 'text-white' : 'text-brand-polar')
+            isOpen ? 'text-brand-polar' : (shouldUseColorTheme ? 'text-brand-black' : 'text-brand-polar')
           }`}
         >
           {isOpen ? <X /> : <Menu />}

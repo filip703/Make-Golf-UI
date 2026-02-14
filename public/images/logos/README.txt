@@ -1,13 +1,17 @@
 
-INSTRUKTIONER FÖR LOGOTYPER
-===========================
+VIKTIGT: FILNAMN OCH MAPPSTRUKTUR
+=================================
 
-Lägg era logotyp-filer i denna mapp. För bästa resultat, använd PNG med transparent bakgrund eller SVG.
+För att logotyperna ska fungera på sidan, döp dina filer EXAKT så här och lägg dem i denna mapp (public/images/logos/):
 
-Förslag på filnamn:
-1. logo-full-white.png   (Hela loggan i vitt)
-2. logo-full-black.png   (Hela loggan i svart)
-3. symbol-mink.png       (Endast ikonen/symbolen i er röda färg)
-4. symbol-white.png      (Endast ikonen i vitt)
+TEXT-LOGGOR (Bara texten "MAKE" eller "MAKE GOLF"):
+1. wordmark-white.png   (Vit text, transparent bakgrund)
+2. wordmark-black.png   (Svart text, transparent bakgrund)
+3. wordmark-red.png     (Röd text, transparent bakgrund)
 
-När ni laddat upp dessa kan vi uppdatera components/Logo.tsx för att använda dem.
+SYMBOLER (Bara "M"-ikonen):
+4. symbol-white.png     (Vit ikon, transparent bakgrund)
+5. symbol-black.png     (Svart ikon, transparent bakgrund)
+6. symbol-red.png       (Röd ikon, transparent bakgrund)
+
+Se till att alla bilder är PNG med transparent bakgrund (inte svarta/vita rutor bakom).

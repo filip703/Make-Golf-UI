@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fingerprint, Dna, Activity, ChevronDown, Sliders, Scan, Database, Layers, Zap, Cpu, Code, Play } from 'lucide-react';
+import { ArrowRight, Activity, ChevronDown, Sliders, Scan, Zap, Cpu, Code, Play, Dna } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -52,18 +52,13 @@ const Home: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
-        {/* Background Video */}
+        {/* Background Image (Replaced Video) */}
         <div className="absolute inset-0 z-0">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              poster="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
+            <img 
+              src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
+              alt="Golf Texture Background"
               className="w-full h-full object-cover opacity-40 scale-105 grayscale contrast-125"
-            >
-              <source src="/videos/hero-loop.mp4" type="video/mp4" />
-            </video>
+            />
             <div className="absolute inset-0 bg-brand-black/60"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#191919_120%)]"></div>
             
@@ -145,17 +140,16 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- VISUAL EVIDENCE (VIDEO SHOWCASE) --- */}
+      {/* --- VISUAL EVIDENCE --- */}
       <section className="bg-[#030303] border-b border-white/5">
          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Video 1: Manufacturing Process */}
+            {/* Visual 1: Manufacturing Process */}
             <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden border-r border-white/5">
-                <video 
-                   autoPlay muted loop playsInline
+                <img 
+                   src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1974&auto=format&fit=crop"
+                   alt="Manufacturing"
                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                >
-                   <source src="/videos/manufacturing.mp4" type="video/mp4" />
-                </video>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div className="absolute bottom-10 left-10 z-10">
                    <div className="inline-flex items-center gap-2 mb-3">
@@ -165,22 +159,15 @@ const Home: React.FC = () => {
                    <h3 className="text-3xl font-display text-white mb-2">The Reactor</h3>
                    <p className="text-brand-polar/50 text-sm font-mono max-w-sm">48-hour continuous laser sintering. Growing your geometry atom by atom.</p>
                 </div>
-                {/* Play Button Overlay */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-16 h-16 rounded-full border border-white/20 bg-black/40 backdrop-blur flex items-center justify-center">
-                        <Play className="w-6 h-6 text-white fill-white" />
-                    </div>
-                </div>
             </div>
 
-            {/* Video 2: The Swing/Result */}
+            {/* Visual 2: The Swing/Result */}
             <div className="relative aspect-video lg:aspect-auto lg:h-[700px] group overflow-hidden">
-                <video 
-                   autoPlay muted loop playsInline
+                <img 
+                   src="https://images.unsplash.com/photo-1599586120429-4828d5dabb04?q=80&w=2000&auto=format&fit=crop"
+                   alt="Analysis"
                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                >
-                   <source src="/videos/swing-analysis.mp4" type="video/mp4" />
-                </video>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div className="absolute bottom-10 left-10 z-10">
                    <div className="inline-flex items-center gap-2 mb-3">
@@ -189,12 +176,6 @@ const Home: React.FC = () => {
                    </div>
                    <h3 className="text-3xl font-display text-white mb-2">Impact Physics</h3>
                    <p className="text-brand-polar/50 text-sm font-mono max-w-sm">Optimized acoustics and dispersion control through generative lattice structures.</p>
-                </div>
-                {/* Play Button Overlay */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-16 h-16 rounded-full border border-white/20 bg-black/40 backdrop-blur flex items-center justify-center">
-                        <Play className="w-6 h-6 text-white fill-white" />
-                    </div>
                 </div>
             </div>
          </div>
