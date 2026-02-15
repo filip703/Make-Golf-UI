@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Fingerprint, Activity, Layers, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ChevronDown, Fingerprint, Activity, Layers } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -36,19 +36,19 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#121212] text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
+    <div className="min-h-screen bg-[#111] text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#111]">
+      {/* Hero Section - Kept Dark for Impact */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
         {/* Background Image - Softer overlay */}
         <div className="absolute inset-0 z-0">
             <img 
               src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
               alt="Golf Texture Background"
-              className="w-full h-full object-cover opacity-40 scale-105 grayscale"
+              className="w-full h-full object-cover opacity-30 scale-105 grayscale"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#121212]/30 via-[#121212]/60 to-[#121212]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-[#111]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">
@@ -106,7 +106,7 @@ const Home: React.FC = () => {
                   </Button>
                 </Link>
                 <Link to="/clubs" className="text-sm font-medium text-brand-polar/80 hover:text-white transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5">
-                  Explore The Collection
+                  View Components
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -125,13 +125,14 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- DNA / PHILOSOPHY (New Section) --- */}
-      <section className="py-32 bg-[#151515] border-b border-white/5">
+      {/* --- LIGHT SECTION: DNA / PHILOSOPHY --- */}
+      {/* Changed background to light grey (#EAEAEA) to soften the look */}
+      <section className="py-32 bg-[#EAEAEA] text-[#111]">
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="max-w-3xl mx-auto text-center mb-24">
-                  <h2 className="text-3xl md:text-5xl font-display text-white mb-6">Built for the Individual.</h2>
-                  <p className="text-lg text-brand-polar/60 font-light leading-relaxed">
+                  <h2 className="text-3xl md:text-5xl font-display text-[#111] mb-6">Built for the Individual.</h2>
+                  <p className="text-lg text-[#111]/70 font-light leading-relaxed">
                      Mass production works for t-shirts, not for golf swings. 
                      We stripped away the marketing fluff to focus on what actually matters: 
                      Physics, Geometry, and You.
@@ -142,33 +143,33 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
                <FadeIn delay={0.1}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
                         <Fingerprint className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-white mb-3">Your Signature</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#111] mb-3">Your Signature</h3>
+                     <p className="text-[#111]/60 text-sm leading-relaxed">
                         We capture your biomechanical data to create a club that matches your unique swing DNA, not a market average.
                      </p>
                   </div>
                </FadeIn>
                <FadeIn delay={0.2}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
                         <Activity className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-white mb-3">Adaptive Design</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#111] mb-3">Adaptive Design</h3>
+                     <p className="text-[#111]/60 text-sm leading-relaxed">
                         Our generative AI adapts geometry to optimize center of gravity and MOI specifically for your impact tendencies.
                      </p>
                   </div>
                </FadeIn>
                <FadeIn delay={0.3}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
                         <Layers className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-white mb-3">Additive Mfg</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#111] mb-3">Additive Mfg</h3>
+                     <p className="text-[#111]/60 text-sm leading-relaxed">
                         Printed layer by layer in stainless steel. This method allows for complex internal structures impossible to cast.
                      </p>
                   </div>
@@ -177,16 +178,16 @@ const Home: React.FC = () => {
          </div>
       </section>
 
-      {/* --- THE COLLECTION --- */}
+      {/* --- PRODUCT ARCHITECTURES (Formerly Collection) --- */}
       <section className="py-32 bg-[#121212]">
         <div className="container mx-auto px-6">
           <div className="mb-16 flex items-end justify-between border-b border-white/5 pb-8">
             <div>
-               <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">Our Products</span>
-               <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight">The Collection</h2>
+               <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Hardware</span>
+               <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight">Product Architecture</h2>
             </div>
             <Link to="/clubs" className="hidden md:block">
-              <Button variant="outline" size="sm" className="rounded-full">View All Categories</Button>
+              <Button variant="outline" size="sm" className="rounded-full">View Components</Button>
             </Link>
           </div>
 
@@ -208,7 +209,7 @@ const Home: React.FC = () => {
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 className="text-2xl font-display text-white mb-1">{cat.name}</h3>
                     <p className="text-brand-polar/70 font-sans text-sm font-light max-w-[200px]">
-                      {cat.desc}
+                      {cat.tagline}
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-brand-mink opacity-0 group-hover:opacity-100 transition-opacity">
                        Configure <ArrowRight className="w-3 h-3" />
@@ -220,13 +221,13 @@ const Home: React.FC = () => {
           
           <div className="mt-8 md:hidden">
              <Link to="/clubs">
-                <Button variant="outline" size="sm" className="w-full rounded-full">View All Categories</Button>
+                <Button variant="outline" size="sm" className="w-full rounded-full">View All Components</Button>
              </Link>
           </div>
         </div>
       </section>
 
-      {/* --- ARTICLES / JOURNAL --- */}
+      {/* --- ARTICLES / JOURNAL (Softened Background) --- */}
       <section className="py-24 bg-[#181818] border-t border-white/5">
          <div className="container mx-auto px-6">
             <FadeIn>
@@ -242,7 +243,7 @@ const Home: React.FC = () => {
                 {ARTICLES.slice(0, 3).map((article, index) => (
                     <FadeIn key={article.id} delay={index * 0.1}>
                         <Link to="/about" className="group block">
-                            <div className="relative aspect-video bg-[#222] overflow-hidden rounded-lg mb-4">
+                            <div className="relative aspect-video bg-[#222] overflow-hidden rounded-lg mb-4 border border-white/5">
                                 <img 
                                     src={article.image} 
                                     alt={article.title}
