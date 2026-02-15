@@ -32,12 +32,13 @@ const Technology: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
              <FadeIn direction="right">
                 <div className="relative aspect-video bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
+                    {/* Poster updated to Launch Monitor/Tech Lab */}
                     <video 
                       autoPlay 
                       loop 
                       muted 
                       playsInline
-                      poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                      poster="https://images.unsplash.com/photo-1576267423048-15c0040fec78?q=80&w=2070&auto=format&fit=crop"
                       className="w-full h-full object-cover opacity-60 mix-blend-screen group-hover:opacity-90 transition-all duration-700"
                     >
                        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4" />
@@ -85,12 +86,13 @@ const Technology: React.FC = () => {
 
              <FadeIn direction="left" className="order-1 lg:order-2">
                 <div className="relative aspect-square bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
+                    {/* Poster updated to Simulation/Wireframe */}
                     <video 
                       autoPlay 
                       loop 
                       muted 
                       playsInline
-                      poster="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1974&auto=format&fit=crop"
+                      poster="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
                       className="w-full h-full object-cover opacity-60 mix-blend-screen group-hover:opacity-100 transition-all duration-700"
                     >
                        <source src="https://videos.pexels.com/video-files/1851190/1851190-uhd_3840_2160_25fps.mp4" type="video/mp4" />
@@ -114,12 +116,13 @@ const Technology: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
              <FadeIn direction="right">
                 <div className="relative aspect-video bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
+                    {/* Poster updated to 3D Printing / Laser */}
                     <video 
                       autoPlay 
                       loop 
                       muted 
                       playsInline
-                      poster="https://images.unsplash.com/photo-1622543925917-0985c7d1e8c3?q=80&w=1974&auto=format&fit=crop"
+                      poster="https://images.unsplash.com/photo-1565439396384-36775f7823e5?q=80&w=2056&auto=format&fit=crop"
                       className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700"
                     >
                        <source src="https://videos.pexels.com/video-files/4722956/4722956-uhd_3840_2160_25fps.mp4" type="video/mp4" />

@@ -15,13 +15,15 @@ const Configurator: React.FC = () => {
       id: 'blade',
       name: 'MB-01 // BLADE',
       desc: 'Pure muscle back geometry with optimized CG location.',
-      image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop',
+      // Clean, raw metal blade look
+      image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop',
       features: ['Thin Topline', 'Workability', 'High COG']
     },
     {
       id: 'cavity',
       name: 'CB-01 // CAVITY',
       desc: 'Perimeter weighted for forgiveness without sacrificing feel.',
+      // Slightly more complex geometry
       image: 'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop',
       features: ['Mid Offset', 'Forgiveness', 'Mid COG']
     },
@@ -29,7 +31,8 @@ const Configurator: React.FC = () => {
       id: 'hollow',
       name: 'UB-01 // HOLLOW',
       desc: 'Hollow body construction for maximum ball speeds.',
-      image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop',
+      // High tech/modern look
+      image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop',
       features: ['Thick Topline', 'Distance', 'Low COG']
     }
   ];

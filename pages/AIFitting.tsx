@@ -11,11 +11,11 @@ const AIFitting: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center border-b border-white/5 overflow-hidden">
-         {/* Background Tech Video/Image */}
+         {/* Background Tech Video/Image - Updated to Wireframe/Scan */}
          <div className="absolute inset-0 z-0">
             <img 
-               src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
-               className="w-full h-full object-cover opacity-20 grayscale mix-blend-overlay"
+               src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" 
+               className="w-full h-full object-cover opacity-10 mix-blend-screen"
                alt="Cybernetics"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/90 to-transparent"></div>
@@ -121,8 +121,9 @@ const AIFitting: React.FC = () => {
                      We hand the controls to you. Enter the 3D Configurator to tweak aesthetics, add logos, adjust topline thickness, and apply custom finishes. You own the look; Physics owns the performance.
                   </p>
                   <div className="relative h-20 bg-black/50 rounded border border-white/5 overflow-hidden flex items-center justify-center">
-                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611095790444-1dfa35e37b52?q=80&w=2071&auto=format&fit=crop')] opacity-20 bg-cover"></div>
-                     <span className="text-[10px] font-mono text-white border border-white/20 px-2 py-1 rounded bg-black/50 backdrop-blur">LAUNCH 3D EDITOR</span>
+                     {/* Updated to a Wireframe/Grid BG */}
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1545665277-5937bf04a5bd?q=80&w=2070&auto=format&fit=crop')] opacity-30 bg-cover"></div>
+                     <span className="text-[10px] font-mono text-white border border-white/20 px-2 py-1 rounded bg-black/50 backdrop-blur z-10">LAUNCH 3D EDITOR</span>
                   </div>
                </div>
 
@@ -156,6 +157,7 @@ const AIFitting: React.FC = () => {
                         <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
                         <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
                      </div>
+                     {/* Updated Dashboard Image Mockup */}
                      <img 
                         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
                         className="w-full object-cover opacity-60 group-hover:opacity-80 transition-opacity grayscale group-hover:grayscale-0 duration-700"

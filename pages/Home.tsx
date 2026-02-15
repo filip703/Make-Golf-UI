@@ -40,12 +40,12 @@ const Home: React.FC = () => {
       
       {/* Hero Section - Gradient Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#242424] via-[#1A1A1A] to-[#121212]">
-        {/* Background Image */}
+        {/* Background Image - Updated to Dark Abstract / Metal */}
         <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop"
-              alt="Golf Club Detail"
-              className="w-full h-full object-cover opacity-20 scale-105"
+              src="https://images.unsplash.com/photo-1629202570460-618778f65e23?q=80&w=2070&auto=format&fit=crop" 
+              alt="Dark Metal Texture"
+              className="w-full h-full object-cover opacity-30 scale-105"
             />
             {/* Soft Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-brand-black/60 to-brand-black"></div>
@@ -216,13 +216,13 @@ const Home: React.FC = () => {
                 </Link>
              </FadeIn>
 
-             {/* Right: Visual Abstract */}
+             {/* Right: Visual Abstract - Updated Image */}
              <FadeIn direction="left" delay={0.2}>
                 <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-[#151515] group shadow-2xl">
                    <img 
-                      src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop" 
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
                       alt="Data Analysis"
-                      className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity group-hover:opacity-60 transition-opacity duration-700"
+                      className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity group-hover:opacity-60 transition-opacity duration-700"
                    />
                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-mink/20 to-transparent mix-blend-overlay"></div>
                    

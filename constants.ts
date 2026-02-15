@@ -22,7 +22,8 @@ export const CLUB_CATEGORIES = [
     name: 'Irons',
     tagline: 'The Scoring Engine',
     desc: 'Fully parametric blade lengths, offsets, and top-lines. Optimized for your strike pattern.',
-    image: 'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop', // Specific Iron Head
+    // Image: Macro shot of brushed steel / industrial look
+    image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', 
     specs: ['17-4PH SS', 'DMLS Print', 'Custom CG']
   },
   {
@@ -30,7 +31,8 @@ export const CLUB_CATEGORIES = [
     name: 'Wedges',
     tagline: 'Friction & Feel',
     desc: 'Raw printed faces for maximum spin retention. Bounce and grind geometry adapted to your angle of attack.',
-    image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', // Detailed Wedge Face
+    // Image: Dark close up of grooves or raw metal texture
+    image: 'https://images.unsplash.com/photo-1599587426861-591b92e74211?q=80&w=1931&auto=format&fit=crop', 
     specs: ['Raw Finish', 'High Spin', 'Variable Sole']
   },
   {
@@ -38,7 +40,8 @@ export const CLUB_CATEGORIES = [
     name: 'Putters',
     tagline: 'Stability Defined',
     desc: 'Complex lattice structures allow for extreme MOI in compact shapes impossible to mill.',
-    image: 'https://images.unsplash.com/photo-1565158102371-33758371306b?q=80&w=2067&auto=format&fit=crop', // Putter / Metal detail
+    // Image: High tech milled face or lattice structure abstract
+    image: 'https://images.unsplash.com/photo-1587800057406-8d59d1a6f87c?q=80&w=1974&auto=format&fit=crop', 
     specs: ['316L SS', 'Lattice Core', 'Face Balanced']
   }
 ];
@@ -53,7 +56,8 @@ export const ARTICLES = [
     title: "The Physics of Porosity",
     date: "OCT 12, 2025",
     category: "ENGINEERING",
-    image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop",
+    // Image: Microscope shot of metal or laser sintering
+    image: 'https://images.unsplash.com/photo-1563206767-5b1d972b9fb9?q=80&w=1974&auto=format&fit=crop',
     excerpt: "Why micro-welding defects in cast irons create inconsistent ball speeds, and how DMLS solves it."
   },
   {
@@ -61,7 +65,8 @@ export const ARTICLES = [
     title: "Variable Face Thickness",
     date: "SEP 28, 2025",
     category: "R&D",
-    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop",
+    // Image: Wireframe / Heatmap / Simulation
+    image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop",
     excerpt: "We utilized AI to run 40,000 impact simulations. The result is a face topology that adapts to your miss."
   },
   {
@@ -69,7 +74,8 @@ export const ARTICLES = [
     title: "Tour Issue is a Lie",
     date: "AUG 14, 2025",
     category: "OPINION",
-    image: "https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop",
+    // Image: Dark moody golf course or player silhouette
+    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop",
     excerpt: "The gap between what pros play and what you buy is widening. We are closing it."
   }
 ];

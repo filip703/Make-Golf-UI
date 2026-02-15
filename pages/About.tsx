@@ -97,7 +97,7 @@ const About: React.FC = () => {
                            src="/assets/founders/marten.png" 
                            alt="Mårten Eker" 
                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
-                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop"}} // Fallback
+                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop"}} // Fallback (More serious/executive)
                         />
                         <div className="absolute bottom-3 left-3">
                            <div className="bg-brand-mink text-white px-2 py-0.5 text-[10px] font-bold font-mono">
@@ -123,7 +123,7 @@ const About: React.FC = () => {
                            src="/assets/founders/filip.png" 
                            alt="Filip Hector" 
                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
-                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"}} // Fallback
+                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop"}} // Fallback
                         />
                          <div className="absolute bottom-3 left-3">
                            <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">
@@ -149,7 +149,7 @@ const About: React.FC = () => {
                            src="/assets/founders/erik.png" 
                            alt="Erik Paulsson" 
                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
-                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"}} // Fallback
+                           onError={(e) => {e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"}} // Fallback
                         />
                          <div className="absolute bottom-3 left-3">
                            <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">
