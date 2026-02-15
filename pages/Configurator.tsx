@@ -1,62 +1,190 @@
-
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, Loader2, Maximize, AlertCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Sliders, Cpu, Crosshair, ArrowRight, MousePointer2 } from 'lucide-react';
+import FadeIn from '../components/FadeIn';
+import Button from '../components/Button';
 
 const Configurator: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  
-  // The specific ModelUp3D URL provided
-  const CONFIGURATOR_URL = "https://configurator.modelup3d.com/?projectId=oa1oRJb3&token=eyJhbGciOiJIUzI1NiJ9.eyJ2NW4iOjEsImlkIjoxMzQsInA3ZCI6Im9hMW9SSmIzIiwicDlzIjpbImM1ZSIsInJfYzE1YSJdfQ.p-s501nEeYwHvyH2JJUYuSlk5f9rJZ2HbQC58p8DIXc&configurationState=a_29b5d105-ab7f-4511-a8cb-c81eb0f33f2c_7b8382fc-47a7-48ec-bfab-87daf3482240_0_e3685a61-0488-495b-af0a-03f4cd28662b_34.9_5310300e-e063-415e-b008-c54613d8a961_61_1e4aac43-e484-48ef-9549-2d54d4a16715_0_8ce09785-357e-48fb-ae65-422003074fef_77.4_cc947572-79b1-4736-bc9b-90b11a73713a_55.1_bc5871e7-3961-46c3-8fe0-1122e8586405_30.1_c5e62c30-a479-45a4-9879-c828067b840e_4.5_cdf62d42-b88d-4add-9487-21806bcbfe05_9.12_1c129292-ed94-48ea-ae88-309cd2291f1f_32.6_82434f86-8f4a-49bb-be3b-455c356e69bf_9.6_a38a92bf-cdb6-4ea1-b50d-2d108dd75062_14.789_52436bbd-9b9c-46f6-973f-0584ea52d3fe_1.6_b18d42ba-b806-41f9-8702-55359170f28d_2.5_c72f9f2b-c110-492a-851e-3395391883d0_-2.4_480f42a1-ddae-41bd-9d8f-73a47b8c9232_42.7_c0182fe3-ceab-4e11-9249-1ec1a765f0f0_23_22fc43a3-85ce-46b3-9d1f-75422eaf7da0_22.7_d7ae2c3c-6620-4717-b85f-6336c42303fe_14.7_8f9802f1-a672-403a-824e-620e4e93207f_0.436_67832bf3-3810-4db8-8a9d-fe7eb8f8a507_6_e458d1ce-50a5-43b2-9dd0-6297e8325ef5_1.49_14449719-d773-43bd-9741-17ce40106734_2_5e4e18a0-7ddf-4dca-abc3-ebc14804c910_10_c352805c-4369-4674-b1a8-c644bcea716e_2_6c8655d4-2130-4b0e-adea-e9a9b0bd3f3c_1.7_86cd5747-0513-4e1f-aef3-77f323c08da6_3_7c9e3dc2-4ee3-490f-af5a-1e033113ac98_0.45_groove+extend_0_76f64105-1ed0-476d-8fe9-8a0d735dfb25_1.11_1400e927-5c58-40be-9c6b-2fe1cb4e9315_0.955";
+  // The official external tool URL
+  const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90_eHS_0_aLA_35.4_eLA_62.2_aO_-1_aBL_79_aTH_57.9_eHtH_32_aTpLW_4.7_dGW_0.81_dGDe_0.275_dGDi_2.24_dGTOTw_10.66_dGTEC_0.163_aHHt_34.5_bTTpR_12.833_dGBC_0.146_bTSR_18.207_cSC_2_aTC_4.6_bTAAR_-1.8_bTAR_42.3_eHsBlO_3.9_cSTW_19.7_cSW_19.7_cSHW_14.8_aBkDH_0.401_cSB_5_eHsT_1.55_eHsBPO_8.1_eHsBo_4_eHsR_15_cSLER_1.5_dGFO_1.68_cSBER_3_eCN_0.45_fM_0_dGXtd_0_eHsIC_1.11_eHsOR_0.955_fGB_0_fCG_0_aBkDS_2.01_cTBER_1.5_gLR_-7_gLOfTD_7_gLS_0.44_fML_0_gLOfT_0.13_gSNr__gHNr_10.24_gMNr_0.32_fMNr_0_fIL_0_fMIZ_0_fLorR_0&mg_raw=a_7e175a18-1026-47cf-b224-16b8a8b0fa90_eHS_0_aLA_35.4_eLA_62.2_aO_-1_aBL_79_aTH_57.9_eHtH_32_aTpLW_4.7_dGW_0.81_dGDe_0.275_dGDi_2.24_dGTOTw_10.66_dGTEC_0.163_aHHt_34.5_bTTpR_12.833_dGBC_0.146_bTSR_18.207_cSC_2_aTC_4.6_bTAAR_-1.8_bTAR_42.3_eHsBlO_3.9_cSTW_19.7_cSW_19.7_cSHW_14.8_aBkDH_0.401_cSB_5_eHsT_1.55_eHsBPO_8.1_eHsBo_4_eHsR_15_cSLER_1.5_dGFO_1.68_cSBER_3_eCN_0.45_fM_0_dGXtd_0_eHsIC_1.11_eHsOR_0.955_fGB_0_fCG_0_aBkDS_2.01_cTBER_1.5_gLR_-7_gLOfTD_7_gLS_0.44_fML_0_gLOfT_0.13_gSNr__gHNr_10.24_gMNr_0.32_fMNr_0_fIL_0_fMIZ_0_fLorR_0";
 
   return (
-    <div className="h-screen bg-[#050505] text-brand-polar flex flex-col pt-20 overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
+    <div className="min-h-screen bg-[#050505] text-brand-polar pt-20 selection:bg-brand-mink selection:text-white">
       
-      {/* Minimal Header */}
-      <header className="h-14 border-b border-white/5 bg-[#080808] flex items-center justify-between px-4 md:px-6 z-20 shrink-0">
-        <div className="flex items-center gap-6">
-            <Link to="/" className="flex items-center gap-2 text-brand-polar/40 hover:text-white transition-colors">
-                <ChevronLeft className="w-4 h-4" />
-                <span className="text-xs font-mono uppercase hidden md:inline">Exit</span>
-            </Link>
-            
-            <div className="h-6 w-px bg-white/10 mx-2 hidden md:block"></div>
-            
-            <div className="flex items-center gap-2 font-display font-bold tracking-widest text-brand-mink">
-                LIVE CONFIGURATOR
-            </div>
+      {/* Hero / Launcher */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden border-b border-white/5">
+        
+        {/* Abstract Tech Background */}
+        <div className="absolute inset-0 z-0 opacity-40">
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,34,76,0.1),transparent_70%)]"></div>
+           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
+           
+           {/* Moving Grid */}
+           <div className="absolute inset-0 bg-grid opacity-20 animate-pulse-slow"></div>
         </div>
 
-        <div className="flex items-center gap-4">
-             <div className="hidden md:flex items-center gap-2 text-[10px] font-mono text-brand-polar/40">
-                <AlertCircle className="w-3 h-3" />
-                <span>BETA ENVIRONMENT v2.1</span>
-             </div>
-        </div>
-      </header>
-
-      {/* Main Content Area */}
-      <div className="flex-1 relative w-full h-full bg-black">
-         
-         {/* Loading State */}
-         {isLoading && (
-            <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-[#050505]">
-                <Loader2 className="w-10 h-10 text-brand-mink animate-spin mb-4" />
-                <div className="text-sm font-mono text-brand-polar animate-pulse">INITIALIZING 3D ENGINE...</div>
-                <div className="text-xs font-mono text-brand-polar/30 mt-2">Loading Geometry & Textures</div>
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <FadeIn direction="up">
+            <div className="inline-flex items-center gap-2 border border-brand-mink/30 bg-brand-mink/5 px-4 py-1 rounded-full mb-8 backdrop-blur-md">
+               <span className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></span>
+               <span className="text-[10px] font-mono font-bold text-brand-mink uppercase tracking-widest">Make Lab // Beta Access</span>
             </div>
-         )}
+            
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-medium text-white mb-8 tracking-tighter leading-[0.9]">
+              Total.<br/>
+              Control.
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-brand-polar/60 font-light font-sans max-w-3xl mx-auto mb-12 leading-relaxed">
+               This is not a color picker. This is a parametric engineering engine. 
+               Control 60+ geometric variables in real-time.
+            </p>
 
-         {/* The Iframe */}
-         <iframe 
-            src={CONFIGURATOR_URL}
-            className={`absolute inset-0 w-full h-full border-none transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-            onLoad={() => setIsLoading(false)}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Make Golf 3D Configurator"
-         />
-      </div>
+            <div className="flex flex-col items-center gap-4">
+               <a href={MAKER_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary" size="lg" className="text-lg px-12 py-6 shadow-[0_0_50px_-10px_rgba(255,34,76,0.4)] group">
+                     Launch 3D Configurator <ExternalLink className="w-5 h-5 ml-3 group-hover:rotate-45 transition-transform" />
+                  </Button>
+               </a>
+               <span className="text-[10px] font-mono text-brand-polar/30 uppercase tracking-widest">Optimized for Desktop Chrome & Safari</span>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-24 bg-[#0a0a0a] border-b border-white/5">
+        <div className="container mx-auto px-6">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <FadeIn delay={0.1}>
+                 <div className="group">
+                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:bg-brand-mink group-hover:text-white transition-all duration-300">
+                       <Sliders className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-display text-white mb-4">Parametric Geometry</h3>
+                    <p className="text-brand-polar/50 font-mono text-xs leading-relaxed">
+                       Adjust offset, blade length, top-line thickness, and bounce angle down to the millimeter. The model regenerates instantly in browser.
+                    </p>
+                 </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                 <div className="group">
+                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:bg-brand-mink group-hover:text-white transition-all duration-300">
+                       <Crosshair className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-display text-white mb-4">CG Manipulation</h3>
+                    <p className="text-brand-polar/50 font-mono text-xs leading-relaxed">
+                       Shift the Center of Gravity (CG) toe-bias or heel-bias to counteract your specific miss. Visualize mass properties in real-time.
+                    </p>
+                 </div>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                 <div className="group">
+                    <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:bg-brand-mink group-hover:text-white transition-all duration-300">
+                       <Cpu className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-display text-white mb-4">Export to Mfg</h3>
+                    <p className="text-brand-polar/50 font-mono text-xs leading-relaxed">
+                       What you see is what we print. The engine generates the exact manufacturing file sent to our EOS M290 printers.
+                    </p>
+                 </div>
+              </FadeIn>
+           </div>
+        </div>
+      </section>
+
+      {/* Starting Points */}
+      <section className="py-32 container mx-auto px-6">
+         <FadeIn>
+            <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
+               <h2 className="text-4xl md:text-5xl font-display text-white">Select a Base Architecture</h2>
+               <div className="hidden md:block text-brand-polar/40 font-mono text-xs uppercase tracking-widest">
+                  Choose a chassis to start modifying
+               </div>
+            </div>
+         </FadeIn>
+
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Blade */}
+            <a href={MAKER_URL} target="_blank" rel="noopener noreferrer" className="group relative aspect-[3/4] overflow-hidden border border-white/10 bg-[#111] hover:border-brand-mink/50 transition-colors">
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
+               <img 
+                  src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:scale-105 transition-transform duration-700"
+                  alt="Blade"
+               />
+               <div className="absolute bottom-8 left-8 right-8 z-20">
+                  <div className="flex justify-between items-end">
+                     <div>
+                        <div className="text-brand-mink font-mono text-xs uppercase mb-2 tracking-widest">Chassis 01</div>
+                        <h3 className="text-3xl font-display text-white mb-1">Blade</h3>
+                        <p className="text-brand-polar/50 text-xs font-mono">Workable. Precise.</p>
+                     </div>
+                     <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-mink group-hover:border-transparent transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                     </div>
+                  </div>
+               </div>
+            </a>
+
+            {/* Cavity */}
+            <a href={MAKER_URL} target="_blank" rel="noopener noreferrer" className="group relative aspect-[3/4] overflow-hidden border border-white/10 bg-[#111] hover:border-brand-mink/50 transition-colors">
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
+               <img 
+                  src="https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:scale-105 transition-transform duration-700"
+                  alt="Cavity"
+               />
+               <div className="absolute bottom-8 left-8 right-8 z-20">
+                  <div className="flex justify-between items-end">
+                     <div>
+                        <div className="text-brand-mink font-mono text-xs uppercase mb-2 tracking-widest">Chassis 02</div>
+                        <h3 className="text-3xl font-display text-white mb-1">Cavity</h3>
+                        <p className="text-brand-polar/50 text-xs font-mono">Balanced. Stable.</p>
+                     </div>
+                     <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-mink group-hover:border-transparent transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                     </div>
+                  </div>
+               </div>
+            </a>
+
+            {/* Hollow */}
+            <a href={MAKER_URL} target="_blank" rel="noopener noreferrer" className="group relative aspect-[3/4] overflow-hidden border border-white/10 bg-[#111] hover:border-brand-mink/50 transition-colors">
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
+               <img 
+                  src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:scale-105 transition-transform duration-700"
+                  alt="Hollow"
+               />
+               <div className="absolute bottom-8 left-8 right-8 z-20">
+                  <div className="flex justify-between items-end">
+                     <div>
+                        <div className="text-brand-mink font-mono text-xs uppercase mb-2 tracking-widest">Chassis 03</div>
+                        <h3 className="text-3xl font-display text-white mb-1">Hollow</h3>
+                        <p className="text-brand-polar/50 text-xs font-mono">Fast. Forgiving.</p>
+                     </div>
+                     <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-mink group-hover:border-transparent transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </section>
+
+      {/* Tutorial / Help CTA */}
+      <section className="py-24 bg-brand-surface border-t border-white/5">
+         <div className="container mx-auto px-6 text-center">
+            <MousePointer2 className="w-12 h-12 text-brand-polar/20 mx-auto mb-6" />
+            <h3 className="text-2xl font-display text-white mb-4">New to Parametric Design?</h3>
+            <p className="text-brand-polar/50 max-w-lg mx-auto mb-8 font-mono text-sm">
+               Our engine is powerful. If you need guidance navigating the 60+ parameters, start with a guided fitting session instead.
+            </p>
+            <Button variant="outline" size="sm">Book a Virtual Session</Button>
+         </div>
+      </section>
+
     </div>
   );
 };

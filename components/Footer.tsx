@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -13,15 +11,11 @@ const Footer: React.FC = () => {
             <Link to="/" className="mb-8 block">
               <Logo color="white" />
             </Link>
-            <p className="text-brand-polar/40 text-xs font-mono leading-relaxed max-w-xs uppercase mb-4">
+            <p className="text-brand-polar/40 text-xs font-mono leading-relaxed max-w-xs uppercase">
               We don't sell promises.<br/>
               We build answers.<br/>
               Stockholm, Sweden.
             </p>
-            <a href="mailto:team@make.golf" className="inline-flex items-center text-brand-mink text-xs font-mono font-bold hover:text-white transition-colors">
-               <Mail className="w-3 h-3 mr-2" />
-               team@make.golf
-            </a>
           </div>
           
           <div>
@@ -38,11 +32,11 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 font-mono text-sm">
               <li><Link to="/technology" className="text-brand-polar/40 hover:text-brand-mink transition-colors">Our Tech</Link></li>
               <li><Link to="/fitters" className="text-brand-polar/40 hover:text-brand-mink transition-colors">For Fitters</Link></li>
-              <li><Link to="/about" className="text-brand-polar/40 hover:text-brand-mink transition-colors">About Us</Link></li>
+              <li><Link to="/fitters" className="text-brand-polar/40 hover:text-brand-mink transition-colors">Careers</Link></li>
             </ul>
           </div>
 
-          <div id="sign-up">
+          <div>
             <h4 className="text-brand-polar font-display font-bold mb-6 uppercase tracking-wider">No Excuses</h4>
             <div className="flex flex-col space-y-4">
               <input 
