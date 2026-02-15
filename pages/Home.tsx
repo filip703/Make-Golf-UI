@@ -40,15 +40,15 @@ const Home: React.FC = () => {
       
       {/* Hero Section - Kept Dark for Impact */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
-        {/* Background Image - Softer overlay */}
+        {/* Background Image - Updated to moody product shot */}
         <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop"
-              alt="Golf Texture Background"
-              className="w-full h-full object-cover opacity-30 scale-105 grayscale"
+              src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop"
+              alt="Golf Club Detail"
+              className="w-full h-full object-cover opacity-30 scale-105"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-[#111]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-[#111]"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">

@@ -22,7 +22,7 @@ export const CLUB_CATEGORIES = [
     name: 'Irons',
     tagline: 'The Scoring Engine',
     desc: 'Fully parametric blade lengths, offsets, and top-lines. Optimized for your strike pattern.',
-    image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop', // Iron image
+    image: 'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop', // Specific Iron Head
     specs: ['17-4PH SS', 'DMLS Print', 'Custom CG']
   },
   {
@@ -30,7 +30,7 @@ export const CLUB_CATEGORIES = [
     name: 'Wedges',
     tagline: 'Friction & Feel',
     desc: 'Raw printed faces for maximum spin retention. Bounce and grind geometry adapted to your angle of attack.',
-    image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', // Wedge placeholder
+    image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', // Detailed Wedge Face
     specs: ['Raw Finish', 'High Spin', 'Variable Sole']
   },
   {
@@ -38,7 +38,7 @@ export const CLUB_CATEGORIES = [
     name: 'Putters',
     tagline: 'Stability Defined',
     desc: 'Complex lattice structures allow for extreme MOI in compact shapes impossible to mill.',
-    image: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=2070&auto=format&fit=crop', // Putter placeholder
+    image: 'https://images.unsplash.com/photo-1565158102371-33758371306b?q=80&w=2067&auto=format&fit=crop', // Putter / Metal detail
     specs: ['316L SS', 'Lattice Core', 'Face Balanced']
   }
 ];
@@ -69,7 +69,7 @@ export const ARTICLES = [
     title: "Tour Issue is a Lie",
     date: "AUG 14, 2025",
     category: "OPINION",
-    image: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop",
     excerpt: "The gap between what pros play and what you buy is widening. We are closing it."
   }
 ];
