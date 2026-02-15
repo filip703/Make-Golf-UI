@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Upload, Cpu, FileOutput, ArrowRight, Database, Share2 } from 'lucide-react';
@@ -33,7 +34,7 @@ const AIFitting: React.FC = () => {
                   <span className="text-brand-polar/30">Optimization.</span>
                 </h1>
                 <p className="text-xl text-brand-polar/60 font-light font-sans max-w-xl leading-relaxed mb-10">
-                  Our browser-based AI Fitting Engine transforms raw launch monitor data into manufacturing-ready CAD files in seconds. No installation required.
+                  Our browser-based Engine transforms raw launch monitor data into manufacturing-ready CAD files in seconds. No installation required.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
                   <a href="https://frontend-seven-iota-56.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">
@@ -87,7 +88,7 @@ const AIFitting: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-display text-white mb-4">2. Generative Solve</h3>
                   <p className="text-brand-polar/50 text-sm font-mono leading-relaxed mb-6">
-                     The AI analyzes dispersion patterns and simulates 10,000+ geometry variations to find the optimal MOI and CG location.
+                     The Engine analyzes dispersion patterns and simulates 10,000+ geometry variations to find the optimal MOI and CG location.
                   </p>
                   <div className="relative h-24 bg-black/50 rounded border border-white/5 overflow-hidden flex items-center justify-center">
                      <div className="absolute inset-0 bg-[url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKs4iG3vU8p9g5y/giphy.gif')] opacity-10 bg-cover mix-blend-screen"></div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -27,7 +28,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/clubs" element={<Clubs />} />
-            <Route path="/ai-fitting" element={<AIFitting />} />
+            <Route path="/engine" element={<AIFitting />} /> {/* Route updated to /engine */}
             <Route path="/configurator" element={<Configurator />} />
             <Route path="/fitters" element={<Fitters />} />
             <Route path="/technology" element={<Technology />} />
