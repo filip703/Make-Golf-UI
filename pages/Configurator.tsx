@@ -35,7 +35,7 @@ const Configurator: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#111] pt-24 text-brand-polar selection:bg-brand-mink selection:text-white pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-[#1C1C1E] to-[#121212] pt-24 text-brand-polar selection:bg-brand-mink selection:text-white pb-20">
       
       {/* Header */}
       <section className="container mx-auto px-6 mb-16">
@@ -64,7 +64,7 @@ const Configurator: React.FC = () => {
                 href={MAKER_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group relative block h-[500px] bg-[#1a1a1a] rounded-sm overflow-hidden border border-white/5 hover:border-brand-mink/50 transition-all duration-500"
+                className="group relative block h-[500px] bg-[#242424] rounded-xl overflow-hidden border border-white/5 hover:border-brand-mink/50 transition-all duration-500 shadow-xl"
                 onMouseEnter={() => setHoveredModel(model.id)}
                 onMouseLeave={() => setHoveredModel(null)}
               >
@@ -75,7 +75,7 @@ const Configurator: React.FC = () => {
                       alt={model.name}
                       className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700 ease-out"
                    />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90"></div>
+                   <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E] via-[#1C1C1E]/50 to-transparent opacity-90"></div>
                 </div>
 
                 {/* Content */}
@@ -102,7 +102,7 @@ const Configurator: React.FC = () => {
                          {model.desc}
                       </p>
                       
-                      <Button variant="outline" size="sm" className="w-full group-hover:bg-brand-mink group-hover:text-white group-hover:border-brand-mink transition-all">
+                      <Button variant="outline" size="sm" className="w-full group-hover:bg-brand-mink group-hover:text-white group-hover:border-brand-mink transition-all rounded-md">
                          Launch Configurator <ExternalLink className="w-3 h-3 ml-2" />
                       </Button>
                    </div>
@@ -116,15 +116,15 @@ const Configurator: React.FC = () => {
       {/* Direct Link Footer */}
       <section className="container mx-auto px-6 mt-20 border-t border-white/5 pt-12">
          <FadeIn>
-            <div className="bg-[#1a1a1a] p-8 rounded border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="glass-panel p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-8">
                <div>
                   <h4 className="text-xl font-display text-white mb-2">Already have a fit file?</h4>
                   <p className="text-brand-polar/50 text-sm font-mono">Upload your JSON data to bypass the visual configurator.</p>
                </div>
                <div className="flex gap-4">
-                  <Button variant="secondary" size="md">Upload Data</Button>
+                  <Button variant="secondary" size="md" className="rounded-md">Upload Data</Button>
                   <a href={MAKER_URL} target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="md">Skip to Editor &rarr;</Button>
+                    <Button variant="ghost" size="md" className="rounded-md">Skip to Editor &rarr;</Button>
                   </a>
                </div>
             </div>

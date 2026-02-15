@@ -7,7 +7,7 @@ import Button from '../components/Button';
 
 const AIFitting: React.FC = () => {
   return (
-    <div className="min-h-screen bg-brand-black pt-20 text-brand-polar">
+    <div className="min-h-screen bg-gradient-to-br from-[#1C1C1E] via-[#121212] to-[#0A0A0A] pt-20 text-brand-polar">
       
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center border-b border-white/5 overflow-hidden">
@@ -15,10 +15,10 @@ const AIFitting: React.FC = () => {
          <div className="absolute inset-0 z-0">
             <img 
                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
-               className="w-full h-full object-cover opacity-20 grayscale"
+               className="w-full h-full object-cover opacity-20 grayscale mix-blend-overlay"
                alt="Cybernetics"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/90 to-transparent"></div>
             <div className="absolute inset-0 bg-grid opacity-10"></div>
          </div>
 
@@ -52,8 +52,9 @@ const AIFitting: React.FC = () => {
       </section>
 
       {/* The Digital Loop (Updated Workflow) */}
-      <section className="py-24 bg-[#0F0F0F] relative">
-         <div className="container mx-auto px-6">
+      <section className="py-24 relative">
+         <div className="absolute inset-0 bg-gradient-to-b from-[#151515] to-[#121212]"></div>
+         <div className="container mx-auto px-6 relative z-10">
             <FadeIn>
                <div className="mb-20 text-center">
                   <h2 className="text-3xl font-display text-white mb-4">The Digital Loop</h2>
@@ -64,7 +65,7 @@ const AIFitting: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
                
                {/* Step 1: Data Confidence */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+               <div className="glass-panel p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full rounded-xl">
                   <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <Upload className="w-5 h-5" />
                   </div>
@@ -90,7 +91,7 @@ const AIFitting: React.FC = () => {
                </div>
 
                {/* Step 2: Generative Model */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+               <div className="glass-panel p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full rounded-xl">
                   <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <Cpu className="w-5 h-5" />
                   </div>
@@ -111,7 +112,7 @@ const AIFitting: React.FC = () => {
                </div>
 
                {/* Step 3: Configurator */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+               <div className="glass-panel p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full rounded-xl">
                   <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <Sliders className="w-5 h-5" />
                   </div>
@@ -126,7 +127,7 @@ const AIFitting: React.FC = () => {
                </div>
 
                {/* Step 4: Loop */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+               <div className="glass-panel p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full rounded-xl">
                   <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <RefreshCw className="w-5 h-5" />
                   </div>
@@ -145,7 +146,7 @@ const AIFitting: React.FC = () => {
       </section>
 
       {/* Deep Dive / Features */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-white/5 bg-[#121212]">
          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                <FadeIn>

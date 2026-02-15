@@ -4,12 +4,13 @@ import FadeIn from '../components/FadeIn';
 
 const Technology: React.FC = () => {
   return (
-    <div className="min-h-screen bg-brand-black text-brand-polar pt-20">
+    <div className="min-h-screen bg-brand-black text-brand-polar pt-20 overflow-hidden">
       
-      {/* Tech Hero */}
-      <section className="py-32 container mx-auto px-6 border-b border-white/5">
+      {/* Tech Hero with Glow */}
+      <section className="py-32 container mx-auto px-6 border-b border-white/5 relative">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-mink/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         <FadeIn>
-          <div className="max-w-4xl">
+          <div className="max-w-4xl relative z-10">
              <div className="flex items-center gap-3 mb-6">
                 <div className="w-1.5 h-1.5 bg-brand-mink rounded-full"></div>
                 <div className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">Our Technology Stack</div>
@@ -26,18 +27,18 @@ const Technology: React.FC = () => {
       </section>
 
       {/* Step 1: Ingest */}
-      <section className="py-24 border-b border-white/5">
+      <section className="py-24 border-b border-white/5 bg-gradient-to-b from-brand-black to-[#181818]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
              <FadeIn direction="right">
-                <div className="relative aspect-video bg-[#111] overflow-hidden rounded-sm border border-white/10 group">
+                <div className="relative aspect-video bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
                     <video 
                       autoPlay 
                       loop 
                       muted 
                       playsInline
                       poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-                      className="w-full h-full object-cover opacity-50 mix-blend-screen group-hover:opacity-80 transition-all duration-700"
+                      className="w-full h-full object-cover opacity-60 mix-blend-screen group-hover:opacity-90 transition-all duration-700"
                     >
                        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4" />
                     </video>
@@ -66,7 +67,7 @@ const Technology: React.FC = () => {
       </section>
 
       {/* Step 2: Generative */}
-      <section className="py-24 border-b border-white/5 bg-[#0f0f0f]">
+      <section className="py-24 border-b border-white/5 bg-[#181818]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center lg:flex-row-reverse">
              <FadeIn className="order-2 lg:order-1">
@@ -83,7 +84,7 @@ const Technology: React.FC = () => {
              </FadeIn>
 
              <FadeIn direction="left" className="order-1 lg:order-2">
-                <div className="relative aspect-square bg-[#111] overflow-hidden rounded-sm border border-white/10 group">
+                <div className="relative aspect-square bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
                     <video 
                       autoPlay 
                       loop 
@@ -108,11 +109,11 @@ const Technology: React.FC = () => {
       </section>
 
       {/* Step 3: Manufacturing */}
-      <section className="py-24 border-b border-white/5">
+      <section className="py-24 border-b border-white/5 bg-gradient-to-b from-[#181818] to-brand-black">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
              <FadeIn direction="right">
-                <div className="relative aspect-video bg-[#111] overflow-hidden rounded-sm border border-white/10 group">
+                <div className="relative aspect-video bg-[#1C1C1E] overflow-hidden rounded-sm border border-white/10 group shadow-2xl">
                     <video 
                       autoPlay 
                       loop 
@@ -143,7 +144,7 @@ const Technology: React.FC = () => {
         </div>
       </section>
 
-      {/* Partners - Updated with Correct Data from Deck */}
+      {/* Partners */}
       <section className="py-24 bg-brand-black">
           <div className="container mx-auto px-6 text-center">
               <h3 className="text-brand-polar/30 font-mono text-[10px] uppercase tracking-[0.3em] mb-12">Supply Chain & Tech Partners</h3>

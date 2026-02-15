@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Fingerprint, Activity, Layers } from 'lucide-react';
+import { ArrowRight, ChevronDown, Fingerprint, Activity, Layers, Dna } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CLUB_CATEGORIES, ARTICLES } from '../constants';
+import { CLUB_CATEGORIES, ARTICLES, MOCK_STATS } from '../constants';
 
 const HERO_CONTENT = [
   {
@@ -36,19 +36,19 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#111] text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
+    <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section - Kept Dark for Impact */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
-        {/* Background Image - Updated to moody product shot */}
+      {/* Hero Section - Gradient Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#242424] via-[#1A1A1A] to-[#121212]">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
             <img 
               src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=2022&auto=format&fit=crop"
               alt="Golf Club Detail"
-              className="w-full h-full object-cover opacity-30 scale-105"
+              className="w-full h-full object-cover opacity-20 scale-105"
             />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-[#111]"></div>
+            {/* Soft Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-brand-black/60 to-brand-black"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
                 <Link to="/engine">
-                  <Button size="lg" variant="primary" className="min-w-[240px] rounded-full">
+                  <Button size="lg" variant="primary" className="min-w-[240px] rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
                      <span className="block text-center">
                        {HERO_CONTENT[statementIndex].cta}
                      </span>
@@ -125,14 +125,13 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- LIGHT SECTION: DNA / PHILOSOPHY --- */}
-      {/* Changed background to light grey (#EAEAEA) to soften the look */}
-      <section className="py-32 bg-[#EAEAEA] text-[#111]">
+      {/* --- LIGHT SECTION: PHILOSOPHY --- */}
+      <section className="py-32 bg-[#EAEAEA] text-[#1C1C1E]">
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="max-w-3xl mx-auto text-center mb-24">
-                  <h2 className="text-3xl md:text-5xl font-display text-[#111] mb-6">Built for the Individual.</h2>
-                  <p className="text-lg text-[#111]/70 font-light leading-relaxed">
+                  <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E] mb-6">Built for the Individual.</h2>
+                  <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed">
                      Mass production works for t-shirts, not for golf swings. 
                      We stripped away the marketing fluff to focus on what actually matters: 
                      Physics, Geometry, and You.
@@ -143,33 +142,33 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
                <FadeIn delay={0.1}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
                         <Fingerprint className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-[#111] mb-3">Your Signature</h3>
-                     <p className="text-[#111]/60 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Your Signature</h3>
+                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                         We capture your biomechanical data to create a club that matches your unique swing DNA, not a market average.
                      </p>
                   </div>
                </FadeIn>
                <FadeIn delay={0.2}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
                         <Activity className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-[#111] mb-3">Adaptive Design</h3>
-                     <p className="text-[#111]/60 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Adaptive Design</h3>
+                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                         Our generative AI adapts geometry to optimize center of gravity and MOI specifically for your impact tendencies.
                      </p>
                   </div>
                </FadeIn>
                <FadeIn delay={0.3}>
                   <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-[#111]/5 shadow-sm">
+                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
                         <Layers className="w-8 h-8" />
                      </div>
-                     <h3 className="text-xl font-display text-[#111] mb-3">Additive Mfg</h3>
-                     <p className="text-[#111]/60 text-sm leading-relaxed">
+                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Additive Mfg</h3>
+                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                         Printed layer by layer in stainless steel. This method allows for complex internal structures impossible to cast.
                      </p>
                   </div>
@@ -178,8 +177,84 @@ const Home: React.FC = () => {
          </div>
       </section>
 
-      {/* --- PRODUCT ARCHITECTURES (Formerly Collection) --- */}
-      <section className="py-32 bg-[#121212]">
+      {/* --- NEW SECTION: MAKE DNA / ENGINE --- */}
+      <section className="py-32 bg-[#1C1C1E] relative overflow-hidden border-t border-white/5">
+        {/* Background Tech Elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#2C2C2E]/20 to-transparent pointer-events-none"></div>
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-mink/5 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             
+             {/* Left: Text Content */}
+             <FadeIn>
+                <div className="inline-flex items-center gap-2 text-brand-mink mb-6">
+                   <Dna className="w-5 h-5" />
+                   <span className="font-mono text-xs uppercase tracking-widest">The Make DNA Engine</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight">
+                   Your Swing.<br/>Decoded.
+                </h2>
+                <p className="text-xl text-brand-polar/60 font-light font-sans leading-relaxed mb-10">
+                   We don't just fit you; we calculate you. Our proprietary AI analyzes 1,200+ biomechanical data points from your swing to generate a manufacturing blueprint that optimizes dispersion and ball speed.
+                </p>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10 border-t border-white/10 pt-8">
+                   {MOCK_STATS.map((stat, i) => (
+                      <div key={i}>
+                         <div className="text-2xl md:text-3xl font-display text-white mb-1">{stat.value}</div>
+                         <div className="text-xs font-mono text-brand-polar/40 uppercase tracking-wider">{stat.label}</div>
+                      </div>
+                   ))}
+                </div>
+
+                <Link to="/engine">
+                   <Button variant="primary" size="md" className="rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
+                      Explore The Engine
+                   </Button>
+                </Link>
+             </FadeIn>
+
+             {/* Right: Visual Abstract */}
+             <FadeIn direction="left" delay={0.2}>
+                <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-[#151515] group shadow-2xl">
+                   <img 
+                      src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2070&auto=format&fit=crop" 
+                      alt="Data Analysis"
+                      className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity group-hover:opacity-60 transition-opacity duration-700"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-tr from-brand-mink/20 to-transparent mix-blend-overlay"></div>
+                   
+                   {/* Overlay UI elements to look like analysis */}
+                   <div className="absolute bottom-8 left-8 right-8">
+                      <div className="flex justify-between text-xs font-mono text-white/60 mb-2">
+                         <span>ANALYSIS COMPLETE</span>
+                         <span className="text-brand-mink">100%</span>
+                      </div>
+                      <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                         <div className="h-full bg-brand-mink w-full"></div>
+                      </div>
+                      <div className="mt-4 grid grid-cols-2 gap-4">
+                         <div className="bg-black/40 backdrop-blur p-3 rounded border border-white/10">
+                            <div className="text-[10px] text-brand-polar/40 uppercase mb-1">Impact Efficiency</div>
+                            <div className="text-lg text-white font-display">1.48 PTR</div>
+                         </div>
+                         <div className="bg-black/40 backdrop-blur p-3 rounded border border-white/10">
+                            <div className="text-[10px] text-brand-polar/40 uppercase mb-1">Spin Axis</div>
+                            <div className="text-lg text-white font-display">-2.4°</div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </FadeIn>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --- PRODUCT ARCHITECTURES --- */}
+      <section className="py-32 bg-gradient-to-b from-[#1C1C1E] to-[#121212]">
         <div className="container mx-auto px-6">
           <div className="mb-16 flex items-end justify-between border-b border-white/5 pb-8">
             <div>
@@ -193,18 +268,18 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CLUB_CATEGORIES.map((cat, index) => (
-               <Link to="/clubs" key={cat.id} className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#1a1a1a]">
+               <Link to="/clubs" key={cat.id} className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#242424] border border-white/5 hover:border-brand-mink/30 transition-colors">
                   <div className="absolute top-6 left-6 z-20">
-                    <span className="text-[10px] font-mono text-white/80 bg-black/50 backdrop-blur px-2 py-1 rounded">0{index + 1} // {cat.name}</span>
+                    <span className="text-[10px] font-mono text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded">0{index + 1} // {cat.name}</span>
                   </div>
                   
                   <img 
                     src={cat.image} 
                     alt={cat.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
                   />
                   
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 className="text-2xl font-display text-white mb-1">{cat.name}</h3>
@@ -227,8 +302,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* --- ARTICLES / JOURNAL (Softened Background) --- */}
-      <section className="py-24 bg-[#181818] border-t border-white/5">
+      {/* --- ARTICLES / JOURNAL --- */}
+      <section className="py-24 bg-[#151515] border-t border-white/5">
          <div className="container mx-auto px-6">
             <FadeIn>
                 <div className="flex items-center justify-between mb-12">
@@ -243,7 +318,7 @@ const Home: React.FC = () => {
                 {ARTICLES.slice(0, 3).map((article, index) => (
                     <FadeIn key={article.id} delay={index * 0.1}>
                         <Link to="/about" className="group block">
-                            <div className="relative aspect-video bg-[#222] overflow-hidden rounded-lg mb-4 border border-white/5">
+                            <div className="relative aspect-video bg-[#242424] overflow-hidden rounded-lg mb-4 border border-white/5 group-hover:border-white/20 transition-colors">
                                 <img 
                                     src={article.image} 
                                     alt={article.title}
