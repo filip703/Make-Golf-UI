@@ -1,3 +1,4 @@
+
 import React from 'react';
 import FadeIn from '../components/FadeIn';
 
@@ -142,15 +143,54 @@ const Technology: React.FC = () => {
         </div>
       </section>
 
-      {/* Partners - Subtle and Credible */}
+      {/* Partners - Updated with Correct Data from Deck */}
       <section className="py-24 bg-brand-black">
           <div className="container mx-auto px-6 text-center">
-              <h3 className="text-brand-polar/30 font-mono text-[10px] uppercase tracking-[0.3em] mb-12">Engineering Partners</h3>
-              <div className="flex flex-wrap justify-center gap-16 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-all duration-500 cursor-default">
-                  <div className="text-xl font-bold font-display text-white">SANDVIK</div>
-                  <div className="text-xl font-bold font-display text-white">EOS</div>
-                  <div className="text-xl font-bold font-display text-white">AUTODESK</div>
-                  <div className="text-xl font-bold font-display text-white">NVIDIA</div>
+              <h3 className="text-brand-polar/30 font-mono text-[10px] uppercase tracking-[0.3em] mb-12">Supply Chain & Tech Partners</h3>
+              <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 transition-all duration-500 hover:opacity-100">
+                  
+                  {/* Sandvik */}
+                  <div className="flex flex-col items-center gap-2 group cursor-default">
+                    <div className="w-32 h-12 flex items-center justify-center">
+                        <svg viewBox="0 0 200 40" fill="currentColor" className="w-full text-white">
+                            <path d="M18.5 28.2L12.1 11.4h-3.6l6.4 16.8h3.6zm13.1-9.9c0-3.6-2.5-5.9-6.3-5.9-2.3 0-4.3.9-5.4 2.5l-.6-2.1h-3.3v16.4h3.7v-9.6c0-1.8 1.1-3 2.8-3 1.6 0 2.6 1.1 2.6 2.9v9.7h3.7v-10.9zm13.2-6.9h-3.7v16.8h3.7v-1.6c1.1 1.2 2.7 1.9 4.8 1.9 3.8 0 6.6-2.9 6.6-7.3 0-4.4-2.8-7.3-6.6-7.3-2.1 0-3.7.7-4.8 1.9v-4.4zm3.7 11.8v-3.2c.6-.9 1.6-1.4 2.7-1.4 1.9 0 3.1 1.5 3.1 4s-1.2 4-3.1 4c-1.1 0-2.1-.5-2.7-1.4v-2zm13.5-11.8l4.4 11.6 4.4-11.6h3.9l-6.4 16.8h-3.8l-6.4-16.8h3.9zm13.3 0h3.7v16.8h-3.7V11.4zm10.7 0h3.7v6.6l5.7-6.6h4.6l-6.1 6.8 6.5 10h-4.6l-4.4-7.2-1.7 1.9v5.3h-3.7V11.4z"/>
+                        </svg>
+                    </div>
+                    <span className="text-[9px] font-mono text-brand-polar/20 opacity-0 group-hover:opacity-100 transition-opacity">ADDITIVE MFG</span>
+                  </div>
+                  
+                  {/* Tritone - Text Placeholder */}
+                  <div className="flex flex-col items-center gap-2 group cursor-default">
+                    <div className="h-12 flex items-center">
+                        <span className="text-2xl font-display font-bold text-white tracking-tight">Tritone</span>
+                    </div>
+                    <span className="text-[9px] font-mono text-brand-polar/20 opacity-0 group-hover:opacity-100 transition-opacity">MOLDJET TECH</span>
+                  </div>
+
+                  {/* Oerlikon - Text Placeholder */}
+                  <div className="flex flex-col items-center gap-2 group cursor-default">
+                    <div className="h-12 flex items-center">
+                        <span className="text-2xl font-display font-bold text-white italic">oerlikon</span>
+                    </div>
+                    <span className="text-[9px] font-mono text-brand-polar/20 opacity-0 group-hover:opacity-100 transition-opacity">COATING</span>
+                  </div>
+
+                  {/* Plasmotion - Text Placeholder */}
+                  <div className="flex flex-col items-center gap-2 group cursor-default">
+                    <div className="h-12 flex items-center">
+                        <span className="text-xl font-display font-light text-white tracking-wider">plasmotion</span>
+                    </div>
+                    <span className="text-[9px] font-mono text-brand-polar/20 opacity-0 group-hover:opacity-100 transition-opacity">POLISHING</span>
+                  </div>
+
+                  {/* Animech - Text Placeholder */}
+                  <div className="flex flex-col items-center gap-2 group cursor-default">
+                    <div className="h-12 flex items-center">
+                        <span className="text-xl font-display font-bold text-white uppercase tracking-wider">ANI<br/>MECH</span>
+                    </div>
+                    <span className="text-[9px] font-mono text-brand-polar/20 opacity-0 group-hover:opacity-100 transition-opacity">CONFIGURATOR</span>
+                  </div>
+
               </div>
           </div>
       </section>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Upload, Cpu, FileOutput, ArrowRight, Database, Share2 } from 'lucide-react';
+import { ExternalLink, Upload, Cpu, FileOutput, ArrowRight, Database, Share2, RefreshCw, Sliders, CheckCircle } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 
@@ -51,64 +51,95 @@ const AIFitting: React.FC = () => {
          </div>
       </section>
 
-      {/* Interface Preview / "How it works" */}
+      {/* The Digital Loop (Updated Workflow) */}
       <section className="py-24 bg-[#0F0F0F] relative">
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="mb-20 text-center">
-                  <h2 className="text-3xl font-display text-white mb-4">Workflow Architecture</h2>
-                  <p className="text-brand-polar/50 font-mono text-xs uppercase tracking-widest">From CSV to STL in 3 steps</p>
+                  <h2 className="text-3xl font-display text-white mb-4">The Digital Loop</h2>
+                  <p className="text-brand-polar/50 font-mono text-xs uppercase tracking-widest">Data &rarr; Physics &rarr; Manufacturing &rarr; Data</p>
                </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
-               {/* Connecting Lines (Desktop) */}
-               <div className="hidden lg:block absolute top-12 left-[20%] right-[20%] h-px bg-gradient-to-r from-brand-mink/0 via-brand-mink/30 to-brand-mink/0 border-t border-dashed border-white/10 z-0"></div>
-
-               {/* Step 1 */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-8 group hover:border-brand-mink/30 transition-colors duration-500">
-                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+               
+               {/* Step 1: Data Confidence */}
+               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <Upload className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-4">1. Ingest Data</h3>
-                  <p className="text-brand-polar/50 text-sm font-mono leading-relaxed mb-6">
-                     Upload raw CSV exports directly from TrackMan, Foresight, or FlightScope. Our parser normalizes the data instantly.
+                  <h3 className="text-xl font-display text-white mb-3">1. Scoring</h3>
+                  <p className="text-brand-polar/50 text-xs font-mono leading-relaxed mb-6 flex-grow">
+                     We ingest your launch monitor data and assign a <span className="text-white">Confidence Score (0-100)</span>. 
+                     Low score? We request more inputs. High score? We unlock tighter tolerances.
                   </p>
-                  <div className="bg-black/50 p-4 rounded text-[10px] font-mono text-brand-polar/40 border border-white/5">
-                     <div className="flex justify-between mb-1"><span>Club Speed</span><span className="text-brand-mink">98.2 mph</span></div>
-                     <div className="flex justify-between mb-1"><span>Attack Angle</span><span className="text-brand-mink">-4.1 deg</span></div>
-                     <div className="flex justify-between"><span>Closure Rate</span><span className="text-brand-mink">2400 dps</span></div>
+                  
+                  {/* Visual Confidence Meter */}
+                  <div className="bg-black/40 p-4 rounded border border-white/5">
+                      <div className="flex justify-between items-center mb-2">
+                          <span className="text-[9px] font-mono text-brand-polar/60 uppercase">Data Confidence</span>
+                          <span className="text-[10px] font-mono text-brand-mink font-bold">87/100</span>
+                      </div>
+                      <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-full bg-brand-mink w-[87%] shadow-[0_0_10px_#FF224C]"></div>
+                      </div>
+                      <div className="mt-2 text-[9px] font-mono text-green-500 flex items-center gap-1">
+                          <CheckCircle className="w-3 h-3" /> SUFFICIENT FOR MODELING
+                      </div>
                   </div>
                </div>
 
-               {/* Step 2 */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-8 group hover:border-brand-mink/30 transition-colors duration-500">
-                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
+               {/* Step 2: Generative Model */}
+               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
                      <Cpu className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-4">2. Generative Solve</h3>
-                  <p className="text-brand-polar/50 text-sm font-mono leading-relaxed mb-6">
-                     The Engine analyzes dispersion patterns and simulates 10,000+ geometry variations to find the optimal MOI and CG location.
+                  <h3 className="text-xl font-display text-white mb-3">2. Baseline</h3>
+                  <p className="text-brand-polar/50 text-xs font-mono leading-relaxed mb-6 flex-grow">
+                     The Engine generates a digital twin of your club head. We automatically map the full set (4-PW) and recommend optimal shaft and grip combinations based on your biomechanics.
                   </p>
-                  <div className="relative h-24 bg-black/50 rounded border border-white/5 overflow-hidden flex items-center justify-center">
-                     <div className="absolute inset-0 bg-[url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MzM0MyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/3o7TKs4iG3vU8p9g5y/giphy.gif')] opacity-10 bg-cover mix-blend-screen"></div>
-                     <span className="text-xs font-mono text-brand-mink animate-pulse">PROCESSING...</span>
+                  <div className="border-t border-white/5 pt-4">
+                      <div className="flex justify-between text-[10px] font-mono text-brand-polar/40 mb-1">
+                          <span>REC. SHAFT</span>
+                          <span className="text-white">KBS TGI 95</span>
+                      </div>
+                      <div className="flex justify-between text-[10px] font-mono text-brand-polar/40">
+                          <span>REC. GRIP</span>
+                          <span className="text-white">MIDSIZE +2 WRAPS</span>
+                      </div>
                   </div>
                </div>
 
-               {/* Step 3 */}
-               <div className="relative z-10 bg-brand-surface border border-white/5 p-8 group hover:border-brand-mink/30 transition-colors duration-500">
-                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-8 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
-                     <FileOutput className="w-5 h-5" />
+               {/* Step 3: Configurator */}
+               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
+                     <Sliders className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-display text-white mb-4">3. Production File</h3>
-                  <p className="text-brand-polar/50 text-sm font-mono leading-relaxed mb-6">
-                     Receive a verified manufacturing file linked to the player's unique ID. Send directly to our Stockholm print farm.
+                  <h3 className="text-xl font-display text-white mb-3">3. Customize</h3>
+                  <p className="text-brand-polar/50 text-xs font-mono leading-relaxed mb-6 flex-grow">
+                     We hand the controls to you. Enter the 3D Configurator to tweak aesthetics, add logos, adjust topline thickness, and apply custom finishes. You own the look; Physics owns the performance.
                   </p>
-                  <button className="w-full py-3 bg-brand-mink/10 border border-brand-mink/30 text-brand-mink text-xs font-mono hover:bg-brand-mink hover:text-white transition-all uppercase">
-                     Download .STL
-                  </button>
+                  <div className="relative h-20 bg-black/50 rounded border border-white/5 overflow-hidden flex items-center justify-center">
+                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611095790444-1dfa35e37b52?q=80&w=2071&auto=format&fit=crop')] opacity-20 bg-cover"></div>
+                     <span className="text-[10px] font-mono text-white border border-white/20 px-2 py-1 rounded bg-black/50 backdrop-blur">LAUNCH 3D EDITOR</span>
+                  </div>
                </div>
+
+               {/* Step 4: Loop */}
+               <div className="relative z-10 bg-brand-surface border border-white/5 p-6 group hover:border-brand-mink/30 transition-colors duration-500 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:bg-brand-mink group-hover:text-white">
+                     <RefreshCw className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl font-display text-white mb-3">4. The Loop</h3>
+                  <p className="text-brand-polar/50 text-xs font-mono leading-relaxed mb-6 flex-grow">
+                     CAD file sent to print. Delivery in 3 weeks. Once in hand, the process restarts: new data collected with the new clubs feeds the Agent, making your next generation even better.
+                  </p>
+                   <div className="flex items-center gap-2 text-[10px] font-mono text-brand-polar/40 bg-black/50 p-3 rounded border border-white/5">
+                      <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
+                      AWAITING FEEDBACK DATA...
+                   </div>
+               </div>
+
             </div>
          </div>
       </section>

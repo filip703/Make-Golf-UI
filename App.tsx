@@ -9,6 +9,8 @@ import AIFitting from './pages/AIFitting';
 import Configurator from './pages/Configurator';
 import Fitters from './pages/Fitters';
 import Technology from './pages/Technology';
+import About from './pages/About'; // Import About
+import NewsletterModal from './components/NewsletterModal'; // Import Modal
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,14 +26,16 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white">
         <Navbar />
+        <NewsletterModal /> {/* Global Pop-up */}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/clubs" element={<Clubs />} />
-            <Route path="/engine" element={<AIFitting />} /> {/* Route updated to /engine */}
+            <Route path="/engine" element={<AIFitting />} />
             <Route path="/configurator" element={<Configurator />} />
             <Route path="/fitters" element={<Fitters />} />
             <Route path="/technology" element={<Technology />} />
+            <Route path="/about" element={<About />} /> {/* Added Route */}
           </Routes>
         </main>
         <Footer />
