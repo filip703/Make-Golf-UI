@@ -2,64 +2,49 @@
 import React from 'react';
 
 interface LogoProps {
-  color?: "white" | "black" | "red" | "color"; 
+  color?: "white" | "black"; 
   variant?: "full" | "symbol"; 
   className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({ color = "white", variant = "full", className = "" }) => {
-  // EXAKTA SÖKVÄGAR FÖR DINA BILDER
-  // Se till att du sparar dina filer exakt så här i public/images/logos/
-  const ASSETS = {
-    full: {
-      white: "/images/logos/wordmark-white.png", // Vit text
-      black: "/images/logos/wordmark-black.png", // Svart text
-      red:   "/images/logos/wordmark-red.png",   // Röd text (om du har den, annars ändra till white här med)
-    },
-    symbol: {
-      white: "/images/logos/symbol-white.png", // Vit ikon
-      black: "/images/logos/symbol-black.png", // Svart ikon 
-      red:   "/images/logos/symbol-red.png",   // Röd ikon (Favicon-stilen)
-    }
-  };
-
-  let src = ASSETS.full.white; 
-
-  // Normalisera färgval (color="color" hanteras som svart eller rött beroende på kontext i min kod, men här är en enkel mappning)
-  const normalizedColor = color === 'color' ? 'black' : color;
-
-  if (variant === 'symbol') {
-    switch (normalizedColor) {
-      case 'red':   src = ASSETS.symbol.red; break;
-      case 'black': src = ASSETS.symbol.black; break;
-      case 'white': 
-      default:      src = ASSETS.symbol.white; break;
-    }
-  } else {
-    // Full Wordmark logic
-    switch (normalizedColor) {
-      case 'black': src = ASSETS.full.black; break;
-      case 'red':   src = ASSETS.full.red; break;
-      case 'white': 
-      default:      src = ASSETS.full.white; break;
-    }
-  }
+  
+  // These paths correspond to:
+  // public/assets/logos/make-wordmark-white.png
+  // public/assets/logos/make-symbol-white.png
+  const logoPath = variant === 'symbol' 
+    ? `/assets/logos/make-symbol-${color}.png`
+    : `/assets/logos/make-wordmark-${color}.png`;
 
   return (
-    <div className={`relative flex items-center ${className}`}>
+    <div className={`${className} flex items-center`}>
       <img 
-        src={src} 
+        src={logoPath} 
         alt="MAKE GOLF" 
-        className={`h-auto object-contain transition-all duration-300 ${variant === 'symbol' ? 'max-h-10' : 'max-h-7 md:max-h-8'}`}
+        className="h-full w-auto object-contain"
         onError={(e) => {
-          e.currentTarget.style.display = 'none';
-          e.currentTarget.parentElement?.classList.add('fallback-text');
+          const img = e.currentTarget;
+          const parent = img.parentElement;
+
+          if (parent) {
+             // Stop further error events
+             img.onerror = null;
+             
+             // Hide the image
+             img.style.display = 'none';
+
+             // Set fallback text - this removes the img from the DOM, so we must use the 'parent' variable we saved earlier
+             parent.innerText = variant === 'symbol' ? 'M' : 'MAKE';
+             
+             // Apply styles to the parent container
+             parent.style.fontFamily = '"Space Grotesk", sans-serif';
+             parent.style.fontWeight = '700';
+             parent.style.fontSize = variant === 'symbol' ? '24px' : '20px';
+             parent.style.letterSpacing = '0.05em';
+             parent.style.color = color === 'white' ? '#FFFFFF' : '#191919';
+          }
         }}
       />
-      {/* Fallback om bild saknas */}
-      <span className="hidden fallback-text:block text-xs font-bold font-mono text-red-500 uppercase tracking-widest">
-        MAKE GOLF
-      </span>
     </div>
   );
 };
