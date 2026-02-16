@@ -18,9 +18,13 @@ export const ArticleService = {
         return ARTICLES; // Fallback to hardcoded constants if DB fails
       }
 
-      // Map Supabase snake_case columns to our camelCase Typescript interface if necessary
-      // Assuming you named columns correctly in SQL, we can cast directly.
-      // If columns differ (e.g. image_url vs image), we map them here:
+      // If DB connects but is empty, fallback to constants so the site isn't empty
+      if (!data || data.length === 0) {
+        return ARTICLES;
+      }
+
+      // Map Supabase columns to our Typescript interface
+      // Handles both snake_case (DB standard) and potential direct matches
       return data.map((item: any) => ({
         id: item.id,
         slug: item.slug,
@@ -28,12 +32,15 @@ export const ArticleService = {
         excerpt: item.excerpt,
         date: item.date,
         category: item.category,
-        image: item.image_url, // Mapping DB column 'image_url' to frontend 'image'
-        readTime: item.read_time, // Mapping DB column 'read_time'
-        author: {
+        // Check for image_url (standard) or image (direct)
+        image: item.image_url || item.image, 
+        // Check for read_time (standard) or readTime (direct)
+        readTime: item.read_time || item.readTime, 
+        // Handle author: could be flat columns OR a json object
+        author: item.author ? item.author : {
           name: item.author_name,
           role: item.author_role,
-          image: item.author_image_url
+          image: item.author_image_url || item.author_image
         },
         content: item.content // JSONB matches structure automatically
       })) as Article[];
@@ -53,14 +60,13 @@ export const ArticleService = {
         .eq('slug', slug)
         .single();
 
-      if (error) {
-        // If not found in DB, check hardcoded constants (Hybrid approach)
+      // If error or no data found in DB, try fallback to constants
+      if (error || !data) {
         const fallback = ARTICLES.find(a => a.slug === slug);
         return fallback; 
       }
 
-      if (!data) return undefined;
-
+      // If data found, map it
       return {
         id: data.id,
         slug: data.slug,
@@ -68,12 +74,12 @@ export const ArticleService = {
         excerpt: data.excerpt,
         date: data.date,
         category: data.category,
-        image: data.image_url,
-        readTime: data.read_time,
-        author: {
+        image: data.image_url || data.image,
+        readTime: data.read_time || data.readTime,
+        author: data.author || {
           name: data.author_name,
           role: data.author_role,
-          image: data.author_image_url
+          image: data.author_image_url || data.author_image
         },
         content: data.content
       } as Article;
