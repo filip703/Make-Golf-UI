@@ -6,8 +6,8 @@ import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine 
 } from 'recharts';
 import { 
-  TrendingUp, Box, DollarSign, ExternalLink, Check, LayoutDashboard, 
-  Target, BarChart3, MessageSquare, ShieldCheck, Zap 
+  DollarSign, ExternalLink, Check, LayoutDashboard, 
+  Zap, TrendingUp, Briefcase, Calculator
 } from 'lucide-react';
 
 // Mock Data for Dispersion Chart (Lateral vs Carry)
@@ -29,57 +29,57 @@ const comparisonData = [
 
 const PRICING_TIERS = [
   {
-    name: "PRO",
-    target: "Individual Fitter",
+    name: "SAAS ONLY",
+    target: "Software License",
     price: "€149",
     period: "/ month",
-    annual: "€1,490 / year (Save 17%)",
+    annual: "€1,490 / year",
     seats: "1 Seat",
-    fee: "€75 per head",
+    fee: "Hardware Access: No",
     features: [
-      "Make Fitter SaaS Access",
+      "Make Fitter Platform Access",
       "Upload Trackman/GCQuad Data",
-      "Basic Client Reports (PDF)",
-      "Club History per Client",
-      "Email Support (48hr)"
+      "AI Analysis & Recommendations",
+      "Client History & PDF Reports",
+      "Standard Support"
     ],
-    cta: "Start Free Trial",
+    cta: "Start Software Trial",
     highlight: false
   },
   {
-    name: "STUDIO",
-    target: "Fitting Teams",
+    name: "PARTNER",
+    target: "Full Ecosystem",
     price: "€399",
     period: "/ month",
-    annual: "€3,990 / year (Save 17%)",
+    annual: "€3,990 / year",
     seats: "Up to 3 Seats",
-    fee: "€55 per head",
+    fee: "Hardware Access: YES",
     features: [
-      "Everything in PRO",
-      "Priority Validation Queue",
+      "Everything in SaaS Only",
+      "Access to Make Hardware (Wholesale)",
+      "~35% Margin on Club Sales",
+      "Priority Manufacturing Queue",
       "Branded White-label Reports",
-      "Fitter Dashboard + Trends",
-      "Live 1:1 Onboarding",
-      "Priority Chat Support"
+      "Dedicated Success Manager"
     ],
-    cta: "Upgrade to Studio",
+    cta: "Become a Partner",
     highlight: true
   },
   {
     name: "ENTERPRISE",
-    target: "Retail & Academies",
+    target: "Retail Chains",
     price: "Custom",
     period: "",
     annual: "Volume Pricing",
     seats: "Unlimited",
-    fee: "€40 per head",
+    fee: "Hardware Access: YES",
     features: [
       "Full API Access",
-      "Dedicated Validator",
-      "Custom Implementation",
+      "Custom Retail Integration",
       "Multi-location Analytics",
-      "Dedicated Account Manager",
-      "POS Integration"
+      "Volume Hardware Discounts",
+      "POS Integration",
+      "On-site Training"
     ],
     cta: "Contact Sales",
     highlight: false
@@ -102,18 +102,18 @@ const Fitters: React.FC = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <FadeIn>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-mink/10 text-brand-mink border border-brand-mink/30 text-[10px] font-mono font-bold tracking-widest mb-8 uppercase rounded-full">
-               <Zap className="w-3 h-3" /> Make Fitter SaaS Platform
+               <Zap className="w-3 h-3" /> Fitter Operating System
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-medium text-white mb-8 leading-[0.95]">
-              The Operating System<br/>
-              <span className="text-brand-polar/40">For Modern Fitters.</span>
+              Sell Your Expertise.<br/>
+              <span className="text-brand-polar/40">Scale Your Margin.</span>
             </h1>
             <p className="text-lg text-brand-polar/60 max-w-2xl mx-auto mb-10 font-sans font-light">
-              Use our AI engine to analyze data from any launch monitor and generate precise recommendations—whether you sell Make Golf hardware or not.
+              A hybrid business model for the modern professional. Use our AI platform to justify premium fitting fees, and unlock wholesale pricing on the world's most advanced equipment.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <a href={BETA_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary" size="lg" className="rounded-md w-full sm:w-auto">Start 14-Day Free Trial</Button>
+                <Button variant="primary" size="lg" className="rounded-md w-full sm:w-auto">Apply for Partnership</Button>
               </a>
               <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">
                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:border-white rounded-md w-full sm:w-auto">
@@ -311,62 +311,84 @@ const Fitters: React.FC = () => {
         </div>
       </section>
 
-      {/* --- BUSINESS MODEL EXPLAINER --- */}
+      {/* --- REVENUE MODEL (UPDATED) --- */}
       <section className="py-24 bg-[#181818]">
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-display text-white mb-4">How You Make Money</h2>
+                  <h2 className="text-3xl md:text-5xl font-display text-white mb-4">Two Revenue Streams.</h2>
                   <p className="text-brand-polar/50 max-w-2xl mx-auto">
-                     We separate the software from the hardware. Use the platform to improve your fitting service, 
-                     and unlock wholesale pricing on the world's most advanced equipment.
+                     The old model is broken. We don't just sell you inventory; we give you a platform to charge a premium service fee AND earn substantial hardware margins.
                   </p>
                </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+               
+               {/* Stream 1: Hourly Rate */}
                <FadeIn delay={0.1}>
-                  <div className="bg-[#1C1C1E] p-8 rounded-xl border border-white/5 h-full relative overflow-hidden">
-                     <div className="absolute top-0 right-0 p-6 opacity-5">
-                        <LayoutDashboard className="w-32 h-32" />
+                  <div className="bg-[#1C1C1E] p-10 rounded-xl border border-white/5 h-full relative overflow-hidden group hover:border-brand-mink/30 transition-colors">
+                     <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <Briefcase className="w-32 h-32" />
                      </div>
-                     <h3 className="text-2xl font-display text-white mb-4">1. The Service</h3>
+                     <div className="inline-flex items-center gap-2 mb-4 text-brand-mink font-mono text-xs uppercase tracking-widest">
+                        <Calculator className="w-4 h-4" /> Stream 01
+                     </div>
+                     <h3 className="text-2xl font-display text-white mb-4">The Service Fee</h3>
                      <p className="text-brand-polar/60 text-sm leading-relaxed mb-6">
-                        Charge your standard hourly fitting rate (€80-€120/hr). Use the Make Fitter software to provide a superior, data-driven experience that justifies a premium service fee.
+                        Using the Make Fitter platform elevates your service from a "demo day" to a biomechanical consultation. Justify a higher hourly rate.
                      </p>
-                     <ul className="space-y-3 text-sm font-mono text-brand-polar/80">
-                        <li className="flex items-center gap-2"><Check className="w-4 h-4 text-brand-mink" /> Premium Fitting Experience</li>
-                        <li className="flex items-center gap-2"><Check className="w-4 h-4 text-brand-mink" /> PDF Take-home Reports</li>
-                        <li className="flex items-center gap-2"><Check className="w-4 h-4 text-brand-mink" /> Brand Agnostic Analysis</li>
-                     </ul>
+                     
+                     <div className="bg-[#242424] p-6 rounded border border-white/5">
+                        <div className="flex justify-between items-center mb-2">
+                           <span className="text-xs font-mono text-white/50 uppercase">Avg Hourly Rate</span>
+                           <span className="text-white font-bold">1 000 KR / hr</span>
+                        </div>
+                        <div className="flex justify-between items-center mb-2">
+                           <span className="text-xs font-mono text-white/50 uppercase">Sessions / Month</span>
+                           <span className="text-white font-bold">x 40</span>
+                        </div>
+                        <div className="h-px bg-white/10 my-3"></div>
+                        <div className="flex justify-between items-center text-brand-polar">
+                           <span className="text-xs font-mono uppercase font-bold">Service Revenue</span>
+                           <span className="font-bold font-display text-xl">40 000 KR / mo</span>
+                        </div>
+                     </div>
                   </div>
                </FadeIn>
 
+               {/* Stream 2: Hardware Margin */}
                <FadeIn delay={0.2}>
-                  <div className="bg-[#1C1C1E] p-8 rounded-xl border border-white/5 h-full relative overflow-hidden">
-                     <div className="absolute top-0 right-0 p-6 opacity-5">
-                        <DollarSign className="w-32 h-32" />
+                  <div className="bg-[#1C1C1E] p-10 rounded-xl border border-white/5 h-full relative overflow-hidden group hover:border-brand-mink/30 transition-colors">
+                     <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <TrendingUp className="w-32 h-32" />
                      </div>
-                     <h3 className="text-2xl font-display text-white mb-4">2. The Hardware</h3>
+                     <div className="inline-flex items-center gap-2 mb-4 text-brand-mink font-mono text-xs uppercase tracking-widest">
+                        <DollarSign className="w-4 h-4" /> Stream 02
+                     </div>
+                     <h3 className="text-2xl font-display text-white mb-4">The Hardware Margin</h3>
                      <p className="text-brand-polar/60 text-sm leading-relaxed mb-6">
-                        When you fit a customer into Make Golf clubs, you buy at Wholesale and sell at Retail.
+                        Unlock wholesale pricing. You buy at our partner rate and sell at the standard retail price. No inventory risk—we print on demand.
                      </p>
-                     <div className="bg-[#242424] p-4 rounded border border-white/5 mb-4">
-                        <div className="flex justify-between items-center mb-1">
-                           <span className="text-xs font-mono text-white/50 uppercase">Retail Price (Est)</span>
-                           <span className="text-white font-bold">€450 / head</span>
+                     
+                     <div className="bg-[#242424] p-6 rounded border border-white/5">
+                        <div className="flex justify-between items-center mb-2">
+                           <span className="text-xs font-mono text-white/50 uppercase">Retail Price (Set of 7)</span>
+                           <span className="text-white font-bold">31 500 KR</span>
                         </div>
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center mb-2">
                            <span className="text-xs font-mono text-white/50 uppercase">Wholesale Cost</span>
-                           <span className="text-white font-bold">€280 / head</span>
+                           <span className="text-white font-bold opacity-50">- 20 500 KR</span>
                         </div>
-                        <div className="mt-3 pt-3 border-t border-white/10 flex justify-between items-center text-brand-mink">
-                           <span className="text-xs font-mono uppercase font-bold">Your Margin</span>
-                           <span className="font-bold font-display text-lg">€170 / head</span>
+                        <div className="h-px bg-white/10 my-3"></div>
+                        <div className="flex justify-between items-center text-brand-mink">
+                           <span className="text-xs font-mono uppercase font-bold">Net Profit</span>
+                           <span className="font-bold font-display text-xl">11 000 KR / set</span>
                         </div>
                      </div>
                   </div>
                </FadeIn>
+
             </div>
          </div>
       </section>
@@ -375,7 +397,7 @@ const Fitters: React.FC = () => {
       <section className="py-24 bg-[#151515] border-t border-white/5">
          <div className="container mx-auto px-6">
             <FadeIn>
-               <h2 className="text-3xl md:text-5xl font-display text-white text-center mb-16">Platform Pricing</h2>
+               <h2 className="text-3xl md:text-5xl font-display text-white text-center mb-16">Platform Membership</h2>
             </FadeIn>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -385,7 +407,7 @@ const Fitters: React.FC = () => {
                         
                         {tier.highlight && (
                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-mink text-white text-[10px] font-bold font-mono uppercase px-3 py-1 rounded-full tracking-widest">
-                              Most Popular
+                              Recommended
                            </div>
                         )}
 
@@ -403,9 +425,9 @@ const Fitters: React.FC = () => {
                         </div>
 
                         {/* Config Fee Highlight */}
-                        <div className="bg-white/5 rounded-lg p-3 mb-8 text-center border border-white/5">
-                           <span className="block text-[10px] text-white/40 uppercase font-mono">Config Fee</span>
-                           <span className="text-lg font-display text-white">{tier.fee}</span>
+                        <div className={`rounded-lg p-3 mb-8 text-center border ${tier.highlight ? 'bg-brand-mink/10 border-brand-mink/20 text-white' : 'bg-white/5 border-white/5 text-white/50'}`}>
+                           <span className="block text-[10px] uppercase font-mono mb-1">Benefit</span>
+                           <span className="text-sm font-bold">{tier.fee}</span>
                         </div>
 
                         <ul className="space-y-4 mb-8 flex-grow">
