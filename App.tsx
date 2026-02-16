@@ -17,6 +17,7 @@ import CustomCursor from './components/CustomCursor';
 import NewsletterModal from './components/NewsletterModal';
 import SystemBoot from './components/SystemBoot';
 import ScrollTelemetry from './components/ScrollTelemetry';
+import PageTransition from './components/PageTransition';
 import { AnimatePresence } from 'framer-motion';
 
 const ScrollToTop = () => {
@@ -25,6 +26,32 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
+};
+
+// Extracted routes component to access useLocation hook inside HashRouter context
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/clubs" element={<PageTransition><Clubs /></PageTransition>} />
+        <Route path="/engine" element={<PageTransition><AIFitting /></PageTransition>} />
+        <Route path="/configurator" element={<PageTransition><Configurator /></PageTransition>} />
+        <Route path="/fitters" element={<PageTransition><Fitters /></PageTransition>} />
+        <Route path="/technology" element={<PageTransition><Technology /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        
+        {/* Journal Routes */}
+        <Route path="/journal" element={<PageTransition><Journal /></PageTransition>} />
+        <Route path="/journal/:slug" element={<PageTransition><ArticlePost /></PageTransition>} />
+        
+        {/* Catch-all 404 */}
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
 };
 
 const App: React.FC = () => {
@@ -45,26 +72,10 @@ const App: React.FC = () => {
           <ScrollTelemetry />
           
           <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white cursor-none md:cursor-auto"> 
-            {/* Note: 'cursor-none' class on container hides default cursor so custom one shines on desktop */}
             
             <Navbar />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/clubs" element={<Clubs />} />
-                <Route path="/engine" element={<AIFitting />} />
-                <Route path="/configurator" element={<Configurator />} />
-                <Route path="/fitters" element={<Fitters />} />
-                <Route path="/technology" element={<Technology />} />
-                <Route path="/about" element={<About />} />
-                
-                {/* Journal Routes */}
-                <Route path="/journal" element={<Journal />} />
-                <Route path="/journal/:slug" element={<ArticlePost />} />
-                
-                {/* Catch-all 404 */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+            <main className="min-h-screen">
+               <AnimatedRoutes />
             </main>
             <Footer />
           </div>

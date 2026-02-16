@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { CLUB_CATEGORIES } from '../constants';
 import Button from '../components/Button';
 import FadeIn from '../components/FadeIn';
+import BlueprintImage from '../components/BlueprintImage';
 import { ArrowRight, Crosshair, Wind, CircleDashed } from 'lucide-react';
 
 const Clubs: React.FC = () => {
@@ -40,38 +41,23 @@ const Clubs: React.FC = () => {
           {CLUB_CATEGORIES.map((cat, index) => (
             <div key={cat.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-20`}>
               
-              {/* Image Side - Clean, bright aesthetic */}
+              {/* Image Side - Clean, bright aesthetic with Blueprint Overlay */}
               <motion.div 
-                className="w-full lg:w-1/2 aspect-[4/5] bg-white relative overflow-hidden group shadow-xl rounded-sm"
+                className="w-full lg:w-1/2 aspect-[4/5] relative bg-white shadow-2xl rounded-sm"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                 {/* Primary Image */}
-                 <img 
-                    src={cat.image}
-                    alt={cat.name}
-                    className={`absolute inset-0 w-full h-full transition-all duration-1000 grayscale opacity-90 group-hover:grayscale-0 ${
-                       cat.secondaryImage 
-                         ? 'group-hover:opacity-0' 
-                         : 'group-hover:opacity-100'
-                    } ${cat.imageClassName || 'object-cover group-hover:scale-105'}`}
+                 <BlueprintImage 
+                    src={cat.image} 
+                    alt={cat.name} 
+                    className="w-full h-full"
+                    secondarySrc={cat.secondaryImage}
                  />
-
-                 {/* Secondary Image (Hover Reveal) */}
-                 {cat.secondaryImage && (
-                    <img 
-                       src={cat.secondaryImage}
-                       alt={`${cat.name} secondary`}
-                       className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-1000 grayscale-0 ${
-                          cat.imageClassName || 'object-cover group-hover:scale-105'
-                       }`}
-                    />
-                 )}
                  
                  {/* Specs Floating Card */}
-                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur border border-[#111]/5 px-6 py-4 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 z-10">
+                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur border border-[#111]/5 px-6 py-4 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 z-20">
                     <div className="flex flex-col gap-2">
                        {cat.specs.map((spec, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs font-mono text-[#111]/80">
