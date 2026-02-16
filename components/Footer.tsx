@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-brand-polar font-display font-bold mb-6 uppercase tracking-wider">Product</h4>
             <ul className="space-y-4 font-mono text-sm">
-              <li><Link to="/clubs" className="text-brand-polar/40 hover:text-brand-mink transition-colors">The Collection</Link></li>
+              <li><Link to="/technology" className="text-brand-polar/40 hover:text-brand-mink transition-colors">The Collection</Link></li>
               <li><Link to="/engine" className="text-brand-polar/40 hover:text-brand-mink transition-colors">AI Fitting</Link></li>
               <li><Link to="/configurator" className="text-brand-polar/40 hover:text-brand-mink transition-colors">Configurator</Link></li>
             </ul>

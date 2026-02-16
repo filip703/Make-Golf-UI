@@ -1,7 +1,10 @@
 
 import React from 'react';
 import FadeIn from '../components/FadeIn';
-import { Cpu, Layers, Zap, CheckCircle, ShieldCheck, Database, Factory, Printer, Flame, ScanLine } from 'lucide-react';
+import { Cpu, Layers, Zap, CheckCircle, ShieldCheck, Database, Factory, Printer, Flame, ScanLine, ArrowRight } from 'lucide-react';
+import { CLUB_CATEGORIES } from '../constants';
+import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const Technology: React.FC = () => {
   return (
@@ -25,6 +28,94 @@ const Technology: React.FC = () => {
              </p>
           </div>
         </FadeIn>
+      </section>
+
+      {/* --- SECTION: THE HARDWARE (Moved from Clubs page) --- */}
+      <section className="py-24 bg-[#121212] border-b border-white/5">
+        <div className="container mx-auto px-6">
+           <FadeIn>
+              <div className="mb-16">
+                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest block mb-4">Applied Technology</span>
+                 <h2 className="text-3xl md:text-5xl font-display text-white">Hardware Applications</h2>
+                 <p className="text-brand-polar/50 mt-4 max-w-2xl">
+                    We don't release "collections". We maintain three evolving chassis architectures that serve as blank canvases for your biometric data.
+                 </p>
+              </div>
+           </FadeIn>
+
+           <div className="space-y-32">
+             {CLUB_CATEGORIES.map((cat, index) => (
+               <div key={cat.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
+                 
+                 {/* Image Side - Adapted for Dark Mode */}
+                 <FadeIn className="w-full lg:w-1/2">
+                   <div className="aspect-[4/5] bg-[#1C1C1E] border border-white/10 relative overflow-hidden group shadow-2xl rounded-sm">
+                      {/* Primary Image */}
+                      <img 
+                         src={cat.image}
+                         alt={cat.name}
+                         className={`absolute inset-0 w-full h-full transition-all duration-1000 grayscale opacity-80 group-hover:grayscale-0 ${
+                            cat.secondaryImage 
+                              ? 'group-hover:opacity-0' 
+                              : 'group-hover:opacity-100'
+                         } ${cat.imageClassName || 'object-cover group-hover:scale-105'}`}
+                      />
+
+                      {/* Secondary Image (Hover Reveal) */}
+                      {cat.secondaryImage && (
+                         <img 
+                            src={cat.secondaryImage}
+                            alt={`${cat.name} secondary`}
+                            className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-1000 grayscale-0 ${
+                               cat.imageClassName || 'object-cover group-hover:scale-105'
+                            }`}
+                         />
+                      )}
+                      
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+
+                      {/* Specs Floating Card */}
+                      <div className="absolute bottom-6 left-6 right-6">
+                         <div className="flex flex-wrap gap-2">
+                            {cat.specs.map((spec, i) => (
+                               <div key={i} className="flex items-center gap-2 text-[10px] font-mono text-white/80 bg-black/60 backdrop-blur px-3 py-1 rounded border border-white/10">
+                                  {spec}
+                               </div>
+                            ))}
+                         </div>
+                      </div>
+                   </div>
+                 </FadeIn>
+
+                 {/* Text Side */}
+                 <div className="w-full lg:w-1/2">
+                   <FadeIn direction={index % 2 === 1 ? 'left' : 'right'}>
+                     <div className="flex items-center gap-4 mb-6">
+                       <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Architecture 0{index + 1}</span>
+                       <div className="h-px flex-1 bg-white/10"></div>
+                     </div>
+                     
+                     <h3 className="text-4xl lg:text-6xl font-display font-medium text-white mb-4">{cat.name}</h3>
+                     <p className="text-xl text-white/40 font-display mb-8">{cat.tagline}</p>
+                     
+                     <p className="text-brand-polar/60 text-lg font-sans font-light leading-relaxed mb-10 max-w-xl">
+                       {cat.desc} 
+                     </p>
+                     
+                     <div className="flex items-center gap-6">
+                       <Link to="/engine">
+                          <Button variant="outline" className="text-white hover:text-brand-mink hover:border-brand-mink" size="md">
+                            Configure {cat.name}
+                          </Button>
+                       </Link>
+                     </div>
+                   </FadeIn>
+                 </div>
+               </div>
+             ))}
+           </div>
+        </div>
       </section>
 
       {/* --- SECTION 1: MOLDJET DEEP DIVE (The Core Tech) --- */}

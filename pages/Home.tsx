@@ -158,7 +158,7 @@ const Home: React.FC = () => {
                      </span>
                   </Button>
                 </Link>
-                <Link to="/clubs" className="text-sm font-medium text-white hover:text-brand-mink transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5 shadow-sm">
+                <Link to="/technology" className="text-sm font-medium text-white hover:text-brand-mink transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5 shadow-sm">
                   View Components
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -430,14 +430,14 @@ const Home: React.FC = () => {
                <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Hardware</span>
                <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight">Product Architecture</h2>
             </div>
-            <Link to="/clubs" className="hidden md:block">
+            <Link to="/technology" className="hidden md:block">
               <Button variant="outline" size="sm" className="rounded-full">View Components</Button>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CLUB_CATEGORIES.map((cat, index) => (
-               <Link to="/clubs" key={cat.id} className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#242424] border border-white/5 hover:border-brand-mink/30 transition-colors">
+               <Link to="/technology" key={cat.id} className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#242424] border border-white/5 hover:border-brand-mink/30 transition-colors">
                   <div className="absolute top-6 left-6 z-20">
                     <span className="text-[10px] font-mono text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded">0{index + 1} // {cat.name}</span>
                   </div>
@@ -481,7 +481,7 @@ const Home: React.FC = () => {
           </div>
           
           <div className="mt-8 md:hidden">
-             <Link to="/clubs">
+             <Link to="/technology">
                 <Button variant="outline" size="sm" className="w-full rounded-full">View All Components</Button>
              </Link>
           </div>

@@ -2,10 +2,9 @@
 import { NavLink } from './types';
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Products', path: '/clubs' },
-  { label: 'Engine', path: '/engine' },
-  { label: 'For Fitters', path: '/fitters' },
+  { label: 'The Engine', path: '/engine' },
   { label: 'Technology', path: '/technology' },
+  { label: 'For Fitters', path: '/fitters' },
   { label: 'About', path: '/about' },
 ];
 
@@ -37,8 +36,8 @@ export const CLUB_CATEGORIES = [
     // Secondary: PW2 on hover
     secondaryImage: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/46%20PW2.png',
     specs: ['Raw Finish', 'High Spin', 'Variable Sole'],
-    // Custom studio background for transparent PNG
-    imageClassName: 'object-contain p-8 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/80 via-transparent to-transparent' 
+    // Custom studio background for transparent PNG - ADJUSTED FOR DARK MODE
+    imageClassName: 'object-contain p-8 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent' 
   },
   {
     id: 'putters',
