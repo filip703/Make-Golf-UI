@@ -9,39 +9,30 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ color = "white", variant = "full", className = "" }) => {
   
-  // These paths correspond to:
-  // public/assets/logos/make-wordmark-white.png
-  // public/assets/logos/make-symbol-white.png
-  const logoPath = variant === 'symbol' 
-    ? `/assets/logos/make-symbol-${color}.png`
-    : `/assets/logos/make-wordmark-${color}.png`;
+  // Always use the high-quality Polar-Mink logo for the main brand mark.
+  const logoPath = "https://cdn.prod.website-files.com/683dc60f79209a98db49aa51/685dcd16cb6d7e2568b6d6aa_MG_Polar-Mink.png";
 
   return (
-    <div className={`${className} flex items-center`}>
+    <div className={`${className} flex items-center justify-start`}>
       <img 
         src={logoPath} 
         alt="MAKE GOLF" 
-        className="h-full w-auto object-contain"
+        className="w-full h-full object-contain object-left"
         onError={(e) => {
           const img = e.currentTarget;
           const parent = img.parentElement;
 
           if (parent) {
-             // Stop further error events
              img.onerror = null;
-             
-             // Hide the image
              img.style.display = 'none';
-
-             // Set fallback text - this removes the img from the DOM, so we must use the 'parent' variable we saved earlier
              parent.innerText = variant === 'symbol' ? 'M' : 'MAKE';
              
-             // Apply styles to the parent container
              parent.style.fontFamily = '"Space Grotesk", sans-serif';
              parent.style.fontWeight = '700';
              parent.style.fontSize = variant === 'symbol' ? '24px' : '20px';
              parent.style.letterSpacing = '0.05em';
-             parent.style.color = color === 'white' ? '#FFFFFF' : '#191919';
+             parent.style.color = '#FFFFFF';
+             parent.style.whiteSpace = 'nowrap';
           }
         }}
       />

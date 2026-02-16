@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { ExternalLink, Sliders, Cpu, Crosshair } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const Configurator: React.FC = () => {
-  // The official external tool URL
-  const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90";
-  
   const [hoveredModel, setHoveredModel] = useState<string | null>(null);
+
+  const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90";
 
   const MODELS = [
     {
@@ -64,8 +64,8 @@ const Configurator: React.FC = () => {
           {MODELS.map((model, idx) => (
             <FadeIn key={model.id} delay={idx * 0.1}>
               <a 
-                href={MAKER_URL} 
-                target="_blank" 
+                href={MAKER_URL}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group relative block h-[500px] bg-[#242424] rounded-xl overflow-hidden border border-white/5 hover:border-brand-mink/50 transition-all duration-500 shadow-xl"
                 onMouseEnter={() => setHoveredModel(model.id)}

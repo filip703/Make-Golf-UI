@@ -35,27 +35,34 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90";
+
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
-      {/* Hero Section - Gradient Background */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#242424] via-[#1A1A1A] to-[#121212]">
-        {/* Background Image - Updated to Dark Abstract / Metal */}
+      {/* Hero Section - Video Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1629202570460-618778f65e23?q=80&w=2070&auto=format&fit=crop" 
-              alt="Dark Metal Texture"
-              className="w-full h-full object-cover opacity-30 scale-105"
-            />
-            {/* Soft Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-brand-black/60 to-brand-black"></div>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-full object-cover opacity-50 scale-105"
+            >
+              <source src="https://cdn.prod.website-files.com/683dc60f79209a98db49aa51%2F68dacaebb04245b0c1efbe48_Make%20Header%20Waitlist-transcode.mp4" type="video/mp4" />
+            </video>
+            {/* Gradient Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/30 via-transparent to-brand-black/90"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 pt-10">
           <div className="max-w-6xl mx-auto text-center">
             
             <FadeIn direction="up">
-              <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full mb-12 shadow-lg">
+              <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full mb-12 shadow-lg hover:bg-white/10 transition-colors cursor-default">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mink opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-mink"></span>
@@ -73,7 +80,7 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                     transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4"
+                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl"
                   >
                     {HERO_CONTENT[statementIndex].headline}
                   </motion.h1>
@@ -90,7 +97,7 @@ const Home: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5 }}
-                        className="text-lg md:text-xl text-brand-polar/70 font-sans font-light leading-relaxed absolute w-full px-4"
+                        className="text-lg md:text-xl text-brand-polar/90 font-sans font-light leading-relaxed absolute w-full px-4 drop-shadow-md"
                     >
                         {HERO_CONTENT[statementIndex].subheadline}
                     </motion.p>
@@ -105,7 +112,7 @@ const Home: React.FC = () => {
                      </span>
                   </Button>
                 </Link>
-                <Link to="/clubs" className="text-sm font-medium text-brand-polar/80 hover:text-white transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5">
+                <Link to="/clubs" className="text-sm font-medium text-white hover:text-brand-mink transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5 shadow-sm">
                   View Components
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -118,7 +125,7 @@ const Home: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-polar/30"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-polar/50"
         >
           <span className="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
@@ -216,7 +223,7 @@ const Home: React.FC = () => {
                 </Link>
              </FadeIn>
 
-             {/* Right: Visual Abstract - Updated Image */}
+             {/* Right: Visual Abstract */}
              <FadeIn direction="left" delay={0.2}>
                 <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-[#151515] group shadow-2xl">
                    <img 
@@ -281,10 +288,10 @@ const Home: React.FC = () => {
                         scrolling="no"
                   ></iframe>
 
-                  {/* Overlay to link to login */}
+                  {/* Overlay to link to login - Now External Link */}
                   <a 
-                        href="https://maker.make.golf/login" 
-                        target="_blank" 
+                        href={MAKER_URL}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                   >

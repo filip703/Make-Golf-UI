@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail } from 'lucide-react';
+import { X, Mail, ExternalLink } from 'lucide-react';
 import Button from './Button';
 
 const NewsletterModal: React.FC = () => {
@@ -63,19 +63,22 @@ const NewsletterModal: React.FC = () => {
                 </h3>
                 
                 <p className="text-brand-polar/60 text-sm font-sans leading-relaxed mb-8 max-w-xs">
-                    We release production slots in batches. Join the list to get priority access when the next manufacturing window opens.
+                    We release production slots in batches. Apply now to get priority access when the next manufacturing window opens.
                 </p>
 
-                <form className="w-full space-y-3" onSubmit={(e) => { e.preventDefault(); handleClose(); }}>
-                    <input 
-                        type="email" 
-                        placeholder="your@email.com" 
-                        className="w-full bg-[#111] border border-white/10 px-4 py-3 text-sm font-mono text-white focus:outline-none focus:border-brand-mink/50 transition-colors placeholder:text-brand-polar/20 rounded-md text-center"
-                    />
-                    <Button variant="primary" size="md" className="w-full justify-center rounded-md">
-                        Join Waitlist
-                    </Button>
-                </form>
+                <div className="w-full space-y-3">
+                    <a 
+                      href="https://make.golf/#sign-up" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                      onClick={handleClose}
+                    >
+                      <Button variant="primary" size="md" className="w-full justify-center rounded-md">
+                          Apply for Beta Access <ExternalLink className="w-3 h-3 ml-2" />
+                      </Button>
+                    </a>
+                </div>
 
                 <button 
                     onClick={handleClose}

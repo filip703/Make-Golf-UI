@@ -24,7 +24,7 @@ export const CLUB_CATEGORIES = [
     desc: 'Fully parametric blade lengths, offsets, and top-lines. Optimized for your strike pattern.',
     // Image: Macro shot of brushed steel / industrial look
     image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', 
-    specs: ['17-4PH SS', 'DMLS Print', 'Custom CG']
+    specs: ['17-4PH SS', 'MoldJet™ Print', 'Custom CG']
   },
   {
     id: 'wedges',
@@ -58,7 +58,7 @@ export const ARTICLES = [
     category: "ENGINEERING",
     // Image: Microscope shot of metal or laser sintering
     image: 'https://images.unsplash.com/photo-1563206767-5b1d972b9fb9?q=80&w=1974&auto=format&fit=crop',
-    excerpt: "Why micro-welding defects in cast irons create inconsistent ball speeds, and how DMLS solves it."
+    excerpt: "Why micro-welding defects in cast irons create inconsistent ball speeds, and how MoldJet solves it."
   },
   {
     id: 2,

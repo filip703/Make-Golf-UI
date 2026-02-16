@@ -9,8 +9,8 @@ import AIFitting from './pages/AIFitting';
 import Configurator from './pages/Configurator';
 import Fitters from './pages/Fitters';
 import Technology from './pages/Technology';
-import About from './pages/About'; // Import About
-import NewsletterModal from './components/NewsletterModal'; // Import Modal
+import About from './pages/About';
+// IframeView removed as it is no longer used
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,7 +26,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white">
         <Navbar />
-        <NewsletterModal /> {/* Global Pop-up */}
+        {/* NewsletterModal removed as requested */}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -35,7 +35,8 @@ const App: React.FC = () => {
             <Route path="/configurator" element={<Configurator />} />
             <Route path="/fitters" element={<Fitters />} />
             <Route path="/technology" element={<Technology />} />
-            <Route path="/about" element={<About />} /> {/* Added Route */}
+            <Route path="/about" element={<About />} />
+            {/* Embedded routes removed due to X-Frame-Options restrictions on external sites */}
           </Routes>
         </main>
         <Footer />

@@ -4,6 +4,7 @@ import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { TrendingUp, Box, DollarSign, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const dataRevenue = [
   { month: 'Jan', revenue: 12000 },
@@ -16,6 +17,7 @@ const dataRevenue = [
 
 const Fitters: React.FC = () => {
   const DASHBOARD_URL = "https://frontend-seven-iota-56.vercel.app/dashboard";
+  const BETA_URL = "https://make.golf/#sign-up";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1C1C1E] to-[#151515] pt-20">
@@ -37,7 +39,9 @@ const Fitters: React.FC = () => {
               <strong>68% Gross Margin.</strong> No stock risk.
             </p>
             <div className="flex justify-center gap-6">
-              <Button variant="primary" size="lg" className="rounded-md">APPLY FOR ACCESS</Button>
+              <a href={BETA_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="lg" className="rounded-md">APPLY FOR ACCESS</Button>
+              </a>
               <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">
                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:border-white rounded-md">
                     EXISTING PARTNER LOGIN
@@ -156,7 +160,9 @@ const Fitters: React.FC = () => {
       {/* CTA */}
       <section className="py-32 container mx-auto px-6 text-center">
          <h2 className="text-4xl text-brand-polar font-display font-bold mb-10 uppercase">Limited Partnership Openings for 2026</h2>
-         <Button variant="primary" size="lg" className="rounded-md">APPLY NOW</Button>
+         <a href={BETA_URL} target="_blank" rel="noopener noreferrer">
+           <Button variant="primary" size="lg" className="rounded-md">APPLY NOW</Button>
+         </a>
       </section>
 
     </div>
