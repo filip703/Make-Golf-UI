@@ -59,7 +59,7 @@ export const ARTICLES: Article[] = [
     date: "OCT 12, 2025",
     category: "ENGINEERING",
     readTime: "4 MIN",
-    image: 'https://images.unsplash.com/photo-1563206767-5b1d972b9fb9?q=80&w=1974&auto=format&fit=crop',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Artiklar/artikel.png',
     excerpt: "Why micro-welding defects in cast irons create inconsistent ball speeds, and how MoldJet solves it.",
     author: {
         name: "Mårten Eker",
@@ -162,7 +162,7 @@ export const ARTICLES: Article[] = [
     date: "JUL 02, 2025",
     category: "ENGINEERING",
     readTime: "5 MIN",
-    image: "https://images.unsplash.com/photo-1518659681376-78c65f9042b6?q=80&w=2069&auto=format&fit=crop",
+    image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Artiklar/green%20steel.png",
     excerpt: "How additive manufacturing reduces material waste by 90% compared to traditional milling and casting.",
     author: {
         name: "Mårten Eker",

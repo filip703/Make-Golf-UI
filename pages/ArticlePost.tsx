@@ -1,27 +1,68 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ARTICLES } from '../constants';
+import { ArticleService } from '../services/articleService';
+import { Article } from '../types';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
-import { ArrowLeft, Clock, Share2, Calendar } from 'lucide-react';
+import { ArrowLeft, Clock, Share2, Calendar, Loader2 } from 'lucide-react';
 
 const ArticlePost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-
-  // Find the article
-  const article = ARTICLES.find(a => a.slug === slug);
+  
+  const [article, setArticle] = useState<Article | null>(null);
+  const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-     if (!article) {
-        // Redirect to journal if not found (basic handling)
-        // In a real app, this might show a 404
-        // navigate('/journal');
-     }
-  }, [article, navigate]);
+    const loadData = async () => {
+        if (!slug) return;
+        setLoading(true);
+        try {
+            // 1. Fetch main article
+            const data = await ArticleService.getArticleBySlug(slug);
+            if (!data) {
+                // Handle 404 (optional: redirect)
+                // navigate('/journal');
+                setArticle(null);
+            } else {
+                setArticle(data);
+                
+                // 2. Fetch related (just grab all and filter for now)
+                const all = await ArticleService.getAllArticles();
+                setRelatedArticles(all.filter(a => a.id !== data.id));
+            }
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-  if (!article) return <div className="min-h-screen bg-brand-black pt-32 text-center text-white">Article not found.</div>;
+    loadData();
+    // Scroll to top when slug changes
+    window.scrollTo(0,0);
+  }, [slug, navigate]);
+
+
+  if (loading) {
+     return (
+        <div className="min-h-screen bg-brand-black pt-32 flex justify-center items-start">
+            <Loader2 className="w-8 h-8 text-brand-mink animate-spin opacity-50" />
+        </div>
+     );
+  }
+
+  if (!article) return (
+    <div className="min-h-screen bg-brand-black pt-40 text-center text-white container mx-auto px-6">
+        <h2 className="text-4xl font-display mb-4">Transmission Lost.</h2>
+        <p className="text-white/50 mb-8">This article could not be retrieved from the archives.</p>
+        <Link to="/journal">
+            <Button variant="outline">Return to Journal</Button>
+        </Link>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar pb-32">
@@ -122,7 +163,7 @@ const ArticlePost: React.FC = () => {
            <FadeIn>
               <h3 className="text-2xl font-display text-white mb-10">Read Next</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {ARTICLES.filter(a => a.id !== article.id).slice(0, 3).map(related => (
+                  {relatedArticles.slice(0, 3).map(related => (
                       <Link to={`/journal/${related.slug}`} key={related.id} className="group block">
                           <div className="aspect-video bg-[#242424] rounded-lg overflow-hidden mb-4 border border-white/5">
                               <img src={related.image} alt={related.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />

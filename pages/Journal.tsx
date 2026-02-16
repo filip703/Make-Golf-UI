@@ -1,13 +1,43 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/FadeIn';
-import { ArrowRight, BookOpen, Clock, Tag } from 'lucide-react';
-import { ARTICLES } from '../constants';
+import { ArrowRight, BookOpen, Clock, Loader2 } from 'lucide-react';
+import { ArticleService } from '../services/articleService';
+import { Article } from '../types';
 
 const Journal: React.FC = () => {
-  const featuredArticle = ARTICLES[0];
-  const remainingArticles = ARTICLES.slice(1);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const data = await ArticleService.getAllArticles();
+        setArticles(data);
+      } catch (error) {
+        console.error("Failed to load journal", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-brand-black pt-32 flex justify-center items-start">
+         <div className="flex flex-col items-center gap-4 opacity-50">
+            <Loader2 className="w-8 h-8 text-brand-mink animate-spin" />
+            <span className="text-xs font-mono uppercase tracking-widest text-white">Loading Transmission...</span>
+         </div>
+      </div>
+    );
+  }
+
+  const featuredArticle = articles[0];
+  const remainingArticles = articles.slice(1);
 
   return (
     <div className="min-h-screen bg-brand-black pt-24 pb-24 text-white font-sans">
@@ -29,38 +59,40 @@ const Journal: React.FC = () => {
       </section>
 
       {/* Featured Article */}
-      <section className="container mx-auto px-6 mb-24">
-        <FadeIn delay={0.1}>
-            <Link to={`/journal/${featuredArticle.slug}`} className="group relative block w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xl border border-white/10">
-                <img 
-                    src={featuredArticle.image} 
-                    alt={featuredArticle.title}
-                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:max-w-3xl">
-                    <div className="flex items-center gap-4 mb-4">
-                        <span className="bg-brand-mink text-white px-3 py-1 text-[10px] font-bold font-mono uppercase tracking-widest rounded-sm">
-                            {featuredArticle.category}
-                        </span>
-                        <span className="text-white/60 text-xs font-mono uppercase flex items-center gap-2">
-                             <Clock className="w-3 h-3" /> {featuredArticle.readTime}
-                        </span>
+      {featuredArticle && (
+        <section className="container mx-auto px-6 mb-24">
+            <FadeIn delay={0.1}>
+                <Link to={`/journal/${featuredArticle.slug}`} className="group relative block w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xl border border-white/10">
+                    <img 
+                        src={featuredArticle.image} 
+                        alt={featuredArticle.title}
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    
+                    <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:max-w-3xl">
+                        <div className="flex items-center gap-4 mb-4">
+                            <span className="bg-brand-mink text-white px-3 py-1 text-[10px] font-bold font-mono uppercase tracking-widest rounded-sm">
+                                {featuredArticle.category}
+                            </span>
+                            <span className="text-white/60 text-xs font-mono uppercase flex items-center gap-2">
+                                <Clock className="w-3 h-3" /> {featuredArticle.readTime}
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-display text-white mb-4 leading-tight group-hover:text-brand-mink transition-colors">
+                            {featuredArticle.title}
+                        </h2>
+                        <p className="text-lg text-white/70 font-light line-clamp-2 md:line-clamp-none mb-6">
+                            {featuredArticle.excerpt}
+                        </p>
+                        <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white border-b border-brand-mink pb-0.5">
+                            Read Full Story <ArrowRight className="w-3 h-3" />
+                        </div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-display text-white mb-4 leading-tight group-hover:text-brand-mink transition-colors">
-                        {featuredArticle.title}
-                    </h2>
-                    <p className="text-lg text-white/70 font-light line-clamp-2 md:line-clamp-none mb-6">
-                        {featuredArticle.excerpt}
-                    </p>
-                    <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white border-b border-brand-mink pb-0.5">
-                        Read Full Story <ArrowRight className="w-3 h-3" />
-                    </div>
-                </div>
-            </Link>
-        </FadeIn>
-      </section>
+                </Link>
+            </FadeIn>
+        </section>
+      )}
 
       {/* Grid */}
       <section className="container mx-auto px-6">
