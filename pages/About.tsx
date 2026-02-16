@@ -1,12 +1,34 @@
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
-import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History } from 'lucide-react';
+import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { ARTICLES } from '../constants'; // Importing article data
 import Logo from '../components/Logo';
 
 const About: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+     if (videoRef.current) {
+        if (isPlaying) {
+           videoRef.current.pause();
+        } else {
+           videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+     }
+  };
+
+  const toggleMute = () => {
+     if (videoRef.current) {
+        videoRef.current.muted = !isMuted;
+        setIsMuted(!isMuted);
+     }
+  };
+
   return (
     <div className="min-h-screen bg-[#F5F5F7] pt-20 text-[#1C1C1E] selection:bg-brand-mink selection:text-white overflow-hidden">
       
@@ -27,6 +49,59 @@ const About: React.FC = () => {
                </p>
             </div>
          </FadeIn>
+      </section>
+
+      {/* Brand Video Section */}
+      <section className="py-12 md:py-24 bg-[#EAEAEA]">
+         <div className="container mx-auto px-6">
+            <FadeIn>
+               <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl group bg-black">
+                  <video 
+                     ref={videoRef}
+                     src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Video/Make%20brand%20video.mp4" 
+                     className="w-full h-full object-cover"
+                     playsInline
+                     loop
+                     muted
+                     autoPlay
+                     onPlay={() => setIsPlaying(true)}
+                     onPause={() => setIsPlaying(false)}
+                     onClick={togglePlay}
+                  />
+                  
+                  {/* Controls Overlay */}
+                  <div className="absolute bottom-6 right-6 flex items-center gap-4 z-20">
+                     <button 
+                        onClick={toggleMute}
+                        className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-brand-mink hover:border-brand-mink transition-all duration-300"
+                     >
+                        {isMuted ? <VolumeX className="w-4 h-4 md:w-5 md:h-5" /> : <Volume2 className="w-4 h-4 md:w-5 md:h-5" />}
+                     </button>
+                     <button 
+                        onClick={togglePlay}
+                        className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-brand-mink hover:border-brand-mink transition-all duration-300"
+                     >
+                        {isPlaying ? <Pause className="w-4 h-4 md:w-5 md:h-5" /> : <Play className="w-4 h-4 md:w-5 md:h-5 ml-0.5" />}
+                     </button>
+                  </div>
+
+                  {/* Optional Overlay when paused */}
+                  {!isPlaying && (
+                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center pointer-events-none">
+                        <Play className="w-16 h-16 text-white opacity-50" />
+                     </div>
+                  )}
+               </div>
+               <div className="mt-4 flex justify-between items-start">
+                   <div className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest">
+                       Brand Manifesto // 2026
+                   </div>
+                   <div className="text-[#1C1C1E]/60 text-xs font-sans max-w-md text-right">
+                       "It's not about the club you buy. It's about the club you build."
+                   </div>
+               </div>
+            </FadeIn>
+         </div>
       </section>
 
       {/* DNA Section - Light Theme */}
@@ -77,7 +152,7 @@ const About: React.FC = () => {
          </div>
       </section>
 
-      {/* Founders / Team - Using Local Assets */}
+      {/* Founders / Team - Using Real Assets */}
       <section className="py-32 bg-[#F9F9FB] border-b border-black/5">
          <div className="container mx-auto px-6">
             <FadeIn>
@@ -92,11 +167,11 @@ const About: React.FC = () => {
                {/* Founder 1: Mårten */}
                <FadeIn delay={0.1}>
                   <div className="group cursor-default">
-                     <div className="aspect-square bg-white mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
+                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
                         <img 
-                           src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" 
+                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png" 
                            alt="Mårten Eker" 
-                           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
+                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-105 transition-all duration-700 filter grayscale group-hover:grayscale-0"
                         />
                         <div className="absolute bottom-3 left-3">
                            <div className="bg-brand-mink text-white px-2 py-0.5 text-[10px] font-bold font-mono">
@@ -117,11 +192,11 @@ const About: React.FC = () => {
                {/* Founder 2: Filip */}
                <FadeIn delay={0.2}>
                   <div className="group cursor-default">
-                     <div className="aspect-square bg-white mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
+                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
                         <img 
-                           src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop" 
+                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/filip.png" 
                            alt="Filip Hector" 
-                           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
+                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-125 transition-all duration-700 filter grayscale group-hover:grayscale-0 origin-top"
                         />
                          <div className="absolute bottom-3 left-3">
                            <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">
@@ -142,11 +217,11 @@ const About: React.FC = () => {
                {/* Founder 3: Erik */}
                <FadeIn delay={0.3}>
                   <div className="group cursor-default">
-                     <div className="aspect-square bg-white mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
+                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
                         <img 
-                           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop" 
+                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/erik.png" 
                            alt="Erik Paulsson" 
-                           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale"
+                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-125 transition-all duration-700 filter grayscale group-hover:grayscale-0 origin-top"
                         />
                          <div className="absolute bottom-3 left-3">
                            <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">

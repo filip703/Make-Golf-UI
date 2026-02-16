@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Fingerprint, Activity, Layers, Dna, Maximize } from 'lucide-react';
+import { ArrowRight, ChevronDown, Dna, Maximize, Play, RefreshCw } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,9 +25,46 @@ const HERO_CONTENT = [
   }
 ];
 
+// Data for the Swing Cinema - Updated with Real Traces
+const SWING_SIGNATURES = [
+  {
+    id: 'rory',
+    name: 'Rory McIlroy',
+    label: 'Tour Profile A',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Rory.png'
+  },
+  {
+    id: 'hovland',
+    name: 'Viktor Hovland',
+    label: 'Tour Profile B',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Victor%20Hovland.png'
+  },
+  {
+    id: 'grant',
+    name: 'Linn Grant',
+    label: 'Tour Profile C',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Linn%20Grant.png'
+  },
+  {
+    id: 'wolff',
+    name: 'Matthew Wolff',
+    label: 'Tour Profile D',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Matthew%20Wolff.png'
+  },
+  {
+    id: 'founder',
+    name: 'Mårten Eker',
+    label: 'Founder // HCP +3.2',
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Marten%20Eker.png',
+    isFounder: true
+  }
+];
+
 const Home: React.FC = () => {
   const [statementIndex, setStatementIndex] = useState(0);
+  const [currentSwingIndex, setCurrentSwingIndex] = useState(0);
 
+  // Hero Text Rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setStatementIndex((prev) => (prev + 1) % HERO_CONTENT.length);
@@ -35,7 +72,16 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Swing Cinema Rotation
+  useEffect(() => {
+    const swingInterval = setInterval(() => {
+      setCurrentSwingIndex((prev) => (prev + 1) % SWING_SIGNATURES.length);
+    }, 5000); // Slower interval to allow for the "swing first, then text" animation
+    return () => clearInterval(swingInterval);
+  }, []);
+
   const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90";
+  const activeSwing = SWING_SIGNATURES[currentSwingIndex];
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
@@ -132,52 +178,108 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* --- LIGHT SECTION: PHILOSOPHY --- */}
+      {/* --- SWING CINEMA (PHILOSOPHY) --- */}
       <section className="py-32 bg-[#EAEAEA] text-[#1C1C1E]">
          <div className="container mx-auto px-6">
-            <FadeIn>
-               <div className="max-w-3xl mx-auto text-center mb-24">
-                  <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E] mb-6">Built for the Individual.</h2>
-                  <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed">
-                     Mass production works for t-shirts, not for golf swings. 
-                     We stripped away the marketing fluff to focus on what actually matters: 
-                     Physics, Geometry, and You.
-                  </p>
-               </div>
-            </FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+               
+               {/* Left: Text Content */}
+               <FadeIn>
+                  <div className="mb-8">
+                     <div className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-4">Every Swing Is Unique</div>
+                     <h2 className="text-4xl md:text-6xl font-display text-[#1C1C1E] mb-6 leading-[1]">
+                        One Size<br/>Fits None.
+                     </h2>
+                     <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed mb-6">
+                        Mass production works for t-shirts, not for golf swings. 
+                        Look at the data. Rory swings differently than Nelly. Nelly swings differently than you.
+                     </p>
+                     <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed">
+                        We don't force you into a "Stiff" or "Regular" flex bucket. We analyze your unique swing signature and manufacture a club that matches it perfectly.
+                     </p>
+                  </div>
+                  <Link to="/engine">
+                     <Button variant="secondary" className="shadow-lg text-[#1C1C1E]">Learn about the Engine</Button>
+                  </Link>
+               </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-               <FadeIn delay={0.1}>
-                  <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
-                        <Fingerprint className="w-8 h-8" />
+               {/* Right: The Cinema Monitor */}
+               <FadeIn direction="left" delay={0.2}>
+                  <div className="relative aspect-square md:aspect-[4/3] bg-[#1C1C1E] rounded-xl overflow-hidden shadow-2xl border border-black/10 flex flex-col">
+                     
+                     {/* Monitor Header */}
+                     <div className="bg-[#242424] px-4 py-3 flex justify-between items-center border-b border-white/5">
+                        <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                           <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest">REC // 60FPS</span>
+                        </div>
+                        <div className="text-[10px] font-mono text-white/40">
+                           {activeSwing.isFounder ? 'INTERNAL DATABASE' : 'PGA TOUR ARCHIVE'}
+                        </div>
                      </div>
-                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Your Signature</h3>
-                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
-                        We capture your biomechanical data to create a club that matches your unique swing DNA, not a market average.
-                     </p>
-                  </div>
-               </FadeIn>
-               <FadeIn delay={0.2}>
-                  <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
-                        <Activity className="w-8 h-8" />
+
+                     {/* Monitor Screen */}
+                     <div className="relative flex-grow bg-[#151515] flex items-center justify-center overflow-hidden">
+                        {/* Grid Background */}
+                        <div className="absolute inset-0 bg-grid opacity-20"></div>
+                        
+                        {/* The Swing Image - Fades in FIRST */}
+                        <div className="w-full h-full p-8 absolute inset-0 flex items-center justify-center">
+                            <AnimatePresence mode="wait">
+                              <motion.img
+                                  key={activeSwing.id}
+                                  src={activeSwing.image}
+                                  alt={activeSwing.name}
+                                  initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+                                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                                  exit={{ opacity: 0, scale: 1.05, filter: 'blur(5px)' }}
+                                  transition={{ duration: 1, ease: "easeOut" }}
+                                  className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                              />
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Player Label Overlay - Fades in AFTER image */}
+                        <div className="absolute bottom-6 left-6 z-10">
+                           <AnimatePresence mode="wait">
+                              <motion.div
+                                 key={activeSwing.id}
+                                 initial={{ opacity: 0, y: 15 }}
+                                 animate={{ opacity: 1, y: 0 }}
+                                 exit={{ opacity: 0, y: -15 }}
+                                 transition={{ delay: 0.5, duration: 0.5 }} // Delay for cinematic effect
+                                 className="flex flex-col"
+                              >
+                                 <span className={`text-3xl font-display ${activeSwing.isFounder ? 'text-brand-mink' : 'text-white'}`}>
+                                    {activeSwing.name}
+                                 </span>
+                                 <div className="flex items-center gap-2 mt-2">
+                                    <span 
+                                       className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded font-bold ${activeSwing.isFounder ? 'bg-brand-mink text-white' : 'bg-white text-black'}`}
+                                    >
+                                       {activeSwing.label}
+                                    </span>
+                                    {activeSwing.isFounder && (
+                                       <span className="text-[10px] font-mono text-white/50 uppercase ml-2">
+                                          Target Profile
+                                       </span>
+                                    )}
+                                 </div>
+                              </motion.div>
+                           </AnimatePresence>
+                        </div>
                      </div>
-                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Adaptive Design</h3>
-                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
-                        Our generative AI adapts geometry to optimize center of gravity and MOI specifically for your impact tendencies.
-                     </p>
-                  </div>
-               </FadeIn>
-               <FadeIn delay={0.3}>
-                  <div className="flex flex-col items-center text-center group">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-brand-mink group-hover:scale-110 transition-transform duration-500 shadow-md">
-                        <Layers className="w-8 h-8" />
+
+                     {/* Monitor Footer / Timeline */}
+                     <div className="bg-[#1C1C1E] h-1.5 w-full relative">
+                        <motion.div 
+                           key={activeSwing.id}
+                           initial={{ width: "0%" }}
+                           animate={{ width: "100%" }}
+                           transition={{ duration: 5, ease: "linear" }}
+                           className={`h-full ${activeSwing.isFounder ? 'bg-brand-mink' : 'bg-white/20'}`}
+                        />
                      </div>
-                     <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Additive Mfg</h3>
-                     <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
-                        Printed layer by layer in stainless steel. This method allows for complex internal structures impossible to cast.
-                     </p>
                   </div>
                </FadeIn>
             </div>
