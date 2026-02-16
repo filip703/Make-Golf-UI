@@ -53,6 +53,222 @@ export const CLUB_MODELS = [];
 // --- EXPANDED ARTICLES DATA ---
 export const ARTICLES: Article[] = [
   {
+    id: 104,
+    slug: "rethink-golf",
+    title: "Rethink Golf: Build the Club You Actually Need",
+    date: "NOV 10, 2025",
+    category: "OPINION",
+    readTime: "6 MIN",
+    image: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=2069&auto=format&fit=crop",
+    excerpt: "Golf has been stuck in the same mold for decades. Literally. It is time to stop fitting the player to the club, and start building the club for the player.",
+    author: {
+        name: "Mårten Eker",
+        role: "Head of Engineering",
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+    },
+    content: [
+        {
+            type: 'paragraph',
+            content: "Golf has been stuck in the same mold for decades. Literally. Most brands still cast heads in bulk, tweak the paint, and call it innovation. At Make Golf, we don’t believe in doing things differently just to stand out. We believe in doing them better."
+        },
+        {
+            type: 'paragraph',
+            content: "3D printing isn’t a novelty. It’s the starting point for designing equipment around one thing: your game. Here’s how it works—and why it changes everything."
+        },
+        {
+            type: 'h2',
+            content: "It Starts with Your Data"
+        },
+        {
+            type: 'paragraph',
+            content: "Every club we build begins with a clear picture of your swing. We measure speed, tempo, attack angle, face orientation at impact, and preferred shot shape. This isn’t about fitting you into an average. It’s about building something that fits you exactly."
+        },
+        {
+            type: 'h2',
+            content: "Beyond Loft and Lie"
+        },
+        {
+            type: 'paragraph',
+            content: "Most club fittings end with small tweaks to loft and lie. 3D printing goes further. We adjust thickness across the face to protect ball speed on miss-hits—high, low, heel, toe."
+        },
+        {
+            type: 'paragraph',
+            content: "We design the interior of the head to position mass precisely where it delivers the flight and forgiveness you need. Low and forward for a flatter trajectory, or heel-weighted to help square the face. We can shift the center of gravity by fractions of a millimeter."
+        },
+        {
+            type: 'h2',
+            content: "Shape Designed for Your Eye"
+        },
+        {
+            type: 'paragraph',
+            content: "What inspires confidence at address isn’t the same for everyone. With 3D printing, you get choices most brands can’t offer: Topline thickness, sole width, leading edge profile, and hosel blending. A profile that fits your eye is more than cosmetic—it builds trust."
+        },
+        {
+            type: 'h2',
+            content: "Optimized Grooves & Texture"
+        },
+        {
+            type: 'paragraph',
+            content: "Course conditions change. So should your tools. We customize groove depth and spacing for your typical turf and weather, and add micro-texture to fine-tune friction and spin."
+        },
+        {
+            type: 'h2',
+            content: "Materials That Perform"
+        },
+        {
+            type: 'paragraph',
+            content: "3D printing allows us to use advanced metals and internal lattice structures you won’t find in cast heads. This means consistent density, clean energy transfer, and reliable feedback on every swing. Nothing feels vague or dull."
+        },
+        {
+            type: 'h2',
+            content: "Finishes Without Compromise"
+        },
+        {
+            type: 'paragraph',
+            content: "Most brands offer one or two finish options. We believe your club should look as personal as it feels. Brushed, Satin, Matte black, Raw, or Custom laser markings. Performance and aesthetics, without compromise."
+        },
+        {
+            type: 'quote',
+            content: "No shortcuts. No stereotypes. No one-size-fits-all. Just equipment made to unlock your best game."
+        }
+    ]
+  },
+  {
+    id: 101,
+    slug: "one-good-fit",
+    title: "How One Good Fit Can Change Your Entire Game",
+    date: "NOV 02, 2025",
+    category: "TOUR REPORT",
+    readTime: "7 MIN",
+    image: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?q=80&w=1576&auto=format&fit=crop",
+    excerpt: "Every golfer has a moment when something clicks. See how Lina, Daniel, and Mikaela transformed their game.",
+    author: {
+        name: "Filip Hector",
+        role: "VP // CCO",
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/filip.png"
+    },
+    content: [
+        {
+            type: 'paragraph',
+            content: "Every golfer has a moment when something clicks. A swing finally feels effortless. A shot flies exactly as you pictured. For many, that moment doesn’t come from practicing harder. It comes from finally playing with equipment built to fit them—not the average."
+        },
+        {
+            type: 'paragraph',
+            content: "At Make Golf, we’ve seen what happens when players switch from mass-produced clubs to a set designed around their swing. The gains are real, and they go beyond numbers on a launch monitor."
+        },
+        {
+            type: 'h2',
+            content: "Lina: From Frustration to Control"
+        },
+        {
+            type: 'paragraph',
+            content: "Lina played twice a week, but every iron felt unpredictable. Her shots ballooned high, spun too much, and fell short. Off the tee, she struggled with a persistent slice that robbed distance. She assumed it was just her technique."
+        },
+        {
+            type: 'paragraph',
+            content: "We built a set of 3D-printed heads with neutral weighting and a thinner face profile for a stronger flight. Her irons were adjusted flatter, and her driver was rebalanced for a more stable face through impact. In the first session, her 7-iron carried 12 meters longer on average. Her driver dispersion shrank by 40%."
+        },
+        {
+            type: 'h2',
+            content: "Daniel: From Inconsistent to Relentless"
+        },
+        {
+            type: 'paragraph',
+            content: "Daniel had been playing off an 18 handicap for years. His main frustration was inconsistency—some days he flushed everything, others he couldn’t find the center. We ran a detailed impact map of his strike patterns. It turned out his mishits clustered low on the face, where his old irons lost significant ball speed."
+        },
+        {
+            type: 'paragraph',
+            content: "With 3D printing, we built irons with variable face thickness to protect speed low on the face and shifted weighting slightly forward. Daniel’s ball speed on miss-hits improved by 9 mph. His average carry distance increased by 15 meters."
+        },
+        {
+            type: 'quote',
+            content: "One good fit isn’t about adding a few extra meters. It’s about unlocking the consistency and confidence that make golf more enjoyable."
+        }
+    ]
+  },
+  {
+    id: 102,
+    slug: "putter-paradox",
+    title: "How One Good Putter Fit Can Change Your Game",
+    date: "OCT 24, 2025",
+    category: "R&D",
+    readTime: "5 MIN",
+    image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/Putter%20JM.png",
+    excerpt: "The right putter—fitted to your stroke, your posture, and your habits—can transform your scores faster than any other club.",
+    author: {
+        name: "Mårten Eker",
+        role: "Head of Engineering",
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+    },
+    content: [
+        {
+            type: 'paragraph',
+            content: "Most golfers pick putters by feel in the shop or by whatever looks good behind the ball. But the right putter—fitted to your stroke, your posture, and your habits—can transform your scores faster than any other club in the bag."
+        },
+        {
+            type: 'h2',
+            content: "Johan: From Tentative to Decisive"
+        },
+        {
+            type: 'paragraph',
+            content: "Johan averaged 36 putts per round. He struggled with speed control, especially on mid-length putts. His old putter had a face-balanced design, but his stroke had a natural arc, causing inconsistent strikes and misses left."
+        },
+        {
+            type: 'paragraph',
+            content: "We designed a 3D-printed mallet with a milled face insert and precise weight distribution tailored to his stroke dynamics. Within weeks, Johan reduced three-putts by 60%. He felt confident over every putt, knowing the club would release naturally."
+        },
+        {
+            type: 'h2',
+            content: "Sara: From Guessing to Trusting"
+        },
+        {
+            type: 'paragraph',
+            content: "Sara never felt settled over short putts. Her alignment was inconsistent, and she often questioned if the face was square. During fitting, we identified her eye position was inside the ball, making her perceive the putter face as open."
+        },
+        {
+            type: 'quote',
+            content: "A putter that fits your stroke isn’t a luxury—it’s a shortcut to better scores and more confidence."
+        }
+    ]
+  },
+  {
+    id: 103,
+    slug: "custom-wedges",
+    title: "How Custom Wedges Can Transform Your Short Game",
+    date: "OCT 10, 2025",
+    category: "ENGINEERING",
+    readTime: "6 MIN",
+    image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/46%20PW1.png",
+    excerpt: "Most golfers play wedges straight off the rack, built for an 'average' swing. Here is why that is a mistake.",
+    author: {
+        name: "Erik Paulsson",
+        role: "Editor at Large",
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/erik.png"
+    },
+    content: [
+        {
+            type: 'paragraph',
+            content: "The short game is where scores are made—or lost. Yet most golfers still play wedges straight off the rack, built for an 'average' swing that doesn’t exist. Here’s what happens when you design wedges around your technique and the shots you need to hit."
+        },
+        {
+            type: 'h2',
+            content: "Elin: From Chunking to Control"
+        },
+        {
+            type: 'paragraph',
+            content: "Elin loved practicing wedges but struggled on tight lies. Her standard sand wedge had too much bounce and a wide sole that made it hard to nip the ball cleanly. We mapped her turf interaction, angle of attack, and face angle at impact. She needed a narrower sole, less bounce, and sharper leading edge."
+        },
+        {
+            type: 'paragraph',
+            content: "We designed a 3D-printed 56-degree wedge with a medium grind and reduced bounce, finished in a raw satin to reduce glare. Her strike became cleaner overnight. Chips stopped quicker. She shaved five strokes off her handicap within three months."
+        },
+        {
+            type: 'quote',
+            content: "Custom wedges aren’t about vanity. They’re about trust. When you know your club is built for the lie, the swing, and the shot, you swing with commitment."
+        }
+    ]
+  },
+  {
     id: 1,
     slug: "physics-of-porosity",
     title: "The Physics of Porosity",
