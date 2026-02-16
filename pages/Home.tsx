@@ -494,7 +494,7 @@ const Home: React.FC = () => {
             <FadeIn>
                 <div className="flex items-center justify-between mb-12">
                     <h2 className="text-2xl md:text-3xl font-display text-white">Latest from MAKE</h2>
-                    <Link to="/about" className="flex items-center gap-2 text-xs font-mono text-brand-polar/60 hover:text-white transition-colors">
+                    <Link to="/journal" className="flex items-center gap-2 text-xs font-mono text-brand-polar/60 hover:text-white transition-colors">
                         READ ALL <ArrowRight className="w-3 h-3" />
                     </Link>
                 </div>
@@ -503,7 +503,7 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {ARTICLES.slice(0, 3).map((article, index) => (
                     <FadeIn key={article.id} delay={index * 0.1}>
-                        <Link to="/about" className="group block">
+                        <Link to={`/journal/${article.slug}`} className="group block">
                             <div className="relative aspect-video bg-[#242424] overflow-hidden rounded-lg mb-4 border border-white/5 group-hover:border-white/20 transition-colors">
                                 <img 
                                     src={article.image} 

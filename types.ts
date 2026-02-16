@@ -1,3 +1,4 @@
+
 export interface NavLink {
   label: string;
   path: string;
@@ -28,4 +29,33 @@ export interface ClubConfig {
   shaft: string;
   grip: string;
   finish: string;
+}
+
+// --- CMS STRUCTURE TYPES ---
+
+export type ArticleCategory = 'ENGINEERING' | 'R&D' | 'OPINION' | 'TOUR REPORT';
+
+export interface ContentBlock {
+  type: 'paragraph' | 'h2' | 'h3' | 'image' | 'quote' | 'list';
+  content: string;
+  alt?: string; // For images
+}
+
+export interface Author {
+  name: string;
+  role: string;
+  image: string;
+}
+
+export interface Article {
+  id: string | number;
+  slug: string; // The URL part (e.g., "physics-of-porosity")
+  title: string;
+  excerpt: string;
+  date: string;
+  category: ArticleCategory;
+  image: string;
+  author: Author;
+  readTime: string;
+  content: ContentBlock[]; // Array of content blocks to simulate rich text
 }

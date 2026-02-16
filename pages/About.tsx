@@ -5,6 +5,7 @@ import FadeIn from '../components/FadeIn';
 import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { ARTICLES } from '../constants'; // Importing article data
 import Logo from '../components/Logo';
+import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -253,16 +254,16 @@ const About: React.FC = () => {
                         <h2 className="text-3xl md:text-4xl font-display text-white">Insights & Articles</h2>
                         <p className="text-white/40 text-sm mt-2">Thoughts on design, engineering, and the future of the game.</p>
                     </div>
-                    <a href="#" className="hidden md:flex items-center gap-2 text-xs font-mono text-white/50 hover:text-white transition-colors">
+                    <Link to="/journal" className="hidden md:flex items-center gap-2 text-xs font-mono text-white/50 hover:text-white transition-colors">
                         VIEW ARCHIVE <ArrowRight className="w-3 h-3" />
-                    </a>
+                    </Link>
                 </div>
             </FadeIn>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {ARTICLES.map((article, index) => (
+                {ARTICLES.slice(0, 3).map((article, index) => (
                     <FadeIn key={article.id} delay={index * 0.1}>
-                        <div className="group cursor-pointer">
+                        <Link to={`/journal/${article.slug}`} className="group cursor-pointer">
                             <div className="relative aspect-[16/10] bg-[#2C2C2E] overflow-hidden border border-white/5 mb-6 rounded-md">
                                 <img 
                                     src={article.image} 
@@ -278,7 +279,7 @@ const About: React.FC = () => {
                             <div className="flex items-center gap-3 mb-2 text-[10px] font-mono text-white/30 uppercase tracking-widest">
                                 <span>{article.date}</span>
                                 <span className="w-3 h-px bg-white/10"></span>
-                                <span>2 MIN READ</span>
+                                <span>{article.readTime}</span>
                             </div>
                             <h3 className="text-xl font-display text-white mb-3 group-hover:text-brand-mink transition-colors">{article.title}</h3>
                             <p className="text-white/50 text-sm font-sans font-light leading-relaxed mb-4">
@@ -287,7 +288,7 @@ const About: React.FC = () => {
                             <span className="text-white/40 text-xs font-mono group-hover:text-white transition-colors inline-flex items-center gap-2">
                                 Read Article <ArrowRight className="w-3 h-3" />
                             </span>
-                        </div>
+                        </Link>
                     </FadeIn>
                 ))}
             </div>

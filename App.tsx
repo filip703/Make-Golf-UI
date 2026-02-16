@@ -10,7 +10,8 @@ import Configurator from './pages/Configurator';
 import Fitters from './pages/Fitters';
 import Technology from './pages/Technology';
 import About from './pages/About';
-// IframeView removed as it is no longer used
+import Journal from './pages/Journal';
+import ArticlePost from './pages/ArticlePost';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,7 +27,6 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white">
         <Navbar />
-        {/* NewsletterModal removed as requested */}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -36,7 +36,11 @@ const App: React.FC = () => {
             <Route path="/fitters" element={<Fitters />} />
             <Route path="/technology" element={<Technology />} />
             <Route path="/about" element={<About />} />
-            {/* Embedded routes removed due to X-Frame-Options restrictions on external sites */}
+            
+            {/* New Journal Routes */}
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/journal/:slug" element={<ArticlePost />} />
+            
           </Routes>
         </main>
         <Footer />
