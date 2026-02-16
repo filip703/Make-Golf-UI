@@ -22,27 +22,35 @@ export const CLUB_CATEGORIES = [
     name: 'Irons',
     tagline: 'The Scoring Engine',
     desc: 'Fully parametric blade lengths, offsets, and top-lines. Optimized for your strike pattern.',
-    // Image: Macro shot of brushed steel / industrial look
-    image: 'https://images.unsplash.com/photo-1628256382834-367073b64436?q=80&w=2070&auto=format&fit=crop', 
-    specs: ['17-4PH SS', 'MoldJet™ Print', 'Custom CG']
+    // Image: New Iron image provided
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/iron.jpeg', 
+    specs: ['17-4PH SS', 'MoldJet™ Print', 'Custom CG'],
+    imageClassName: 'object-cover object-center'
   },
   {
     id: 'wedges',
     name: 'Wedges',
     tagline: 'Friction & Feel',
     desc: 'Raw printed faces for maximum spin retention. Bounce and grind geometry adapted to your angle of attack.',
-    // Image: Dark close up of grooves or raw metal texture
-    image: 'https://images.unsplash.com/photo-1599587426861-591b92e74211?q=80&w=1931&auto=format&fit=crop', 
-    specs: ['Raw Finish', 'High Spin', 'Variable Sole']
+    // Image: PW1 Primary
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/46%20PW1.png',
+    // Secondary: PW2 on hover
+    secondaryImage: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/46%20PW2.png',
+    specs: ['Raw Finish', 'High Spin', 'Variable Sole'],
+    // Custom studio background for transparent PNG
+    imageClassName: 'object-contain p-8 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/80 via-transparent to-transparent' 
   },
   {
     id: 'putters',
     name: 'Putters',
     tagline: 'Stability Defined',
     desc: 'Complex lattice structures allow for extreme MOI in compact shapes impossible to mill.',
-    // Image: High tech milled face or lattice structure abstract
-    image: 'https://images.unsplash.com/photo-1587800057406-8d59d1a6f87c?q=80&w=1974&auto=format&fit=crop', 
-    specs: ['316L SS', 'Lattice Core', 'Face Balanced']
+    // Image: Putter JM as primary
+    image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/Putter%20JM.png',
+    // Secondary Image: Putter G on hover
+    secondaryImage: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/Putter%20G.png',
+    specs: ['316L SS', 'Lattice Core', 'Face Balanced'],
+    imageClassName: 'object-cover object-center'
   }
 ];
 

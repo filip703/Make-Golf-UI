@@ -442,13 +442,30 @@ const Home: React.FC = () => {
                     <span className="text-[10px] font-mono text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded">0{index + 1} // {cat.name}</span>
                   </div>
                   
+                  {/* Primary Image */}
                   <img 
                     src={cat.image} 
                     alt={cat.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                    className={`absolute inset-0 w-full h-full transition-all duration-700 ease-out grayscale group-hover:grayscale-0 ${
+                      // If secondary image exists, fade this one out on hover
+                      cat.secondaryImage 
+                        ? 'opacity-80 group-hover:opacity-0' 
+                        : 'opacity-80 group-hover:opacity-100'
+                    } ${cat.imageClassName || 'object-cover group-hover:scale-105'}`}
                   />
+
+                  {/* Secondary Image (Crossfade on Hover) */}
+                  {cat.secondaryImage && (
+                    <img 
+                      src={cat.secondaryImage}
+                      alt={cat.name}
+                      className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out grayscale-0 ${
+                        cat.imageClassName || 'object-cover group-hover:scale-105'
+                      }`}
+                    />
+                  )}
                   
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent pointer-events-none"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h3 className="text-2xl font-display text-white mb-1">{cat.name}</h3>

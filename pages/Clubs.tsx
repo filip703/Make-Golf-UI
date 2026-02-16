@@ -48,14 +48,30 @@ const Clubs: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
+                 {/* Primary Image */}
                  <img 
                     src={cat.image}
                     alt={cat.name}
-                    className="object-cover w-full h-full grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                    className={`absolute inset-0 w-full h-full transition-all duration-1000 grayscale opacity-90 group-hover:grayscale-0 ${
+                       cat.secondaryImage 
+                         ? 'group-hover:opacity-0' 
+                         : 'group-hover:opacity-100'
+                    } ${cat.imageClassName || 'object-cover group-hover:scale-105'}`}
                  />
+
+                 {/* Secondary Image (Hover Reveal) */}
+                 {cat.secondaryImage && (
+                    <img 
+                       src={cat.secondaryImage}
+                       alt={`${cat.name} secondary`}
+                       className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-1000 grayscale-0 ${
+                          cat.imageClassName || 'object-cover group-hover:scale-105'
+                       }`}
+                    />
+                 )}
                  
                  {/* Specs Floating Card */}
-                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur border border-[#111]/5 px-6 py-4 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">
+                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur border border-[#111]/5 px-6 py-4 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 z-10">
                     <div className="flex flex-col gap-2">
                        {cat.specs.map((spec, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs font-mono text-[#111]/80">
