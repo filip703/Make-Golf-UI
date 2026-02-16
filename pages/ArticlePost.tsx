@@ -76,12 +76,15 @@ const ArticlePost: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent"></div>
           
-          <div className="absolute top-24 left-6 z-20">
-             <Link to="/journal">
-                <Button variant="outline" size="sm" className="bg-black/40 border-white/10 text-white backdrop-blur-md rounded-full pl-4">
-                   <ArrowLeft className="w-3 h-3 mr-2" /> Back to Journal
-                </Button>
-             </Link>
+          <div className="absolute top-32 left-6 z-20">
+              <Button 
+                onClick={() => navigate('/journal')}
+                variant="outline" 
+                size="sm" 
+                className="bg-black/40 border-white/10 text-white backdrop-blur-md rounded-full pl-4 hover:bg-brand-mink hover:border-brand-mink transition-all"
+              >
+                 <ArrowLeft className="w-3 h-3 mr-2" /> Back to Journal
+              </Button>
           </div>
        </div>
 

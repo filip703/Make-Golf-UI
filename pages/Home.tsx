@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Dna, Maximize, Play, RefreshCw } from 'lucide-react';
+import { ArrowRight, ChevronDown, Dna, Maximize, Play, RefreshCw, Quote } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -58,6 +58,36 @@ const SWING_SIGNATURES = [
     image: 'https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Swing/Marten%20Eker.png',
     isFounder: true
   }
+];
+
+const REVIEWS = [
+   {
+      id: 1,
+      author: "Johan S.",
+      role: "HCP 4.2 // Beta Tester",
+      location: "Bro Hof Slott",
+      quote: "The dispersion numbers don't lie. I've shaved 4 strokes off my game simply because my 'bad' shots are now finding the green edge instead of the bunker. The feel is unlike anything cast.",
+      rating: 5,
+      spec: "J7 Irons // KBS Tour"
+   },
+   {
+      id: 2,
+      author: "Marcus Lindberg",
+      role: "Club Fitter",
+      location: "Stockholm",
+      quote: "Finally, hardware that matches the precision of my launch monitor. Being able to adjust CG location by the millimeter for my clients changes the entire fitting conversation.",
+      rating: 5,
+      spec: "Partner License"
+   },
+   {
+      id: 3,
+      author: "Sarah W.",
+      role: "HCP 12.5 // Architect",
+      location: "Falsterbo GK",
+      quote: "I bought them for the aesthetics, I kept them for the forgiveness. The raw finish ages beautifully, and the ball speed consistency on toe-strikes is genuinely confusing—in a good way.",
+      rating: 5,
+      spec: "UB-01 Hollow // Graphite"
+   }
 ];
 
 const Home: React.FC = () => {
@@ -486,6 +516,69 @@ const Home: React.FC = () => {
              </Link>
           </div>
         </div>
+      </section>
+
+      {/* --- REVIEWS SECTION - Field Reports --- */}
+      <section className="py-24 bg-[#151515] text-white border-t border-white/5 relative overflow-hidden">
+         {/* Subtle Grid Background */}
+         <div className="absolute inset-0 bg-grid opacity-5"></div>
+         
+         <div className="container mx-auto px-6 relative z-10">
+            <FadeIn>
+               <div className="text-center mb-20">
+                   <div className="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 backdrop-blur mb-4">
+                        <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
+                        <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">Pilot Program Data</span>
+                   </div>
+                   <h2 className="text-3xl md:text-5xl font-display text-white">Field Reports</h2>
+               </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               {REVIEWS.map((review, i) => (
+                  <FadeIn key={review.id} delay={i * 0.1} className="h-full">
+                     <div className="h-full bg-[#1C1C1E] border border-white/5 p-8 rounded-xl relative group hover:border-brand-mink/30 transition-all duration-500 flex flex-col">
+                        {/* Decorative Corner */}
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/10 rounded-tr-xl group-hover:border-brand-mink/50 transition-colors"></div>
+                        
+                        {/* Rating Dots */}
+                        <div className="flex gap-1 mb-6">
+                           {[...Array(review.rating)].map((_, idx) => (
+                              <div key={idx} className="w-1 h-1 bg-brand-mink rounded-full"></div>
+                           ))}
+                        </div>
+
+                        {/* Quote */}
+                        <div className="mb-8 relative flex-grow">
+                           <Quote className="absolute -top-2 -left-2 w-6 h-6 text-white/5 transform -scale-x-100" />
+                           <p className="text-brand-polar/80 font-light leading-relaxed text-sm relative z-10 pl-2">
+                              "{review.quote}"
+                           </p>
+                        </div>
+
+                        {/* Spec Line */}
+                        <div className="mb-6 pt-4 border-t border-white/5">
+                            <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-wider text-white/30">
+                                <span>Build Spec</span>
+                                <span className="text-brand-mink">{review.spec}</span>
+                            </div>
+                        </div>
+
+                        {/* Author */}
+                        <div className="flex justify-between items-end">
+                           <div>
+                              <div className="text-white font-display text-lg mb-0.5">{review.author}</div>
+                              <div className="text-xs text-white/50 font-mono">{review.role}</div>
+                           </div>
+                           <div className="text-[10px] font-mono text-white/20 uppercase text-right">
+                              {review.location}
+                           </div>
+                        </div>
+                     </div>
+                  </FadeIn>
+               ))}
+            </div>
+         </div>
       </section>
 
       {/* --- ARTICLES / JOURNAL --- */}
