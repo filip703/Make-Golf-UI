@@ -12,6 +12,9 @@ import Technology from './pages/Technology';
 import About from './pages/About';
 import Journal from './pages/Journal';
 import ArticlePost from './pages/ArticlePost';
+import NotFound from './pages/NotFound';
+import CustomCursor from './components/CustomCursor';
+import NewsletterModal from './components/NewsletterModal';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -25,7 +28,13 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white">
+      {/* Global UI Elements */}
+      <CustomCursor />
+      <NewsletterModal />
+      
+      <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white cursor-none md:cursor-auto"> 
+        {/* Note: 'cursor-none' class on container hides default cursor so custom one shines on desktop */}
+        
         <Navbar />
         <main>
           <Routes>
@@ -37,10 +46,12 @@ const App: React.FC = () => {
             <Route path="/technology" element={<Technology />} />
             <Route path="/about" element={<About />} />
             
-            {/* New Journal Routes */}
+            {/* Journal Routes */}
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/:slug" element={<ArticlePost />} />
             
+            {/* Catch-all 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
