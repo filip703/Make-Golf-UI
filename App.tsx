@@ -10,6 +10,7 @@ import ScrollTelemetry from './components/ScrollTelemetry';
 import PageTransition from './components/PageTransition';
 import { AnimatePresence } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy Load Pages for Performance
 const Home = lazy(() => import('./pages/Home'));
@@ -94,6 +95,7 @@ const App: React.FC = () => {
                <AnimatedRoutes />
             </main>
             <Footer />
+            <Analytics />
           </div>
         </HashRouter>
       </div>
