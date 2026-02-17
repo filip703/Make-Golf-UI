@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 import { 
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine 
 } from 'recharts';
@@ -89,7 +90,7 @@ const PRICING_TIERS = [
 const Fitters: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'analysis' | 'comparison' | 'ai'>('analysis');
   const DASHBOARD_URL = "https://frontend-seven-iota-56.vercel.app/dashboard";
-  const BETA_URL = "https://make.golf/#sign-up";
+  const PARTNER_EMAIL = "mailto:partners@make.golf";
 
   return (
     <div className="min-h-screen bg-brand-black pt-20 text-brand-polar">
@@ -112,7 +113,7 @@ const Fitters: React.FC = () => {
               A hybrid business model for the modern professional. Use our AI platform to justify premium fitting fees, and unlock wholesale pricing on the world's most advanced equipment.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <a href={BETA_URL} target="_blank" rel="noopener noreferrer">
+              <a href={PARTNER_EMAIL} rel="noopener noreferrer">
                 <Button variant="primary" size="lg" className="rounded-md w-full sm:w-auto">Apply for Partnership</Button>
               </a>
               <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">
@@ -443,7 +444,7 @@ const Fitters: React.FC = () => {
                            ))}
                         </ul>
 
-                        <a href={BETA_URL} target="_blank" rel="noopener noreferrer">
+                        <a href={PARTNER_EMAIL} rel="noopener noreferrer">
                            <Button 
                               variant={tier.highlight ? 'primary' : 'outline'} 
                               size="md" 

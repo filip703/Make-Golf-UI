@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, ExternalLink } from 'lucide-react';
+import { X, Mail, ArrowRight } from 'lucide-react';
 import Button from './Button';
 
 const NewsletterModal: React.FC = () => {
@@ -68,14 +68,14 @@ const NewsletterModal: React.FC = () => {
 
                 <div className="w-full space-y-3">
                     <a 
-                      href="https://make.golf/#sign-up" 
-                      target="_blank" 
+                      href="https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup" 
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full"
                       onClick={handleClose}
                     >
                       <Button variant="primary" size="md" className="w-full justify-center rounded-md">
-                          Apply for Beta Access <ExternalLink className="w-3 h-3 ml-2" />
+                          Request Access <ArrowRight className="w-3 h-3 ml-2" />
                       </Button>
                     </a>
                 </div>

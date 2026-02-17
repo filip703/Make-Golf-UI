@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
-import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX, Quote, Star, PenTool } from 'lucide-react';
+import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX, Quote, Star, PenTool, ExternalLink } from 'lucide-react';
 import { ARTICLES } from '../constants'; // Importing article data
 import Logo from '../components/Logo';
 import { Link } from 'react-router-dom';
@@ -393,6 +393,64 @@ const About: React.FC = () => {
                ))}
             </div>
          </div>
+      </section>
+
+      {/* PRESS / MEDIA SECTION */}
+      <section className="py-24 bg-[#E5E5E5] border-t border-black/5 text-[#1C1C1E]">
+        <div className="container mx-auto px-6">
+            <FadeIn>
+                <div className="text-center mb-16">
+                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">Media Coverage</span>
+                    <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E]">In The Press</h2>
+                </div>
+            </FadeIn>
+
+            <div className="max-w-5xl mx-auto">
+                 <FadeIn>
+                    <a href="https://ditwin.se/kundcase/3d-printade-golfklubbor-som-blir-unika-fr-varje-spelare" target="_blank" rel="noopener noreferrer" className="group relative block bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+                        <div className="grid grid-cols-1 md:grid-cols-12">
+                            {/* Image Side */}
+                            <div className="md:col-span-5 relative h-64 md:h-auto bg-[#1C1C1E] overflow-hidden">
+                                <img 
+                                    src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Artiklar/green%20steel.png" 
+                                    alt="Ditwin Case Study" 
+                                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 bg-brand-mink/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </div>
+                            
+                            {/* Content Side */}
+                            <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-center relative">
+                                <div className="absolute top-8 right-8 text-[#1C1C1E]/20 group-hover:text-brand-mink transition-colors">
+                                    <ExternalLink className="w-6 h-6" />
+                                </div>
+                                
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="bg-[#1C1C1E] text-white px-3 py-1.5 rounded text-xs font-bold font-display tracking-wide uppercase">
+                                        Ditwin.se
+                                    </div>
+                                    <span className="text-[#1C1C1E]/40 font-mono text-xs uppercase tracking-widest">
+                                        Case Study
+                                    </span>
+                                </div>
+                                
+                                <h3 className="text-2xl md:text-3xl font-display text-[#1C1C1E] mb-4 group-hover:text-brand-mink transition-colors leading-tight">
+                                    "3D-printade golfklubbor som blir unika för varje spelare"
+                                </h3>
+                                
+                                <p className="text-[#1C1C1E]/60 text-base leading-relaxed mb-8 font-light">
+                                    Hur Make Golf utmanar traditionell tillverkning genom att använda Siemens NX och additiv teknik för att skapa komplexa geometrier som tidigare var omöjliga.
+                                </p>
+                                
+                                <div className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-widest text-[#1C1C1E] border-b border-[#1C1C1E]/20 pb-1 group-hover:border-brand-mink group-hover:text-brand-mink transition-all w-max">
+                                    Read Full Story <ArrowRight className="w-4 h-4" />
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                 </FadeIn>
+            </div>
+        </div>
       </section>
 
       {/* ARTICLES / TRANSMISSIONS - Darker Footer Section for Contrast */}

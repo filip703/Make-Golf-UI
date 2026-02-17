@@ -7,7 +7,7 @@ import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 
 const AIFitting: React.FC = () => {
-  const DASHBOARD_URL = "https://frontend-seven-iota-56.vercel.app/dashboard";
+  const SIGNUP_URL = "https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup";
 
   return (
     <div className="min-h-screen bg-brand-black pt-20 text-brand-polar overflow-hidden">
@@ -35,9 +35,9 @@ const AIFitting: React.FC = () => {
                   Meet the Fitting Agent. It doesn't just record your specs; it analyzes raw launch monitor data to engineer a clubhead specifically for your swing signature.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
-                  <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary" size="lg" className="group shadow-[0_0_40px_rgba(255,34,76,0.2)]">
-                      Start Session <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
+                      Join Beta Access <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
                     </Button>
                   </a>
                   <Button variant="outline" size="lg" className="border-white/10 hover:border-white text-white">
@@ -356,7 +356,7 @@ const AIFitting: React.FC = () => {
       <section className="py-24 text-center">
          <FadeIn>
              <h2 className="text-4xl font-display text-white mb-8">Ready to be calculated?</h2>
-             <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">
+             <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                <Button variant="primary" size="lg" className="rounded-full">
                   Launch Fitting Agent
                </Button>

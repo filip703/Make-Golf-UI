@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
-  const BETA_URL = "https://make.golf/#sign-up";
-
   return (
     <footer className="bg-brand-black border-t border-white/5 pt-24 pb-12">
       <div className="container mx-auto px-6">
@@ -46,9 +44,14 @@ const Footer: React.FC = () => {
               <p className="text-xs text-brand-polar/40 font-mono mb-2">
                 Limited beta slots available for the 2026 season.
               </p>
-              <a href={BETA_URL} target="_blank" rel="noopener noreferrer" className="inline-block">
+              <a 
+                href="https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
                 <button className="bg-white/5 hover:bg-brand-mink border border-white/10 hover:border-brand-mink text-brand-polar hover:text-white px-6 py-3 text-xs font-bold font-mono transition-all w-full text-center uppercase tracking-widest">
-                  Apply for Beta &rarr;
+                  Join Beta &rarr;
                 </button>
               </a>
             </div>
