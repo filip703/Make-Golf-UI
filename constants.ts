@@ -53,6 +53,67 @@ export const CLUB_MODELS = [];
 // --- EXPANDED ARTICLES DATA ---
 export const ARTICLES: Article[] = [
   {
+    id: 105,
+    slug: "engineer-golf-nerd",
+    title: "The Engineer's Dilemma: Why I Started Make",
+    date: "NOV 15, 2025",
+    category: "OPINION",
+    readTime: "8 MIN",
+    image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png",
+    excerpt: "I played elite golf for 25 years. But when I switched to putting left-handed, I realized the industry was broken.",
+    author: {
+        name: "Mårten Eker",
+        role: "Founder // Head of Engineering",
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png"
+    },
+    content: [
+        {
+            type: 'paragraph',
+            content: "I have played elite golf for over 25 years. I am also an engineer who obsesses over tolerances, physics, and material science. For years, I trusted the big brands, assuming that what the pros played was what I could buy. But the turning point came on a putting green."
+        },
+        {
+            type: 'paragraph',
+            content: "To cure a persistent twitch in my stroke, I decided to switch from right-handed to left-handed putting. It sounds drastic, but mechanically, it made sense. However, I immediately hit a wall."
+        },
+        {
+            type: 'h2',
+            content: "The Hardware Gap"
+        },
+        {
+            type: 'paragraph',
+            content: "I needed a putter with specific geometry—a precise mass distribution to match my new arc and eye dominance. I scoured the market. I looked at every major OEM and every boutique mill. It didn't exist."
+        },
+        {
+            type: 'paragraph',
+            content: "Everything was cast in mass molds or milled from solid blocks. Milling is subtractive; you can only take away material. This limits where you can place mass. I realized the industry was fitting the player to the club, not the club to the player."
+        },
+        {
+            type: 'h2',
+            content: "The Sandvik Connection"
+        },
+        {
+            type: 'paragraph',
+            content: "That frustration became an obsession. I knew about industrial additive manufacturing—not the plastic 3D printing hobbyists use, but the high-end metal sintering used in aerospace and medical implants. I contacted Sandvik, knowing their prowess in this field."
+        },
+        {
+            type: 'quote',
+            content: "I didn't want 3D printing for the sake of novelty. I needed it because it was the only way to create the internal lattice structures required to solve my physics problem."
+        },
+        {
+            type: 'paragraph',
+            content: "When I saw the first prototype—a head with complex internal geometry that moved mass to the extreme perimeter without making the head look like a spaceship—I knew we had something. It wasn't just a putter. It was a proof of concept for a better way to build golf clubs."
+        },
+        {
+            type: 'h2',
+            content: "A Calling, Not a Company"
+        },
+        {
+            type: 'paragraph',
+            content: "I didn't set out to start a golf company. I just wanted equipment that worked. But once we cracked the code with Sandvik, I realized I couldn't keep this to myself. Make Golf was born out of a refusal to compromise. If I could build this for myself, I could build it for every golfer who demands better."
+        }
+    ]
+  },
+  {
     id: 104,
     slug: "rethink-golf",
     title: "Rethink Golf: Build the Club You Actually Need",
@@ -64,7 +125,7 @@ export const ARTICLES: Article[] = [
     author: {
         name: "Mårten Eker",
         role: "Head of Engineering",
-        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png"
     },
     content: [
         {
@@ -198,7 +259,7 @@ export const ARTICLES: Article[] = [
     author: {
         name: "Mårten Eker",
         role: "Head of Engineering",
-        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png"
     },
     content: [
         {
@@ -280,7 +341,7 @@ export const ARTICLES: Article[] = [
     author: {
         name: "Mårten Eker",
         role: "Head of Engineering",
-        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png"
     },
     content: [
         {
@@ -383,7 +444,7 @@ export const ARTICLES: Article[] = [
     author: {
         name: "Mårten Eker",
         role: "Head of Engineering",
-        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png"
+        image: "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png"
     },
     content: [
         { type: 'paragraph', content: "Milling a club head from a solid block of steel turns 80% of the material into scrap shavings. It is incredibly wasteful." },

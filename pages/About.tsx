@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
-import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX, Quote, Star } from 'lucide-react';
+import { MapPin, Target, ShieldCheck, ArrowRight, Dna, Fingerprint, History, Play, Pause, Volume2, VolumeX, Quote, Star, PenTool } from 'lucide-react';
 import { ARTICLES } from '../constants'; // Importing article data
 import Logo from '../components/Logo';
 import { Link } from 'react-router-dom';
@@ -183,90 +183,148 @@ const About: React.FC = () => {
          </div>
       </section>
 
-      {/* Founders / Team - Using Real Assets */}
+      {/* --- FOUNDER STORY SECTION --- */}
+      <section className="py-24 bg-[#1C1C1E] text-white overflow-hidden relative">
+          <div className="absolute inset-0 bg-grid opacity-5"></div>
+          <div className="container mx-auto px-6 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                  
+                  {/* Image Side */}
+                  <FadeIn>
+                      <div className="relative rounded-lg overflow-hidden border border-white/10 aspect-[4/5] shadow-2xl">
+                          <img 
+                              src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten.png" 
+                              alt="Mårten Eker" 
+                              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                          />
+                          <div className="absolute bottom-6 left-6 right-6">
+                              <div className="bg-black/80 backdrop-blur px-4 py-3 border-l-2 border-brand-mink">
+                                  <div className="text-white font-display text-lg">Mårten Eker</div>
+                                  <div className="text-brand-polar/60 text-xs font-mono uppercase tracking-widest">Founder // Head of Engineering</div>
+                              </div>
+                          </div>
+                      </div>
+                  </FadeIn>
+
+                  {/* Story Side */}
+                  <FadeIn direction="left" delay={0.2}>
+                      <div className="flex items-center gap-2 text-brand-mink mb-6">
+                          <PenTool className="w-5 h-5" />
+                          <span className="font-mono text-xs uppercase tracking-widest">The Origin Story</span>
+                      </div>
+                      
+                      <h2 className="text-3xl md:text-5xl font-display text-white mb-8 leading-tight">
+                          "I didn't want to start a company. <br/>
+                          <span className="text-white/40">I just wanted a putter that worked."</span>
+                      </h2>
+
+                      <div className="space-y-6 text-lg text-brand-polar/70 font-light font-sans leading-relaxed">
+                          <p>
+                              I've played elite golf for over 25 years. I'm also an engineer who obsesses over tolerances. 
+                              For years, I trusted the big brands. But the turning point came when I decided to switch my putting stroke 
+                              from right-handed to left-handed to cure a persistent twitch.
+                          </p>
+                          <p>
+                              I needed specific geometry—a precise mass distribution to match my new arc. I scoured the market. 
+                              It didn't exist. Everything was cast in mass molds or milled from blocks with limited design freedom. 
+                              The industry was fitting the player to the club, not the club to the player.
+                          </p>
+                          <p>
+                              That frustration became an obsession. I contacted <strong className="text-white">Sandvik</strong>, 
+                              knowing their prowess in industrial additive manufacturing. I didn't want 3D printing for the sake of novelty; 
+                              I needed it because it was the <em>only</em> way to create the internal lattice structures required to solve my physics problem.
+                          </p>
+                          <p>
+                              What started as a personal quest for one perfect putter became a calling. 
+                              If I could build this for myself, I could build it for every golfer who demands better.
+                          </p>
+                      </div>
+
+                      <div className="mt-10 pt-8 border-t border-white/10">
+                          <div className="font-display text-2xl text-white italic">"Make Golf wasn't born in a boardroom. It was born on a putting green, out of pure necessity."</div>
+                      </div>
+                  </FadeIn>
+
+              </div>
+          </div>
+      </section>
+
+      {/* Founders / Team - UPDATED SECTION */}
       <section className="py-32 bg-[#F9F9FB] border-b border-black/5">
          <div className="container mx-auto px-6">
             <FadeIn>
-               <div className="text-center mb-20">
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Founders</span>
+               <div className="text-center mb-16">
+                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Leadership</span>
                   <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E]">Driven by Data.<br/>United by Golf.</h2>
                </div>
             </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 max-w-6xl mx-auto">
+            {/* Single Group Image */}
+            <FadeIn>
+                <div className="max-w-5xl mx-auto mb-20">
+                    <div className="relative aspect-[16/9] md:aspect-[2.35/1] bg-[#E5E5E5] rounded-lg overflow-hidden border border-black/5 shadow-lg group">
+                        <img 
+                            src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/omoss.png" 
+                            alt="Make Golf Founders" 
+                            className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-1000"
+                        />
+                        <div className="absolute bottom-6 left-6 z-10">
+                            <div className="bg-white/90 backdrop-blur border border-black/10 px-4 py-2 rounded shadow-sm">
+                                <span className="text-[#1C1C1E] font-display text-xs tracking-wider">EST. 2024 // STOCKHOLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </FadeIn>
+
+            {/* Founder Details Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
                
                {/* Founder 1: Mårten */}
                <FadeIn delay={0.1}>
-                  <div className="group cursor-default">
-                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
-                        <img 
-                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/marten-founder.png" 
-                           alt="Mårten Eker" 
-                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-105 transition-all duration-700 filter grayscale group-hover:grayscale-0"
-                        />
-                        <div className="absolute bottom-3 left-3">
-                           <div className="bg-brand-mink text-white px-2 py-0.5 text-[10px] font-bold font-mono">
-                              HCP +3.2
-                           </div>
+                  <div className="relative pl-6 border-l border-brand-mink">
+                     <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-2xl font-display text-[#1C1C1E]">Mårten Eker</h3>
+                        <div className="bg-brand-mink/10 text-brand-mink px-2 py-1 text-[9px] font-bold font-mono rounded">
+                           HCP +3.2
                         </div>
                      </div>
-                     <div className="border-l border-brand-mink pl-4 transition-all duration-300">
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-1">Mårten Eker</h3>
-                        <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-3">CEO // Founder</p>
-                        <p className="text-[#1C1C1E]/60 font-sans text-sm font-light leading-relaxed">
-                           Engineer from KTH. 25 years of elite golf experience. Believes complex problems require elegant solutions.
-                        </p>
-                     </div>
+                     <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-4">CEO // Founder</p>
+                     <p className="text-[#1C1C1E]/70 font-sans text-sm font-light leading-relaxed">
+                        Engineer from KTH with 25 years of elite golf experience. Founded Make with the belief that complex biomechanics require elegant, data-driven solutions.
+                     </p>
                   </div>
                </FadeIn>
 
                {/* Founder 2: Filip */}
                <FadeIn delay={0.2}>
-                  <div className="group cursor-default">
-                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
-                        <img 
-                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/filip.png" 
-                           alt="Filip Hector" 
-                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-125 transition-all duration-700 filter grayscale group-hover:grayscale-0 origin-top"
-                        />
-                         <div className="absolute bottom-3 left-3">
-                           <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">
-                              HCP 6.2
-                           </div>
+                  <div className="relative pl-6 border-l border-[#1C1C1E]/10">
+                     <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-2xl font-display text-[#1C1C1E]">Filip Hector</h3>
+                        <div className="bg-[#1C1C1E]/5 text-[#1C1C1E]/60 px-2 py-1 text-[9px] font-bold font-mono rounded">
+                           HCP 6.2
                         </div>
                      </div>
-                     <div className="border-l border-brand-mink pl-4 transition-all duration-300">
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-1">Filip Hector</h3>
-                        <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-3">VP // CCO</p>
-                        <p className="text-[#1C1C1E]/60 font-sans text-sm font-light leading-relaxed">
-                           GTM & Ops expert. Specialized in scaling businesses and leveraging the latest technology to improve the player experience.
-                        </p>
-                     </div>
+                     <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-4">VP // CCO</p>
+                     <p className="text-[#1C1C1E]/70 font-sans text-sm font-light leading-relaxed">
+                        GTM & Operations expert. Specialized in scaling businesses and leveraging technology to bridge the gap between engineering and player experience.
+                     </p>
                   </div>
                </FadeIn>
 
                {/* Founder 3: Erik */}
                <FadeIn delay={0.3}>
-                  <div className="group cursor-default">
-                     <div className="aspect-square bg-[#E5E5E5] mb-6 overflow-hidden relative border border-black/5 rounded-sm shadow-sm">
-                        <img 
-                           src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Team/erik.png" 
-                           alt="Erik Paulsson" 
-                           className="w-full h-full object-cover object-top opacity-100 group-hover:scale-125 transition-all duration-700 filter grayscale group-hover:grayscale-0 origin-top"
-                        />
-                         <div className="absolute bottom-3 left-3">
-                           <div className="bg-white/90 backdrop-blur border border-black/10 text-[#1C1C1E] px-2 py-0.5 text-[10px] font-bold font-mono">
-                              HCP 16.9
-                           </div>
+                  <div className="relative pl-6 border-l border-[#1C1C1E]/10">
+                     <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-2xl font-display text-[#1C1C1E]">Erik Paulsson</h3>
+                        <div className="bg-[#1C1C1E]/5 text-[#1C1C1E]/60 px-2 py-1 text-[9px] font-bold font-mono rounded">
+                           HCP 16.9
                         </div>
                      </div>
-                     <div className="border-l border-brand-mink pl-4 transition-all duration-300">
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-1">Erik Paulsson</h3>
-                        <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-3">Investor // GTM</p>
-                        <p className="text-[#1C1C1E]/60 font-sans text-sm font-light leading-relaxed">
-                           London-based investor. Ambitious amateur golfer chasing single digits.
-                        </p>
-                     </div>
+                     <p className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest mb-4">Investor // GTM</p>
+                     <p className="text-[#1C1C1E]/70 font-sans text-sm font-light leading-relaxed">
+                        London-based investor and ambitious amateur. Brings strategic vision to Make's global expansion and commercial partnerships.
+                     </p>
                   </div>
                </FadeIn>
 

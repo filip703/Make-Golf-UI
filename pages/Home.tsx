@@ -110,7 +110,6 @@ const Home: React.FC = () => {
     return () => clearInterval(swingInterval);
   }, []);
 
-  const MAKER_URL = "https://maker.make.golf/configurator?configurationState=a_7e175a18-1026-47cf-b224-16b8a8b0fa90";
   const activeSwing = SWING_SIGNATURES[currentSwingIndex];
 
   return (
@@ -421,10 +420,8 @@ const Home: React.FC = () => {
                   ></iframe>
 
                   {/* Overlay to link to login - Now External Link */}
-                  <a 
-                        href={MAKER_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  <Link 
+                        to="/studio"
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                   >
                         <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
@@ -433,7 +430,7 @@ const Home: React.FC = () => {
                               <Maximize className="w-4 h-4" />
                            </div>
                         </div>
-                  </a>
+                  </Link>
                   
                   {/* Decorative UI Overlay */}
                   <div className="absolute top-6 left-6 z-0 pointer-events-none hidden md:block">
