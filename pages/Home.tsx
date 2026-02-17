@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Dna, Maximize, Play, RefreshCw, Quote } from 'lucide-react';
+import { ArrowRight, ChevronDown, Dna, Maximize, Quote } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CLUB_CATEGORIES, ARTICLES, MOCK_STATS } from '../constants';
 
@@ -115,6 +116,12 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
+      {/* Inject SEO Tags */}
+      <SEO 
+        title="MAKE GOLF" 
+        description="Precision is personal. We engineer 3D-printed golf equipment based on your unique biomechanical data."
+      />
+
       {/* Hero Section - Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
         {/* Background Video */}
