@@ -3,8 +3,17 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- PWA / Mobile Capable Tags -->
+    <meta name="theme-color" content="#1C1C1E" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MAKE" />
+    
     <link rel="icon" type="image/png" href="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Logo/Make_Icon_256px.png" />
+    <link rel="apple-touch-icon" href="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Logo/Make_Icon_256px.png" />
+
     <title>MAKE GOLF | The Club Without Excuses</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -56,6 +65,7 @@
         color: #F5F5F7;
         font-family: 'IBM Plex Mono', monospace;
         overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent; /* Makes buttons feel more native on tap */
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif;
@@ -96,7 +106,8 @@
     "vite": "https://esm.sh/vite@5.1.6",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@4.2.1",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/"
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "vite-plugin-pwa": "https://esm.sh/vite-plugin-pwa@^1.2.0"
   }
 }
 </script>

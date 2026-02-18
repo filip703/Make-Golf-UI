@@ -10,19 +10,34 @@ import { CLUB_CATEGORIES, ARTICLES, MOCK_STATS } from '../constants';
 
 const HERO_CONTENT = [
   {
-    headline: "PRECISION IS PERSONAL.",
+    headline: "Precision is personal.",
     subheadline: "Engineering equipment based on your unique biomechanical data.",
     cta: "CREATE YOUR PROFILE"
   },
   {
-    headline: "YOUR DNA. YOUR CLUB.",
+    headline: "Your DNA. Your club.",
     subheadline: "Generative design that adapts to your swing, giving you the best chance to perform.",
     cta: "ANALYZE YOUR SWING"
   },
   {
-    headline: "THE FUTURE OF FITTING.",
+    headline: "The future of fitting.",
     subheadline: "No inventory. No compromise. Just the perfect club for your game.",
     cta: "START MAKE-DNA"
+  },
+  {
+    headline: "Stop compromising.",
+    subheadline: "Why play clubs built for the average golfer when you are unique?",
+    cta: "BUILD YOUR SET"
+  },
+  {
+    headline: "Data meets design.",
+    subheadline: "We turn your launch monitor numbers into physical reality.",
+    cta: "EXPLORE THE TECH"
+  },
+  {
+    headline: "Engineered for you.",
+    subheadline: "Every gram of mass is positioned exactly where you need it.",
+    cta: "START CONFIGURATOR"
   }
 ];
 
@@ -162,7 +177,7 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                     transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl uppercase"
+                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl"
                   >
                     {HERO_CONTENT[statementIndex].headline}
                   </motion.h1>
