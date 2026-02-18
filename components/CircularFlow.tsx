@@ -96,7 +96,7 @@ const CircularFlow: React.FC = () => {
                </div>
                <h3 className="text-4xl font-display font-bold text-white tracking-tighter mb-1">MAKE DNA</h3>
                <div className="h-px w-12 bg-white/20 mx-auto my-2"></div>
-               <span className="text-white/30 font-mono text-[9px] uppercase tracking-wider">VERSION 2.0.6</span>
+               <span className="text-white/30 font-mono text-[9px] uppercase tracking-wider">VERSION 2.0.7</span>
             </div>
          </div>
 
