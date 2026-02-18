@@ -1,511 +1,400 @@
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Upload, Cpu, FileOutput, ArrowRight, Database, Share2, RefreshCw, Sliders, CheckCircle, MessageSquare, BarChart3, Target, Zap, Layers, Microscope } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, ArrowRight, Maximize, Upload, Factory, ScanLine, Flame, Smartphone, Signal, RefreshCw } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
+import CircularFlow from '../components/CircularFlow';
 import { Link } from 'react-router-dom';
-import { 
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine 
-} from 'recharts';
-
-// Mock Data for Dispersion Chart (Lateral vs Carry) - From Fredrik's Session
-const dispersionData = [
-  { x: -4, y: 161, type: 'Make J7' }, { x: -2, y: 162, type: 'Make J7' }, { x: 1, y: 161.5, type: 'Make J7' },
-  { x: 3, y: 160.8, type: 'Make J7' }, { x: -1, y: 163, type: 'Make J7' },
-  
-  { x: -12, y: 154, type: 'Competitor A' }, { x: -8, y: 157, type: 'Competitor A' }, { x: -15, y: 152, type: 'Competitor A' },
-  { x: -5, y: 159, type: 'Competitor A' }, { x: -10, y: 155, type: 'Competitor A' },
-];
-
-// Mock Data for Comparison Table
-const comparisonData = [
-  { rank: 1, config: 'Make J7 + LA Golf', carry: '161.9m', disp: '6.4m', consistency: '77%', smash: '1.344', note: 'Optimal' },
-  { rank: 2, config: 'P7cb ProjX Red', carry: '161.9m', disp: '9.2m', consistency: '63%', smash: '1.341', note: 'High Spin' },
-  { rank: 3, config: 'Neo 75 Stiff', carry: '161.0m', disp: '11.4m', consistency: '57%', smash: '1.331', note: 'Toe Strike' },
-  { rank: 4, config: 'Apex MB Legacy', carry: '157.0m', disp: '15.3m', consistency: '51%', smash: '1.310', note: 'Inconsistent' },
-];
 
 const AIFitting: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'analysis' | 'comparison' | 'ai'>('analysis');
-  const SIGNUP_URL = "https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup";
+  const SIGNUP_URL = "https://frontend-seven-iota-56.vercel.app/signup";
+  // The long token URL for the specific configuration state used in the teaser
+  const TEASER_IFRAME_URL = "https://configurator.modelup3d.com/?projectId=oa1oRJb3&token=eyJhbGciOiJIUzI1NiJ9.eyJ2NW4iOjEsImlkIjoxMzQsInA3ZCI6Im9hMW9SSmIzIiwicDlzIjpbImM1ZSIsInJfYzE1YSJdfQ.p-s501nEeYwHvyH2JJUYuSlk5f9rJZ2HbQC58p8DIXc&configurationState=a_29b5d105-ab7f-4511-a8cb-c81eb0f33f2c_7b8382fc-47a7-48ec-bfab-87daf3482240_0_e3685a61-0488-495b-af0a-03f4cd28662b_34.9_5310300e-e063-415e-b008-c54613d8a961_61_1e4aac43-e484-48ef-9549-2d54d4a16715_0_8ce09785-357e-48fb-ae65-422003074fef_77.4_cc947572-79b1-4736-bc9b-90b11a73713a_55.1_bc5871e7-3961-46c3-8fe0-1122e8586405_30.1_c5e62c30-a479-45a4-9879-c828067b840e_4.5_cdf62d42-b88d-4add-9487-21806bcbfe05_9.12_1c129292-ed94-48ea-ae88-309cd2291f1f_32.6_82434f86-8f4a-49bb-be3b-455c356e69bf_9.6_a38a92bf-cdb6-4ea1-b50d-2d108dd75062_14.789_52436bbd-9b9c-46f6-973f-0584ea52d3fe_1.6_b18d42ba-b806-41f9-8702-55359170f28d_2.5_c72f9f2b-c110-492a-851e-3395391883d0_-2.4_480f42a1-ddae-41bd-9d8f-73a47b8c9232_42.7_c0182fe3-ceab-4e11-9249-1ec1a765f0f0_23_22fc43a3-85ce-46b3-9d1f-75422eaf7da0_22.7_d7ae2c3c-6620-4717-b85f-6336c42303fe_14.7_8f9802f1-a672-403a-824e-620e4e93207f_0.436_67832bf3-3810-4db8-8a9d-fe7eb8f8a507_6_e458d1ce-50a5-43b2-9dd0-6297e8325ef5_1.49_14449719-d773-43bd-9741-17ce40106734_2_5e4e18a0-7ddf-4dca-abc3-ebc14804c910_10_c352805c-4369-4674-b1a8-c644bcea716e_2_6c8655d4-2130-4b0e-adea-e9a9b0bd3f3c_1.7_86cd5747-0513-4e1f-aef3-77f323c08da6_3_7c9e3dc2-4ee3-490f-af5a-1e033113ac98_0.45_groove+extend_0_76f64105-1ed0-476d-8fe9-8a0d735dfb25_1.11_1400e927-5c58-40be-9c6b-2fe1cb4e9315_0.955";
 
-  const scrollToReport = () => {
-    document.getElementById('report')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const SUPPORTED_HARDWARE = [
+    { name: "Trackman", icon: "TM" },
+    { name: "GCQuad", icon: "GC" },
+    { name: "FlightScope", icon: "FS" },
+    { name: "Garmin", icon: "R10" },
+    { name: "FullSwing", icon: "FS" },
+  ];
 
   return (
     <div className="min-h-screen bg-brand-black pt-20 text-brand-polar overflow-hidden">
       
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center border-b border-white/5 overflow-hidden">
+      <section className="relative py-24 border-b border-white/5 overflow-hidden">
          {/* Background Tech Video/Image */}
          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-mink/10 via-brand-black to-brand-black z-0"></div>
-            <div className="absolute inset-0 bg-grid opacity-20 z-0"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-mink/5 via-brand-black to-brand-black z-0"></div>
+            <div className="absolute inset-0 bg-grid opacity-10 z-0"></div>
          </div>
 
-         <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl">
-              <FadeIn>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-2 h-2 bg-brand-mink rounded-full animate-pulse"></div>
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">THE FITTING AGENT</span>
+         <div className="container mx-auto px-6 relative z-10 text-center">
+            <FadeIn>
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
+                  <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">MAKE DNA PLATFORM</span>
                 </div>
                 <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9] uppercase">
-                  NOT A FORM.<br/>
-                  <span className="text-brand-polar/40">AN INTELLIGENCE.</span>
+                  Circular By Design.
                 </h1>
-                <p className="text-xl text-brand-polar/60 font-light font-sans max-w-xl leading-relaxed mb-10">
-                  Meet MAKE-DNA. It doesn't just record your specs; it analyzes raw launch monitor data to engineer a clubhead specifically for your swing signature.
+                <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl mx-auto leading-relaxed mb-12">
+                  Make Golf isn't just a club manufacturer. It's a closed-loop operating system for your game. Data informs design. Design drives production. Play generates new data.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary" size="lg" className="group shadow-[0_0_40px_rgba(255,34,76,0.2)] uppercase">
-                      JOIN BETA ACCESS <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
+                      Create Golfer Profile <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
                     </Button>
                   </a>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="border-white/10 hover:border-white text-white uppercase"
-                    onClick={scrollToReport}
-                  >
-                    VIEW SAMPLE REPORT
-                  </Button>
                 </div>
-              </FadeIn>
-            </div>
+            </FadeIn>
          </div>
       </section>
 
-      {/* --- THE AGENT INTERFACE (USP) --- */}
-      <section className="py-32 bg-[#151515] border-b border-white/5 relative">
+      {/* --- THE CIRCLE (STRATEGY VISUALIZATION) --- */}
+      <section className="py-24 bg-[#151515] border-b border-white/5 relative overflow-hidden">
+         <div className="container mx-auto px-6">
+            <FadeIn>
+               <div className="text-center mb-10">
+                  <h2 className="text-2xl font-mono text-brand-polar/40 uppercase tracking-widest">The System</h2>
+               </div>
+               <CircularFlow />
+            </FadeIn>
+         </div>
+      </section>
+
+      {/* --- PHASE 1: DATA INTELLIGENCE --- */}
+      <section id="phase-1" className="py-32 bg-[#1C1C1E] border-b border-white/5 relative">
          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                
-               {/* Left: Explanation */}
+               {/* Left: Narrative */}
                <FadeIn>
-                  <h2 className="text-4xl font-display text-white mb-6 uppercase">CONVERSATIONAL<br/>ENGINEERING.</h2>
+                  <div className="mb-6">
+                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 1: Data Intelligence</span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-display text-white mb-6 uppercase">
+                     Not a Form.<br/>An Intelligence.
+                  </h2>
                   <p className="text-lg text-brand-polar/60 leading-relaxed mb-8">
-                     Traditional fitting fits you into a "bucket" (Stiff, Upright, Standard). 
-                     MAKE-DNA builds the bucket around you.
+                     We don't ask you what you want. We calculate what you need. <strong>Agent 00</strong> ingests raw launch monitor data to analyze your unique biomechanical signature—attack angle, face-to-path, closure rate, and impact consistency.
                   </p>
                   
-                  <div className="space-y-6">
-                     <div className="flex gap-4">
-                        <div className="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand-mink border border-white/5 shrink-0">
-                           <Upload className="w-5 h-5" />
-                        </div>
-                        <div>
-                           <h4 className="text-white font-display text-lg uppercase">RAW DATA INGESTION</h4>
-                           <p className="text-sm text-brand-polar/50 font-mono mt-1">
-                              Upload CSVs directly from Trackman, GCQuad, or Foresight. The Agent extracts closure rates, spin axis, and impact location.
-                           </p>
-                        </div>
-                     </div>
-                     <div className="flex gap-4">
-                        <div className="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand-mink border border-white/5 shrink-0">
-                           <MessageSquare className="w-5 h-5" />
-                        </div>
-                        <div>
-                           <h4 className="text-white font-display text-lg uppercase">CONTEXTUAL ANALYSIS</h4>
-                           <p className="text-sm text-brand-polar/50 font-mono mt-1">
-                              "My miss is a thin fade." The Agent correlates your verbal feedback with the data to identify the root cause.
-                           </p>
+                  {/* Supported Hardware Marquee */}
+                  <div className="mb-8">
+                     <p className="text-xs font-mono text-brand-polar/40 uppercase tracking-widest mb-4">Supported Data Inputs</p>
+                     <div className="flex gap-4 flex-wrap">
+                        {SUPPORTED_HARDWARE.map((hw, i) => (
+                           <div key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded flex items-center gap-2">
+                               <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                               <span className="text-xs font-mono text-white uppercase">{hw.name}</span>
+                           </div>
+                        ))}
+                        <div className="px-4 py-2 bg-brand-mink/10 border border-brand-mink/20 rounded flex items-center gap-2">
+                            <Upload className="w-3 h-3 text-brand-mink" />
+                            <span className="text-xs font-mono text-brand-mink uppercase">JSON Upload</span>
                         </div>
                      </div>
                   </div>
+
+                  <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
+                     <Button variant="outline" size="sm" className="uppercase">Launch Agent 00</Button>
+                  </a>
                </FadeIn>
 
-               {/* Right: Chat UI Simulation */}
+               {/* Right: Mockup of the Chat Interface */}
                <FadeIn direction="left">
-                  <div className="bg-[#1C1C1E] border border-white/10 rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto relative">
-                     {/* Window Header */}
-                     <div className="bg-[#242424] px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                  <div className="bg-white rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                     {/* Fake Browser Header */}
+                     <div className="bg-[#F5F5F7] px-4 py-3 border-b border-[#E5E5E5] flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                           <div className="w-2 h-2 rounded-full bg-brand-mink animate-pulse"></div>
-                           <span className="text-xs font-mono uppercase tracking-widest text-white/80">FITTING AGENT</span>
+                           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                           <span className="text-xs font-mono uppercase tracking-widest text-[#1C1C1E]">Agent 00 · Live</span>
                         </div>
-                        <span className="text-[10px] font-mono text-white/30">SESSION ID: #8821</span>
                      </div>
 
-                     {/* Chat Area */}
-                     <div className="p-6 space-y-6 min-h-[400px] font-mono text-xs">
+                     {/* Chat Content */}
+                     <div className="p-6 bg-white space-y-6 font-mono text-xs text-[#1C1C1E]">
                         
-                        {/* Agent Message */}
+                        {/* Agent Msg */}
                         <div className="flex gap-4">
-                           <div className="w-8 h-8 rounded-full bg-brand-mink flex items-center justify-center text-white font-bold shrink-0">M</div>
-                           <div className="bg-[#2C2C2E] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl border border-white/5 text-brand-polar/90">
-                              <p className="mb-2">Welcome back, Filip. I've analyzed your Trackman session from 2026-02-14.</p>
-                              <p>I see a <span className="text-brand-mink">41.2% complete</span> profile. To generate precise specs, I need to confirm your typical miss pattern with the 7-iron.</p>
-                           </div>
-                        </div>
-
-                        {/* User Message */}
-                        <div className="flex gap-4 flex-row-reverse">
-                           <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white font-bold shrink-0">F</div>
-                           <div className="bg-white/5 p-4 rounded-tl-xl rounded-br-xl rounded-bl-xl border border-white/5 text-brand-polar/80">
-                              <p>It's usually a push-fade when I get tired. Speed is around 92mph.</p>
-                           </div>
-                        </div>
-
-                        {/* Agent Analysis */}
-                        <div className="flex gap-4">
-                           <div className="w-8 h-8 rounded-full bg-brand-mink flex items-center justify-center text-white font-bold shrink-0">M</div>
-                           <div className="bg-[#2C2C2E] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl border border-white/5 text-brand-polar/90 space-y-3">
-                              <p>Understood. Correlating push-fade tendency with your 4° out-to-in path.</p>
-                              
-                              {/* Tech Block inside chat */}
-                              <div className="bg-black/40 border border-white/10 p-3 rounded">
-                                 <div className="flex justify-between mb-1 text-[10px] text-white/40 uppercase">
-                                    <span>Calculated Lie Adjustment</span>
-                                    <span className="text-brand-mink">+1.2° UPRIGHT</span>
+                           <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
+                           <div className="flex-1 space-y-2">
+                              <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80">
+                                 45 shots analyzed. 7-iron shows systematic deviation. Here is the data:
+                              </div>
+                              {/* Data Card Injection */}
+                              <div className="bg-[#1C1C1E] p-4 rounded-lg text-white">
+                                 <div className="flex justify-between mb-3 text-[10px] uppercase opacity-50">
+                                    <span>7-Iron</span>
+                                    <span>Trackman</span>
                                  </div>
-                                 <div className="w-full bg-white/10 h-1 rounded overflow-hidden">
-                                    <div className="bg-brand-mink h-full w-[65%]"></div>
+                                 <div className="grid grid-cols-3 gap-2 text-center">
+                                    <div>
+                                       <div className="text-brand-mink font-bold text-lg">-2.1°</div>
+                                       <div className="text-[9px] uppercase opacity-50">Path</div>
+                                    </div>
+                                    <div>
+                                       <div className="text-brand-mink font-bold text-lg">+1.8°</div>
+                                       <div className="text-[9px] uppercase opacity-50">Face</div>
+                                    </div>
+                                    <div>
+                                       <div className="text-white font-bold text-lg">87</div>
+                                       <div className="text-[9px] uppercase opacity-50">Speed</div>
+                                    </div>
                                  </div>
                               </div>
+                           </div>
+                        </div>
 
-                              <p>I recommend optimizing the offset to 3.2mm to help square the face at impact.</p>
+                        {/* User Msg */}
+                        <div className="flex gap-4 flex-row-reverse">
+                           <div className="w-8 h-8 rounded-full bg-brand-mink/10 text-brand-mink flex items-center justify-center font-bold shrink-0">AK</div>
+                           <div className="bg-brand-mink text-white p-4 rounded-tl-xl rounded-br-xl rounded-bl-xl">
+                              What does this mean for the recommendation?
+                           </div>
+                        </div>
+
+                        {/* Agent Msg */}
+                        <div className="flex gap-4">
+                           <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
+                           <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80 leading-relaxed">
+                              Face angle +1.8° relative to path consistently generates a slice. <br/><br/>
+                              <strong>Recommendation:</strong> 2° closed face angle and forward CoG positioning (3mm) to reduce spin.
                            </div>
                         </div>
 
                      </div>
+                  </div>
+               </FadeIn>
+            </div>
+         </div>
+      </section>
 
-                     {/* Input Area */}
-                     <div className="p-4 border-t border-white/5 bg-[#242424]">
-                        <div className="bg-[#1C1C1E] border border-white/10 rounded p-3 flex items-center justify-between text-white/30 text-xs">
-                           <span>Type your response...</span>
-                           <ArrowRight className="w-3 h-3" />
+      {/* --- PHASE 2: GENERATIVE DESIGN --- */}
+      <section id="phase-2" className="py-32 bg-[#151515] text-white border-b border-white/5">
+        <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 2: Generative Design</span>
+                 <h2 className="text-4xl md:text-5xl font-display mt-4 mb-6 uppercase">The Configurator</h2>
+                 <p className="text-brand-polar/60 max-w-2xl mx-auto text-lg font-light">
+                    Parameters are not fixed. Adjust loft, lie, offset, and mass properties in real-time with our browser-based CAD engine.
+                 </p>
+            </div>
+
+            <FadeIn>
+                <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-[#000]">
+                    {/* Iframe */}
+                    <iframe 
+                        src={TEASER_IFRAME_URL}
+                        className="w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 filter grayscale group-hover:grayscale-0"
+                        title="3D Configurator Teaser"
+                        frameBorder="0"
+                        scrolling="no"
+                    ></iframe>
+
+                    {/* Overlay for Launch Action */}
+                    <Link 
+                        to="/studio"
+                        className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
+                    >
+                        <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
+                            <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">Launch Full Studio</span>
+                            <div className="w-8 h-8 rounded-full bg-brand-mink group-hover:bg-black flex items-center justify-center text-black group-hover:text-white transition-colors">
+                                <Maximize className="w-4 h-4" />
+                            </div>
+                        </div>
+                    </Link>
+
+                    {/* Tech Overlay (Top Left) */}
+                    <div className="absolute top-6 left-6 z-0 pointer-events-none hidden md:block">
+                        <div className="flex flex-col gap-2">
+                            <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
+                                Live Preview
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </FadeIn>
+        </div>
+      </section>
+
+      {/* --- PHASE 3: MOLDJET PRODUCTION --- */}
+      <section id="phase-3" className="py-32 bg-[#1C1C1E] border-b border-white/5">
+        <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                
+                <FadeIn>
+                    <div className="mb-6">
+                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 3: Make</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-display text-white mb-6 uppercase">
+                        Tritone MoldJet™<br/>Production.
+                    </h2>
+                    <p className="text-lg text-brand-polar/60 leading-relaxed mb-8">
+                        Traditional 3D printing requires support structures that scar the surface. MoldJet does not. We print a transient wax mold alongside the metal paste, allowing for free-floating internal lattices and zero-waste production.
+                    </p>
+                    <div className="space-y-4">
+                        <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
+                            <ScanLine className="w-6 h-6 text-brand-mink mt-1" />
+                            <div>
+                                <h4 className="text-white font-bold text-sm uppercase">6 Layers Per Step</h4>
+                                <p className="text-xs text-brand-polar/50 font-mono mt-1">Simultaneous deposition of Mold and Metal.</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
+                            <Flame className="w-6 h-6 text-brand-mink mt-1" />
+                            <div>
+                                <h4 className="text-white font-bold text-sm uppercase">99.8% Density</h4>
+                                <p className="text-xs text-brand-polar/50 font-mono mt-1">Vacuum sintering yields forged-quality steel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </FadeIn>
+
+                {/* Schematic Visual */}
+                <FadeIn direction="left">
+                    <div className="bg-[#151515] rounded-xl border border-white/10 p-8 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            <Factory className="w-32 h-32 text-white" />
+                        </div>
+                        <h3 className="text-white font-display text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">Process Schematic</h3>
+                        
+                        <div className="space-y-8 relative z-10">
+                             {/* Schematic Steps */}
+                            <div className="flex gap-6 relative">
+                                <div className="flex flex-col items-center">
+                                    <div className="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-mono text-xs border border-blue-500/50">01</div>
+                                    <div className="h-full w-px bg-white/10 my-2"></div>
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-sm uppercase">Print Negative Mold</h4>
+                                    <p className="text-xs text-brand-polar/50 mt-1">Wax defines geometry boundaries.</p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-6 relative">
+                                <div className="flex flex-col items-center">
+                                    <div className="w-8 h-8 rounded-full bg-brand-mink/20 text-brand-mink flex items-center justify-center font-mono text-xs border border-brand-mink/50">02</div>
+                                    <div className="h-full w-px bg-white/10 my-2"></div>
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-sm uppercase">Fill Metal Paste</h4>
+                                    <p className="text-xs text-brand-polar/50 mt-1">17-4PH Steel paste fills cavities.</p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-6 relative">
+                                <div className="flex flex-col items-center">
+                                    <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-mono text-xs border border-orange-500/50">03</div>
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-sm uppercase">Sinter & Debind</h4>
+                                    <p className="text-xs text-brand-polar/50 mt-1">Wax melts. Metal fuses. Solid object remains.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </FadeIn>
+
+            </div>
+        </div>
+      </section>
+
+      {/* --- PHASE 4: PLAY & RE-FIT (UPDATED) --- */}
+      <section id="phase-4" className="py-32 bg-[#F5F5F7] text-[#1C1C1E]">
+         <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+               
+               {/* Left: Live Data Feed Mockup */}
+               <FadeIn>
+                  <div className="bg-white rounded-xl overflow-hidden shadow-2xl border border-black/5 relative">
+                     {/* Header */}
+                     <div className="bg-[#1C1C1E] p-4 flex justify-between items-center text-white">
+                        <div className="flex items-center gap-2">
+                           <Signal className="w-4 h-4 text-brand-mink animate-pulse" />
+                           <span className="text-xs font-mono uppercase tracking-widest">LIVE FEED</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-white/50 uppercase">Connected to Arccos</span>
+                     </div>
+
+                     {/* Content */}
+                     <div className="p-6">
+                        <div className="flex items-start gap-4 mb-6">
+                           <div className="w-10 h-10 bg-[#F5F5F7] rounded-full flex items-center justify-center text-[#1C1C1E]">
+                              <Smartphone className="w-5 h-5" />
+                           </div>
+                           <div>
+                              <h4 className="font-display font-bold text-lg text-[#1C1C1E]">Post-Round Analysis</h4>
+                              <p className="text-xs text-[#1C1C1E]/60 font-mono">Bro Hof Slott · 18 Holes · Today</p>
+                           </div>
+                        </div>
+
+                        {/* Alert Card */}
+                        <div className="bg-brand-mink/5 border border-brand-mink/20 rounded-lg p-4 mb-4">
+                           <div className="flex items-center gap-2 mb-2 text-brand-mink font-bold text-xs uppercase tracking-wide">
+                              <RefreshCw className="w-3 h-3" />
+                              System Alert
+                           </div>
+                           <p className="text-sm text-[#1C1C1E]/80 leading-relaxed">
+                              <strong>Gapping Deviation Detected:</strong> Your 8-Iron carry has increased by 4% over the last 5 rounds, creating a 16m gap to your 9-Iron.
+                           </p>
+                        </div>
+
+                        {/* Recommendation */}
+                        <div className="border-t border-[#1C1C1E]/10 pt-4">
+                           <div className="flex justify-between items-center">
+                              <span className="text-xs font-mono text-[#1C1C1E]/50 uppercase">Proposed Action</span>
+                              <Button variant="secondary" size="sm" className="py-1 px-3 text-[10px]">
+                                 Adjust Lofts
+                              </Button>
+                           </div>
                         </div>
                      </div>
                   </div>
                </FadeIn>
+
+               {/* Right: Narrative */}
+               <FadeIn direction="left">
+                  <div className="mb-6">
+                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 4: Active Loop</span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E] mb-6 uppercase">
+                     Data On The Fly.<br/>Adapting Forever.
+                  </h2>
+                  <p className="text-lg text-[#1C1C1E]/60 leading-relaxed mb-8">
+                     Your swing isn't static, so why should your equipment be? Make Golf connects directly to your performance data sources (Arccos, Garmin, Gamebook) to monitor your real-world play. 
+                  </p>
+                  
+                  {/* Integration Logos */}
+                  <div className="flex gap-4 mb-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                        Arccos
+                     </div>
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                        Garmin
+                     </div>
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                        Gamebook
+                     </div>
+                  </div>
+
+                  <p className="text-sm text-[#1C1C1E]/60 leading-relaxed mb-8">
+                     If your gapping drifts or your dispersion pattern shifts, the system flags a "Re-Fit Trigger," allowing you to update your setup or print a modified component before your next season.
+                  </p>
+
+                  <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
+                    <Button variant="primary" className="uppercase shadow-lg">
+                        Connect Your Data
+                    </Button>
+                  </a>
+               </FadeIn>
+
             </div>
          </div>
-      </section>
-
-      {/* --- THE 3 ALGORITHMS (Deep Tech) --- */}
-      <section className="py-24 bg-[#121212]">
-         <div className="container mx-auto px-6">
-            <FadeIn>
-               <div className="text-center mb-16">
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">THE CORE ENGINES</span>
-                  <h2 className="text-3xl md:text-5xl font-display text-white mt-4 uppercase">HOW IT THINKS.</h2>
-               </div>
-            </FadeIn>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               {/* Algo 1 */}
-               <FadeIn delay={0.1}>
-                  <div className="bg-[#1C1C1E] p-8 rounded-xl border border-white/5 hover:border-brand-mink/30 transition-colors h-full">
-                     <div className="w-12 h-12 bg-white/5 rounded flex items-center justify-center text-brand-mink mb-6">
-                        <Microscope className="w-6 h-6" />
-                     </div>
-                     <h3 className="text-xl font-display text-white mb-2 uppercase">DEVIATION MAPPER™</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed font-mono">
-                        Identifies anomalies in your launch data. It filters out "bad strikes" to find your true biomechanical baseline, ensuring we don't fit the club to a flaw, but to your potential.
-                     </p>
-                  </div>
-               </FadeIn>
-
-               {/* Algo 2 */}
-               <FadeIn delay={0.2}>
-                  <div className="bg-[#1C1C1E] p-8 rounded-xl border border-white/5 hover:border-brand-mink/30 transition-colors h-full">
-                     <div className="w-12 h-12 bg-white/5 rounded flex items-center justify-center text-brand-mink mb-6">
-                        <Zap className="w-6 h-6" />
-                     </div>
-                     <h3 className="text-xl font-display text-white mb-2 uppercase">COMPENSATION MAPPER™</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed font-mono">
-                        Calculates the exact geometric adjustments needed to counteract your miss. If you deliver the toe down, it adjusts the lie angle and toe-weighting to neutralize the error.
-                     </p>
-                  </div>
-               </FadeIn>
-
-               {/* Algo 3 */}
-               <FadeIn delay={0.3}>
-                  <div className="bg-[#1C1C1E] p-8 rounded-xl border border-white/5 hover:border-brand-mink/30 transition-colors h-full">
-                     <div className="w-12 h-12 bg-white/5 rounded flex items-center justify-center text-brand-mink mb-6">
-                        <Target className="w-6 h-6" />
-                     </div>
-                     <h3 className="text-xl font-display text-white mb-2 uppercase">COG TARGET CALCULATOR™</h3>
-                     <p className="text-brand-polar/50 text-sm leading-relaxed font-mono">
-                        Optimizes Center of Gravity placement based on your impact location tendencies. Hits high on the face? We shift mass higher to maintain ball speed and smash factor.
-                     </p>
-                  </div>
-               </FadeIn>
-            </div>
-         </div>
-      </section>
-
-      {/* --- DATA DASHBOARD VISUALIZATION --- */}
-      <section id="report" className="py-24 bg-brand-black border-t border-white/5">
-         <div className="container mx-auto px-6">
-            
-            <FadeIn>
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-display text-white mb-6 uppercase">SEE THE DIFFERENCE.<br/>BEFORE YOU BUILD.</h2>
-                    <p className="text-lg text-brand-polar/60 leading-relaxed max-w-2xl mx-auto">
-                        We don't ask you to trust us. We ask you to trust the data. 
-                        The Agent simulates 40,000 shots with your new geometry to predict exactly how the dispersion circle will tighten.
-                    </p>
-                </div>
-            </FadeIn>
-
-            <FadeIn>
-                <div className="bg-[#1C1C1E] border border-white/10 rounded-xl overflow-hidden shadow-2xl relative">
-                   {/* Dashboard Header */}
-                   <div className="bg-[#242424] border-b border-white/5 px-6 py-4 flex items-center justify-between flex-wrap gap-4">
-                      <div className="flex items-center gap-4">
-                         <div className="flex gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                         </div>
-                         <div className="h-6 w-px bg-white/10"></div>
-                         <span className="text-xs font-mono text-white/50 uppercase">Session: Fredrik Hedlund - Test 001</span>
-                      </div>
-                      <div className="flex gap-4 text-xs font-mono">
-                         <button 
-                            onClick={() => setActiveTab('analysis')}
-                            className={`hover:text-brand-mink transition-colors ${activeTab === 'analysis' ? 'text-brand-mink' : 'text-white/40'}`}
-                         >
-                            [1] DISPERSION
-                         </button>
-                         <button 
-                            onClick={() => setActiveTab('comparison')}
-                            className={`hover:text-brand-mink transition-colors ${activeTab === 'comparison' ? 'text-brand-mink' : 'text-white/40'}`}
-                         >
-                            [2] COMPARISON
-                         </button>
-                         <button 
-                            onClick={() => setActiveTab('ai')}
-                            className={`hover:text-brand-mink transition-colors ${activeTab === 'ai' ? 'text-brand-mink' : 'text-white/40'}`}
-                         >
-                            [3] AI INSIGHTS
-                         </button>
-                      </div>
-                   </div>
-
-                   {/* Dashboard Body */}
-                   <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[500px]">
-                      
-                      {/* Left Sidebar (Session Stats) */}
-                      <div className="hidden lg:block col-span-1 bg-[#1C1C1E] border-r border-white/5 p-6">
-                         <div className="mb-8">
-                            <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">Total Shots</div>
-                            <div className="text-4xl font-display text-white">53</div>
-                            <div className="text-[10px] text-green-500 font-mono mt-1">High Data Confidence</div>
-                         </div>
-                         
-                         <div className="space-y-6">
-                            <div className="bg-[#242424] p-4 rounded border border-white/5">
-                               <div className="flex justify-between items-center mb-2">
-                                  <span className="text-[10px] uppercase text-white/60">Consistency</span>
-                                  <span className="text-xs font-bold text-brand-mink">64%</span>
-                               </div>
-                               <div className="w-full bg-black h-1 rounded overflow-hidden">
-                                  <div className="bg-brand-mink w-[64%] h-full"></div>
-                               </div>
-                            </div>
-                            
-                            <div className="bg-[#242424] p-4 rounded border border-white/5">
-                               <div className="flex justify-between items-center mb-2">
-                                  <span className="text-[10px] uppercase text-white/60">Impact Bias</span>
-                                  <span className="text-xs font-bold text-white">-1.0mm</span>
-                               </div>
-                               <div className="text-[9px] text-white/40 font-mono">Centered Pattern (Excellent)</div>
-                            </div>
-
-                            <div className="p-4 bg-brand-mink/10 border border-brand-mink/20 rounded">
-                               <div className="flex items-start gap-3">
-                                  <Zap className="w-4 h-4 text-brand-mink shrink-0 mt-0.5" />
-                                  <p className="text-[10px] text-brand-polar/80 leading-relaxed">
-                                     <strong>Alert:</strong> ProJx Std 6.5 shaft is producing 14.3m dispersion. Shaft is too stiff for player delivery.
-                                  </p>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-
-                      {/* Main Visualization Area */}
-                      <div className="col-span-2 bg-[#181818] p-8 relative">
-                         
-                         {activeTab === 'analysis' && (
-                            <div className="h-full flex flex-col">
-                               <div className="flex justify-between items-center mb-6">
-                                  <h3 className="text-xl font-display text-white">Dispersion Analysis</h3>
-                                  <div className="flex gap-4 text-[10px] font-mono">
-                                     <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-brand-mink"></span> MAKE J7</span>
-                                     <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-white/20"></span> COMPETITOR</span>
-                                  </div>
-                               </div>
-                               <div className="flex-grow min-h-[350px]">
-                                  <ResponsiveContainer width="100%" height="100%">
-                                     <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                                        <XAxis type="number" dataKey="x" name="Lateral" unit="m" stroke="#666" fontSize={10} domain={[-20, 20]} />
-                                        <YAxis type="number" dataKey="y" name="Carry" unit="m" stroke="#666" fontSize={10} domain={[140, 180]} />
-                                        <Tooltip cursor={{ strokeDasharray: '3 3' }} contentStyle={{ backgroundColor: '#1C1C1E', borderColor: '#333', color: '#fff', fontSize: '12px' }} />
-                                        <ReferenceLine x={0} stroke="#444" strokeDasharray="3 3" />
-                                        <Scatter name="Shots" data={dispersionData} fill="#8884d8">
-                                           {dispersionData.map((entry, index) => (
-                                              <Cell key={`cell-${index}`} fill={entry.type === 'Make J7' ? '#FF224C' : '#ffffff40'} />
-                                           ))}
-                                        </Scatter>
-                                     </ScatterChart>
-                                  </ResponsiveContainer>
-                               </div>
-                            </div>
-                         )}
-
-                         {activeTab === 'comparison' && (
-                            <div className="h-full">
-                               <h3 className="text-xl font-display text-white mb-6">Head-to-Head Performance</h3>
-                               <div className="overflow-x-auto">
-                                  <table className="w-full text-left border-collapse">
-                                     <thead>
-                                        <tr className="border-b border-white/10 text-[10px] font-mono text-white/40 uppercase">
-                                           <th className="py-3 pl-2">Rank</th>
-                                           <th className="py-3">Configuration</th>
-                                           <th className="py-3">Carry</th>
-                                           <th className="py-3">Dispersion</th>
-                                           <th className="py-3">Consistency</th>
-                                           <th className="py-3">Smash</th>
-                                        </tr>
-                                     </thead>
-                                     <tbody className="text-sm font-sans text-brand-polar/80">
-                                        {comparisonData.map((row, i) => (
-                                           <tr key={i} className={`border-b border-white/5 hover:bg-white/5 transition-colors ${i === 0 ? 'bg-brand-mink/5' : ''}`}>
-                                              <td className="py-4 pl-2 font-mono text-brand-mink font-bold">#{row.rank}</td>
-                                              <td className="py-4 font-bold text-white">{row.config}</td>
-                                              <td className="py-4">{row.carry}</td>
-                                              <td className="py-4">{row.disp}</td>
-                                              <td className="py-4">{row.consistency}</td>
-                                              <td className="py-4">{row.smash}</td>
-                                           </tr>
-                                        ))}
-                                     </tbody>
-                                  </table>
-                               </div>
-                            </div>
-                         )}
-
-                         {activeTab === 'ai' && (
-                            <div className="h-full overflow-y-auto pr-2 custom-scrollbar">
-                               <h3 className="text-xl font-display text-white mb-6">Critical Observations</h3>
-                               
-                               <div className="space-y-6">
-                                  <div className="p-4 border border-white/10 rounded bg-[#242424]">
-                                     <div className="text-brand-mink text-xs font-mono uppercase mb-2">Observation 01</div>
-                                     <h4 className="text-white font-bold mb-2">The "Toe-Bias" Paradox</h4>
-                                     <p className="text-sm text-brand-polar/60 leading-relaxed">
-                                        Player consistently strikes 4mm toe-side with standard configurations. 
-                                        <strong>Interpretation:</strong> Muscle back designs typically punish this with -8% ball speed.
-                                        <strong>Solution:</strong> Make J7 adjusts CG 3mm towards the toe without altering the address profile.
-                                     </p>
-                                  </div>
-
-                                  <div className="p-4 border border-white/10 rounded bg-[#242424]">
-                                     <div className="text-brand-mink text-xs font-mono uppercase mb-2">Observation 02</div>
-                                     <h4 className="text-white font-bold mb-2">Lie Angle Correlation</h4>
-                                     <p className="text-sm text-brand-polar/60 leading-relaxed">
-                                        Strong correlation between miss-right and flat lie angle impact.
-                                        <strong>Recommendation:</strong> +1.2° Upright lie angle will center the impact dispersion circle by approx 4.5m.
-                                     </p>
-                                  </div>
-
-                                  <div className="p-4 border border-white/10 rounded bg-[#242424]">
-                                     <div className="text-brand-mink text-xs font-mono uppercase mb-2">Observation 03</div>
-                                     <h4 className="text-white font-bold mb-2">Shaft Load Profile</h4>
-                                     <p className="text-sm text-brand-polar/60 leading-relaxed">
-                                        Project X 6.5 (Standard) shows inconsistent delivery (-14.3m dispersion). 
-                                        LA Golf L-Series stabilizes face closure rate. 
-                                        <strong>Action:</strong> Switch to L-Series 120 Stiff.
-                                     </p>
-                                  </div>
-                               </div>
-                            </div>
-                         )}
-
-                      </div>
-                   </div>
-                </div>
-            </FadeIn>
-         </div>
-      </section>
-
-      {/* --- COMPARISON TABLE --- */}
-      <section className="py-24 bg-[#151515]">
-          <div className="container mx-auto px-6 max-w-5xl">
-             <FadeIn>
-                <div className="grid grid-cols-1 md:grid-cols-2 bg-[#1C1C1E] border border-white/5 rounded-2xl overflow-hidden">
-                   
-                   {/* Traditional Side */}
-                   <div className="p-10 border-b md:border-b-0 md:border-r border-white/5 opacity-60">
-                      <h3 className="text-xl font-display text-white mb-6 uppercase tracking-wider">TRADITIONAL FITTING</h3>
-                      <ul className="space-y-6 font-mono text-sm text-brand-polar/60">
-                         <li className="flex justify-between border-b border-white/5 pb-2">
-                            <span>Precision</span>
-                            <span>± 1.0° (Bending Bar)</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/5 pb-2">
-                            <span>Geometry</span>
-                            <span>Standard Mold</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/5 pb-2">
-                            <span>Weighting</span>
-                            <span>Lead Tape / Tip Weights</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/5 pb-2">
-                            <span>Process</span>
-                            <span>Trial & Error</span>
-                         </li>
-                      </ul>
-                   </div>
-
-                   {/* Make Golf Side */}
-                   <div className="p-10 bg-brand-mink/5 relative overflow-hidden">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-brand-mink"></div>
-                      <h3 className="text-xl font-display text-white mb-6 uppercase tracking-wider flex items-center gap-2">
-                         MAKE-DNA
-                         <Zap className="w-4 h-4 text-brand-mink" />
-                      </h3>
-                      <ul className="space-y-6 font-mono text-sm text-white">
-                         <li className="flex justify-between border-b border-white/10 pb-2">
-                            <span>Precision</span>
-                            <span className="font-bold text-brand-mink">± 0.1° (Printed)</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/10 pb-2">
-                            <span>Geometry</span>
-                            <span className="font-bold text-brand-mink">Parametric & Adaptive</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/10 pb-2">
-                            <span>Weighting</span>
-                            <span className="font-bold text-brand-mink">Internal Lattice (±0.01g)</span>
-                         </li>
-                         <li className="flex justify-between border-b border-white/10 pb-2">
-                            <span>Process</span>
-                            <span className="font-bold text-brand-mink">Algorithmic Design</span>
-                         </li>
-                      </ul>
-                   </div>
-                </div>
-             </FadeIn>
-          </div>
-      </section>
-
-      {/* CTA Footer */}
-      <section className="py-24 text-center">
-         <FadeIn>
-             <h2 className="text-4xl font-display text-white mb-8 uppercase">READY TO BE CALCULATED?</h2>
-             <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
-               <Button variant="primary" size="lg" className="rounded-full uppercase">
-                  LAUNCH FITTING AGENT
-               </Button>
-             </a>
-         </FadeIn>
       </section>
 
     </div>

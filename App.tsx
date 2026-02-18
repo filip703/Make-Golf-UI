@@ -8,6 +8,7 @@ import NewsletterModal from './components/NewsletterModal';
 import SystemBoot from './components/SystemBoot';
 import ScrollTelemetry from './components/ScrollTelemetry';
 import PageTransition from './components/PageTransition';
+import AppLayout from './components/AppLayout';
 import { AnimatePresence } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
@@ -22,7 +23,7 @@ const About = lazy(() => import('./pages/About'));
 const Journal = lazy(() => import('./pages/Journal'));
 const ArticlePost = lazy(() => import('./pages/ArticlePost'));
 const NotFound = lazy(() => import('./pages/NotFound'));
-const IframeView = lazy(() => import('./components/IframeView'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -46,27 +47,49 @@ const PageLoader = () => (
 const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
   
+  // Check if we are in the "App" (SaaS) section to render different layout
+  const isAppRoute = location.pathname.startsWith('/dashboard') || location.pathname.startsWith('/app');
+
+  if (isAppRoute) {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <AppLayout>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/dashboard" element={<PageTransition><Dashboard /></PageTransition>} />
+            {/* Add more app routes here later */}
+          </Routes>
+        </AppLayout>
+      </Suspense>
+    );
+  }
+  
   return (
-    <Suspense fallback={<PageLoader />}>
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-          <Route path="/clubs" element={<PageTransition><Clubs /></PageTransition>} />
-          <Route path="/engine" element={<PageTransition><AIFitting /></PageTransition>} />
-          <Route path="/configurator" element={<PageTransition><Configurator /></PageTransition>} />
-          <Route path="/fitters" element={<PageTransition><Fitters /></PageTransition>} />
-          <Route path="/technology" element={<PageTransition><Technology /></PageTransition>} />
-          <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-          
-          {/* Journal Routes */}
-          <Route path="/journal" element={<PageTransition><Journal /></PageTransition>} />
-          <Route path="/journal/:slug" element={<PageTransition><ArticlePost /></PageTransition>} />
-          
-          {/* Catch-all 404 */}
-          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-        </Routes>
-      </AnimatePresence>
-    </Suspense>
+    <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white cursor-none md:cursor-auto"> 
+      <Navbar />
+      <main className="min-h-screen">
+        <Suspense fallback={<PageLoader />}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+              <Route path="/clubs" element={<PageTransition><Clubs /></PageTransition>} />
+              <Route path="/engine" element={<PageTransition><AIFitting /></PageTransition>} />
+              <Route path="/configurator" element={<PageTransition><Configurator /></PageTransition>} />
+              <Route path="/fitters" element={<PageTransition><Fitters /></PageTransition>} />
+              <Route path="/technology" element={<PageTransition><Technology /></PageTransition>} />
+              <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+              
+              {/* Journal Routes */}
+              <Route path="/journal" element={<PageTransition><Journal /></PageTransition>} />
+              <Route path="/journal/:slug" element={<PageTransition><ArticlePost /></PageTransition>} />
+              
+              {/* Catch-all 404 */}
+              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
@@ -87,14 +110,8 @@ const App: React.FC = () => {
           <NewsletterModal />
           <ScrollTelemetry />
           
-          <div className="bg-brand-black min-h-screen text-white font-sans selection:bg-brand-mink selection:text-white cursor-none md:cursor-auto"> 
-            
-            <Navbar />
-            <main className="min-h-screen">
-               <AnimatedRoutes />
-            </main>
-            <Footer />
-          </div>
+          <AnimatedRoutes />
+          
         </HashRouter>
       </div>
     </>
@@ -102,4 +119,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-    

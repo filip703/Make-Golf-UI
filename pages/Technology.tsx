@@ -383,20 +383,31 @@ const Technology: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                
                <FadeIn className="order-2 lg:order-1">
-                  <div className="relative rounded-lg overflow-hidden border border-white/10 group">
+                  <div className="relative rounded-lg overflow-hidden border border-white/10 group bg-[#202022] aspect-square flex items-center justify-center">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 to-[#202022]"></div>
                       <img 
-                        src="https://images.unsplash.com/photo-1599587426861-591b92e74211?q=80&w=1931&auto=format&fit=crop" 
-                        alt="Lattice Structure"
-                        className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-all duration-700"
+                        src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/grooves.png" 
+                        alt="R&A Conforming Face"
+                        className="w-[90%] h-[90%] object-contain drop-shadow-2xl opacity-100 group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-grid opacity-20"></div>
+                      <div className="absolute inset-0 bg-grid opacity-10"></div>
                       
                       {/* R&A Badge Overlay */}
-                      <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur border border-white/10 p-3 rounded flex items-center gap-3">
-                         <ShieldCheck className="w-8 h-8 text-white" />
+                      <div className="absolute bottom-6 right-6 bg-black/80 backdrop-blur border border-white/10 p-3 rounded flex items-center gap-3 shadow-xl z-20">
+                         <ShieldCheck className="w-8 h-8 text-brand-mink" />
                          <div>
-                            <div className="text-[10px] text-brand-polar/40 font-mono uppercase">STATUS</div>
+                            <div className="text-[10px] text-brand-polar/40 font-mono uppercase">CERTIFIED</div>
                             <div className="text-white font-bold text-sm">R&A CONFORMING</div>
+                         </div>
+                      </div>
+
+                      {/* Grooves Label */}
+                      <div className="absolute top-6 left-6 bg-black/40 backdrop-blur px-3 py-1.5 rounded border border-white/5">
+                         <div className="flex items-center gap-2">
+                             <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
+                             <span className="text-[10px] font-mono text-white/80 uppercase tracking-widest">
+                                 CNC MILLED GROOVES
+                             </span>
                          </div>
                       </div>
                   </div>

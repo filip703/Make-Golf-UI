@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                 Limited beta slots available for the 2026 season.
               </p>
               <a 
-                href="https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup"
+                href="https://frontend-seven-iota-56.vercel.app/signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"

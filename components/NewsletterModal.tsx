@@ -68,7 +68,7 @@ const NewsletterModal: React.FC = () => {
 
                 <div className="w-full space-y-3">
                     <a 
-                      href="https://maker.make.golf/embed/pages/29414631-a517-47c0-aa0f-9eb48335e20f/blocks/signup" 
+                      href="https://frontend-seven-iota-56.vercel.app/signup" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full"

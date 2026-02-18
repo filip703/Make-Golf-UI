@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
-  const DASHBOARD_URL = "https://frontend-seven-iota-56.vercel.app/dashboard";
+  const DASHBOARD_URL = "https://frontend-seven-iota-56.vercel.app/login";
 
   // Determine styles based on scroll and page type
   const navbarClasses = scrolled 
