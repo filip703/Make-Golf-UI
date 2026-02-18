@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const AIFitting: React.FC = () => {
   const SIGNUP_URL = "https://frontend-seven-iota-56.vercel.app/signup";
-  // The long token URL for the specific configuration state used in the teaser
   const TEASER_IFRAME_URL = "https://configurator.modelup3d.com/?projectId=oa1oRJb3&token=eyJhbGciOiJIUzI1NiJ9.eyJ2NW4iOjEsImlkIjoxMzQsInA3ZCI6Im9hMW9SSmIzIiwicDlzIjpbImM1ZSIsInJfYzE1YSJdfQ.p-s501nEeYwHvyH2JJUYuSlk5f9rJZ2HbQC58p8DIXc&configurationState=a_29b5d105-ab7f-4511-a8cb-c81eb0f33f2c_7b8382fc-47a7-48ec-bfab-87daf3482240_0_e3685a61-0488-495b-af0a-03f4cd28662b_34.9_5310300e-e063-415e-b008-c54613d8a961_61_1e4aac43-e484-48ef-9549-2d54d4a16715_0_8ce09785-357e-48fb-ae65-422003074fef_77.4_cc947572-79b1-4736-bc9b-90b11a73713a_55.1_bc5871e7-3961-46c3-8fe0-1122e8586405_30.1_c5e62c30-a479-45a4-9879-c828067b840e_4.5_cdf62d42-b88d-4add-9487-21806bcbfe05_9.12_1c129292-ed94-48ea-ae88-309cd2291f1f_32.6_82434f86-8f4a-49bb-be3b-455c356e69bf_9.6_a38a92bf-cdb6-4ea1-b50d-2d108dd75062_14.789_52436bbd-9b9c-46f6-973f-0584ea52d3fe_1.6_b18d42ba-b806-41f9-8702-55359170f28d_2.5_c72f9f2b-c110-492a-851e-3395391883d0_-2.4_480f42a1-ddae-41bd-9d8f-73a47b8c9232_42.7_c0182fe3-ceab-4e11-9249-1ec1a765f0f0_23_22fc43a3-85ce-46b3-9d1f-75422eaf7da0_22.7_d7ae2c3c-6620-4717-b85f-6336c42303fe_14.7_8f9802f1-a672-403a-824e-620e4e93207f_0.436_67832bf3-3810-4db8-8a9d-fe7eb8f8a507_6_e458d1ce-50a5-43b2-9dd0-6297e8325ef5_1.49_14449719-d773-43bd-9741-17ce40106734_2_5e4e18a0-7ddf-4dca-abc3-ebc14804c910_10_c352805c-4369-4674-b1a8-c644bcea716e_2_6c8655d4-2130-4b0e-adea-e9a9b0bd3f3c_1.7_86cd5747-0513-4e1f-aef3-77f323c08da6_3_7c9e3dc2-4ee3-490f-af5a-1e033113ac98_0.45_groove+extend_0_76f64105-1ed0-476d-8fe9-8a0d735dfb25_1.11_1400e927-5c58-40be-9c6b-2fe1cb4e9315_0.955";
 
   const SUPPORTED_HARDWARE = [
@@ -34,18 +33,18 @@ const AIFitting: React.FC = () => {
             <FadeIn>
                 <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
-                  <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">MAKE DNA PLATFORM</span>
+                  <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">MAKE-DNA PLATFORM</span>
                 </div>
                 <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-8 leading-[0.9] uppercase">
-                  Circular By Design.
+                  CIRCULAR BY DESIGN.
                 </h1>
                 <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl mx-auto leading-relaxed mb-12">
-                  Make Golf isn't just a club manufacturer. It's a closed-loop operating system for your game. Data informs design. Design drives production. Play generates new data.
+                  Make Golf is a closed-loop operating system. Data informs design. Design drives production. Play generates new data.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary" size="lg" className="group shadow-[0_0_40px_rgba(255,34,76,0.2)] uppercase">
-                      Create Golfer Profile <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
+                      CREATE GOLFER PROFILE <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"/>
                     </Button>
                   </a>
                 </div>
@@ -58,7 +57,7 @@ const AIFitting: React.FC = () => {
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="text-center mb-10">
-                  <h2 className="text-2xl font-mono text-brand-polar/40 uppercase tracking-widest">The System</h2>
+                  <h2 className="text-2xl font-mono text-brand-polar/40 uppercase tracking-widest">THE SYSTEM ARCHITECTURE</h2>
                </div>
                <CircularFlow />
             </FadeIn>
@@ -73,13 +72,13 @@ const AIFitting: React.FC = () => {
                {/* Left: Narrative */}
                <FadeIn>
                   <div className="mb-6">
-                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 1: Data Intelligence</span>
+                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">PHASE 1: DATA INTELLIGENCE</span>
                   </div>
                   <h2 className="text-4xl md:text-5xl font-display text-white mb-6 uppercase">
-                     Not a Form.<br/>An Intelligence.
+                     BEYOND STATIC FITTING.<br/>DYNAMIC ANALYSIS.
                   </h2>
                   <p className="text-lg text-brand-polar/60 leading-relaxed mb-8">
-                     We don't ask you what you want. We calculate what you need. <strong>Agent 00</strong> ingests raw launch monitor data to analyze your unique biomechanical signature—attack angle, face-to-path, closure rate, and impact consistency.
+                     We ingest raw launch monitor data to analyze your biomechanical signature—attack angle, face-to-path, closure rate, and impact consistency. This data forms the boundary conditions for the design process.
                   </p>
                   
                   {/* Supported Hardware Marquee */}
@@ -100,7 +99,7 @@ const AIFitting: React.FC = () => {
                   </div>
 
                   <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
-                     <Button variant="outline" size="sm" className="uppercase">Launch Agent 00</Button>
+                     <Button variant="outline" size="sm" className="uppercase">LAUNCH AGENT 00</Button>
                   </a>
                </FadeIn>
 
@@ -177,8 +176,8 @@ const AIFitting: React.FC = () => {
       <section id="phase-2" className="py-32 bg-[#151515] text-white border-b border-white/5">
         <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 2: Generative Design</span>
-                 <h2 className="text-4xl md:text-5xl font-display mt-4 mb-6 uppercase">The Configurator</h2>
+                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">PHASE 2: GENERATIVE DESIGN</span>
+                 <h2 className="text-4xl md:text-5xl font-display mt-4 mb-6 uppercase">THE CONFIGURATOR</h2>
                  <p className="text-brand-polar/60 max-w-2xl mx-auto text-lg font-light">
                     Parameters are not fixed. Adjust loft, lie, offset, and mass properties in real-time with our browser-based CAD engine.
                  </p>
@@ -201,7 +200,7 @@ const AIFitting: React.FC = () => {
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                     >
                         <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
-                            <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">Launch Full Studio</span>
+                            <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">LAUNCH FULL STUDIO</span>
                             <div className="w-8 h-8 rounded-full bg-brand-mink group-hover:bg-black flex items-center justify-center text-black group-hover:text-white transition-colors">
                                 <Maximize className="w-4 h-4" />
                             </div>
@@ -213,7 +212,7 @@ const AIFitting: React.FC = () => {
                         <div className="flex flex-col gap-2">
                             <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
                                 <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
-                                Live Preview
+                                LIVE PREVIEW
                             </div>
                         </div>
                     </div>
@@ -229,10 +228,10 @@ const AIFitting: React.FC = () => {
                 
                 <FadeIn>
                     <div className="mb-6">
-                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 3: Make</span>
+                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">PHASE 3: MAKE</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-display text-white mb-6 uppercase">
-                        Tritone MoldJet™<br/>Production.
+                        TRITONE MOLDJET™<br/>PRODUCTION.
                     </h2>
                     <p className="text-lg text-brand-polar/60 leading-relaxed mb-8">
                         Traditional 3D printing requires support structures that scar the surface. MoldJet does not. We print a transient wax mold alongside the metal paste, allowing for free-floating internal lattices and zero-waste production.
@@ -241,14 +240,14 @@ const AIFitting: React.FC = () => {
                         <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
                             <ScanLine className="w-6 h-6 text-brand-mink mt-1" />
                             <div>
-                                <h4 className="text-white font-bold text-sm uppercase">6 Layers Per Step</h4>
+                                <h4 className="text-white font-bold text-sm uppercase">6 LAYERS PER STEP</h4>
                                 <p className="text-xs text-brand-polar/50 font-mono mt-1">Simultaneous deposition of Mold and Metal.</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
                             <Flame className="w-6 h-6 text-brand-mink mt-1" />
                             <div>
-                                <h4 className="text-white font-bold text-sm uppercase">99.8% Density</h4>
+                                <h4 className="text-white font-bold text-sm uppercase">99.8% DENSITY</h4>
                                 <p className="text-xs text-brand-polar/50 font-mono mt-1">Vacuum sintering yields forged-quality steel.</p>
                             </div>
                         </div>
@@ -261,7 +260,7 @@ const AIFitting: React.FC = () => {
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Factory className="w-32 h-32 text-white" />
                         </div>
-                        <h3 className="text-white font-display text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">Process Schematic</h3>
+                        <h3 className="text-white font-display text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">PROCESS SCHEMATIC</h3>
                         
                         <div className="space-y-8 relative z-10">
                              {/* Schematic Steps */}
@@ -271,7 +270,7 @@ const AIFitting: React.FC = () => {
                                     <div className="h-full w-px bg-white/10 my-2"></div>
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold text-sm uppercase">Print Negative Mold</h4>
+                                    <h4 className="text-white font-bold text-sm uppercase">PRINT NEGATIVE MOLD</h4>
                                     <p className="text-xs text-brand-polar/50 mt-1">Wax defines geometry boundaries.</p>
                                 </div>
                             </div>
@@ -282,7 +281,7 @@ const AIFitting: React.FC = () => {
                                     <div className="h-full w-px bg-white/10 my-2"></div>
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold text-sm uppercase">Fill Metal Paste</h4>
+                                    <h4 className="text-white font-bold text-sm uppercase">FILL METAL PASTE</h4>
                                     <p className="text-xs text-brand-polar/50 mt-1">17-4PH Steel paste fills cavities.</p>
                                 </div>
                             </div>
@@ -292,7 +291,7 @@ const AIFitting: React.FC = () => {
                                     <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-mono text-xs border border-orange-500/50">03</div>
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold text-sm uppercase">Sinter & Debind</h4>
+                                    <h4 className="text-white font-bold text-sm uppercase">SINTER & DEBIND</h4>
                                     <p className="text-xs text-brand-polar/50 mt-1">Wax melts. Metal fuses. Solid object remains.</p>
                                 </div>
                             </div>
@@ -318,7 +317,7 @@ const AIFitting: React.FC = () => {
                            <Signal className="w-4 h-4 text-brand-mink animate-pulse" />
                            <span className="text-xs font-mono uppercase tracking-widest">LIVE FEED</span>
                         </div>
-                        <span className="text-[10px] font-mono text-white/50 uppercase">Connected to Arccos</span>
+                        <span className="text-[10px] font-mono text-white/50 uppercase">CONNECTED TO ARCCOS</span>
                      </div>
 
                      {/* Content */}
@@ -337,7 +336,7 @@ const AIFitting: React.FC = () => {
                         <div className="bg-brand-mink/5 border border-brand-mink/20 rounded-lg p-4 mb-4">
                            <div className="flex items-center gap-2 mb-2 text-brand-mink font-bold text-xs uppercase tracking-wide">
                               <RefreshCw className="w-3 h-3" />
-                              System Alert
+                              SYSTEM ALERT
                            </div>
                            <p className="text-sm text-[#1C1C1E]/80 leading-relaxed">
                               <strong>Gapping Deviation Detected:</strong> Your 8-Iron carry has increased by 4% over the last 5 rounds, creating a 16m gap to your 9-Iron.
@@ -347,9 +346,9 @@ const AIFitting: React.FC = () => {
                         {/* Recommendation */}
                         <div className="border-t border-[#1C1C1E]/10 pt-4">
                            <div className="flex justify-between items-center">
-                              <span className="text-xs font-mono text-[#1C1C1E]/50 uppercase">Proposed Action</span>
-                              <Button variant="secondary" size="sm" className="py-1 px-3 text-[10px]">
-                                 Adjust Lofts
+                              <span className="text-xs font-mono text-[#1C1C1E]/50 uppercase">PROPOSED ACTION</span>
+                              <Button variant="secondary" size="sm" className="py-1 px-3 text-[10px] uppercase">
+                                 ADJUST LOFTS
                               </Button>
                            </div>
                         </div>
@@ -360,10 +359,10 @@ const AIFitting: React.FC = () => {
                {/* Right: Narrative */}
                <FadeIn direction="left">
                   <div className="mb-6">
-                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Phase 4: Active Loop</span>
+                     <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">PHASE 4: ACTIVE LOOP</span>
                   </div>
                   <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E] mb-6 uppercase">
-                     Data On The Fly.<br/>Adapting Forever.
+                     DATA ON THE FLY.<br/>ADAPTING FOREVER.
                   </h2>
                   <p className="text-lg text-[#1C1C1E]/60 leading-relaxed mb-8">
                      Your swing isn't static, so why should your equipment be? Make Golf connects directly to your performance data sources (Arccos, Garmin, Gamebook) to monitor your real-world play. 
@@ -372,13 +371,13 @@ const AIFitting: React.FC = () => {
                   {/* Integration Logos */}
                   <div className="flex gap-4 mb-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                      <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
-                        Arccos
+                        ARCCOS
                      </div>
                      <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
-                        Garmin
+                        GARMIN
                      </div>
                      <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
-                        Gamebook
+                        GAMEBOOK
                      </div>
                   </div>
 
@@ -388,7 +387,7 @@ const AIFitting: React.FC = () => {
 
                   <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary" className="uppercase shadow-lg">
-                        Connect Your Data
+                        CONNECT YOUR DATA
                     </Button>
                   </a>
                </FadeIn>
