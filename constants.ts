@@ -2,11 +2,11 @@
 import { NavLink, Article } from './types';
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'The Engine', path: '/engine' },
-  { label: 'Technology', path: '/technology' },
-  { label: 'Journal', path: '/journal' },
-  { label: 'For Fitters', path: '/fitters' },
-  { label: 'About', path: '/about' },
+  { label: 'MAKE-DNA', path: '/engine' },
+  { label: 'TECHNOLOGY', path: '/technology' },
+  { label: 'JOURNAL', path: '/journal' },
+  { label: 'FOR FITTERS', path: '/fitters' },
+  { label: 'ABOUT', path: '/about' },
 ];
 
 export const MOCK_STATS = [

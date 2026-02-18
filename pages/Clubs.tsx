@@ -19,12 +19,12 @@ const Clubs: React.FC = () => {
               <div className="flex items-center gap-2 mb-6">
                  <span className="w-8 h-px bg-brand-mink"></span>
                  <span className="text-[#111]/60 font-mono text-xs uppercase tracking-widest">
-                  Product Architecture
+                  PRODUCT ARCHITECTURE
                 </span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-display font-medium text-[#111] leading-[0.9] tracking-tight">
-                No Collections.<br/>
-                <span className="text-[#111]/40">Just Components.</span>
+              <h1 className="text-6xl md:text-8xl font-display font-medium text-[#111] leading-[0.9] tracking-tight uppercase">
+                NO COLLECTIONS.<br/>
+                <span className="text-[#111]/40">JUST COMPONENTS.</span>
               </h1>
             </div>
             <p className="text-lg font-sans font-light text-[#111]/70 pb-2 leading-relaxed max-w-md">
@@ -73,23 +73,23 @@ const Clubs: React.FC = () => {
               <div className="w-full lg:w-1/2">
                 <FadeIn direction={index % 2 === 1 ? 'left' : 'right'}>
                   <div className="flex items-center gap-4 mb-8">
-                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Architecture 0{index + 1}</span>
+                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">ARCHITECTURE 0{index + 1}</span>
                     <div className="h-px flex-1 bg-[#111]/10"></div>
                   </div>
                   
-                  <h2 className="text-5xl lg:text-7xl font-display font-medium text-[#111] mb-4">{cat.name}</h2>
-                  <p className="text-xl text-[#111]/40 font-display mb-8">{cat.tagline}</p>
+                  <h2 className="text-5xl lg:text-7xl font-display font-medium text-[#111] mb-4 uppercase">{cat.name}</h2>
+                  <p className="text-xl text-[#111]/40 font-display mb-8 uppercase">{cat.tagline}</p>
                   
                   <p className="text-[#111]/70 text-lg font-sans font-light leading-relaxed mb-12 max-w-xl">
                     {cat.desc} 
                   </p>
                   
                   <div className="flex items-center gap-6">
-                    <Button variant="primary" className="shadow-lg hover:shadow-xl" size="md">
-                      Configure {cat.name}
+                    <Button variant="primary" className="shadow-lg hover:shadow-xl uppercase" size="md">
+                      CONFIGURE {cat.name}
                     </Button>
                     <button className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#111]/40 hover:text-brand-mink transition-colors">
-                       View Tech Specs <ArrowRight className="w-4 h-4" />
+                       VIEW TECH SPECS <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </FadeIn>
@@ -107,7 +107,7 @@ const Clubs: React.FC = () => {
                     <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                         <Crosshair className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-display text-[#111] mb-2">Precision</h3>
+                    <h3 className="text-xl font-display text-[#111] mb-2 uppercase">PRECISION</h3>
                     <p className="text-[#111]/60 text-sm max-w-xs leading-relaxed">
                         0.03mm tolerance. Tighter than any cast club on the market.
                     </p>
@@ -116,7 +116,7 @@ const Clubs: React.FC = () => {
                     <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                         <Wind className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-display text-[#111] mb-2">Aerodynamics</h3>
+                    <h3 className="text-xl font-display text-[#111] mb-2 uppercase">AERODYNAMICS</h3>
                     <p className="text-[#111]/60 text-sm max-w-xs leading-relaxed">
                         Drag-reducing geometries that maintain stability through impact.
                     </p>
@@ -125,7 +125,7 @@ const Clubs: React.FC = () => {
                     <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                         <CircleDashed className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-display text-[#111] mb-2">Purity</h3>
+                    <h3 className="text-xl font-display text-[#111] mb-2 uppercase">PURITY</h3>
                     <p className="text-[#111]/60 text-sm max-w-xs leading-relaxed">
                         Single-piece construction. No epoxy, no weights, no shortcuts.
                     </p>

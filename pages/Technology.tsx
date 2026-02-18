@@ -17,11 +17,11 @@ const Technology: React.FC = () => {
           <div className="max-w-4xl relative z-10">
              <div className="flex items-center gap-3 mb-6">
                 <div className="w-1.5 h-1.5 bg-brand-mink rounded-full"></div>
-                <div className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">The Tech Stack</div>
+                <div className="text-brand-polar/60 font-mono text-xs uppercase tracking-widest">THE TECH STACK</div>
              </div>
-             <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-10 leading-[0.95]">
-               Digital Code.<br/>
-               <span className="text-brand-polar/20">Physical Reality.</span>
+             <h1 className="text-5xl md:text-8xl font-display font-medium text-white mb-10 leading-[0.95] uppercase">
+               DIGITAL CODE.<br/>
+               <span className="text-brand-polar/20">PHYSICAL REALITY.</span>
              </h1>
              <p className="text-xl text-brand-polar/60 font-light font-sans max-w-2xl leading-relaxed">
                 We have collapsed the supply chain into a single, seamless digital workflow. From biomechanical simulation to MoldJet™ production in 48 hours.
@@ -30,14 +30,14 @@ const Technology: React.FC = () => {
         </FadeIn>
       </section>
 
-      {/* --- SECTION: THE HARDWARE (Moved from Clubs page) --- */}
-      <section className="py-24 bg-[#121212] border-b border-white/5">
+      {/* --- SECTION: THE HARDWARE - Switched to LIGHT background for contrast --- */}
+      <section className="py-24 bg-[#EAEAEA] text-[#1C1C1E] border-b border-black/5">
         <div className="container mx-auto px-6">
            <FadeIn>
               <div className="mb-16">
-                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest block mb-4">Applied Technology</span>
-                 <h2 className="text-3xl md:text-5xl font-display text-white">Hardware Applications</h2>
-                 <p className="text-brand-polar/50 mt-4 max-w-2xl">
+                 <span className="text-brand-mink font-mono text-xs uppercase tracking-widest block mb-4">APPLIED TECHNOLOGY</span>
+                 <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E] uppercase">HARDWARE APPLICATIONS</h2>
+                 <p className="text-[#1C1C1E]/60 mt-4 max-w-2xl">
                     We don't release "collections". We maintain three evolving chassis architectures that serve as blank canvases for your biometric data.
                  </p>
               </div>
@@ -47,14 +47,14 @@ const Technology: React.FC = () => {
              {CLUB_CATEGORIES.map((cat, index) => (
                <div key={cat.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
                  
-                 {/* Image Side - Adapted for Dark Mode */}
+                 {/* Image Side */}
                  <FadeIn className="w-full lg:w-1/2">
-                   <div className="aspect-[4/5] bg-[#1C1C1E] border border-white/10 relative overflow-hidden group shadow-2xl rounded-sm">
+                   <div className="aspect-[4/5] bg-white border border-[#1C1C1E]/10 relative overflow-hidden group shadow-2xl rounded-sm">
                       {/* Primary Image */}
                       <img 
                          src={cat.image}
                          alt={cat.name}
-                         className={`absolute inset-0 w-full h-full transition-all duration-1000 grayscale opacity-80 group-hover:grayscale-0 ${
+                         className={`absolute inset-0 w-full h-full transition-all duration-1000 grayscale opacity-90 group-hover:grayscale-0 ${
                             cat.secondaryImage 
                               ? 'group-hover:opacity-0' 
                               : 'group-hover:opacity-100'
@@ -88,25 +88,25 @@ const Technology: React.FC = () => {
                    </div>
                  </FadeIn>
 
-                 {/* Text Side */}
+                 {/* Text Side - Dark text on Light bg */}
                  <div className="w-full lg:w-1/2">
                    <FadeIn direction={index % 2 === 1 ? 'left' : 'right'}>
                      <div className="flex items-center gap-4 mb-6">
-                       <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">Architecture 0{index + 1}</span>
-                       <div className="h-px flex-1 bg-white/10"></div>
+                       <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">ARCHITECTURE 0{index + 1}</span>
+                       <div className="h-px flex-1 bg-[#1C1C1E]/10"></div>
                      </div>
                      
-                     <h3 className="text-4xl lg:text-6xl font-display font-medium text-white mb-4">{cat.name}</h3>
-                     <p className="text-xl text-white/40 font-display mb-8">{cat.tagline}</p>
+                     <h3 className="text-4xl lg:text-6xl font-display font-medium text-[#1C1C1E] mb-4 uppercase">{cat.name}</h3>
+                     <p className="text-xl text-[#1C1C1E]/40 font-display mb-8 uppercase">{cat.tagline}</p>
                      
-                     <p className="text-brand-polar/60 text-lg font-sans font-light leading-relaxed mb-10 max-w-xl">
+                     <p className="text-[#1C1C1E]/60 text-lg font-sans font-light leading-relaxed mb-10 max-w-xl">
                        {cat.desc} 
                      </p>
                      
                      <div className="flex items-center gap-6">
                        <Link to="/engine">
-                          <Button variant="outline" className="text-white hover:text-brand-mink hover:border-brand-mink" size="md">
-                            Configure {cat.name}
+                          <Button variant="primary" className="uppercase" size="md">
+                            CONFIGURE {cat.name}
                           </Button>
                        </Link>
                      </div>
@@ -126,9 +126,9 @@ const Technology: React.FC = () => {
               <FadeIn>
                  <div className="flex items-center gap-2 text-brand-mink mb-4">
                     <Printer className="w-5 h-5" />
-                    <span className="font-mono text-xs uppercase tracking-widest">Tritone® MoldJet™ Technology</span>
+                    <span className="font-mono text-xs uppercase tracking-widest">TRITONE® MOLDJET™ TECHNOLOGY</span>
                  </div>
-                 <h2 className="text-4xl font-display text-white mb-6">Beyond Laser Sintering.</h2>
+                 <h2 className="text-4xl font-display text-white mb-6 uppercase">BEYOND LASER SINTERING.</h2>
                  <p className="text-brand-polar/60 font-sans font-light leading-relaxed mb-6">
                     Traditional metal 3D printing (DMLS) requires metal support structures that scar the surface. We use <strong>Tritone MoldJet™</strong>—a revolutionary powder-free process.
                  </p>
@@ -140,14 +140,14 @@ const Technology: React.FC = () => {
                     <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] rounded border border-white/5">
                        <ScanLine className="w-6 h-6 text-brand-mink mt-1" />
                        <div>
-                          <h4 className="text-white font-bold text-sm uppercase">6 Layers Per Step</h4>
+                          <h4 className="text-white font-bold text-sm uppercase">6 LAYERS PER STEP</h4>
                           <p className="text-xs text-brand-polar/50 font-mono mt-1">High-throughput layering of Mold and Metal Paste simultaneously.</p>
                        </div>
                     </div>
                     <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] rounded border border-white/5">
                        <Flame className="w-6 h-6 text-brand-mink mt-1" />
                        <div>
-                          <h4 className="text-white font-bold text-sm uppercase">99% Density Sintering</h4>
+                          <h4 className="text-white font-bold text-sm uppercase">99% DENSITY SINTERING</h4>
                           <p className="text-xs text-brand-polar/50 font-mono mt-1">Furnace sintering yields fully dense, forged-quality 17-4PH or 316L steel.</p>
                        </div>
                     </div>
@@ -161,7 +161,7 @@ const Technology: React.FC = () => {
                        <Factory className="w-24 h-24 text-white" />
                     </div>
                     
-                    <h3 className="text-white font-display text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">Process Schematic</h3>
+                    <h3 className="text-white font-display text-lg mb-8 uppercase tracking-widest border-b border-white/10 pb-4">PROCESS SCHEMATIC</h3>
 
                     <div className="space-y-8 relative z-10">
                        {/* Step 1 */}
@@ -171,7 +171,7 @@ const Technology: React.FC = () => {
                              <div className="h-full w-px bg-white/10 my-2"></div>
                           </div>
                           <div>
-                             <h4 className="text-white font-bold text-sm">Print Mold (Negative)</h4>
+                             <h4 className="text-white font-bold text-sm uppercase">PRINT MOLD (NEGATIVE)</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Inkjet printheads deposit proprietary wax material to define the geometry boundaries.</p>
                              {/* Visual Representation */}
                              <div className="h-2 w-32 bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
@@ -188,7 +188,7 @@ const Technology: React.FC = () => {
                              <div className="h-full w-px bg-white/10 my-2"></div>
                           </div>
                           <div>
-                             <h4 className="text-white font-bold text-sm">Fill Metal Paste</h4>
+                             <h4 className="text-white font-bold text-sm uppercase">FILL METAL PASTE</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Cavities are filled with water-based metal paste (Powder + Binder).</p>
                              <div className="h-2 w-32 bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
                                 <div className="absolute left-0 w-1/3 h-full bg-blue-500/50"></div>
@@ -204,7 +204,7 @@ const Technology: React.FC = () => {
                              <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-mono text-xs border border-orange-500/50">03</div>
                           </div>
                           <div>
-                             <h4 className="text-white font-bold text-sm">Sinter & Debind</h4>
+                             <h4 className="text-white font-bold text-sm uppercase">SINTER & DEBIND</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Heat removes the mold wax completely. Metal particles fuse into a solid object.</p>
                              <div className="h-2 w-32 bg-transparent relative overflow-hidden rounded-sm flex justify-center">
                                 <div className="w-1/3 h-full bg-brand-mink shadow-[0_0_10px_rgba(255,34,76,0.8)]"></div>
@@ -228,7 +228,7 @@ const Technology: React.FC = () => {
                 <div className="bg-[#1C1C1E] rounded-xl border border-white/10 p-8 font-mono text-xs relative overflow-hidden shadow-2xl">
                    <div className="absolute top-0 left-0 w-full h-1 bg-brand-mink"></div>
                    <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
-                      <span className="text-white font-bold uppercase tracking-widest">Simulated Telemetry // J7 Iron</span>
+                      <span className="text-white font-bold uppercase tracking-widest">SIMULATED TELEMETRY // J7 IRON</span>
                       <span className="text-brand-mink animate-pulse">● LIVE</span>
                    </div>
                    
@@ -273,9 +273,9 @@ const Technology: React.FC = () => {
              <FadeIn className="order-1 lg:order-2">
                 <div className="flex items-center gap-2 text-brand-mink mb-4">
                    <Cpu className="w-5 h-5" />
-                   <span className="font-mono text-xs uppercase tracking-widest">Computational Design</span>
+                   <span className="font-mono text-xs uppercase tracking-widest">COMPUTATIONAL DESIGN</span>
                 </div>
-                <h2 className="text-4xl font-display text-white mb-6">Parametric Optimization</h2>
+                <h2 className="text-4xl font-display text-white mb-6 uppercase">PARAMETRIC OPTIMIZATION</h2>
                 <p className="text-brand-polar/60 font-sans font-light leading-relaxed mb-8">
                    We don't "draw" clubs in CAD. We write algorithms that generate them. 
                    By inputting your specific biomechanics, our engine optimizes the geometry for 
@@ -302,8 +302,8 @@ const Technology: React.FC = () => {
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="text-center mb-16">
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">The Supply Chain</span>
-                  <h2 className="text-3xl md:text-5xl font-display text-white mt-4">Powered by Titans.</h2>
+                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">THE SUPPLY CHAIN</span>
+                  <h2 className="text-3xl md:text-5xl font-display text-white mt-4 uppercase">POWERED BY TITANS.</h2>
                   <p className="text-brand-polar/50 max-w-2xl mx-auto mt-4 font-light">
                      We leverage the world's most advanced industrial partners to execute our vision.
                   </p>
@@ -322,8 +322,8 @@ const Technology: React.FC = () => {
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Database className="w-5 h-5" />
                         </div>
-                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">Input</div>
-                        <h3 className="text-lg font-display text-white mb-2">Digital Files</h3>
+                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">INPUT</div>
+                        <h3 className="text-lg font-display text-white mb-2 uppercase">DIGITAL FILES</h3>
                         <p className="text-xs text-brand-polar/50 leading-relaxed">
                             Parametric CAD models generated from your data.
                         </p>
@@ -336,8 +336,8 @@ const Technology: React.FC = () => {
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Factory className="w-5 h-5" />
                         </div>
-                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">Printing via Tritone</div>
-                        <h3 className="text-lg font-display text-white mb-2">MoldJet™ Tech</h3>
+                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">PRINTING VIA TRITONE</div>
+                        <h3 className="text-lg font-display text-white mb-2 uppercase">MOLDJET™ TECH</h3>
                         <p className="text-xs text-brand-polar/50 leading-relaxed">
                             High-density metal printing with <strong>GMH Green Steel</strong>. No supports, just pure geometry.
                         </p>
@@ -350,8 +350,8 @@ const Technology: React.FC = () => {
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Zap className="w-5 h-5" />
                         </div>
-                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">Polishing via Plasmotion</div>
-                        <h3 className="text-lg font-display text-white mb-2">Plasma Finish</h3>
+                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">POLISHING VIA PLASMOTION</div>
+                        <h3 className="text-lg font-display text-white mb-2 uppercase">PLASMA FINISH</h3>
                         <p className="text-xs text-brand-polar/50 leading-relaxed">
                             Electrolyte plasma polishing removes surface roughness while maintaining groove integrity.
                         </p>
@@ -364,8 +364,8 @@ const Technology: React.FC = () => {
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <ShieldCheck className="w-5 h-5" />
                         </div>
-                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">Coating via Oerlikon</div>
-                        <h3 className="text-lg font-display text-white mb-2">DLC Coating</h3>
+                        <div className="text-[10px] font-mono text-brand-polar/40 uppercase mb-2">COATING VIA OERLIKON</div>
+                        <h3 className="text-lg font-display text-white mb-2 uppercase">DLC COATING</h3>
                         <p className="text-xs text-brand-polar/50 leading-relaxed">
                             Oerlikon Balzers Diamond-Like Carbon (DLC) for extreme durability and black finish.
                         </p>
@@ -395,7 +395,7 @@ const Technology: React.FC = () => {
                       <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur border border-white/10 p-3 rounded flex items-center gap-3">
                          <ShieldCheck className="w-8 h-8 text-white" />
                          <div>
-                            <div className="text-[10px] text-brand-polar/40 font-mono uppercase">Status</div>
+                            <div className="text-[10px] text-brand-polar/40 font-mono uppercase">STATUS</div>
                             <div className="text-white font-bold text-sm">R&A CONFORMING</div>
                          </div>
                       </div>
@@ -405,9 +405,9 @@ const Technology: React.FC = () => {
                <FadeIn className="order-1 lg:order-2">
                    <div className="flex items-center gap-2 text-brand-mink mb-4">
                       <Layers className="w-5 h-5" />
-                      <span className="font-mono text-xs uppercase tracking-widest">Internal Geometry</span>
+                      <span className="font-mono text-xs uppercase tracking-widest">INTERNAL GEOMETRY</span>
                    </div>
-                   <h2 className="text-4xl font-display text-white mb-6">Lattice-Printed Steel</h2>
+                   <h2 className="text-4xl font-display text-white mb-6 uppercase">LATTICE-PRINTED STEEL</h2>
                    <p className="text-brand-polar/60 font-sans font-light leading-relaxed mb-6">
                       MoldJet's ability to print without supports allows us to create free-floating internal lattice structures. 
                       This redistributes mass to the perimeter for high MOI without making the club head larger.
@@ -417,14 +417,14 @@ const Technology: React.FC = () => {
                       <li className="flex items-start gap-3">
                          <CheckCircle className="w-5 h-5 text-brand-mink shrink-0 mt-1" />
                          <div>
-                            <h4 className="text-white font-display text-lg">Precise Weight Distribution</h4>
+                            <h4 className="text-white font-display text-lg uppercase">PRECISE WEIGHT DISTRIBUTION</h4>
                             <p className="text-xs text-brand-polar/50 font-mono">Mass is moved to the extreme perimeter for maximum MOI.</p>
                          </div>
                       </li>
                       <li className="flex items-start gap-3">
                          <CheckCircle className="w-5 h-5 text-brand-mink shrink-0 mt-1" />
                          <div>
-                            <h4 className="text-white font-display text-lg">Sound & Absorption</h4>
+                            <h4 className="text-white font-display text-lg uppercase">SOUND & ABSORPTION</h4>
                             <p className="text-xs text-brand-polar/50 font-mono">The lattice dampens harsh vibrations, creating a forged-like feel.</p>
                          </div>
                       </li>

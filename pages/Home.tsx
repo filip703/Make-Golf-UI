@@ -10,19 +10,19 @@ import { CLUB_CATEGORIES, ARTICLES, MOCK_STATS } from '../constants';
 
 const HERO_CONTENT = [
   {
-    headline: "Precision is Personal.",
+    headline: "PRECISION IS PERSONAL.",
     subheadline: "Engineering equipment based on your unique biomechanical data.",
-    cta: "Create Your Profile"
+    cta: "CREATE YOUR PROFILE"
   },
   {
-    headline: "Your DNA. Your Club.",
+    headline: "YOUR DNA. YOUR CLUB.",
     subheadline: "Generative design that adapts to your swing, giving you the best chance to perform.",
-    cta: "Analyze Your Swing"
+    cta: "ANALYZE YOUR SWING"
   },
   {
-    headline: "The Future of Fitting.",
+    headline: "THE FUTURE OF FITTING.",
     subheadline: "No inventory. No compromise. Just the perfect club for your game.",
-    cta: "Start The Engine"
+    cta: "START MAKE-DNA"
   }
 ];
 
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-mink"></span>
                 </span>
                 <span className="text-brand-polar/90 font-mono text-[10px] uppercase tracking-[0.2em]">
-                  The New Standard
+                  THE NEW STANDARD
                 </span>
               </div>
               
@@ -162,7 +162,7 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                     transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl"
+                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl uppercase"
                   >
                     {HERO_CONTENT[statementIndex].headline}
                   </motion.h1>
@@ -189,13 +189,13 @@ const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
                 <Link to="/engine">
                   <Button size="lg" variant="primary" className="min-w-[240px] rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
-                     <span className="block text-center">
+                     <span className="block text-center uppercase">
                        {HERO_CONTENT[statementIndex].cta}
                      </span>
                   </Button>
                 </Link>
-                <Link to="/technology" className="text-sm font-medium text-white hover:text-brand-mink transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5 shadow-sm">
-                  View Components
+                <Link to="/technology" className="text-sm font-medium text-white hover:text-brand-mink transition-colors flex items-center gap-2 border-b border-transparent hover:border-brand-mink pb-0.5 shadow-sm uppercase">
+                  VIEW COMPONENTS
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -209,25 +209,25 @@ const Home: React.FC = () => {
           transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-polar/50"
         >
-          <span className="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
+          <span className="text-[10px] font-mono uppercase tracking-widest">SCROLL</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </motion.div>
       </section>
 
-      {/* --- SWING CINEMA (PHILOSOPHY) --- */}
-      <section className="py-32 bg-[#EAEAEA] text-[#1C1C1E]">
+      {/* --- SWING CINEMA (PHILOSOPHY) - Light Theme for contrast --- */}
+      <section className="py-32 bg-white text-[#1C1C1E]">
          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                
                {/* Left: Text Content */}
                <FadeIn>
                   <div className="mb-8">
-                     <div className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-4">Every Swing Is Unique</div>
-                     <h2 className="text-4xl md:text-6xl font-display text-[#1C1C1E] mb-6 leading-[1]">
-                        One Size<br/>Fits None.
+                     <div className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-4">EVERY SWING IS UNIQUE</div>
+                     <h2 className="text-4xl md:text-6xl font-display font-medium text-[#1C1C1E] mb-6 leading-[1] uppercase">
+                        ONE SIZE<br/>FITS NONE.
                      </h2>
                      <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed mb-6">
-                        Mass production works for t-shirts, not for golf swings. 
+                        Conventional manufacturing accepts averages. We demand precision. 
                         Look at the data. Rory swings differently than Nelly. Nelly swings differently than you.
                      </p>
                      <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed">
@@ -235,11 +235,11 @@ const Home: React.FC = () => {
                      </p>
                   </div>
                   <Link to="/engine">
-                     <Button variant="secondary" className="shadow-lg text-[#1C1C1E]">Learn about the Engine</Button>
+                     <Button variant="secondary" className="shadow-lg text-[#1C1C1E] uppercase">EXPLORE MAKE-DNA</Button>
                   </Link>
                </FadeIn>
 
-               {/* Right: The Cinema Monitor */}
+               {/* Right: The Cinema Monitor - Keeping dark contrast here for the screen effect */}
                <FadeIn direction="left" delay={0.2}>
                   <div className="relative aspect-square md:aspect-[4/3] bg-[#1C1C1E] rounded-xl overflow-hidden shadow-2xl border border-black/10 flex flex-col">
                      
@@ -286,7 +286,7 @@ const Home: React.FC = () => {
                                  transition={{ delay: 0.5, duration: 0.5 }} // Delay for cinematic effect
                                  className="flex flex-col"
                               >
-                                 <span className={`text-3xl font-display ${activeSwing.isFounder ? 'text-brand-mink' : 'text-white'}`}>
+                                 <span className={`text-3xl font-display uppercase ${activeSwing.isFounder ? 'text-brand-mink' : 'text-white'}`}>
                                     {activeSwing.name}
                                  </span>
                                  <div className="flex items-center gap-2 mt-2">
@@ -297,7 +297,7 @@ const Home: React.FC = () => {
                                     </span>
                                     {activeSwing.isFounder && (
                                        <span className="text-[10px] font-mono text-white/50 uppercase ml-2">
-                                          Target Profile
+                                          TARGET PROFILE
                                        </span>
                                     )}
                                  </div>
@@ -335,10 +335,10 @@ const Home: React.FC = () => {
              <FadeIn>
                 <div className="inline-flex items-center gap-2 text-brand-mink mb-6">
                    <Dna className="w-5 h-5" />
-                   <span className="font-mono text-xs uppercase tracking-widest">The Make DNA Engine</span>
+                   <span className="font-mono text-xs uppercase tracking-widest">MAKE-DNA ENGINE</span>
                 </div>
-                <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight">
-                   Your Swing.<br/>Decoded.
+                <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight uppercase">
+                   YOUR SWING.<br/>DECODED.
                 </h2>
                 <p className="text-xl text-brand-polar/60 font-light font-sans leading-relaxed mb-10">
                    We don't just fit you; we calculate you. Our proprietary AI analyzes 1,200+ biomechanical data points from your swing to generate a manufacturing blueprint that optimizes dispersion and ball speed.
@@ -355,8 +355,8 @@ const Home: React.FC = () => {
                 </div>
 
                 <Link to="/engine">
-                   <Button variant="primary" size="md" className="rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
-                      Explore The Engine
+                   <Button variant="primary" size="md" className="rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)] uppercase">
+                      EXPLORE MAKE-DNA
                    </Button>
                 </Link>
              </FadeIn>
@@ -408,9 +408,9 @@ const Home: React.FC = () => {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mink opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-mink"></span>
                      </span>
-                     <span className="font-mono text-xs uppercase tracking-widest">Live Beta</span>
+                     <span className="font-mono text-xs uppercase tracking-widest">LIVE BETA</span>
                   </div>
-                  <h2 className="text-4xl md:text-6xl font-display text-white mb-6">The Design Studio</h2>
+                  <h2 className="text-4xl md:text-6xl font-display text-white mb-6 uppercase">THE DESIGN STUDIO</h2>
                   <p className="text-brand-polar/60 max-w-2xl mx-auto text-lg font-light leading-relaxed">
                      Total control over every parameter. Adjust loft, lie, offset, and mass properties in real-time with our browser-based CAD engine.
                   </p>
@@ -432,7 +432,7 @@ const Home: React.FC = () => {
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                   >
                         <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
-                           <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">Launch Studio</span>
+                           <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">LAUNCH STUDIO</span>
                            <div className="w-8 h-8 rounded-full bg-brand-mink group-hover:bg-black flex items-center justify-center text-black group-hover:text-white transition-colors">
                               <Maximize className="w-4 h-4" />
                            </div>
@@ -444,10 +444,10 @@ const Home: React.FC = () => {
                         <div className="flex flex-col gap-2">
                            <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
                               <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
-                              Rendering: 60FPS
+                              RENDERING: 60FPS
                            </div>
                            <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-polar/60 uppercase">
-                              Model: MB-02_Proto
+                              MODEL: MB-02_PROTO
                            </div>
                         </div>
                   </div>
@@ -462,10 +462,10 @@ const Home: React.FC = () => {
           <div className="mb-16 flex items-end justify-between border-b border-white/5 pb-8">
             <div>
                <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Hardware</span>
-               <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight">Product Architecture</h2>
+               <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight uppercase">PRODUCT ARCHITECTURE</h2>
             </div>
             <Link to="/technology" className="hidden md:block">
-              <Button variant="outline" size="sm" className="rounded-full">View Components</Button>
+              <Button variant="outline" size="sm" className="rounded-full uppercase">VIEW COMPONENTS</Button>
             </Link>
           </div>
 
@@ -502,12 +502,12 @@ const Home: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent pointer-events-none"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-2xl font-display text-white mb-1">{cat.name}</h3>
+                    <h3 className="text-2xl font-display text-white mb-1 uppercase">{cat.name}</h3>
                     <p className="text-brand-polar/70 font-sans text-sm font-light max-w-[200px]">
                       {cat.tagline}
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-brand-mink opacity-0 group-hover:opacity-100 transition-opacity">
-                       Configure <ArrowRight className="w-3 h-3" />
+                       CONFIGURE <ArrowRight className="w-3 h-3" />
                     </div>
                   </div>
                </Link>
@@ -516,7 +516,7 @@ const Home: React.FC = () => {
           
           <div className="mt-8 md:hidden">
              <Link to="/technology">
-                <Button variant="outline" size="sm" className="w-full rounded-full">View All Components</Button>
+                <Button variant="outline" size="sm" className="w-full rounded-full uppercase">VIEW ALL COMPONENTS</Button>
              </Link>
           </div>
         </div>
@@ -532,9 +532,9 @@ const Home: React.FC = () => {
                <div className="text-center mb-20">
                    <div className="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 backdrop-blur mb-4">
                         <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
-                        <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">Pilot Program Data</span>
+                        <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">PILOT PROGRAM DATA</span>
                    </div>
-                   <h2 className="text-3xl md:text-5xl font-display text-white">Field Reports</h2>
+                   <h2 className="text-3xl md:text-5xl font-display text-white uppercase">FIELD REPORTS</h2>
                </div>
             </FadeIn>
 
@@ -563,7 +563,7 @@ const Home: React.FC = () => {
                         {/* Spec Line */}
                         <div className="mb-6 pt-4 border-t border-white/5">
                             <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-wider text-white/30">
-                                <span>Build Spec</span>
+                                <span>BUILD SPEC</span>
                                 <span className="text-brand-mink">{review.spec}</span>
                             </div>
                         </div>
@@ -590,8 +590,8 @@ const Home: React.FC = () => {
          <div className="container mx-auto px-6">
             <FadeIn>
                 <div className="flex items-center justify-between mb-12">
-                    <h2 className="text-2xl md:text-3xl font-display text-white">Latest from MAKE</h2>
-                    <Link to="/journal" className="flex items-center gap-2 text-xs font-mono text-brand-polar/60 hover:text-white transition-colors">
+                    <h2 className="text-2xl md:text-3xl font-display text-white uppercase">LATEST FROM MAKE</h2>
+                    <Link to="/journal" className="flex items-center gap-2 text-xs font-mono text-brand-polar/60 hover:text-white transition-colors uppercase">
                         READ ALL <ArrowRight className="w-3 h-3" />
                     </Link>
                 </div>
@@ -608,7 +608,7 @@ const Home: React.FC = () => {
                                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                                 />
                                 <div className="absolute top-3 left-3">
-                                    <span className="bg-black/60 backdrop-blur px-2 py-1 text-[9px] font-mono text-white rounded">
+                                    <span className="bg-black/60 backdrop-blur px-2 py-1 text-[9px] font-mono text-white rounded uppercase">
                                         {article.category}
                                     </span>
                                 </div>
@@ -616,7 +616,7 @@ const Home: React.FC = () => {
                             <div className="flex items-center gap-3 mb-2 text-[10px] font-mono text-brand-polar/40 uppercase">
                                 <span>{article.date}</span>
                             </div>
-                            <h3 className="text-lg font-display text-white mb-2 group-hover:text-brand-mink transition-colors leading-tight">
+                            <h3 className="text-lg font-display text-white mb-2 group-hover:text-brand-mink transition-colors leading-tight uppercase">
                                 {article.title}
                             </h3>
                             <p className="text-brand-polar/50 text-sm font-sans font-light leading-relaxed line-clamp-2">

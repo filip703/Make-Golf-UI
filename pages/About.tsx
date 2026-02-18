@@ -69,11 +69,11 @@ const About: React.FC = () => {
             <div className="max-w-4xl relative z-10">
                <div className="flex items-center gap-3 mb-6">
                   <div className="w-1.5 h-1.5 bg-brand-mink rounded-full"></div>
-                  <div className="text-[#1C1C1E]/60 font-mono text-xs uppercase tracking-widest">Our Philosophy</div>
+                  <div className="text-[#1C1C1E]/60 font-mono text-xs uppercase tracking-widest">OUR PHILOSOPHY</div>
                </div>
-               <h1 className="text-5xl md:text-7xl font-display font-medium text-[#1C1C1E] mb-10 leading-[1.1]">
-                 Golf Deserves<br/>
-                 <span className="text-brand-mink">Better.</span>
+               <h1 className="text-5xl md:text-7xl font-display font-medium text-[#1C1C1E] mb-10 leading-[1.1] uppercase">
+                 GOLF DESERVES<br/>
+                 <span className="text-brand-mink">BETTER.</span>
                </h1>
                <p className="text-xl text-[#1C1C1E]/60 font-light font-sans max-w-2xl leading-relaxed mb-8">
                   For too long, golfers have adapted to their equipment. We believe it should be the other way around. By combining biomechanics with additive manufacturing, we create clubs that are simply an extension of you.
@@ -125,7 +125,7 @@ const About: React.FC = () => {
                </div>
                <div className="mt-4 flex justify-between items-start">
                    <div className="text-[#1C1C1E]/40 font-mono text-[10px] uppercase tracking-widest">
-                       Brand Manifesto // 2026
+                       BRAND MANIFESTO // 2026
                    </div>
                    <div className="text-[#1C1C1E]/60 text-xs font-sans max-w-md text-right">
                        "It's not about the club you buy. It's about the club you build."
@@ -140,7 +140,7 @@ const About: React.FC = () => {
          <div className="container mx-auto px-6">
             <FadeIn>
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-display text-[#1C1C1E] mb-4">The MAKE DNA</h2>
+                    <h2 className="text-3xl md:text-4xl font-display text-[#1C1C1E] mb-4 uppercase">THE MAKE DNA</h2>
                     <div className="w-12 h-1 bg-brand-mink mx-auto"></div>
                 </div>
             </FadeIn>
@@ -151,7 +151,7 @@ const About: React.FC = () => {
                         <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                             <Fingerprint className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Hyper-Personal</h3>
+                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3 uppercase">HYPER-PERSONAL</h3>
                         <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                             No two swings are alike. Why should clubs be? We treat your swing signature as a unique blueprint for manufacturing.
                         </p>
@@ -162,7 +162,7 @@ const About: React.FC = () => {
                         <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                             <Target className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Honest Performance</h3>
+                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3 uppercase">HONEST PERFORMANCE</h3>
                         <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                             We strip away the marketing noise. No "miracle materials" or empty promises. Just physics, geometry, and verifiable data.
                         </p>
@@ -173,7 +173,7 @@ const About: React.FC = () => {
                         <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                             <History className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3">Sustainable Craft</h3>
+                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3 uppercase">SUSTAINABLE CRAFT</h3>
                         <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                             Printing on demand means zero waste inventory. We manufacture in Sweden, reducing the carbon footprint of global shipping.
                         </p>
@@ -200,7 +200,7 @@ const About: React.FC = () => {
                           <div className="absolute bottom-6 left-6 right-6">
                               <div className="bg-black/80 backdrop-blur px-4 py-3 border-l-2 border-brand-mink">
                                   <div className="text-white font-display text-lg">Mårten Eker</div>
-                                  <div className="text-brand-polar/60 text-xs font-mono uppercase tracking-widest">Founder // Head of Engineering</div>
+                                  <div className="text-brand-polar/60 text-xs font-mono uppercase tracking-widest">FOUNDER // HEAD OF ENGINEERING</div>
                               </div>
                           </div>
                       </div>
@@ -210,7 +210,7 @@ const About: React.FC = () => {
                   <FadeIn direction="left" delay={0.2}>
                       <div className="flex items-center gap-2 text-brand-mink mb-6">
                           <PenTool className="w-5 h-5" />
-                          <span className="font-mono text-xs uppercase tracking-widest">The Origin Story</span>
+                          <span className="font-mono text-xs uppercase tracking-widest">THE ORIGIN STORY</span>
                       </div>
                       
                       <h2 className="text-3xl md:text-5xl font-display text-white mb-8 leading-tight">
@@ -254,8 +254,8 @@ const About: React.FC = () => {
          <div className="container mx-auto px-6">
             <FadeIn>
                <div className="text-center mb-16">
-                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">The Leadership</span>
-                  <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E]">Driven by Data.<br/>United by Golf.</h2>
+                  <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">THE LEADERSHIP</span>
+                  <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E] uppercase">DRIVEN BY DATA.<br/>UNITED BY GOLF.</h2>
                </div>
             </FadeIn>
 
@@ -342,9 +342,9 @@ const About: React.FC = () => {
                <div className="text-center mb-20">
                    <div className="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 backdrop-blur mb-4">
                         <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
-                        <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">Pilot Program Data</span>
+                        <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">PILOT PROGRAM DATA</span>
                    </div>
-                   <h2 className="text-3xl md:text-5xl font-display text-white">Field Reports</h2>
+                   <h2 className="text-3xl md:text-5xl font-display text-white uppercase">FIELD REPORTS</h2>
                </div>
             </FadeIn>
 
@@ -373,7 +373,7 @@ const About: React.FC = () => {
                         {/* Spec Line */}
                         <div className="mb-6 pt-4 border-t border-white/5">
                             <div className="flex justify-between items-center text-[10px] font-mono uppercase tracking-wider text-white/30">
-                                <span>Build Spec</span>
+                                <span>BUILD SPEC</span>
                                 <span className="text-brand-mink">{review.spec}</span>
                             </div>
                         </div>
@@ -400,8 +400,8 @@ const About: React.FC = () => {
         <div className="container mx-auto px-6">
             <FadeIn>
                 <div className="text-center mb-16">
-                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">Media Coverage</span>
-                    <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E]">In The Press</h2>
+                    <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">MEDIA COVERAGE</span>
+                    <h2 className="text-3xl md:text-5xl font-display text-[#1C1C1E] uppercase">IN THE PRESS</h2>
                 </div>
             </FadeIn>
 
@@ -430,11 +430,11 @@ const About: React.FC = () => {
                                         Ditwin.se
                                     </div>
                                     <span className="text-[#1C1C1E]/40 font-mono text-xs uppercase tracking-widest">
-                                        Case Study
+                                        CASE STUDY
                                     </span>
                                 </div>
                                 
-                                <h3 className="text-2xl md:text-3xl font-display text-[#1C1C1E] mb-4 group-hover:text-brand-mink transition-colors leading-tight">
+                                <h3 className="text-2xl md:text-3xl font-display text-[#1C1C1E] mb-4 group-hover:text-brand-mink transition-colors leading-tight uppercase">
                                     "3D-printade golfklubbor som blir unika för varje spelare"
                                 </h3>
                                 
@@ -443,7 +443,7 @@ const About: React.FC = () => {
                                 </p>
                                 
                                 <div className="inline-flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-widest text-[#1C1C1E] border-b border-[#1C1C1E]/20 pb-1 group-hover:border-brand-mink group-hover:text-brand-mink transition-all w-max">
-                                    Read Full Story <ArrowRight className="w-4 h-4" />
+                                    READ FULL STORY <ArrowRight className="w-4 h-4" />
                                 </div>
                             </div>
                         </div>
@@ -459,11 +459,11 @@ const About: React.FC = () => {
             <FadeIn>
                 <div className="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
                     <div>
-                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">Make Golf Journal</span>
-                        <h2 className="text-3xl md:text-4xl font-display text-white">Insights & Articles</h2>
+                        <span className="text-brand-mink font-mono text-xs uppercase tracking-widest mb-2 block">MAKE GOLF JOURNAL</span>
+                        <h2 className="text-3xl md:text-4xl font-display text-white uppercase">INSIGHTS & ARTICLES</h2>
                         <p className="text-white/40 text-sm mt-2">Thoughts on design, engineering, and the future of the game.</p>
                     </div>
-                    <Link to="/journal" className="hidden md:flex items-center gap-2 text-xs font-mono text-white/50 hover:text-white transition-colors">
+                    <Link to="/journal" className="hidden md:flex items-center gap-2 text-xs font-mono text-white/50 hover:text-white transition-colors uppercase">
                         VIEW ARCHIVE <ArrowRight className="w-3 h-3" />
                     </Link>
                 </div>
@@ -490,12 +490,12 @@ const About: React.FC = () => {
                                 <span className="w-3 h-px bg-white/10"></span>
                                 <span>{article.readTime}</span>
                             </div>
-                            <h3 className="text-xl font-display text-white mb-3 group-hover:text-brand-mink transition-colors">{article.title}</h3>
+                            <h3 className="text-xl font-display text-white mb-3 group-hover:text-brand-mink transition-colors uppercase">{article.title}</h3>
                             <p className="text-white/50 text-sm font-sans font-light leading-relaxed mb-4">
                                 {article.excerpt}
                             </p>
-                            <span className="text-white/40 text-xs font-mono group-hover:text-white transition-colors inline-flex items-center gap-2">
-                                Read Article <ArrowRight className="w-3 h-3" />
+                            <span className="text-white/40 text-xs font-mono group-hover:text-white transition-colors inline-flex items-center gap-2 uppercase">
+                                READ ARTICLE <ArrowRight className="w-3 h-3" />
                             </span>
                         </Link>
                     </FadeIn>
