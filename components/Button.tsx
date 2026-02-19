@@ -30,7 +30,8 @@ const Button: React.FC<ButtonProps> = ({
     setPosition({ x: 0, y: 0 });
   };
 
-  const baseStyles = "relative inline-flex items-center justify-center font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none tracking-wide font-display uppercase group overflow-hidden";
+  // UPDATED: Added rounded-none explicitly
+  const baseStyles = "relative inline-flex items-center justify-center font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none tracking-wide font-display uppercase group overflow-hidden rounded-none";
   
   const variants = {
     primary: "bg-brand-mink text-brand-polar hover:bg-white hover:text-black border border-transparent shadow-[0_0_20px_rgba(255,34,76,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]",
@@ -40,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizes = {
-    sm: "text-xs px-5 py-2", // Increased padding for brackets
+    sm: "text-xs px-5 py-2", 
     md: "text-sm px-8 py-3",
     lg: "text-base px-12 py-5 tracking-widest",
   };

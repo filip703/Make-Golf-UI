@@ -56,7 +56,8 @@ const Technology: React.FC = () => {
                  
                  {/* Image Side */}
                  <FadeIn className="w-full lg:w-1/2">
-                   <div className="aspect-[4/5] bg-white border border-[#1C1C1E]/10 relative overflow-hidden group shadow-2xl rounded-sm">
+                   {/* Removed rounded-sm */}
+                   <div className="aspect-[4/5] bg-white border border-[#1C1C1E]/10 relative overflow-hidden group shadow-2xl">
                       {/* Primary Image */}
                       <img 
                          src={cat.image}
@@ -86,7 +87,8 @@ const Technology: React.FC = () => {
                       <div className="absolute bottom-6 left-6 right-6">
                          <div className="flex flex-wrap gap-2">
                             {cat.specs.map((spec, i) => (
-                               <div key={i} className="flex items-center gap-2 text-[10px] font-mono text-white/80 bg-black/60 backdrop-blur px-3 py-1 rounded border border-white/10">
+                               // Removed rounded
+                               <div key={i} className="flex items-center gap-2 text-[10px] font-mono text-white/80 bg-black/60 backdrop-blur px-3 py-1 border border-white/10">
                                   {spec}
                                </div>
                             ))}
@@ -144,14 +146,16 @@ const Technology: React.FC = () => {
                  </p>
 
                  <div className="space-y-4">
-                    <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] rounded border border-white/5">
+                    {/* Removed rounded */}
+                    <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] border border-white/5">
                        <ScanLine className="w-6 h-6 text-brand-mink mt-1" />
                        <div>
                           <h4 className="text-white font-bold text-sm uppercase">6 LAYERS PER STEP</h4>
                           <p className="text-xs text-brand-polar/50 font-mono mt-1">High-throughput layering of Mold and Metal Paste simultaneously.</p>
                        </div>
                     </div>
-                    <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] rounded border border-white/5">
+                    {/* Removed rounded */}
+                    <div className="flex items-start gap-4 p-4 bg-[#1C1C1E] border border-white/5">
                        <Flame className="w-6 h-6 text-brand-mink mt-1" />
                        <div>
                           <h4 className="text-white font-bold text-sm uppercase">99% DENSITY SINTERING</h4>
@@ -163,7 +167,8 @@ const Technology: React.FC = () => {
 
               {/* Technical Schematic Visualization */}
               <FadeIn direction="left">
-                 <div className="bg-[#1C1C1E] rounded-xl border border-white/10 p-8 relative overflow-hidden">
+                 {/* Removed rounded-xl */}
+                 <div className="bg-[#1C1C1E] border border-white/10 p-8 relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 opacity-20">
                        <Factory className="w-24 h-24 text-white" />
                     </div>
@@ -181,7 +186,8 @@ const Technology: React.FC = () => {
                              <h4 className="text-white font-bold text-sm uppercase">PRINT MOLD (NEGATIVE)</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Inkjet printheads deposit proprietary wax material to define the geometry boundaries.</p>
                              {/* Visual Representation */}
-                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
+                             {/* Removed rounded-sm */}
+                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden">
                                 <motion.div 
                                     className="absolute left-0 w-1/3 h-full bg-blue-500/50"
                                     initial={{ scaleY: 0 }}
@@ -209,7 +215,8 @@ const Technology: React.FC = () => {
                           <div className="w-full">
                              <h4 className="text-white font-bold text-sm uppercase">FILL METAL PASTE</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Cavities are filled with water-based metal paste (Powder + Binder).</p>
-                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
+                             {/* Removed rounded-sm */}
+                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden">
                                 <div className="absolute left-0 w-1/3 h-full bg-blue-500/50"></div>
                                 <motion.div 
                                     className="absolute left-1/3 w-1/3 h-full bg-brand-mink"
@@ -231,7 +238,8 @@ const Technology: React.FC = () => {
                           <div className="w-full">
                              <h4 className="text-white font-bold text-sm uppercase">SINTER & DEBIND</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Heat removes the mold wax completely. Metal particles fuse into a solid object.</p>
-                             <div className="h-2 w-full max-w-[200px] bg-transparent relative overflow-hidden rounded-sm flex justify-start pl-[33.33%]">
+                             {/* Removed rounded-sm */}
+                             <div className="h-2 w-full max-w-[200px] bg-transparent relative overflow-hidden flex justify-start pl-[33.33%]">
                                 <motion.div 
                                     className="w-1/3 h-full bg-brand-mink shadow-[0_0_10px_rgba(255,34,76,0.8)]"
                                     initial={{ opacity: 0.2 }}
@@ -255,7 +263,8 @@ const Technology: React.FC = () => {
              
              {/* Right: Telemetry Display (Swapped for flow) */}
              <FadeIn className="order-2 lg:order-1">
-                <div className="bg-[#1C1C1E] rounded-xl border border-white/10 p-8 font-mono text-xs relative overflow-hidden shadow-2xl">
+                {/* Removed rounded-xl */}
+                <div className="bg-[#1C1C1E] border border-white/10 p-8 font-mono text-xs relative overflow-hidden shadow-2xl">
                    <div className="absolute top-0 left-0 w-full h-1 bg-brand-mink"></div>
                    <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
                       <span className="text-white font-bold uppercase tracking-widest">SIMULATED TELEMETRY // J7 IRON</span>
@@ -263,35 +272,36 @@ const Technology: React.FC = () => {
                    </div>
                    
                    <div className="space-y-3 relative z-10">
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      {/* Removed rounded */}
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Ball Speed</span>
                          <span className="text-brand-mink">196.3 kph</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Push/Pull (deg L-/R+)</span>
                          <span className="text-brand-mink">+0.7</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Launch Angle</span>
                          <span className="text-brand-mink">16 deg</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Back Spin</span>
                          <span className="text-brand-mink">6,768 rpm</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Side Spin</span>
                          <span className="text-brand-mink">+78 rpm</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Club Speed @ Impact</span>
                          <span className="text-brand-mink">276.8 kph</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Efficiency (Smash)</span>
                          <span className="text-brand-mink">1.41</span>
                       </div>
-                      <div className="flex justify-between hover:bg-white/5 p-1 rounded transition-colors">
+                      <div className="flex justify-between hover:bg-white/5 p-1 transition-colors">
                          <span className="text-brand-polar/50">Closure Rate</span>
                          <span className="text-brand-mink">1,568 deg/sec</span>
                       </div>
@@ -312,11 +322,12 @@ const Technology: React.FC = () => {
                    ball speed, closure rate, and impact efficiency.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-[#1C1C1E] p-4 rounded border border-white/5">
+                    {/* Removed rounded */}
+                    <div className="bg-[#1C1C1E] p-4 border border-white/5">
                         <span className="text-[10px] font-mono text-brand-polar/40 uppercase block mb-1">Face Impact Hor</span>
                         <span className="text-white font-mono">+3mm (Toe)</span>
                     </div>
-                    <div className="bg-[#1C1C1E] p-4 rounded border border-white/5">
+                    <div className="bg-[#1C1C1E] p-4 border border-white/5">
                         <span className="text-[10px] font-mono text-brand-polar/40 uppercase block mb-1">Face Impact Vert</span>
                         <span className="text-white font-mono">+4mm (High)</span>
                     </div>
@@ -348,7 +359,8 @@ const Technology: React.FC = () => {
                   
                   {/* Step 1 */}
                   <FadeIn delay={0.1}>
-                     <div className="bg-[#1C1C1E] p-6 border border-white/5 rounded-xl hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
+                     {/* Removed rounded-xl */}
+                     <div className="bg-[#1C1C1E] p-6 border border-white/5 hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Database className="w-5 h-5" />
                         </div>
@@ -362,7 +374,8 @@ const Technology: React.FC = () => {
 
                   {/* Step 2 */}
                   <FadeIn delay={0.2}>
-                     <div className="bg-[#1C1C1E] p-6 border border-white/5 rounded-xl hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
+                     {/* Removed rounded-xl */}
+                     <div className="bg-[#1C1C1E] p-6 border border-white/5 hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Factory className="w-5 h-5" />
                         </div>
@@ -376,7 +389,8 @@ const Technology: React.FC = () => {
 
                   {/* Step 3 */}
                   <FadeIn delay={0.3}>
-                     <div className="bg-[#1C1C1E] p-6 border border-white/5 rounded-xl hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
+                     {/* Removed rounded-xl */}
+                     <div className="bg-[#1C1C1E] p-6 border border-white/5 hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <Zap className="w-5 h-5" />
                         </div>
@@ -390,7 +404,8 @@ const Technology: React.FC = () => {
 
                   {/* Step 4 */}
                   <FadeIn delay={0.4}>
-                     <div className="bg-[#1C1C1E] p-6 border border-white/5 rounded-xl hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
+                     {/* Removed rounded-xl */}
+                     <div className="bg-[#1C1C1E] p-6 border border-white/5 hover:border-brand-mink/50 transition-colors text-center group h-full flex flex-col items-center">
                         <div className="w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center mb-4 text-brand-mink group-hover:scale-110 transition-transform">
                            <ShieldCheck className="w-5 h-5" />
                         </div>
@@ -413,7 +428,8 @@ const Technology: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                
                <FadeIn className="order-2 lg:order-1">
-                  <div className="relative rounded-lg overflow-hidden border border-white/10 group bg-[#202022] aspect-square flex items-center justify-center">
+                  {/* Removed rounded-lg */}
+                  <div className="relative overflow-hidden border border-white/10 group bg-[#202022] aspect-square flex items-center justify-center">
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 to-[#202022]"></div>
                       <img 
                         src="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/grooves.png" 
@@ -422,8 +438,8 @@ const Technology: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-grid opacity-10"></div>
                       
-                      {/* R&A Badge Overlay */}
-                      <div className="absolute bottom-6 right-6 bg-black/80 backdrop-blur border border-white/10 p-3 rounded flex items-center gap-3 shadow-xl z-20">
+                      {/* R&A Badge Overlay: Removed rounded */}
+                      <div className="absolute bottom-6 right-6 bg-black/80 backdrop-blur border border-white/10 p-3 flex items-center gap-3 shadow-xl z-20">
                          <ShieldCheck className="w-8 h-8 text-brand-mink" />
                          <div>
                             <div className="text-[10px] text-brand-polar/40 font-mono uppercase">CERTIFIED</div>
@@ -431,8 +447,8 @@ const Technology: React.FC = () => {
                          </div>
                       </div>
 
-                      {/* Grooves Label */}
-                      <div className="absolute top-6 left-6 bg-black/40 backdrop-blur px-3 py-1.5 rounded border border-white/5">
+                      {/* Grooves Label: Removed rounded */}
+                      <div className="absolute top-6 left-6 bg-black/40 backdrop-blur px-3 py-1.5 border border-white/5">
                          <div className="flex items-center gap-2">
                              <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                              <span className="text-[10px] font-mono text-white/80 uppercase tracking-widest">

@@ -32,7 +32,8 @@ const AIFitting: React.FC = () => {
 
          <div className="container mx-auto px-6 relative z-10 text-center">
             <FadeIn>
-                <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                {/* Removed rounded-full */}
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                   <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">MAKE-DNA PLATFORM</span>
                 </div>
@@ -87,12 +88,14 @@ const AIFitting: React.FC = () => {
                      <p className="text-xs font-mono text-brand-polar/40 uppercase tracking-widest mb-4">Supported Data Inputs</p>
                      <div className="flex gap-4 flex-wrap">
                         {SUPPORTED_HARDWARE.map((hw, i) => (
-                           <div key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded flex items-center gap-2">
+                           // Removed rounded
+                           <div key={i} className="px-4 py-2 bg-white/5 border border-white/10 flex items-center gap-2">
                                <div className="w-2 h-2 rounded-full bg-green-500"></div>
                                <span className="text-xs font-mono text-white uppercase">{hw.name}</span>
                            </div>
                         ))}
-                        <div className="px-4 py-2 bg-brand-mink/10 border border-brand-mink/20 rounded flex items-center gap-2">
+                        {/* Removed rounded */}
+                        <div className="px-4 py-2 bg-brand-mink/10 border border-brand-mink/20 flex items-center gap-2">
                             <Upload className="w-3 h-3 text-brand-mink" />
                             <span className="text-xs font-mono text-brand-mink uppercase">JSON Upload</span>
                         </div>
@@ -106,7 +109,8 @@ const AIFitting: React.FC = () => {
 
                {/* Right: Mockup of the Chat Interface */}
                <FadeIn direction="left">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                  {/* Removed rounded-xl */}
+                  <div className="bg-white overflow-hidden shadow-2xl max-w-md mx-auto border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500">
                      {/* Fake Browser Header */}
                      <div className="bg-[#F5F5F7] px-4 py-3 border-b border-[#E5E5E5] flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -126,13 +130,15 @@ const AIFitting: React.FC = () => {
                            transition={{ delay: 0.2 }}
                            viewport={{ once: true }}
                         >
+                           {/* Avatar stays round */}
                            <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
                            <div className="flex-1 space-y-2">
-                              <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80">
+                              {/* Message bubble: Removed rounded-tr-xl etc. */}
+                              <div className="bg-[#F5F5F7] p-4 text-[#1C1C1E]/80">
                                  45 shots analyzed. 7-iron shows systematic deviation. Here is the data:
                               </div>
-                              {/* Data Card Injection */}
-                              <div className="bg-[#1C1C1E] p-4 rounded-lg text-white shadow-md">
+                              {/* Data Card Injection: Removed rounded-lg */}
+                              <div className="bg-[#1C1C1E] p-4 text-white shadow-md">
                                  <div className="flex justify-between mb-3 text-[10px] uppercase opacity-50">
                                     <span>7-Iron</span>
                                     <span>Trackman</span>
@@ -164,7 +170,8 @@ const AIFitting: React.FC = () => {
                            viewport={{ once: true }}
                         >
                            <div className="w-8 h-8 rounded-full bg-brand-mink/10 text-brand-mink flex items-center justify-center font-bold shrink-0">AK</div>
-                           <div className="bg-brand-mink text-white p-4 rounded-tl-xl rounded-br-xl rounded-bl-xl shadow-md">
+                           {/* User Bubble: Removed rounded-tl-xl etc */}
+                           <div className="bg-brand-mink text-white p-4 shadow-md">
                               What does this mean for the recommendation?
                            </div>
                         </motion.div>
@@ -178,7 +185,8 @@ const AIFitting: React.FC = () => {
                            viewport={{ once: true }}
                         >
                            <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
-                           <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80 leading-relaxed shadow-sm">
+                           {/* Message Bubble: Removed rounded */}
+                           <div className="bg-[#F5F5F7] p-4 text-[#1C1C1E]/80 leading-relaxed shadow-sm">
                               Face angle +1.8° relative to path consistently generates a slice. <br/><br/>
                               <strong>Recommendation:</strong> 2° closed face angle and forward CoG positioning (3mm) to reduce spin.
                            </div>
@@ -204,7 +212,8 @@ const AIFitting: React.FC = () => {
             </div>
 
             <FadeIn>
-                <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-[#000]">
+                {/* Removed rounded-2xl */}
+                <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden border border-white/10 shadow-2xl group bg-[#000]">
                     {/* Iframe */}
                     <iframe 
                         src={TEASER_IFRAME_URL}
@@ -219,7 +228,8 @@ const AIFitting: React.FC = () => {
                         to="/studio"
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                     >
-                        <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
+                        {/* Removed rounded-full */}
+                        <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
                             <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">LAUNCH FULL STUDIO</span>
                             <div className="w-8 h-8 rounded-full bg-brand-mink group-hover:bg-black flex items-center justify-center text-black group-hover:text-white transition-colors">
                                 <Maximize className="w-4 h-4" />
@@ -230,7 +240,8 @@ const AIFitting: React.FC = () => {
                     {/* Tech Overlay (Top Left) */}
                     <div className="absolute top-6 left-6 z-0 pointer-events-none hidden md:block">
                         <div className="flex flex-col gap-2">
-                            <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
+                            {/* Removed rounded */}
+                            <div className="bg-black/60 backdrop-blur px-3 py-1.5 border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
                                 <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                                 LIVE PREVIEW
                             </div>
@@ -257,14 +268,16 @@ const AIFitting: React.FC = () => {
                         Traditional 3D printing requires support structures that scar the surface. MoldJet does not. We print a transient wax mold alongside the metal paste, allowing for free-floating internal lattices and zero-waste production.
                     </p>
                     <div className="space-y-4">
-                        <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
+                        {/* Removed rounded */}
+                        <div className="flex items-start gap-4 p-4 bg-[#151515] border border-white/5">
                             <ScanLine className="w-6 h-6 text-brand-mink mt-1" />
                             <div>
                                 <h4 className="text-white font-bold text-sm uppercase">6 LAYERS PER STEP</h4>
                                 <p className="text-xs text-brand-polar/50 font-mono mt-1">Simultaneous deposition of Mold and Metal.</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-4 p-4 bg-[#151515] rounded border border-white/5">
+                        {/* Removed rounded */}
+                        <div className="flex items-start gap-4 p-4 bg-[#151515] border border-white/5">
                             <Flame className="w-6 h-6 text-brand-mink mt-1" />
                             <div>
                                 <h4 className="text-white font-bold text-sm uppercase">99.8% DENSITY</h4>
@@ -276,7 +289,8 @@ const AIFitting: React.FC = () => {
 
                 {/* Schematic Visual */}
                 <FadeIn direction="left">
-                    <div className="bg-[#151515] rounded-xl border border-white/10 p-8 relative overflow-hidden">
+                    {/* Removed rounded-xl */}
+                    <div className="bg-[#151515] border border-white/10 p-8 relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Factory className="w-32 h-32 text-white" />
                         </div>
@@ -330,7 +344,8 @@ const AIFitting: React.FC = () => {
                
                {/* Left: Live Data Feed Mockup */}
                <FadeIn>
-                  <div className="bg-white rounded-xl overflow-hidden shadow-2xl border border-black/5 relative">
+                  {/* Removed rounded-xl */}
+                  <div className="bg-white overflow-hidden shadow-2xl border border-black/5 relative">
                      {/* Header */}
                      <div className="bg-[#1C1C1E] p-4 flex justify-between items-center text-white">
                         <div className="flex items-center gap-2">
@@ -352,8 +367,8 @@ const AIFitting: React.FC = () => {
                            </div>
                         </div>
 
-                        {/* Alert Card */}
-                        <div className="bg-brand-mink/5 border border-brand-mink/20 rounded-lg p-4 mb-4">
+                        {/* Alert Card: Removed rounded-lg */}
+                        <div className="bg-brand-mink/5 border border-brand-mink/20 p-4 mb-4">
                            <div className="flex items-center gap-2 mb-2 text-brand-mink font-bold text-xs uppercase tracking-wide">
                               <RefreshCw className="w-3 h-3" />
                               SYSTEM ALERT
@@ -390,13 +405,14 @@ const AIFitting: React.FC = () => {
                   
                   {/* Integration Logos */}
                   <div className="flex gap-4 mb-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                     {/* Removed rounded */}
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
                         ARCCOS
                      </div>
-                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
                         GARMIN
                      </div>
-                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 rounded flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
+                     <div className="h-8 px-3 bg-white border border-[#1C1C1E]/10 flex items-center justify-center font-bold text-xs text-[#1C1C1E]">
                         GAMEBOOK
                      </div>
                   </div>

@@ -184,7 +184,8 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto text-center">
             
             <FadeIn direction="up">
-              <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full mb-12 shadow-lg hover:bg-white/10 transition-colors cursor-default">
+              {/* Box: No rounded corners */}
+              <div className="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 mb-12 shadow-lg hover:bg-white/10 transition-colors cursor-default">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mink opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-mink"></span>
@@ -202,7 +203,8 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                     transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl"
+                    // UPDATED: Added uppercase
+                    className="text-5xl md:text-7xl lg:text-9xl font-display font-medium text-white tracking-tight leading-[0.95] px-4 drop-shadow-2xl uppercase"
                   >
                     {HERO_CONTENT[statementIndex].headline}
                   </motion.h1>
@@ -228,7 +230,8 @@ const Home: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-6 w-full justify-center items-center">
                 <Link to="/engine">
-                  <Button size="lg" variant="primary" className="min-w-[240px] rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
+                  {/* Buttons: rounded-none removed (default in component now) or kept clean */}
+                  <Button size="lg" variant="primary" className="min-w-[240px] shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)]">
                      <span className="block text-center uppercase">
                        {HERO_CONTENT[statementIndex].cta}
                      </span>
@@ -281,7 +284,8 @@ const Home: React.FC = () => {
 
                {/* Right: The Cinema Monitor - Keeping dark contrast here for the screen effect */}
                <FadeIn direction="left" delay={0.2}>
-                  <div className="relative aspect-square md:aspect-[4/3] bg-[#1C1C1E] rounded-xl overflow-hidden shadow-2xl border border-black/10 flex flex-col">
+                  {/* Removed rounded-xl */}
+                  <div className="relative aspect-square md:aspect-[4/3] bg-[#1C1C1E] overflow-hidden shadow-2xl border border-black/10 flex flex-col">
                      
                      {/* Monitor Header */}
                      <div className="bg-[#242424] px-4 py-3 flex justify-between items-center border-b border-white/5">
@@ -330,8 +334,9 @@ const Home: React.FC = () => {
                                     {activeSwing.name}
                                  </span>
                                  <div className="flex items-center gap-2 mt-2">
+                                    {/* Removed rounded */}
                                     <span 
-                                       className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded font-bold ${activeSwing.isFounder ? 'bg-brand-mink text-white' : 'bg-white text-black'}`}
+                                       className={`text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 font-bold ${activeSwing.isFounder ? 'bg-brand-mink text-white' : 'bg-white text-black'}`}
                                     >
                                        {activeSwing.label}
                                     </span>
@@ -395,7 +400,8 @@ const Home: React.FC = () => {
                 </div>
 
                 <Link to="/engine">
-                   <Button variant="primary" size="md" className="rounded-full shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)] uppercase">
+                   {/* Removed rounded-full */}
+                   <Button variant="primary" size="md" className="shadow-[0_4px_20px_rgba(255,34,76,0.3)] hover:shadow-[0_4px_25px_rgba(255,34,76,0.4)] uppercase">
                       EXPLORE MAKE-DNA
                    </Button>
                 </Link>
@@ -403,7 +409,8 @@ const Home: React.FC = () => {
 
              {/* Right: Visual Abstract */}
              <FadeIn direction="left" delay={0.2}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-[#151515] group shadow-2xl">
+                {/* Removed rounded-2xl */}
+                <div className="relative aspect-square overflow-hidden border border-white/10 bg-[#151515] group shadow-2xl">
                    <img 
                       src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
                       alt="Data Analysis"
@@ -417,15 +424,17 @@ const Home: React.FC = () => {
                          <span>ANALYSIS COMPLETE</span>
                          <span className="text-brand-mink">100%</span>
                       </div>
-                      <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                      {/* Removed rounded-full */}
+                      <div className="h-1 w-full bg-white/10 overflow-hidden">
                          <div className="h-full bg-brand-mink w-full"></div>
                       </div>
                       <div className="mt-4 grid grid-cols-2 gap-4">
-                         <div className="bg-black/40 backdrop-blur p-3 rounded border border-white/10">
+                         {/* Removed rounded */}
+                         <div className="bg-black/40 backdrop-blur p-3 border border-white/10">
                             <div className="text-[10px] text-brand-polar/40 uppercase mb-1">Impact Efficiency</div>
                             <div className="text-lg text-white font-display">1.48 PTR</div>
                          </div>
-                         <div className="bg-black/40 backdrop-blur p-3 rounded border border-white/10">
+                         <div className="bg-black/40 backdrop-blur p-3 border border-white/10">
                             <div className="text-[10px] text-brand-polar/40 uppercase mb-1">Spin Axis</div>
                             <div className="text-lg text-white font-display">-2.4°</div>
                          </div>
@@ -456,7 +465,8 @@ const Home: React.FC = () => {
                   </p>
                </div>
 
-               <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-[#000]">
+               {/* Removed rounded-2xl */}
+               <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden border border-white/10 shadow-2xl group bg-[#000]">
                   {/* The Iframe */}
                   <iframe 
                         src="https://configurator.modelup3d.com/?projectId=oa1oRJb3&token=eyJhbGciOiJIUzI1NiJ9.eyJ2NW4iOjEsImlkIjoxMzQsInA3ZCI6Im9hMW9SSmIzIiwicDlzIjpbImM1ZSIsInJfYzE1YSJdfQ.p-s501nEeYwHvyH2JJUYuSlk5f9rJZ2HbQC58p8DIXc&configurationState=a_29b5d105-ab7f-4511-a8cb-c81eb0f33f2c_7b8382fc-47a7-48ec-bfab-87daf3482240_0_e3685a61-0488-495b-af0a-03f4cd28662b_34.9_5310300e-e063-415e-b008-c54613d8a961_61_1e4aac43-e484-48ef-9549-2d54d4a16715_0_8ce09785-357e-48fb-ae65-422003074fef_77.4_cc947572-79b1-4736-bc9b-90b11a73713a_55.1_bc5871e7-3961-46c3-8fe0-1122e8586405_30.1_c5e62c30-a479-45a4-9879-c828067b840e_4.5_cdf62d42-b88d-4add-9487-21806bcbfe05_9.12_1c129292-ed94-48ea-ae88-309cd2291f1f_32.6_82434f86-8f4a-49bb-be3b-455c356e69bf_9.6_a38a92bf-cdb6-4ea1-b50d-2d108dd75062_14.789_52436bbd-9b9c-46f6-973f-0584ea52d3fe_1.6_b18d42ba-b806-41f9-8702-55359170f28d_2.5_c72f9f2b-c110-492a-851e-3395391883d0_-2.4_480f42a1-ddae-41bd-9d8f-73a47b8c9232_42.7_c0182fe3-ceab-4e11-9249-1ec1a765f0f0_23_22fc43a3-85ce-46b3-9d1f-75422eaf7da0_22.7_d7ae2c3c-6620-4717-b85f-6336c42303fe_14.7_8f9802f1-a672-403a-824e-620e4e93207f_0.436_67832bf3-3810-4db8-8a9d-fe7eb8f8a507_6_e458d1ce-50a5-43b2-9dd0-6297e8325ef5_1.49_14449719-d773-43bd-9741-17ce40106734_2_5e4e18a0-7ddf-4dca-abc3-ebc14804c910_10_c352805c-4369-4674-b1a8-c644bcea716e_2_6c8655d4-2130-4b0e-adea-e9a9b0bd3f3c_1.7_86cd5747-0513-4e1f-aef3-77f323c08da6_3_7c9e3dc2-4ee3-490f-af5a-1e033113ac98_0.45_groove+extend_0_76f64105-1ed0-476d-8fe9-8a0d735dfb25_1.11_1400e927-5c58-40be-9c6b-2fe1cb4e9315_0.955"
@@ -471,7 +481,8 @@ const Home: React.FC = () => {
                         to="/studio"
                         className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-colors duration-500"
                   >
-                        <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 rounded-full flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink">
+                        {/* Removed rounded-full, added rounded-none */}
+                        <div className="bg-[#1C1C1E]/90 backdrop-blur-md border border-white/10 pl-6 pr-4 py-3 flex items-center gap-4 shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-brand-mink group-hover:border-brand-mink rounded-none">
                            <span className="text-white font-display uppercase tracking-widest text-xs group-hover:text-black font-bold">LAUNCH STUDIO</span>
                            <div className="w-8 h-8 rounded-full bg-brand-mink group-hover:bg-black flex items-center justify-center text-black group-hover:text-white transition-colors">
                               <Maximize className="w-4 h-4" />
@@ -482,11 +493,12 @@ const Home: React.FC = () => {
                   {/* Decorative UI Overlay */}
                   <div className="absolute top-6 left-6 z-0 pointer-events-none hidden md:block">
                         <div className="flex flex-col gap-2">
-                           <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
+                           {/* Removed rounded */}
+                           <div className="bg-black/60 backdrop-blur px-3 py-1.5 border border-white/10 text-[10px] font-mono text-brand-mink uppercase flex items-center gap-2">
                               <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                               RENDERING: 60FPS
                            </div>
-                           <div className="bg-black/60 backdrop-blur px-3 py-1.5 rounded border border-white/10 text-[10px] font-mono text-brand-polar/60 uppercase">
+                           <div className="bg-black/60 backdrop-blur px-3 py-1.5 border border-white/10 text-[10px] font-mono text-brand-polar/60 uppercase">
                               MODEL: MB-02_PROTO
                            </div>
                         </div>
@@ -505,15 +517,17 @@ const Home: React.FC = () => {
                <h2 className="text-4xl md:text-5xl font-display font-medium text-white tracking-tight uppercase">PRODUCT ARCHITECTURE</h2>
             </div>
             <Link to="/technology" className="hidden md:block">
-              <Button variant="outline" size="sm" className="rounded-full uppercase">VIEW COMPONENTS</Button>
+              {/* Removed rounded-full */}
+              <Button variant="outline" size="sm" className="uppercase">VIEW COMPONENTS</Button>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CLUB_CATEGORIES.map((cat, index) => (
-               <Link to="/technology" key={cat.id} className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-[#242424] border border-white/5 hover:border-brand-mink/30 transition-colors">
+               <Link to="/technology" key={cat.id} className="group relative aspect-[4/5] overflow-hidden bg-[#242424] border border-white/5 hover:border-brand-mink/30 transition-colors">
                   <div className="absolute top-6 left-6 z-20">
-                    <span className="text-[10px] font-mono text-white/90 bg-black/40 backdrop-blur px-2 py-1 rounded">0{index + 1} // {cat.name}</span>
+                    {/* Removed rounded */}
+                    <span className="text-[10px] font-mono text-white/90 bg-black/40 backdrop-blur px-2 py-1">0{index + 1} // {cat.name}</span>
                   </div>
                   
                   {/* Primary Image */}
@@ -556,7 +570,8 @@ const Home: React.FC = () => {
           
           <div className="mt-8 md:hidden">
              <Link to="/technology">
-                <Button variant="outline" size="sm" className="w-full rounded-full uppercase">VIEW ALL COMPONENTS</Button>
+                {/* Removed rounded-full */}
+                <Button variant="outline" size="sm" className="w-full uppercase">VIEW ALL COMPONENTS</Button>
              </Link>
           </div>
         </div>
@@ -570,7 +585,8 @@ const Home: React.FC = () => {
          <div className="container mx-auto px-6 relative z-10">
             <FadeIn>
                <div className="text-center mb-20">
-                   <div className="inline-flex items-center gap-2 border border-white/10 px-3 py-1 rounded-full bg-white/5 backdrop-blur mb-4">
+                   {/* Removed rounded-full */}
+                   <div className="inline-flex items-center gap-2 border border-white/10 px-3 py-1 bg-white/5 backdrop-blur mb-4">
                         <div className="w-1.5 h-1.5 bg-brand-mink rounded-full animate-pulse"></div>
                         <span className="text-brand-polar/80 font-mono text-[10px] uppercase tracking-widest">PILOT PROGRAM DATA</span>
                    </div>
@@ -581,9 +597,10 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {REVIEWS.map((review, i) => (
                   <FadeIn key={review.id} delay={i * 0.1} className="h-full">
-                     <div className="h-full bg-[#1C1C1E] border border-white/5 p-8 rounded-xl relative group hover:border-brand-mink/30 transition-all duration-500 flex flex-col">
+                     {/* Removed rounded-xl */}
+                     <div className="h-full bg-[#1C1C1E] border border-white/5 p-8 relative group hover:border-brand-mink/30 transition-all duration-500 flex flex-col">
                         {/* Decorative Corner */}
-                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/10 rounded-tr-xl group-hover:border-brand-mink/50 transition-colors"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/10 group-hover:border-brand-mink/50 transition-colors"></div>
                         
                         {/* Rating Dots */}
                         <div className="flex gap-1 mb-6">
@@ -641,14 +658,16 @@ const Home: React.FC = () => {
                 {ARTICLES.slice(0, 3).map((article, index) => (
                     <FadeIn key={article.id} delay={index * 0.1}>
                         <Link to={`/journal/${article.slug}`} className="group block">
-                            <div className="relative aspect-video bg-[#242424] overflow-hidden rounded-lg mb-4 border border-white/5 group-hover:border-white/20 transition-colors">
+                            {/* Removed rounded-lg */}
+                            <div className="relative aspect-video bg-[#242424] overflow-hidden mb-4 border border-white/5 group-hover:border-white/20 transition-colors">
                                 <img 
                                     src={article.image} 
                                     alt={article.title}
                                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                                 />
                                 <div className="absolute top-3 left-3">
-                                    <span className="bg-black/60 backdrop-blur px-2 py-1 text-[9px] font-mono text-white rounded uppercase">
+                                    {/* Removed rounded */}
+                                    <span className="bg-black/60 backdrop-blur px-2 py-1 text-[9px] font-mono text-white uppercase">
                                         {article.category}
                                     </span>
                                 </div>
