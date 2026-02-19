@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import FadeIn from '../components/FadeIn';
 import BlueprintImage from '../components/BlueprintImage';
 import SEO from '../components/SEO';
+import SchemaMarkup from '../components/SchemaMarkup';
 import { ArrowRight, Crosshair, Wind, CircleDashed } from 'lucide-react';
 
 const Clubs: React.FC = () => {
@@ -15,6 +16,26 @@ const Clubs: React.FC = () => {
       <SEO 
         title="The Collection" 
         description="No collections. Just components. Explore our 3D-printed Irons, Wedges, and Putters."
+      />
+
+      <SchemaMarkup 
+        type="Product" 
+        data={{
+          "name": "MAKE GOLF Custom Irons",
+          "image": "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/klubbor/iron.jpeg",
+          "description": "Custom 3D-printed golf irons using Tritone MoldJet technology. Fully parametric blade lengths, offsets, and top-lines.",
+          "brand": {
+            "@type": "Brand",
+            "name": "MAKE GOLF"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "2000",
+            "highPrice": "3500",
+            "availability": "https://schema.org/InStock"
+          }
+        }} 
       />
 
       {/* Editorial Header - Light Theme */}

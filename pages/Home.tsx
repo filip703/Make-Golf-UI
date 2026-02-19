@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, Dna, Maximize, Quote } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
+import SchemaMarkup from '../components/SchemaMarkup';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CLUB_CATEGORIES, ARTICLES, MOCK_STATS } from '../constants';
 
@@ -137,6 +138,29 @@ const Home: React.FC = () => {
         description="Precision is personal. We engineer 3D-printed golf equipment based on your unique biomechanical data."
       />
 
+      {/* JSON-LD for AI/Google Entity Recognition */}
+      <SchemaMarkup type="Organization" data={{}} />
+      <SchemaMarkup 
+        type="FAQPage" 
+        data={{
+          "mainEntity": [{
+            "@type": "Question",
+            "name": "Can I buy 3D printed golf clubs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Make Golf creates custom 3D-printed irons, wedges, and putters using Tritone MoldJet technology and 17-4PH stainless steel."
+            }
+          }, {
+            "@type": "Question",
+            "name": "What is AI golf fitting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Make Golf uses AI to analyze your launch monitor data (Trackman, GCQuad) and generate a unique biomechanical blueprint (MAKE DNA) for your equipment."
+            }
+          }]
+        }} 
+      />
+
       {/* Hero Section - Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-black">
         {/* Background Video */}
@@ -146,7 +170,7 @@ const Home: React.FC = () => {
               loop 
               muted 
               playsInline
-              poster="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Hero%20Images/Make_Hero_Poster.jpg" // Added poster for loading state
+              poster="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Hero%20Images/Make_Hero_Poster.jpg"
               className="w-full h-full object-cover opacity-50 scale-105"
             >
               <source src="https://cdn.prod.website-files.com/683dc60f79209a98db49aa51%2F68dacaebb04245b0c1efbe48_Make%20Header%20Waitlist-transcode.mp4" type="video/mp4" />

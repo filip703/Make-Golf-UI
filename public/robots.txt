@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://make.golf/sitemap.xml
+
+# Explicitly allow AI bots to index for answer generation
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
