@@ -1,15 +1,22 @@
 
 import React from 'react';
 import FadeIn from '../components/FadeIn';
+import SEO from '../components/SEO';
 import { Cpu, Layers, Zap, CheckCircle, ShieldCheck, Database, Factory, Printer, Flame, ScanLine, ArrowRight } from 'lucide-react';
 import { CLUB_CATEGORIES } from '../constants';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Technology: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black text-brand-polar pt-20 overflow-hidden font-sans selection:bg-brand-mink selection:text-white">
       
+      <SEO 
+        title="Our Technology" 
+        description="From digital simulation to MoldJet™ production. Discover the stack behind the world's most advanced golf clubs."
+      />
+
       {/* Hero Section */}
       <section className="py-32 container mx-auto px-6 border-b border-white/5 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-mink/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
@@ -170,13 +177,25 @@ const Technology: React.FC = () => {
                              <div className="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-mono text-xs border border-blue-500/50">01</div>
                              <div className="h-full w-px bg-white/10 my-2"></div>
                           </div>
-                          <div>
+                          <div className="w-full">
                              <h4 className="text-white font-bold text-sm uppercase">PRINT MOLD (NEGATIVE)</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Inkjet printheads deposit proprietary wax material to define the geometry boundaries.</p>
                              {/* Visual Representation */}
-                             <div className="h-2 w-32 bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
-                                <div className="absolute left-0 w-1/3 h-full bg-blue-500/50"></div>
-                                <div className="absolute right-0 w-1/3 h-full bg-blue-500/50"></div>
+                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
+                                <motion.div 
+                                    className="absolute left-0 w-1/3 h-full bg-blue-500/50"
+                                    initial={{ scaleY: 0 }}
+                                    whileInView={{ scaleY: 1 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    viewport={{ once: true }}
+                                />
+                                <motion.div 
+                                    className="absolute right-0 w-1/3 h-full bg-blue-500/50"
+                                    initial={{ scaleY: 0 }}
+                                    whileInView={{ scaleY: 1 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    viewport={{ once: true }}
+                                />
                              </div>
                           </div>
                        </div>
@@ -187,12 +206,18 @@ const Technology: React.FC = () => {
                              <div className="w-8 h-8 rounded-full bg-brand-mink/20 text-brand-mink flex items-center justify-center font-mono text-xs border border-brand-mink/50">02</div>
                              <div className="h-full w-px bg-white/10 my-2"></div>
                           </div>
-                          <div>
+                          <div className="w-full">
                              <h4 className="text-white font-bold text-sm uppercase">FILL METAL PASTE</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Cavities are filled with water-based metal paste (Powder + Binder).</p>
-                             <div className="h-2 w-32 bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
+                             <div className="h-2 w-full max-w-[200px] bg-[#1a1a1a] border border-white/10 relative overflow-hidden rounded-sm">
                                 <div className="absolute left-0 w-1/3 h-full bg-blue-500/50"></div>
-                                <div className="absolute left-1/3 w-1/3 h-full bg-brand-mink"></div>
+                                <motion.div 
+                                    className="absolute left-1/3 w-1/3 h-full bg-brand-mink"
+                                    initial={{ scaleX: 0 }}
+                                    whileInView={{ scaleX: 1 }}
+                                    transition={{ duration: 1, delay: 0.5, ease: "circOut" }}
+                                    viewport={{ once: true }}
+                                />
                                 <div className="absolute right-0 w-1/3 h-full bg-blue-500/50"></div>
                              </div>
                           </div>
@@ -203,11 +228,16 @@ const Technology: React.FC = () => {
                           <div className="flex flex-col items-center">
                              <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-mono text-xs border border-orange-500/50">03</div>
                           </div>
-                          <div>
+                          <div className="w-full">
                              <h4 className="text-white font-bold text-sm uppercase">SINTER & DEBIND</h4>
                              <p className="text-xs text-brand-polar/50 mt-1 mb-2">Heat removes the mold wax completely. Metal particles fuse into a solid object.</p>
-                             <div className="h-2 w-32 bg-transparent relative overflow-hidden rounded-sm flex justify-center">
-                                <div className="w-1/3 h-full bg-brand-mink shadow-[0_0_10px_rgba(255,34,76,0.8)]"></div>
+                             <div className="h-2 w-full max-w-[200px] bg-transparent relative overflow-hidden rounded-sm flex justify-start pl-[33.33%]">
+                                <motion.div 
+                                    className="w-1/3 h-full bg-brand-mink shadow-[0_0_10px_rgba(255,34,76,0.8)]"
+                                    initial={{ opacity: 0.2 }}
+                                    whileInView={{ opacity: 1 }}
+                                    transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                                />
                              </div>
                           </div>
                        </div>

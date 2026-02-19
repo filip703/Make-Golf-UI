@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -76,6 +77,11 @@ const Fitters: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black pt-20 text-brand-polar selection:bg-brand-mink selection:text-white">
       
+      <SEO 
+        title="For Fitters" 
+        description="Sell your expertise, scale your margins. The operating system for modern golf fitters."
+      />
+
       {/* Hero Section */}
       <section className="relative py-24 border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-10"></div>

@@ -56,8 +56,11 @@ const Button: React.FC<ButtonProps> = ({
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props as any}
     >
-      {/* Brackets Animation */}
-      <span className="absolute left-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-mono text-brand-mink font-normal hidden sm:inline-block">
+      {/* Brackets Animation - Decorative only, hidden from screen readers */}
+      <span 
+        aria-hidden="true" 
+        className="absolute left-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-mono text-brand-mink font-normal hidden sm:inline-block"
+      >
         [
       </span>
       
@@ -65,7 +68,10 @@ const Button: React.FC<ButtonProps> = ({
         {children}
       </span>
 
-      <span className="absolute right-3 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-mono text-brand-mink font-normal hidden sm:inline-block">
+      <span 
+        aria-hidden="true" 
+        className="absolute right-3 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-mono text-brand-mink font-normal hidden sm:inline-block"
+      >
         ]
       </span>
     </motion.button>

@@ -17,6 +17,7 @@ const BlueprintImage: React.FC<BlueprintImageProps> = ({ src, alt, className = "
       <img 
         src={src} 
         alt={alt}
+        loading="lazy"
         className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out 
           ${secondarySrc ? 'group-hover:opacity-0' : 'group-hover:opacity-40 group-hover:grayscale group-hover:scale-105'}
         `}
@@ -27,6 +28,7 @@ const BlueprintImage: React.FC<BlueprintImageProps> = ({ src, alt, className = "
         <img 
             src={secondarySrc}
             alt={`${alt} view 2`}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-60 group-hover:grayscale transition-all duration-700 ease-out group-hover:scale-105"
         />
       )}

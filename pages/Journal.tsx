@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/FadeIn';
+import SEO from '../components/SEO';
 import { ArrowRight, BookOpen, Clock, Loader2 } from 'lucide-react';
 import { ArticleService } from '../services/articleService';
 import { Article } from '../types';
@@ -42,6 +43,11 @@ const Journal: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black pt-24 pb-24 text-white font-sans">
       
+      <SEO 
+        title="Journal" 
+        description="Deep dives into biomechanics, additive manufacturing, and the future of golf engineering."
+      />
+
       {/* Header */}
       <section className="container mx-auto px-6 mb-20">
         <FadeIn>

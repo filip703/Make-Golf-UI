@@ -146,6 +146,7 @@ const Home: React.FC = () => {
               loop 
               muted 
               playsInline
+              poster="https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Hero%20Images/Make_Hero_Poster.jpg" // Added poster for loading state
               className="w-full h-full object-cover opacity-50 scale-105"
             >
               <source src="https://cdn.prod.website-files.com/683dc60f79209a98db49aa51%2F68dacaebb04245b0c1efbe48_Make%20Header%20Waitlist-transcode.mp4" type="video/mp4" />

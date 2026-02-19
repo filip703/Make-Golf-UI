@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { ExternalLink, ArrowRight, Maximize, Upload, Factory, ScanLine, Flame, Smartphone, Signal, RefreshCw } from 'lucide-react';
+import { ExternalLink, Upload, Factory, ScanLine, Flame, Smartphone, Signal, RefreshCw, Maximize } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import Button from '../components/Button';
 import CircularFlow from '../components/CircularFlow';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const AIFitting: React.FC = () => {
   const SIGNUP_URL = "https://frontend-seven-iota-56.vercel.app/signup";
@@ -118,14 +119,20 @@ const AIFitting: React.FC = () => {
                      <div className="p-6 bg-white space-y-6 font-mono text-xs text-[#1C1C1E]">
                         
                         {/* Agent Msg */}
-                        <div className="flex gap-4">
+                        <motion.div 
+                           className="flex gap-4"
+                           initial={{ opacity: 0, x: -10 }}
+                           whileInView={{ opacity: 1, x: 0 }}
+                           transition={{ delay: 0.2 }}
+                           viewport={{ once: true }}
+                        >
                            <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
                            <div className="flex-1 space-y-2">
                               <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80">
                                  45 shots analyzed. 7-iron shows systematic deviation. Here is the data:
                               </div>
                               {/* Data Card Injection */}
-                              <div className="bg-[#1C1C1E] p-4 rounded-lg text-white">
+                              <div className="bg-[#1C1C1E] p-4 rounded-lg text-white shadow-md">
                                  <div className="flex justify-between mb-3 text-[10px] uppercase opacity-50">
                                     <span>7-Iron</span>
                                     <span>Trackman</span>
@@ -146,24 +153,36 @@ const AIFitting: React.FC = () => {
                                  </div>
                               </div>
                            </div>
-                        </div>
+                        </motion.div>
 
                         {/* User Msg */}
-                        <div className="flex gap-4 flex-row-reverse">
+                        <motion.div 
+                           className="flex gap-4 flex-row-reverse"
+                           initial={{ opacity: 0, x: 10 }}
+                           whileInView={{ opacity: 1, x: 0 }}
+                           transition={{ delay: 0.8 }}
+                           viewport={{ once: true }}
+                        >
                            <div className="w-8 h-8 rounded-full bg-brand-mink/10 text-brand-mink flex items-center justify-center font-bold shrink-0">AK</div>
-                           <div className="bg-brand-mink text-white p-4 rounded-tl-xl rounded-br-xl rounded-bl-xl">
+                           <div className="bg-brand-mink text-white p-4 rounded-tl-xl rounded-br-xl rounded-bl-xl shadow-md">
                               What does this mean for the recommendation?
                            </div>
-                        </div>
+                        </motion.div>
 
                         {/* Agent Msg */}
-                        <div className="flex gap-4">
+                        <motion.div 
+                           className="flex gap-4"
+                           initial={{ opacity: 0, x: -10 }}
+                           whileInView={{ opacity: 1, x: 0 }}
+                           transition={{ delay: 1.5 }}
+                           viewport={{ once: true }}
+                        >
                            <div className="w-8 h-8 rounded-full bg-[#1C1C1E] flex items-center justify-center text-white font-bold shrink-0">MG</div>
-                           <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80 leading-relaxed">
+                           <div className="bg-[#F5F5F7] p-4 rounded-tr-xl rounded-br-xl rounded-bl-xl text-[#1C1C1E]/80 leading-relaxed shadow-sm">
                               Face angle +1.8° relative to path consistently generates a slice. <br/><br/>
                               <strong>Recommendation:</strong> 2° closed face angle and forward CoG positioning (3mm) to reduce spin.
                            </div>
-                        </div>
+                        </motion.div>
 
                      </div>
                   </div>
@@ -173,6 +192,7 @@ const AIFitting: React.FC = () => {
       </section>
 
       {/* --- PHASE 2: GENERATIVE DESIGN --- */}
+      {/* (Unchanged section but included for context if needed, abbreviated here) */}
       <section id="phase-2" className="py-32 bg-[#151515] text-white border-b border-white/5">
         <div className="container mx-auto px-6">
             <div className="text-center mb-16">

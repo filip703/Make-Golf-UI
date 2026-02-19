@@ -5,12 +5,18 @@ import { CLUB_CATEGORIES } from '../constants';
 import Button from '../components/Button';
 import FadeIn from '../components/FadeIn';
 import BlueprintImage from '../components/BlueprintImage';
+import SEO from '../components/SEO';
 import { ArrowRight, Crosshair, Wind, CircleDashed } from 'lucide-react';
 
 const Clubs: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#F5F5F7] pt-20 text-[#111] selection:bg-brand-mink selection:text-white font-sans">
       
+      <SEO 
+        title="The Collection" 
+        description="No collections. Just components. Explore our 3D-printed Irons, Wedges, and Putters."
+      />
+
       {/* Editorial Header - Light Theme */}
       <section className="py-24 container mx-auto px-6">
         <FadeIn>
