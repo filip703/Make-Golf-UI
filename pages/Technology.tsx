@@ -14,7 +14,7 @@ const Technology: React.FC = () => {
       
       <SEO 
         title="Our Technology" 
-        description="From digital simulation to MoldJet™ production. Discover the stack behind the world's most advanced golf clubs."
+        description="From digital simulation to MoldJet™ production. Discover the stack behind our parametrically designed golf clubs."
       />
 
       {/* Hero Section */}
@@ -139,7 +139,7 @@ const Technology: React.FC = () => {
                  </div>
                  <h2 className="text-4xl font-display text-white mb-6 uppercase">BEYOND LASER SINTERING.</h2>
                  <p className="text-brand-polar/60 font-sans font-light leading-relaxed mb-6">
-                    Traditional metal 3D printing (DMLS) requires metal support structures that scar the surface. We use <strong>Tritone MoldJet™</strong>—a revolutionary powder-free process.
+                    Traditional metal 3D printing (DMLS) requires metal support structures that scar the surface. We use <strong>Tritone MoldJet™</strong>—a powder-free process.
                  </p>
                  <p className="text-brand-polar/60 font-sans font-light leading-relaxed mb-8">
                     By printing a transient mold wax alongside a metal paste, we create parts with total geometric freedom. When the mold melts away, it leaves a pristine surface with complex internal lattices that require no mechanical removal.

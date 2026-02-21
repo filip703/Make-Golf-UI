@@ -12,7 +12,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({ 
   title, 
-  description = "A next-generation golf technology company specializing in AI-engineered, 3D-printed clubs and fitter SaaS platforms.",
+  description = "Precision golf equipment. We engineer 3D-printed clubs based on your biomechanical data.",
   image = "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Hero%20Images/Make_Social_Share.jpg",
   url = "https://make.golf",
   keywords = "3D printed golf clubs, custom golf irons, AI golf fitting, additive manufacturing golf, Tritone MoldJet, bespoke golf equipment, Swedish golf tech"

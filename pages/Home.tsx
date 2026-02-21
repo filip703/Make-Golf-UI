@@ -21,8 +21,8 @@ const HERO_CONTENT = [
     cta: "ANALYZE YOUR SWING"
   },
   {
-    headline: "The future of fitting.",
-    subheadline: "No inventory. No compromise. Just the perfect club for your game.",
+    headline: "Data-driven fitting.",
+    subheadline: "No inventory. No compromise. Just the optimized club for your game.",
     cta: "START MAKE-DNA"
   },
   {
@@ -274,7 +274,7 @@ const Home: React.FC = () => {
                         Look at the data. Rory swings differently than Nelly. Nelly swings differently than you.
                      </p>
                      <p className="text-lg text-[#1C1C1E]/70 font-light leading-relaxed">
-                        We don't force you into a "Stiff" or "Regular" flex bucket. We analyze your unique swing signature and manufacture a club that matches it perfectly.
+                        We don't force you into a "Stiff" or "Regular" flex bucket. We analyze your unique swing signature and manufacture a club that matches it precisely.
                      </p>
                   </div>
                   <Link to="/engine">
@@ -386,7 +386,7 @@ const Home: React.FC = () => {
                    YOUR SWING.<br/>DECODED.
                 </h2>
                 <p className="text-xl text-brand-polar/60 font-light font-sans leading-relaxed mb-10">
-                   We don't just fit you; we calculate you. Our proprietary AI analyzes 1,200+ biomechanical data points from your swing to generate a manufacturing blueprint that optimizes dispersion and ball speed.
+                   We don't just fit you; we calculate you. Our engine analyzes 1,200+ biomechanical data points from your swing to generate a manufacturing blueprint that optimizes dispersion and ball speed.
                 </p>
                 
                 {/* Stats Grid */}

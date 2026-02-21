@@ -103,7 +103,7 @@ const AIFitting: React.FC = () => {
                   </div>
 
                   <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">
-                     <Button variant="outline" size="sm" className="uppercase">LAUNCH AGENT 00</Button>
+                     <Button variant="outline" size="sm" className="uppercase">START ANALYSIS</Button>
                   </a>
                </FadeIn>
 
@@ -115,7 +115,7 @@ const AIFitting: React.FC = () => {
                      <div className="bg-[#F5F5F7] px-4 py-3 border-b border-[#E5E5E5] flex items-center justify-between">
                         <div className="flex items-center gap-2">
                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                           <span className="text-xs font-mono uppercase tracking-widest text-[#1C1C1E]">Agent 00 · Live</span>
+                           <span className="text-xs font-mono uppercase tracking-widest text-[#1C1C1E]">Analysis Engine · Live</span>
                         </div>
                      </div>
 
@@ -397,7 +397,7 @@ const AIFitting: React.FC = () => {
                      <span className="text-brand-mink font-mono text-xs uppercase tracking-widest">PHASE 4: ACTIVE LOOP</span>
                   </div>
                   <h2 className="text-4xl md:text-5xl font-display text-[#1C1C1E] mb-6 uppercase">
-                     DATA ON THE FLY.<br/>ADAPTING FOREVER.
+                     CONTINUOUS DATA.<br/>ADAPTIVE EQUIPMENT.
                   </h2>
                   <p className="text-lg text-[#1C1C1E]/60 leading-relaxed mb-8">
                      Your swing isn't static, so why should your equipment be? Make Golf connects directly to your performance data sources (Arccos, Garmin, Gamebook) to monitor your real-world play. 

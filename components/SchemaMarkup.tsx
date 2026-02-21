@@ -19,7 +19,7 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data }) => {
       "name": "MAKE GOLF",
       "url": "https://make.golf",
       "logo": "https://clfejcuoqvcoelxjcuax.supabase.co/storage/v1/object/public/Brand%20filer/Logo/Make_Icon_256px.png",
-      "description": "A next-generation golf technology company specializing in AI-engineered, 3D-printed clubs and fitter SaaS platforms.",
+      "description": "Precision golf equipment. We engineer 3D-printed clubs based on your biomechanical data.",
       "sameAs": [
         "https://www.instagram.com/make_golf",
         "https://www.linkedin.com/company/make-golf",

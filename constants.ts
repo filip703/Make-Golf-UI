@@ -374,7 +374,7 @@ export const ARTICLES: Article[] = [
     category: "R&D",
     readTime: "6 MIN",
     image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop",
-    excerpt: "We utilized AI to run 40,000 impact simulations. The result is a face topology that adapts to your miss.",
+    excerpt: "We ran 40,000 impact simulations. The result is a face topology that adapts to your miss.",
     author: {
         name: "Filip Hector",
         role: "Product Lead",
@@ -395,7 +395,7 @@ export const ARTICLES: Article[] = [
         },
         {
             type: 'paragraph',
-            content: "Using this data, our AI generates a custom face thickness map for every single iron we print. If your tendency is a toe-strike, we thicken the area behind the toe to preserve energy transfer, while thinning the heel to save weight."
+            content: "Using this data, our engine generates a custom face thickness map for every single iron we print. If your tendency is a toe-strike, we thicken the area behind the toe to preserve energy transfer, while thinning the heel to save weight."
         }
     ]
   },
@@ -434,8 +434,8 @@ export const ARTICLES: Article[] = [
   },
   {
     id: 4,
-    slug: "green-steel-revolution",
-    title: "The Green Steel Revolution",
+    slug: "green-steel-process",
+    title: "The Green Steel Process",
     date: "JUL 02, 2025",
     category: "ENGINEERING",
     readTime: "5 MIN",

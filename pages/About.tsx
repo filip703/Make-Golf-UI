@@ -151,7 +151,7 @@ const About: React.FC = () => {
                         <div className="w-16 h-16 bg-[#F5F5F7] rounded-full flex items-center justify-center mb-6 text-brand-mink">
                             <Fingerprint className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3 uppercase">HYPER-PERSONAL</h3>
+                        <h3 className="text-xl font-display text-[#1C1C1E] mb-3 uppercase">INDIVIDUALIZED</h3>
                         <p className="text-[#1C1C1E]/60 text-sm leading-relaxed">
                             No two swings are alike. Why should clubs be? We treat your swing signature as a unique blueprint for manufacturing.
                         </p>

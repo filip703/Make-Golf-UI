@@ -63,7 +63,7 @@ export default defineConfig({
       manifest: {
         name: 'MAKE GOLF',
         short_name: 'MAKE',
-        description: 'The Club Without Excuses. AI-engineered, 3D-printed golf equipment.',
+        description: 'Precision Golf Equipment. 3D-printed golf clubs based on biomechanical data.',
         theme_color: '#1C1C1E',
         background_color: '#1C1C1E',
         display: 'standalone',
